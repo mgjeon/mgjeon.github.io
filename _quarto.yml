@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Blog"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/mgjeon
+
+toc: true
+number-sections: true
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    html-math-method: katex
+
+

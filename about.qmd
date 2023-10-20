@@ -1,0 +1,13 @@
+---
+title: "Mingyu Jeon (전민규)"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/mgjeon
+
+---
+
+I am a Master's student at Kyung Hee University, studying **solar physics** and **deep learning**. My research interest includes magnetohydrodynamics, simulation, and scientific machine learning.
