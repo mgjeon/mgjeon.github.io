@@ -49,10 +49,10 @@ $$
 - 어떤 물체의 위치벡터가 벡터함수 $\mathbf{r}(t)$ $(a\leq t \leq b)$로 주어지고, 시간 $a\leq t \leq b$ 동안 물체가 움직인 경로가 곡선 $C$이며 그동안 물체에 가해진 힘이 $\mathbf{F}(\mathbf{r})$일 때(또는 물체가 벡터장 $\mathbf{F}(\mathbf{r})$가 있는 공간에서 곡선 $C$를 따라 움직였을 때), **힘 $\mathbf{F}$가 물체에 한 일 $W$**는 다음과 같이 정의한다. 이때 $\rm{d}\mathbf{l} = \rm{d}\mathbf{r} = \mathbf{r}'\rm{d}t$ 이다.
 
 $$
-\begin{align}
+\begin{align*}
 W & = \int_{C} \mathbf{F} \cdot \rm{d}\mathbf{l} \\
 & = \int_{a}^{b} \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\rm{d}t
-\end{align}
+\end{align*}
 $$
 
 - 어떤 힘 $\mathbf{F}$가 보존력일때, 즉 위치벡터 $\mathbf{r}(t)$에 대한 벡터함수 $\mathbf{F}(\mathbf{r}(t))$가 보존장일때, 다음을 만족하는 스칼라 함수 $U(\mathbf{r}(t))$를 **힘 $\mathbf{F}$에 대한 퍼텐셜 에너지**라고 정의한다.
@@ -124,20 +124,20 @@ $$
 그런데 다음이 성립하므로
 
 $$
-\begin{align}
+\begin{align*}
 \frac{d}{dt} (\mathbf{r} \times \mathbf{p}) & = \frac{d\mathbf{r}}{dt} \times \mathbf{p} + \mathbf{r} \times \frac{d\mathbf{p}}{dt} \\
 & = \mathbf{v} \times m\mathbf{v} + \mathbf{r} \times \frac{d\mathbf{p}}{dt} \\
 & = \mathbf{r} \times \frac{d\mathbf{p}}{dt}
-\end{align}
+\end{align*}
 $$
 
 알짜힘에 의한 토크는 다음과 같이 쓸 수 있다. 이때 $\mathbf{l} = \mathbf{r} \times \mathbf{p}$은 각운동량이다.
 
 $$
-\begin{align}
+\begin{align*}
 \boldsymbol{\tau} & = \frac{d}{dt} (\mathbf{r} \times \mathbf{p}) \\
 & = \frac{d\mathbf{l}}{dt}
-\end{align}
+\end{align*}
 $$
 
 여러 물체로 이루어진 계에서 각 물체에 대해, 뉴턴 제 2법칙을 반복적으로 적용하면 다음을 얻는다. 이때 $\mathbf{F}_{\text{ext}}$는 계에 대한 외력의 총합이고, $\mathbf{P}$는 계 내부 물체들의 운동량의 총합이다.
