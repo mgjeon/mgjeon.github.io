@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "posts/conservation-law/index.html",
+    "href": "posts/conservation-law/index.html",
+    "title": "보존법칙",
+    "section": "",
+    "text": "2018년에 물리학실험 보고서용으로 작성한 글."
+  },
+  {
+    "objectID": "posts/conservation-law/index.html#역학적-에너지-보존-법칙",
+    "href": "posts/conservation-law/index.html#역학적-에너지-보존-법칙",
+    "title": "보존법칙",
+    "section": "1 역학적 에너지 보존 법칙",
+    "text": "1 역학적 에너지 보존 법칙\n뉴턴의 운동법칙은 근본적으로 미분방정식으로 서술된다. 특히 힘과 가속도와 같은 물리량들은 벡터량이기 때문에 다루기가 쉽지 않다. 이러한 이유로 물리학자들은 스칼라량인 일이라는 개념을 만든 후에, 뉴턴 운동법칙을 수학적으로 약간 조작하여 운동에너지라는 새로운 개념을 만들게 되었다. 그리고 그것을 통해 일-(운동)에너지 정리를 이끌어 내었다. 이 정리는 ’물체에 가해진 알짜힘이 한 일은 물체의 운동에너지 변화량과 같다’라는 사실을 알려준다(\\mathbf{F} = m \\mathbf{a}에서의 \\mathbf{F}가 알짜힘(합력, net force)이기 때문이다). 일-운동에너지 정리를 식으로 나타내면 다음과 같다.\n\nW_{\\text{알짜 힘}} = \\Delta K\n\n이 정리는 수학적으로 유도된 정리이기 때문에, 물체에 가해지는 모든 알짜힘에 대해 성립하는 정리이다. 그러나 물리학자들은 여기서 한발 더 나아가 좌변을 다음과 같이 쓰고 싶어했다.\n\n-\\Delta U = \\Delta K\n\n왜냐하면 만약 이렇게 쓸 수만 있다면, K라는 양과 U라는 양이 ’보존’되기 때문이다. 그런데 다행히도 물리학자들은 중력이나 탄성력, 전기력과 같은 특정한 힘들이 하는 일은 위와 같이 쓸수 있음을 알게 되었고, U를 ’위치에너지(퍼텐셜에너지)’라 정의하였다. 또한 퍼텐셜에너지를 정의할 수 있는 힘을 보존력이라고 부르게 되었다. 따라서 다음과 같이 쓸 수 있다.\n\nW_{\\text{보존력}} = -\\Delta U_{\\text{보존력}}\n\n또한 모든 힘은 이러한 보존력과 보존력이 아닌 힘, 즉 비보존력 두 가지로 나뉜다는 사실을 알게 되었다. 일은 힘과 변위벡터의 내적으로 정의되고, 내적은 수학적으로 분배법칙이 성립하기 때문에 일-운동에너지 정리는 다음과 같이 쓸 수 있다.\n\nW_{\\text{보존력}} + W_{\\text{비보존력}} = \\Delta K\n \nW_{\\text{비보존력}} = \\Delta K + \\Delta U_{\\text{보존력}}\n\n이때 물체의 운동에너지와 퍼텐셜에너지의 합을 역학적 에너지라고 정의하게 되면 다음을 얻는다.\n\nW_{\\text{비보존력}} = \\Delta E_{\\text{역학적}}\n\n따라서 비보존력이 일을 하지 않으면 물체의 역학적 에너지는 일정하게 유지된다. 즉 어떤 물체에 보존력만 일을 한다면 그 물체의 역학적 에너지는 일정하게 유지된다. 바로 이것을 역학적 에너지 보존 법칙이라고 부른다.\n\n1.1 퍼텐셜 에너지(Potential Energy)의 정의\n\n어떤 물체의 위치벡터가 벡터함수 \\mathbf{r}(t) (a\\leq t \\leq b)로 주어지고, 시간 a\\leq t \\leq b 동안 물체가 움직인 경로가 곡선 C이며 그동안 물체에 가해진 힘이 \\mathbf{F}(\\mathbf{r})일 때(또는 물체가 벡터장 \\mathbf{F}(\\mathbf{r})가 있는 공간에서 곡선 C를 따라 움직였을 때), 힘 \\mathbf{F}가 물체에 한 일 W는 다음과 같이 정의한다. 이때 \\rm{d}\\mathbf{l} = \\rm{d}\\mathbf{r} = \\mathbf{r}'\\rm{d}t 이다.\n\n\n\\begin{align}\nW & = \\int_{C} \\mathbf{F} \\cdot \\rm{d}\\mathbf{l} \\\\\n& = \\int_{a}^{b} \\mathbf{F}(\\mathbf{r}(t)) \\cdot \\mathbf{r}'(t)\\rm{d}t\n\\end{align}\n\n\n어떤 힘 \\mathbf{F}가 보존력일때, 즉 위치벡터 \\mathbf{r}(t)에 대한 벡터함수 \\mathbf{F}(\\mathbf{r}(t))가 보존장일때, 다음을 만족하는 스칼라 함수 U(\\mathbf{r}(t))를 힘 \\mathbf{F}에 대한 퍼텐셜 에너지라고 정의한다.\n\n\n\\mathbf{F}(\\mathbf{r}) = -\\nabla U(\\mathbf{r})\n\n\n어떤 힘 \\mathbf{F}가 \\mathbf{F}(\\mathbf{r}) = - \\nabla U(\\mathbf{r})로 주어지는 보존력이고, 위치벡터가 \\mathbf{r}(t)로 주어지는 물체가 시간 a \\leq t \\leq b동안 힘 \\mathbf{F}를 받으며 경로 C를 따라 움직였다고 하면, 선적분의 기본정리에 의해 다음이 성립한다.\n\n\nU(\\mathbf{r}(b)) - U(\\mathbf{r}(a)) = - \\int_{C} \\mathbf{F} \\cdot \\rm{d}\\mathbf{l}\n\n\n따라서 보존력 \\mathbf{F}에 대한 위치 \\mathbf{r}에서의 퍼텐셜 에너지 U(\\mathbf{r})은 선적분을 이용해 다음과 같이 쓸 수 있다. 이때 \\mathbf{r}^{*}는 퍼텐셜 에너지가 0이 되는 임의의 기준점이다.\n\n\nU(\\mathbf{r}) = - \\int_{\\mathbf{r}^{*}}^{\\mathbf{r}} \\mathbf{F} \\cdot \\rm{d} \\mathbf{l}"
+  },
+  {
+    "objectID": "posts/conservation-law/index.html#운동량-보존-법칙",
+    "href": "posts/conservation-law/index.html#운동량-보존-법칙",
+    "title": "보존법칙",
+    "section": "2 운동량 보존 법칙",
+    "text": "2 운동량 보존 법칙\n관성기준계의 원점에 대해 위치벡터가 \\mathbf{r}_{1}, \\mathbf{r}_{2}, \\cdots, \\mathbf{r}_{n}으로 주어지고, 질량이 각각 m_{1}, m_{2}, \\cdots, m_{n}인 n개의 물체들로 구성된 계를 설정하자. 각 물체는 위치벡터의 첨자에 따라 1, 2, \\cdots, n번째 물체라고 하겠다. 관성기준계에 대해 물체의 위치벡터를 표현하였으므로, i번째 물체에 대해 뉴턴 제 2법칙을 적용하면 다음과 같다. 이때 \\mathbf{F}_{\\text{내력}, i}는 i번째 물체를 제외한 계 내부의 n-1개의 물체들이 i번째 물체에 작용하는 힘들의 합력이고, \\mathbf{F}_{\\text{외력}, i}는 주어진 계 외부의 물체들이 i번째 물체에 작용하는 힘들의 합력이다. 또한 \\mathbf{v}_{i} = \\displaystyle \\frac{d}{dt} \\mathbf{r}_{i}이다.\n\n\\mathbf{F}_{\\text{내력}, i} + \\mathbf{F}_{\\text{외력}, i} = m_{i} \\frac{d}{dt} \\mathbf{v}_{i}\n\n이때 뉴턴 제 3법칙에 의해\n\n\\sum_{i=1}^{n} \\mathbf{F}_{\\text{내력}, i} = \\mathbf{0}\n\n이 성립하고, 물체의 질량이 시간에 대해 변하지 않는다는 가정을 한다면\n\nm_{i} \\frac{d}{dt} \\mathbf{v}_{i} = \\frac{d}{dt} (m_{i} \\mathbf{v}_{i})\n\n이 성립한다. 따라서 i번째 물체에 대한 뉴턴 운동방정식 양변에 시그마를 취하면 다음과 같다. 이때 \\mathbf{F}_{\\text{외력}} = \\displaystyle \\sum_{i=1}^{n} \\mathbf{F}_{\\text{외력}, i}이다.\n\n\\mathbf{F}_{\\text{외력}} = \\frac{d}{dt} \\left( \\sum_{i=1}^{n} m_{i} \\mathbf{v}_{i} \\right)\n\n이때 새로운 물리량 \\mathbf{p} \\equiv m\\mathbf{v}를 정의하고, 이것을 (선)운동량이라고 부르자. 그러면 i번째 물체의 운동량은 \\mathbf{p}_{i} = m_{i}\\mathbf{v}_{i}이므로, 위 식의 우변은 계 내부 물체들의 총운동량의 시간에 대한 변화율이다. 그러므로 계 내부 물체들의 총운동량을 \\mathbf{P} = \\displaystyle \\sum_{i=1}^{n} m_{i} \\mathbf{v}_{i}라고 하면 다음 식이 성립한다.\n\n\\mathbf{F}_{\\text{외력}} = \\frac{d}{dt} \\mathbf{P}\n\n여기서 \\mathbf{F}_{\\text{외력}} = \\mathbf{0}일때 \\mathbf{P} = \\text{일정} 임을 알수 있다. 즉 어떤 계에 작용하는 알짜 외력이 0이면, 그 계의 총운동량은 시간에 대해 변하지 않는다. 이 사실을 운동량 보존 법칙이라고 한다."
+  },
+  {
+    "objectID": "posts/conservation-law/index.html#각운동량-보존-법칙",
+    "href": "posts/conservation-law/index.html#각운동량-보존-법칙",
+    "title": "보존법칙",
+    "section": "3 각운동량 보존 법칙",
+    "text": "3 각운동량 보존 법칙\n일반적으로 힘 \\mathbf{F}가 작용하는 위치의 위치벡터를 \\mathbf{r}이라고 한다면, 그 위치에 있는 물체에 작용하는 토크(돌림힘)는 다음과 같이 주어진다.\n\n\\boldsymbol{\\tau} = \\mathbf{r} \\times \\mathbf{F}\n\n만약 이 힘 \\mathbf{F}가 그 위치에 있는 물체에 작용하는 알짜힘이라면, 뉴턴 제 2법칙에 의해 다음과 같이 나타날 수 있다.\n\n\\boldsymbol{\\tau} = \\mathbf{r} \\times \\frac{d\\mathbf{p}}{dt}\n\n그런데 다음이 성립하므로\n\n\\begin{align}\n\\frac{d}{dt} (\\mathbf{r} \\times \\mathbf{p}) & = \\frac{d\\mathbf{r}}{dt} \\times \\mathbf{p} + \\mathbf{r} \\times \\frac{d\\mathbf{p}}{dt} \\\\\n& = \\mathbf{v} \\times m\\mathbf{v} + \\mathbf{r} \\times \\frac{d\\mathbf{p}}{dt} \\\\\n& = \\mathbf{r} \\times \\frac{d\\mathbf{p}}{dt}\n\\end{align}\n\n알짜힘에 의한 토크는 다음과 같이 쓸 수 있다. 이때 \\mathbf{l} = \\mathbf{r} \\times \\mathbf{p}은 각운동량이다.\n\n\\begin{align}\n\\boldsymbol{\\tau} & = \\frac{d}{dt} (\\mathbf{r} \\times \\mathbf{p}) \\\\\n& = \\frac{d\\mathbf{l}}{dt}\n\\end{align}\n\n여러 물체로 이루어진 계에서 각 물체에 대해, 뉴턴 제 2법칙을 반복적으로 적용하면 다음을 얻는다. 이때 \\mathbf{F}_{\\text{ext}}는 계에 대한 외력의 총합이고, \\mathbf{P}는 계 내부 물체들의 운동량의 총합이다.\n\n\\mathbf{F}_{\\text{ext}} = \\frac{d\\mathbf{P}}{dt}\n\n따라서 \\mathbf{F}_{\\text{ext}}가 작용하는 위치에 작용하는 토크를 \\boldsymbol{\\tau}_{\\text{ext}}라고 쓴다면 다음이 성립한다. 이때 \\mathbf{L}은 계 내부 물체들의 각운동량의 총합이다.\n\n\\boldsymbol{\\tau}_{\\text{ext}} = \\frac{d\\mathbf{L}}{dt}\n\n따라서 알짜 외부 토크가 \\mathbf{0}이면 계의 총 각운동량은 보존됨을 알 수 있고, 이를 각운동량 보존 법칙이라고 한다."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "How to draw 1D scalar functions in Python\n\n\n\n\n\n\n\nmath\n\n\npython\n\n\n\n\n\n\n\n\n\n\n\nOct 20, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\n보존법칙\n\n\n\n\n\n\n\nphysics\n\n\nkorean\n\n\n\n\n\n\n\n\n\n\n\nOct 20, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Mingyu Jeon (전민규)",
+    "section": "",
+    "text": "I am a Master’s student at Kyung Hee University, studying solar physics and deep learning. My research interest includes magnetohydrodynamics, simulation, and scientific machine learning."
+  },
+  {
+    "objectID": "posts/1d-scalar-function/index.html",
+    "href": "posts/1d-scalar-function/index.html",
+    "title": "How to draw 1D scalar functions in Python",
+    "section": "",
+    "text": "If you know the mathematical formula of a 1D scalar function y=f(x), then I believe the best tool for drawing 1D scalar functions is Desmos. However, you can also plot the functions in Python using various visualization libraries. In this post, I will draw 1D scalar functions y=x^2 and y=\\sin(x) using basic features of these libraries. Keep in mind that there are many advanced features not covered here, so for more information, refer to the official document of the respective library."
+  },
+  {
+    "objectID": "posts/1d-scalar-function/index.html#sympy",
+    "href": "posts/1d-scalar-function/index.html#sympy",
+    "title": "How to draw 1D scalar functions in Python",
+    "section": "1 SymPy",
+    "text": "1 SymPy\n\nSymPy is a Python library for symbolic mathematics.\n\nEven though SymPy’s strength lies in symbolic computations, it can also be used for drawing 1D scalar functions, see Figure 1.\n\nfrom sympy import symbols, sin\nfrom sympy.plotting import plot \n\nx = symbols('x')\n\np1 = plot(x**2, (x, -2, 2), legend=True, show=False)\np2 = plot(sin(x), (x, -5, 5), legend=True, show=False)\np1.extend(p2)\np1.show()\n\n\n\n\nFigure 1: A plot using sympy\n\n\n\n\nThe graph depicts y=x^2 for x \\in [-2, 2] and y=\\sin(x) for x \\in [-5, 5]. The purpose of using different ranges for x is to display both graphs in a single figure without one being much smaller than the other. This is because the values of x^2 rapidly increases as |x| increases, while |\\sin(x)| \\leq 1 always."
+  },
+  {
+    "objectID": "posts/1d-scalar-function/index.html#data-generation-using-numpy",
+    "href": "posts/1d-scalar-function/index.html#data-generation-using-numpy",
+    "title": "How to draw 1D scalar functions in Python",
+    "section": "2 Data generation using NumPy",
+    "text": "2 Data generation using NumPy\n\nNumPy is the fundamental package for scientific computing with Python.\n\nOther visualization libraries usually don’t understand symbolic representation of a function. They just draw (x, y) points in a coordinate plane. Therefore, before you use them, you have to generate (x, y) points using NumPy.\n\nimport numpy as np\n\nx1 = np.linspace(-2, 2, 100)\ny1 = x1**2\n\nx2 = np.linspace(-5, 5, 100)\ny2 = np.sin(x2)\n\nnp.linspace(start, stop, num) creates num evenly spaced numbers within a closed interval [start, stop]. So, x1 is an array containing 100 evenly spaced numbers within the interval [-2, 2], and x2 is the same array but within the interval [-5, 5].\n\nx1\n\narray([-2.        , -1.95959596, -1.91919192, -1.87878788, -1.83838384,\n       -1.7979798 , -1.75757576, -1.71717172, -1.67676768, -1.63636364,\n       -1.5959596 , -1.55555556, -1.51515152, -1.47474747, -1.43434343,\n       -1.39393939, -1.35353535, -1.31313131, -1.27272727, -1.23232323,\n       -1.19191919, -1.15151515, -1.11111111, -1.07070707, -1.03030303,\n       -0.98989899, -0.94949495, -0.90909091, -0.86868687, -0.82828283,\n       -0.78787879, -0.74747475, -0.70707071, -0.66666667, -0.62626263,\n       -0.58585859, -0.54545455, -0.50505051, -0.46464646, -0.42424242,\n       -0.38383838, -0.34343434, -0.3030303 , -0.26262626, -0.22222222,\n       -0.18181818, -0.14141414, -0.1010101 , -0.06060606, -0.02020202,\n        0.02020202,  0.06060606,  0.1010101 ,  0.14141414,  0.18181818,\n        0.22222222,  0.26262626,  0.3030303 ,  0.34343434,  0.38383838,\n        0.42424242,  0.46464646,  0.50505051,  0.54545455,  0.58585859,\n        0.62626263,  0.66666667,  0.70707071,  0.74747475,  0.78787879,\n        0.82828283,  0.86868687,  0.90909091,  0.94949495,  0.98989899,\n        1.03030303,  1.07070707,  1.11111111,  1.15151515,  1.19191919,\n        1.23232323,  1.27272727,  1.31313131,  1.35353535,  1.39393939,\n        1.43434343,  1.47474747,  1.51515152,  1.55555556,  1.5959596 ,\n        1.63636364,  1.67676768,  1.71717172,  1.75757576,  1.7979798 ,\n        1.83838384,  1.87878788,  1.91919192,  1.95959596,  2.        ])\n\n\n\\Delta x for this array is (2 - (-2)) / (100 - 1) = 0.\\overline{04}\n\nnp.isclose(np.diff(x1)[0], (2 - (-2)) / (100 - 1))\n\nTrue\n\n\n\nx2\n\narray([-5.        , -4.8989899 , -4.7979798 , -4.6969697 , -4.5959596 ,\n       -4.49494949, -4.39393939, -4.29292929, -4.19191919, -4.09090909,\n       -3.98989899, -3.88888889, -3.78787879, -3.68686869, -3.58585859,\n       -3.48484848, -3.38383838, -3.28282828, -3.18181818, -3.08080808,\n       -2.97979798, -2.87878788, -2.77777778, -2.67676768, -2.57575758,\n       -2.47474747, -2.37373737, -2.27272727, -2.17171717, -2.07070707,\n       -1.96969697, -1.86868687, -1.76767677, -1.66666667, -1.56565657,\n       -1.46464646, -1.36363636, -1.26262626, -1.16161616, -1.06060606,\n       -0.95959596, -0.85858586, -0.75757576, -0.65656566, -0.55555556,\n       -0.45454545, -0.35353535, -0.25252525, -0.15151515, -0.05050505,\n        0.05050505,  0.15151515,  0.25252525,  0.35353535,  0.45454545,\n        0.55555556,  0.65656566,  0.75757576,  0.85858586,  0.95959596,\n        1.06060606,  1.16161616,  1.26262626,  1.36363636,  1.46464646,\n        1.56565657,  1.66666667,  1.76767677,  1.86868687,  1.96969697,\n        2.07070707,  2.17171717,  2.27272727,  2.37373737,  2.47474747,\n        2.57575758,  2.67676768,  2.77777778,  2.87878788,  2.97979798,\n        3.08080808,  3.18181818,  3.28282828,  3.38383838,  3.48484848,\n        3.58585859,  3.68686869,  3.78787879,  3.88888889,  3.98989899,\n        4.09090909,  4.19191919,  4.29292929,  4.39393939,  4.49494949,\n        4.5959596 ,  4.6969697 ,  4.7979798 ,  4.8989899 ,  5.        ])\n\n\n\\Delta x for this array is (5 - (-5)) / (100 - 1) = 0.\\overline{10}\n\nnp.isclose(np.diff(x2)[0], (5 - (-5)) / (100 - 1))\n\nTrue\n\n\n(x1, y1) points are used to draw the graph of y=x^2, while (x2, y2) points are used for the graph of y=\\sin(x)."
+  },
+  {
+    "objectID": "posts/1d-scalar-function/index.html#matplotlib",
+    "href": "posts/1d-scalar-function/index.html#matplotlib",
+    "title": "How to draw 1D scalar functions in Python",
+    "section": "3 Matplotlib",
+    "text": "3 Matplotlib\n\nMatplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python.\n\nMatplotlib is one of the most popular visualization libraries in Python, see Figure 2.\n\nimport matplotlib.pyplot as plt\n\nplt.plot(x1, y1, label=r'$x^2$')\nplt.plot(x2, y2, label=r'$\\sin x$')\nplt.legend()\nplt.axvline(0, color='k')\nplt.axhline(0, color='k')\nplt.show()\n\n\n\n\nFigure 2: A plot using matplotlib"
+  },
+  {
+    "objectID": "posts/1d-scalar-function/index.html#pandas",
+    "href": "posts/1d-scalar-function/index.html#pandas",
+    "title": "How to draw 1D scalar functions in Python",
+    "section": "4 pandas",
+    "text": "4 pandas\n\npandas[https://pandas.pydata.org/] is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.\n\nSince pandas is a great data analysis tool in Python, it can used for drawing graphs, see Figure 3.\n\nimport pandas as pd \n\ndf1 = pd.DataFrame(data={'x':x1, 'y':y1})\ndf2 = pd.DataFrame(data={'x':x2, 'y':y2})\n\nax = df1.plot(x='x', y='y', label=r'$x^2$')\ndf2.plot(ax=ax, x='x', y='y', label=r'$\\sin x$')\nax.axvline(0, color='k')\nax.axhline(0, color='k')\nplt.show()\n\n\n\n\nFigure 3: A plot using pandas"
+  },
+  {
+    "objectID": "posts/1d-scalar-function/index.html#plotly",
+    "href": "posts/1d-scalar-function/index.html#plotly",
+    "title": "How to draw 1D scalar functions in Python",
+    "section": "5 Plotly",
+    "text": "5 Plotly\n\nPlotly is a technical computing company headquartered in Montreal, Quebec, that develops online data analytics and visualization tools. Plotly provides online graphing, analytics, and statistics tools for individuals and collaboration, as well as scientific graphing libraries for Python, R, MATLAB, Perl, Julia, Arduino, JavaScript and REST.\n\nPlotly is a useful tool for creating interactive plots, see Figure 4.\n\nimport plotly.graph_objects as go\n\nfig = go.Figure()\nfig.add_trace(go.Scatter(x=x1, y=y1, mode='lines', name=r'x²'))\nfig.add_trace(go.Scatter(x=x2, y=y2, mode='lines', name=r'sin(x)'))\nfig.show()\n\n\n\n                                                \nFigure 4: A plot using plotly"
+  }
+]
