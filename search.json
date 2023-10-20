@@ -37,7 +37,14 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "Mingyu Jeon (전민규)",
+    "title": "About",
+    "section": "",
+    "text": "I am a Master’s student at Kyung Hee University, studying solar physics and deep learning. My research interest includes magnetohydrodynamics, simulation, and scientific machine learning."
+  },
+  {
+    "objectID": "about.html#mingyu-jeon-전민규",
+    "href": "about.html#mingyu-jeon-전민규",
+    "title": "About",
     "section": "",
     "text": "I am a Master’s student at Kyung Hee University, studying solar physics and deep learning. My research interest includes magnetohydrodynamics, simulation, and scientific machine learning."
   },
