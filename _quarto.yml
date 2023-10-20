@@ -11,7 +11,7 @@ website:
         href: https://github.com/mgjeon
 
 toc: true
-number-sections: true
+number-sections: false
 
 format:
   html:
