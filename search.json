@@ -81,7 +81,7 @@
     "href": "posts/1d-scalar-function/index.html#pandas",
     "title": "How to draw 1D scalar functions in Python",
     "section": "4 pandas",
-    "text": "4 pandas\n\npandas[https://pandas.pydata.org/] is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.\n\nSince pandas is a great data analysis tool in Python, it can used for drawing graphs, see Figure 3.\n\nimport pandas as pd \n\ndf1 = pd.DataFrame(data={'x':x1, 'y':y1})\ndf2 = pd.DataFrame(data={'x':x2, 'y':y2})\n\nax = df1.plot(x='x', y='y', label=r'$x^2$')\ndf2.plot(ax=ax, x='x', y='y', label=r'$\\sin x$')\nax.axvline(0, color='k')\nax.axhline(0, color='k')\nplt.show()\n\n\n\n\nFigure 3: A plot using pandas"
+    "text": "4 pandas\n\npandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.\n\nSince pandas is a great data analysis tool in Python, it can used for drawing graphs, see Figure 3.\n\nimport pandas as pd \n\ndf1 = pd.DataFrame(data={'x':x1, 'y':y1})\ndf2 = pd.DataFrame(data={'x':x2, 'y':y2})\n\nax = df1.plot(x='x', y='y', label=r'$x^2$')\ndf2.plot(ax=ax, x='x', y='y', label=r'$\\sin x$')\nax.axvline(0, color='k')\nax.axhline(0, color='k')\nplt.show()\n\n\n\n\nFigure 3: A plot using pandas"
   },
   {
     "objectID": "posts/1d-scalar-function/index.html#plotly",
