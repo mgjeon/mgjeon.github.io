@@ -2,7 +2,7 @@
 title: "천문용어 설명"
 author: "Mingyu Jeon"
 date: "2023-10-21"
-categories: [astronomy, physics, korean]
+categories: [astronomy, korean]
 ---
 
 2019년 우주관측 수업에서 [2020 역서](https://www.kasi.re.kr/resources/htmlconverter_skin/doc.html?fn=1573189224138_1.pdf&rs=/file/htmlconverter_preview) `09. 천문상수와 자료` 설명용으로 작성한 글
@@ -99,9 +99,9 @@ IERS는 International Earth Rotation and Reference Systems Service의 약자이�
 
 ### 일반 경도세차, 경사각 변화율, 경도 적도세차, 경사각 적도세차, 장동상수 
 ::: {layout-ncol=2}
-![](earth-precession-rev.jpg)
+![](earth-precession-rev.jpg){fig-align="center" width=300}
 
-![](earth-precession-rot.png)
+![](earth-precession-rot.png){fig-align="center" width=240}
 :::
 
 관성좌표계(inertial frame of reference)에서 관측한 지구는 위의 그림 처럼 자전(Rotation), 세차(Precession), 장동(Nutation)을 한다. 자전은 지구의 적도 평면과 수직한 직선 상에 존재하면서 지구의 북극 근방에 있는 관측자가 지구를 바라보았을 때 지구 전체가 반시계 방향으로 회전하는 현상이다. 자전 주기는 1일이다. 세차는 지구의 황도평면과 수직한 직선 상에 존재하면서 지구의 북극 근방에 있는 관측자가 지구를 바라보았을 때 지구의 자전축이 시계 방향으로 회전하는 현상이다. 세차 주기는 약 26000년이다. 장동은 지구의 황도평면과 수직한 직선 상에 존재하면서 지구의 북극 근방에 있는 관측자가 지구를 바라보았을 때 지구의 자전축과 지구의 공전축 사이의 각도가 주기적으로 변하는 현상이다. 장동 주기는 약 18.61년이다. 
@@ -256,30 +256,17 @@ $$
 
 
 ## 참고문헌
-CAPITAINE, Nicole; WALLACE, Patrick T.; CHAPRONT, Jean. *Expressions for IAU 2000 precession quantities*. Astronomy & Astrophysics​, 2003, 412.2: 567-586. 
- 
-CARROLL, Bradley W.; OSTLIE, Dale A. *An introduction to modern astrophysics*​. Cambridge University Press, 2017. 
-
-LIESKE, J.H., et al. *Expressions for the precession quantities based upon the IAU/1976/system of astronomical constants*. Astronomy and Astrophysics​, 1977, 58: 1-16. 
- 
-MCCARTHY, Dennis D.; SEIDELMANN, P.Kenneth. *Time: from Earth rotation to atomic physics​*. Cambridge University Press, 2018. 
- 
-VÖLGYESI, L. *Physical backgrounds of Earth’s rotation, revision of the terminology*. Acta Geodaetica et Geophysica Hungarica​, 2006, 41.1: 31-44. 
- 
-BIPM - Time, <https://www.bipm.org/en/bipm/tai/>
- 
-FIG Article of the Month - December 2004, <https://www.fig.net/resources/monthly_articles/2004/beutLer_july_2004.asp> 
- 
-File:Lunar eclipse diagram-en.svg - Wikimedia Commons, <https://commons.wikimedia.org/wiki/File:Lunar_eclipse_diagram-en.svg> 
- 
-File:Praezession.svg - Wikimedia Commons, <https://commons.wikimedia.org/wiki/File:Praezession.svg#mw-jump-to-license> 
- 
-File:Simple stellar aberration diagram.svg - Wikimedia Commons, <https://commons.wikimedia.org/wiki/File:Simple_stellar_aberration_diagram.svg> 
- 
-Fundamental Physical Constants from NIST, <https://pml.nist.gov/cuu/Constants/>
- 
-Reference Earth Model - WGS84, <https://topex.ucsd.edu/geodynamics/14gravity1_2.pdf> 
- 
-The Astronomical Almanac Online, <http://asa.hmnao.com/index.html> 
- 
-기본단위의 정의, <https://www.kriss.re.kr/standard/view.do?pg=explanation_tab_02> 
+- CAPITAINE, Nicole; WALLACE, Patrick T.; CHAPRONT, Jean. *Expressions for IAU 2000 precession quantities*. Astronomy & Astrophysics​, 2003, 412.2: 567-586. 
+- CARROLL, Bradley W.; OSTLIE, Dale A. *An introduction to modern astrophysics*​. Cambridge University Press, 2017. 
+- LIESKE, J.H., et al. *Expressions for the precession quantities based upon the IAU/1976/system of astronomical constants*. Astronomy and Astrophysics​, 1977, 58: 1-16. 
+- MCCARTHY, Dennis D.; SEIDELMANN, P.Kenneth. *Time: from Earth rotation to atomic physics​*. Cambridge University Press, 2018. 
+- VÖLGYESI, L. *Physical backgrounds of Earth’s rotation, revision of the terminology*. Acta Geodaetica et Geophysica Hungarica​, 2006, 41.1: 31-44. 
+- BIPM - Time, <https://www.bipm.org/en/bipm/tai/>
+- FIG Article of the Month - December 2004, <https://www.fig.net/resources/monthly_articles/2004/beutLer_july_2004.asp> 
+- File:Lunar eclipse diagram-en.svg - Wikimedia Commons, <https://commons.wikimedia.org/wiki/File:Lunar_eclipse_diagram-en.svg> 
+- File:Praezession.svg - Wikimedia Commons, <https://commons.wikimedia.org/wiki/File:Praezession.svg#mw-jump-to-license> 
+- File:Simple stellar aberration diagram.svg - Wikimedia Commons, <https://commons.wikimedia.org/wiki/File:Simple_stellar_aberration_diagram.svg> 
+- Fundamental Physical Constants from NIST, <https://pml.nist.gov/cuu/Constants/>
+- Reference Earth Model - WGS84, <https://topex.ucsd.edu/geodynamics/14gravity1_2.pdf> 
+- The Astronomical Almanac Online, <http://asa.hmnao.com/index.html> 
+- 기본단위의 정의, <https://www.kriss.re.kr/standard/view.do?pg=explanation_tab_02> 
