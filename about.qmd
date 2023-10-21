@@ -7,6 +7,8 @@ about:
     - icon: github
       text: Github
       href: https://github.com/mgjeon
+    - icon: envelope
+      text: mgjeon at khu.ac.kr
 toc: false
 number-sections: false
 ---
