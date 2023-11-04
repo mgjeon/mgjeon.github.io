@@ -597,7 +597,7 @@ right: 0.0090</code></pre>
 <span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>x_numpy <span class="op">=</span> x.numpy()</span>
 <span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>df_dx_exact <span class="op">=</span> exact_d_func(x_numpy)</span>
 <span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>plt.plot(x_numpy, df_dx_exact, <span class="st">'b-'</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"exact"</span>)</span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>plt.plot(x_numpy, df_dx_tf, <span class="st">'r--'</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"finite diff. (TensorFlow)"</span>)</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>plt.plot(x_numpy, df_dx_tf, <span class="st">'r--'</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"auto diff. (TensorFlow)"</span>)</span>
 <span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
 <span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
 <span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r"$x$"</span>)</span>
@@ -644,7 +644,7 @@ right: 0.0090</code></pre>
 <span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>x_numpy <span class="op">=</span> x.detach().numpy()</span>
 <span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>df_dx_exact <span class="op">=</span> exact_d_func(x_numpy)</span>
 <span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>plt.plot(x_numpy, df_dx_exact, <span class="st">'b-'</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"exact"</span>)</span>
-<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>plt.plot(x_numpy, df_dx_torch, <span class="st">'r--'</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"finite diff. (PyTorch)"</span>)</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>plt.plot(x_numpy, df_dx_torch, <span class="st">'r--'</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"auto diff. (PyTorch)"</span>)</span>
 <span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
 <span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
 <span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r"$x$"</span>)</span>
@@ -689,7 +689,7 @@ right: 0.0090</code></pre>
 <span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>x_numpy <span class="op">=</span> np.array(x)</span>
 <span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>df_dx_exact <span class="op">=</span> exact_d_func(x_numpy)</span>
 <span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>plt.plot(x_numpy, df_dx_exact, <span class="st">'b-'</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"exact"</span>)</span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>plt.plot(x_numpy, df_dx_jax, <span class="st">'r--'</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"finite diff. (JAX)"</span>)</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>plt.plot(x_numpy, df_dx_jax, <span class="st">'r--'</span>, lw<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">"auto diff. (JAX)"</span>)</span>
 <span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
 <span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
 <span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r"$x$"</span>)</span>
