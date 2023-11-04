@@ -214,7 +214,7 @@
     "href": "posts/derivative-of-1d-scalar-function/index.html#symbolic-differentiation",
     "title": "Calculating Derivatives of a 1D Scalar Function in Python",
     "section": "3 Symbolic differentiation",
-    "text": "3 Symbolic differentiation\n\n3.1 Implementation using Sympy\nBy using SymPy, we can symbolically differentiate f(x) = x^2 + \\sin(3x)\n\nfrom sympy import symbols, sin, diff\nx = symbols('x')\nf = x**2 + sin(3*x)\nf\n\n\\displaystyle x^{2} + \\sin{\\left(3 x \\right)}\n\n\n\ndf_dx_sympy = diff(f, x)\ndf_dx_sympy\n\n\\displaystyle 2 x + 3 \\cos{\\left(3 x \\right)}\n\n\nAs I mentioned in the previous post, SymPy also supports plotting of a function.\n\nfrom sympy.plotting import plot\np1 = plot(f, (x, 0, np.pi), legend=True, show=False, label=\"$f(x)$\")\np2 = plot(df_dx_sympy, (x, 0, np.pi), legend=True, show=False, label=r\"$f'(x)$\")\np1.extend(p2)\np1.show()"
+    "text": "3 Symbolic differentiation\n\n3.1 Implementation using Sympy\nBy using SymPy, we can symbolically differentiate f(x) = x^2 + \\sin(3x)\n\nfrom sympy import symbols, sin, diff\nx = symbols('x')\nf = x**2 + sin(3*x)\nf\n\n\\displaystyle x^{2} + \\sin{\\left(3 x \\right)}\n\n\n\ndf_dx_sympy = diff(f, x)\ndf_dx_sympy\n\n\\displaystyle 2 x + 3 \\cos{\\left(3 x \\right)}\n\n\nAs I mentioned in the previous post, SymPy also supports plotting of a function.\n\nfrom sympy.plotting import plot\np1 = plot(f, (x, 0, np.pi), legend=True, show=False, label=\"$f(x)$\", ylabel='')\np2 = plot(df_dx_sympy, (x, 0, np.pi), legend=True, show=False, label=r\"$f'(x)$\", ylabel='')\np1.extend(p2)\np1.show()"
   },
   {
     "objectID": "posts/derivative-of-1d-scalar-function/index.html#automatic-differentiation",
