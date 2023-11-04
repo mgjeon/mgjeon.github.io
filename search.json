@@ -144,7 +144,7 @@
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "Calculating Derivatives of a 1D Scalar Function in Python\n\n\n\n\n\n\n\nmath\n\n\npython\n\n\nenglish\n\n\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\n천문용어 설명\n\n\n\n\n\n\n\nastronomy\n\n\nkorean\n\n\n\n\n\n\n\n\n\n\n\nOct 21, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\nSpherical Astronomy\n\n\n\n\n\n\n\nastronomy\n\n\nenglish\n\n\n\n\n\n\n\n\n\n\n\nOct 21, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\n보존법칙\n\n\n\n\n\n\n\nphysics\n\n\nkorean\n\n\n\n\n\n\n\n\n\n\n\nOct 20, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\nHow to draw 1D scalar functions in Python\n\n\n\n\n\n\n\nmath\n\n\npython\n\n\nenglish\n\n\n\n\n\n\n\n\n\n\n\nOct 20, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\nMotion of Charged Particles in Magnetic Dipole Fields\n\n\n\n\n\n\n\nphysics\n\n\npython\n\n\nenglish\n\n\n\n\n\n\n\n\n\n\n\nSep 25, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\nStable Diffusion Inference with Diffusers (high-level)\n\n\n\n\n\n\n\ndeep learning\n\n\npython\n\n\nenglish\n\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\nStable Diffusion Inference with Diffusers (low-level)\n\n\n\n\n\n\n\ndeep learning\n\n\npython\n\n\nenglish\n\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\nNo matching items"
+    "text": "천문용어 설명\n\n\n\n\n\n\n\nastronomy\n\n\nkorean\n\n\n\n\n\n\n\n\n\n\n\nOct 21, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\nSpherical Astronomy\n\n\n\n\n\n\n\nastronomy\n\n\nenglish\n\n\n\n\n\n\n\n\n\n\n\nOct 21, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\n보존법칙\n\n\n\n\n\n\n\nphysics\n\n\nkorean\n\n\n\n\n\n\n\n\n\n\n\nOct 20, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\nHow to draw 1D scalar functions in Python\n\n\n\n\n\n\n\nmath\n\n\npython\n\n\nenglish\n\n\n\n\n\n\n\n\n\n\n\nOct 20, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\nMotion of Charged Particles in Magnetic Dipole Fields\n\n\n\n\n\n\n\nphysics\n\n\npython\n\n\nenglish\n\n\n\n\n\n\n\n\n\n\n\nSep 25, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\nStable Diffusion Inference with Diffusers (high-level)\n\n\n\n\n\n\n\ndeep learning\n\n\npython\n\n\nenglish\n\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\n  \n\n\n\n\nStable Diffusion Inference with Diffusers (low-level)\n\n\n\n\n\n\n\ndeep learning\n\n\npython\n\n\nenglish\n\n\n\n\n\n\n\n\n\n\n\n\nSep 10, 2023\n\n\nMingyu Jeon\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -187,20 +187,6 @@
     "title": "Motion of Charged Particles in Magnetic Dipole Fields",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nhttps://en.wikipedia.org/wiki/L-shell↩︎\nhttps://en.wikipedia.org/wiki/Dipole_model_of_the_Earth%27s_magnetic_field↩︎"
-  },
-  {
-    "objectID": "posts/derivative-1d-scalar-function/index.html",
-    "href": "posts/derivative-1d-scalar-function/index.html",
-    "title": "Calculating Derivatives of a 1D Scalar Function in Python",
-    "section": "",
-    "text": "There are four techniques to compute derivatives: hand-coded analytical derivative, finite differentiation, symbolic differentiation, and automatic differentiation (Margossian 2019). In this post, I will demonstrate how to find the derivative of a simple 1D scalar function, f(x) = x^3 + \\sin(2x), using each of these four methods in Python within the interval x \\in [0, \\pi]."
-  },
-  {
-    "objectID": "posts/derivative-1d-scalar-function/index.html#hand-coded-analytical-derivative",
-    "href": "posts/derivative-1d-scalar-function/index.html#hand-coded-analytical-derivative",
-    "title": "Calculating Derivatives of a 1D Scalar Function in Python",
-    "section": "Hand-coded analytical derivative",
-    "text": "Hand-coded analytical derivative\nYou can find the analytical derivative of the fucntion f(x) = x^3 + \\sin(2x) using the table of derivatives learned in your Calculus course.\n\n\\begin{align*}\n\\frac{d}{dx} f(x) & = \\frac{d}{dx} (x^3 + \\sin(2x)) \\\\\n& = \\frac{d}{dx} x^3 + \\frac{d}{dx} \\sin(2x) \\\\\n& = 3x^2 + 2\\cos(2x)\n\\end{align*}\n\nThus, for every x,\n\nf'(x) = 3x^2 + 2\\cos(2x)"
   },
   {
     "objectID": "posts/explain-words/index.html",
