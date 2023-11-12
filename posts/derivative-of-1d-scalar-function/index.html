@@ -253,7 +253,7 @@ div.csl-indent {
 f'(x) = 2x + 3\cos(3x)
 </span></p>
 <p>According to the <a href="https://mgjeon.github.io/posts/draw-1d-scalar-function/">previous post</a> where I explained how to draw a 1D scalar function in Python, I will plot <span class="math inline">f(x)</span> and its derivative <span class="math inline">f'(x)</span> using Matplotlib.</p>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -266,7 +266,7 @@ f'(x) = 2x + 3\cos(3x)
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -324,7 +324,7 @@ f'(x) = 2x + 3\cos(3x)
 <section id="implementation-using-numpy" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="implementation-using-numpy"><span class="header-section-number">2.2</span> Implementation using <code>NumPy</code></h3>
 <p>NumPy arrays make the implementation of finite differentitation very straightforward. It’s important to note that at the left boundary (<span class="math inline">x=0</span>), I use the forward difference, while at the right boundary (<span class="math inline">x=\pi</span>), I use the backward difference. Within the domain (<span class="math inline">0&lt;x&lt;\pi</span>), I use the central difference.</p>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -369,7 +369,7 @@ f'(x) = 2x + 3\cos(3x)
 </div>
 </div>
 <p>In the case of using 1st order accuracy formulae, the errors at the boundaries are</p>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'1st order'</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'dx   : </span><span class="sc">{</span>dx<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'left : </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">abs</span>(df_dx[<span class="dv">0</span>] <span class="op">-</span> df_dx_exact[<span class="dv">0</span>])<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
@@ -382,7 +382,7 @@ right: 0.0272</code></pre>
 </div>
 </div>
 <p>If we use the 2nd order accuracy formulae at the boundaries instead, we get the following errors:</p>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -426,7 +426,7 @@ right: 0.0272</code></pre>
 <p><img src="index_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'2nd order'</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'dx^2 : </span><span class="sc">{</span>dx<span class="op">**</span><span class="dv">2</span><span class="sc">:.4f}</span><span class="ss">'</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'left : </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">abs</span>(df_dx[<span class="dv">0</span>] <span class="op">-</span> df_dx_exact[<span class="dv">0</span>])<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
@@ -438,13 +438,13 @@ left : 0.0090
 right: 0.0090</code></pre>
 </div>
 </div>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>np.allclose(df_dx_exact, df_dx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>False</code></pre>
 </div>
 </div>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>np.allclose(df_dx_exact, df_dx, atol<span class="op">=</span><span class="fl">1e-2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>True</code></pre>
@@ -453,7 +453,7 @@ right: 0.0090</code></pre>
 <section id="numpy.gradient" class="level4" data-number="2.2.1">
 <h4 data-number="2.2.1" class="anchored" data-anchor-id="numpy.gradient"><span class="header-section-number">2.2.1</span> <code>numpy.gradient</code></h4>
 <p>There is a function for finite differentiation in NumPy.</p>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -486,7 +486,7 @@ right: 0.0090</code></pre>
 </div>
 </div>
 <p>This computes the same value as manually computed.</p>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>np.allclose(df_dx, df_dx_npgrad)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>True</code></pre>
@@ -497,7 +497,7 @@ right: 0.0090</code></pre>
 <section id="implementation-using-findiff" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="implementation-using-findiff"><span class="header-section-number">2.3</span> Implementation using <code>findiff</code></h3>
 <p>There is a convenient library for finite differentiation in Python: <a href="https://github.com/maroba/findiff">findiff</a></p>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> findiff <span class="im">import</span> FinDiff</span>
@@ -533,14 +533,14 @@ right: 0.0090</code></pre>
 </div>
 </div>
 <p>By default, <code>findiff</code> uses 2nd order accuray.</p>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>np.allclose(df_dx, df_dx_findiff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>True</code></pre>
 </div>
 </div>
 <p>You can also find finite difference coefficients using this library. (see <a href="#sec-formulae">Section&nbsp;2.1</a>)</p>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> findiff</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># coefficients of 2nd order accuracy formulae for 1st derivative</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>findiff.coefficients(deriv<span class="op">=</span><span class="dv">1</span>, acc<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -556,13 +556,13 @@ right: 0.0090</code></pre>
   'accuracy': 2}}</code></pre>
 </div>
 </div>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>np.allclose(df_dx_exact, df_dx_findiff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>False</code></pre>
 </div>
 </div>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>np.allclose(df_dx_exact, df_dx_findiff, atol<span class="op">=</span><span class="fl">1e-2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>True</code></pre>
@@ -572,7 +572,7 @@ right: 0.0090</code></pre>
 <section id="implementation-using-numdifftools" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="implementation-using-numdifftools"><span class="header-section-number">2.4</span> Implementation using <code>numdifftools</code></h3>
 <p>There is another convenient library for automatic numerical differentiation in Python: <a href="https://github.com/pbrod/numdifftools">numdifftools</a></p>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numdifftools <span class="im">as</span> nd</span>
@@ -603,7 +603,7 @@ right: 0.0090</code></pre>
 </div>
 </div>
 <p>Since this library uses an adaptive finite differences with a Richardson extrapolation methodology, the result is maximally accurate.</p>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>np.allclose(df_dx_exact, df_dx_numdifftools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>True</code></pre>
@@ -616,7 +616,7 @@ right: 0.0090</code></pre>
 <section id="implementation-using-sympy" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="implementation-using-sympy"><span class="header-section-number">3.1</span> Implementation using <code>Sympy</code></h3>
 <p>By using <code>SymPy</code>, we can symbolically differentiate <span class="math inline">f(x) = x^2 + \sin(3x)</span></p>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy <span class="im">import</span> symbols, sin, diff</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> symbols(<span class="st">'x'</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> sin(<span class="dv">3</span><span class="op">*</span>x)</span>
@@ -625,7 +625,7 @@ right: 0.0090</code></pre>
 <p><span class="math inline">\displaystyle x^{2} + \sin{\left(3 x \right)}</span></p>
 </div>
 </div>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df_dx_sympy <span class="op">=</span> diff(f, x)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df_dx_sympy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -633,7 +633,7 @@ right: 0.0090</code></pre>
 </div>
 </div>
 <p>As I mentioned in the <a href="https://mgjeon.github.io/posts/draw-1d-scalar-function/">previous post</a>, <code>SymPy</code> also supports plotting of a function.</p>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sympy.plotting <span class="im">import</span> plot</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> plot(f, (x, <span class="dv">0</span>, np.pi), legend<span class="op">=</span><span class="va">True</span>, show<span class="op">=</span><span class="va">False</span>, label<span class="op">=</span><span class="st">"$f(x)$"</span>, ylabel<span class="op">=</span><span class="st">''</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> plot(df_dx_sympy, (x, <span class="dv">0</span>, np.pi), legend<span class="op">=</span><span class="va">True</span>, show<span class="op">=</span><span class="va">False</span>, label<span class="op">=</span><span class="vs">r"$f'(x)$"</span>, ylabel<span class="op">=</span><span class="st">''</span>)</span>
@@ -656,7 +656,7 @@ right: 0.0090</code></pre>
 <blockquote class="blockquote">
 <p><a href="https://www.tensorflow.org/">TensorFlow</a> is an end-to-end open source platform for machine learning.</p>
 </blockquote>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
@@ -691,7 +691,7 @@ right: 0.0090</code></pre>
 <p><img src="index_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>np.allclose(df_dx_exact, df_dx_tf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>True</code></pre>
@@ -703,7 +703,7 @@ right: 0.0090</code></pre>
 <blockquote class="blockquote">
 <p><a href="https://pytorch.org/">PyTorch</a> is a Python package that supports tensors and dynamic neural networks in Python with strong GPU acceleration.</p>
 </blockquote>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
@@ -738,7 +738,7 @@ right: 0.0090</code></pre>
 <p><img src="index_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>np.allclose(df_dx_exact, df_dx_torch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>True</code></pre>
@@ -750,7 +750,7 @@ right: 0.0090</code></pre>
 <blockquote class="blockquote">
 <p><a href="https://github.com/google/jax">JAX</a> is <a href="https://github.com/hips/autograd">Autograd</a> and <a href="https://www.tensorflow.org/xla">XLA</a>, brought together for high-performance numerical computing, including large-scale machine learning research.</p>
 </blockquote>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> jax.numpy <span class="im">as</span> jnp</span>
@@ -783,7 +783,7 @@ right: 0.0090</code></pre>
 <p><img src="index_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>np.allclose(df_dx_exact, df_dx_jax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>True</code></pre>

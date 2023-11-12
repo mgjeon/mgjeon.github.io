@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Mingyu Jeon">
+<meta name="dcterms.date" content="2023-11-12">
+
+<title>Mingyu Jeon - Visualization of 2D Vector Fields in Python</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script type="text/javascript">
+window.PlotlyConfig = {MathJaxConfig: 'local'};
+if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+if (typeof require !== 'undefined') {
+require.undef("plotly");
+requirejs.config({
+    paths: {
+        'plotly': ['https://cdn.plot.ly/plotly-2.27.0.min']
+    }
+});
+require(['plotly'], function(Plotly) {
+    window._Plotly = Plotly;
+});
+}
+</script>
+
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Mingyu Jeon</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mgjeon" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Visualization of 2D Vector Fields in Python</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">math</div>
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">english</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Mingyu Jeon </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 12, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#field-line-of-a-vector-field" id="toc-field-line-of-a-vector-field" class="nav-link active" data-scroll-target="#field-line-of-a-vector-field">Field line of a vector field</a></li>
+  <li><a href="#d-vector-field" id="toc-d-vector-field" class="nav-link" data-scroll-target="#d-vector-field">2D vector field</a>
+  <ul class="collapse">
+  <li><a href="#matplotlib" id="toc-matplotlib" class="nav-link" data-scroll-target="#matplotlib">matplotlib</a></li>
+  <li><a href="#plotly" id="toc-plotly" class="nav-link" data-scroll-target="#plotly">plotly</a></li>
+  <li><a href="#scipy" id="toc-scipy" class="nav-link" data-scroll-target="#scipy">scipy</a></li>
+  <li><a href="#pyvista-k3d-jupyter" id="toc-pyvista-k3d-jupyter" class="nav-link" data-scroll-target="#pyvista-k3d-jupyter">PyVista (+ K3D-jupyter)</a></li>
+  </ul></li>
+  <li><a href="#d-vector-field-1" id="toc-d-vector-field-1" class="nav-link" data-scroll-target="#d-vector-field-1">3D vector field</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="field-line-of-a-vector-field" class="level2">
+<h2 class="anchored" data-anchor-id="field-line-of-a-vector-field">Field line of a vector field</h2>
+<p>A field line of a vector field is a curve where the vector field’s direction is the same as the curve’s tangent at every point.</p>
+<p>For a vector field <span class="math inline">\mathbf{F}(\mathbf{r})</span> defined at every point <span class="math inline">\mathbf{r}</span>, the equation of a field line can be expressed as</p>
+<p><span class="math display">
+\frac{\rm{d}\mathbf{r}}{|\rm{d}\mathbf{r}|} = \frac{\mathbf{F}(\mathbf{r})}{|\mathbf{F}(\mathbf{r})|}
+</span></p>
+<p>For simplicity, we often use <span class="math inline">\rm{d}s = |\rm{d}\mathbf{r}|</span> and <span class="math inline">F = |\mathbf{F}(\mathbf{r})|</span>.</p>
+<p><span class="math display">
+\frac{\rm{d}\mathbf{r}}{\rm{d}s} = \frac{\mathbf{F}}{F}
+</span></p>
+</section>
+<section id="d-vector-field" class="level2">
+<h2 class="anchored" data-anchor-id="d-vector-field">2D vector field</h2>
+<p>The 2D vector field in Cartesian coordinates <span class="math inline">(x, y)</span> is</p>
+<p><span class="math display">
+\mathbf{F}(x, y) = F_x(x, y)\mathbf{\hat{x}} + F_y(x, y)\mathbf{\hat{y}}
+</span></p>
+<p>and the displacement vector <span class="math inline">\rm{d}\mathbf{r}</span> is</p>
+<p><span class="math display">
+\rm{d}\mathbf{r} = \rm{d}x \mathbf{\hat{x}} + \rm{d}y \mathbf{\hat{y}}
+</span></p>
+<p>Then the field line equations for each component read</p>
+<p><span class="math display">
+\begin{cases}
+\displaystyle \frac{\rm{d}x}{\rm{d}s} &amp; = \displaystyle \frac{F_x}{F} \\ \\
+\displaystyle \frac{\rm{d}y}{\rm{d}s} &amp; = \displaystyle \frac{F_y}{F}
+\end{cases}
+</span></p>
+<p>In the following examples, the vector field is given by</p>
+<p><span class="math display">
+\mathbf{F}(x, y) = x\mathbf{\hat{x}} + (x+y)\mathbf{\hat{y}}
+</span></p>
+<section id="matplotlib" class="level3">
+<h3 class="anchored" data-anchor-id="matplotlib">matplotlib</h3>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fx(x, y):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fy(x, y):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> y</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>nx <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>ny <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, nx)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, ny)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(x, y)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Fx <span class="op">=</span> fx(X, Y)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>Fy <span class="op">=</span> fy(X, Y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">12</span>, <span class="dv">12</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">12</span>, <span class="dv">12</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.quiver(X, Y, Fx, Fy)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">12</span>, <span class="dv">12</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">12</span>, <span class="dv">12</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt.streamplot(X, Y, Fx, Fy)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="plotly" class="level3">
+<h3 class="anchored" data-anchor-id="plotly">plotly</h3>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pio.renderers.default <span class="op">=</span> <span class="st">"plotly_mimetype+notebook_connected"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.figure_factory <span class="im">as</span> ff</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ff.create_quiver(X, Y, Fx, Fy)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>fig.update_yaxes(scaleanchor<span class="op">=</span><span class="st">"x"</span>, scaleratio<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>                            <div id="2d1f5c96-8549-4b1c-b704-aa31f8f1a15d" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("2d1f5c96-8549-4b1c-b704-aa31f8f1a15d")) {                    Plotly.newPlot(                        "2d1f5c96-8549-4b1c-b704-aa31f8f1a15d",                        [{"mode":"lines","x":[-10.0,-11.0,null,-7.142857142857142,-7.857142857142857,null,-4.285714285714286,-4.714285714285714,null,-1.4285714285714288,-1.5714285714285716,null,1.4285714285714288,1.5714285714285716,null,4.2857142857142865,4.714285714285715,null,7.142857142857142,7.857142857142857,null,10.0,11.0,null,-10.0,-11.0,null,-7.142857142857142,-7.857142857142857,null,-4.285714285714286,-4.714285714285714,null,-1.4285714285714288,-1.5714285714285716,null,1.4285714285714288,1.5714285714285716,null,4.2857142857142865,4.714285714285715,null,7.142857142857142,7.857142857142857,null,10.0,11.0,null,-10.0,-11.0,null,-7.142857142857142,-7.857142857142857,null,-4.285714285714286,-4.714285714285714,null,-1.4285714285714288,-1.5714285714285716,null,1.4285714285714288,1.5714285714285716,null,4.2857142857142865,4.714285714285715,null,7.142857142857142,7.857142857142857,null,10.0,11.0,null,-10.0,-11.0,null,-7.142857142857142,-7.857142857142857,null,-4.285714285714286,-4.714285714285714,null,-1.4285714285714288,-1.5714285714285716,null,1.4285714285714288,1.5714285714285716,null,4.2857142857142865,4.714285714285715,null,7.142857142857142,7.857142857142857,null,10.0,11.0,null,-10.0,-11.0,null,-7.142857142857142,-7.857142857142857,null,-4.285714285714286,-4.714285714285714,null,-1.4285714285714288,-1.5714285714285716,null,1.4285714285714288,1.5714285714285716,null,4.2857142857142865,4.714285714285715,null,7.142857142857142,7.857142857142857,null,10.0,11.0,null,-10.0,-11.0,null,-7.142857142857142,-7.857142857142857,null,-4.285714285714286,-4.714285714285714,null,-1.4285714285714288,-1.5714285714285716,null,1.4285714285714288,1.5714285714285716,null,4.2857142857142865,4.714285714285715,null,7.142857142857142,7.857142857142857,null,10.0,11.0,null,-10.0,-11.0,null,-7.142857142857142,-7.857142857142857,null,-4.285714285714286,-4.714285714285714,null,-1.4285714285714288,-1.5714285714285716,null,1.4285714285714288,1.5714285714285716,null,4.2857142857142865,4.714285714285715,null,7.142857142857142,7.857142857142857,null,10.0,11.0,null,-10.0,-11.0,null,-7.142857142857142,-7.857142857142857,null,-4.285714285714286,-4.714285714285714,null,-1.4285714285714288,-1.5714285714285716,null,1.4285714285714288,1.5714285714285716,null,4.2857142857142865,4.714285714285715,null,7.142857142857142,7.857142857142857,null,10.0,11.0,null,-10.923304299759629,-11.0,-10.512880127768826,null,-7.831676226399078,-7.857142857142857,-7.479884078978389,null,-4.7400481530385274,-4.714285714285714,-4.446888030187954,null,-1.6484200796779762,-1.5714285714285716,-1.413891981397518,null,1.443207993682575,1.5714285714285716,1.619104067392919,null,4.534836067043127,4.714285714285715,4.652100116183356,null,7.626464140403676,7.857142857142857,7.685096164973791,null,10.718092213764228,11.0,10.718092213764228,null,-10.893988287474572,-11.0,-10.542196140053884,null,-7.80236021411402,-7.857142857142857,-7.5092000912634465,null,-4.7107321407534695,-4.714285714285714,-4.476204042473011,null,-1.6191040673929191,-1.5714285714285716,-1.443207993682575,null,1.4725240059676323,1.5714285714285716,1.5897880551078616,null,4.564152079328184,4.714285714285715,4.622784103898298,null,7.655780152688734,7.857142857142857,7.655780152688734,null,10.747408226049284,11.0,10.68877620147917,null,-10.864672275189514,-11.0,-10.571512152338942,null,-7.773044201828963,-7.857142857142857,-7.538516103548504,null,-4.681416128468412,-4.714285714285714,-4.505520054758068,null,-1.5897880551078616,-1.5714285714285716,-1.4725240059676323,null,1.5018400182526896,1.5714285714285716,1.5604720428228043,null,4.593468091613241,4.714285714285715,4.593468091613241,null,7.685096164973791,7.857142857142857,7.626464140403677,null,10.776724238334342,11.0,10.659460189194112,null,-10.835356262904456,-11.0,-10.600828164623998,null,-7.743728189543906,-7.857142857142857,-7.5678321158335615,null,-4.652100116183355,-4.714285714285714,-4.534836067043126,null,-1.5604720428228043,-1.5714285714285716,-1.5018400182526896,null,1.531156030537747,1.5714285714285716,1.531156030537747,null,4.622784103898298,4.714285714285715,4.564152079328184,null,7.714412177258848,7.857142857142857,7.597148128118619,null,10.8060402506194,11.0,10.630144176909056,null,-10.8060402506194,-11.0,-10.630144176909056,null,-7.714412177258848,-7.857142857142857,-7.597148128118619,null,-4.622784103898297,-4.714285714285714,-4.564152079328183,null,-1.531156030537747,-1.5714285714285716,-1.531156030537747,null,1.5604720428228043,1.5714285714285716,1.5018400182526896,null,4.652100116183356,4.714285714285715,4.534836067043127,null,7.743728189543906,7.857142857142857,7.5678321158335615,null,10.835356262904456,11.0,10.600828164623998,null,-10.776724238334342,-11.0,-10.659460189194112,null,-7.685096164973791,-7.857142857142857,-7.626464140403677,null,-4.59346809161324,-4.714285714285714,-4.59346809161324,null,-1.5018400182526896,-1.5714285714285716,-1.5604720428228043,null,1.5897880551078616,1.5714285714285716,1.4725240059676323,null,4.681416128468413,4.714285714285715,4.505520054758069,null,7.773044201828963,7.857142857142857,7.538516103548504,null,10.864672275189514,11.0,10.571512152338942,null,-10.747408226049284,-11.0,-10.68877620147917,null,-7.655780152688734,-7.857142857142857,-7.655780152688734,null,-4.564152079328183,-4.714285714285714,-4.622784103898297,null,-1.4725240059676323,-1.5714285714285716,-1.5897880551078616,null,1.619104067392919,1.5714285714285716,1.443207993682575,null,4.71073214075347,4.714285714285715,4.476204042473012,null,7.80236021411402,7.857142857142857,7.5092000912634465,null,10.893988287474572,11.0,10.542196140053884,null,-10.718092213764228,-11.0,-10.718092213764228,null,-7.626464140403676,-7.857142857142857,-7.685096164973791,null,-4.534836067043126,-4.714285714285714,-4.652100116183355,null,-1.443207993682575,-1.5714285714285716,-1.6191040673929191,null,1.6484200796779762,1.5714285714285716,1.4138919813975177,null,4.740048153038528,4.714285714285715,4.446888030187955,null,7.831676226399077,7.857142857142857,7.479884078978389,null,10.923304299759629,11.0,10.512880127768826,null],"y":[-10.0,-12.0,null,-10.0,-11.714285714285715,null,-10.0,-11.428571428571429,null,-10.0,-11.142857142857142,null,-10.0,-10.857142857142858,null,-10.0,-10.571428571428571,null,-10.0,-10.285714285714286,null,-10.0,-10.0,null,-7.142857142857142,-8.857142857142858,null,-7.142857142857142,-8.571428571428571,null,-7.142857142857142,-8.285714285714285,null,-7.142857142857142,-8.0,null,-7.142857142857142,-7.7142857142857135,null,-7.142857142857142,-7.428571428571428,null,-7.142857142857142,-7.142857142857142,null,-7.142857142857142,-6.857142857142857,null,-4.285714285714286,-5.714285714285714,null,-4.285714285714286,-5.428571428571429,null,-4.285714285714286,-5.142857142857142,null,-4.285714285714286,-4.857142857142857,null,-4.285714285714286,-4.571428571428571,null,-4.285714285714286,-4.285714285714286,null,-4.285714285714286,-4.0,null,-4.285714285714286,-3.714285714285714,null,-1.4285714285714288,-2.571428571428572,null,-1.4285714285714288,-2.285714285714286,null,-1.4285714285714288,-2.0000000000000004,null,-1.4285714285714288,-1.7142857142857146,null,-1.4285714285714288,-1.4285714285714288,null,-1.4285714285714288,-1.142857142857143,null,-1.4285714285714288,-0.8571428571428574,null,-1.4285714285714288,-0.5714285714285716,null,1.4285714285714288,0.5714285714285716,null,1.4285714285714288,0.8571428571428574,null,1.4285714285714288,1.1428571428571432,null,1.4285714285714288,1.4285714285714288,null,1.4285714285714288,1.7142857142857146,null,1.4285714285714288,2.0000000000000004,null,1.4285714285714288,2.285714285714286,null,1.4285714285714288,2.571428571428572,null,4.2857142857142865,3.7142857142857153,null,4.2857142857142865,4.000000000000001,null,4.2857142857142865,4.2857142857142865,null,4.2857142857142865,4.571428571428572,null,4.2857142857142865,4.857142857142858,null,4.2857142857142865,5.142857142857144,null,4.2857142857142865,5.42857142857143,null,4.2857142857142865,5.714285714285715,null,7.142857142857142,6.857142857142857,null,7.142857142857142,7.142857142857142,null,7.142857142857142,7.428571428571428,null,7.142857142857142,7.7142857142857135,null,7.142857142857142,8.0,null,7.142857142857142,8.285714285714285,null,7.142857142857142,8.571428571428571,null,7.142857142857142,8.857142857142858,null,10.0,10.0,null,10.0,10.285714285714286,null,10.0,10.571428571428571,null,10.0,10.857142857142858,null,10.0,11.142857142857142,null,10.0,11.428571428571429,null,10.0,11.714285714285715,null,10.0,12.0,null,-11.333578384530755,-12.0,-11.538790470526155,null,-11.157725192883175,-11.714285714285715,-11.304305254308463,null,-10.981872001235596,-11.428571428571429,-11.069820038090768,null,-10.806018809588016,-11.142857142857142,-10.835334821873074,null,-10.630165617940438,-10.857142857142858,-10.60084960565538,null,-10.454312426292859,-10.571428571428571,-10.366364389437686,null,-10.27845923464528,-10.285714285714286,-10.131879173219994,null,-10.102606042997701,-10.0,-9.897393957002299,null,-8.271266323455261,-8.857142857142858,-8.476478409450662,null,-8.095413131807682,-8.571428571428571,-8.241993193232968,null,-7.919559940160101,-8.285714285714285,-8.007507977015274,null,-7.7437067485125235,-8.0,-7.773022760797581,null,-7.567853556864944,-7.7142857142857135,-7.538537544579887,null,-7.392000365217364,-7.428571428571428,-7.304052328362193,null,-7.2161471735697855,-7.142857142857142,-7.069567112144499,null,-7.040293981922207,-6.857142857142857,-6.835081895926805,null,-5.208954262379767,-5.714285714285714,-5.4141663483751685,null,-5.033101070732188,-5.428571428571429,-5.179681132157475,null,-4.857247879084609,-5.142857142857142,-4.945195915939781,null,-4.68139468743703,-4.857142857142857,-4.710710699722087,null,-4.50554149578945,-4.571428571428571,-4.476225483504393,null,-4.329688304141872,-4.285714285714286,-4.2417402672866995,null,-4.153835112494293,-4.0,-4.007255051069006,null,-3.9779819208467133,-3.714285714285714,-3.772769834851312,null,-2.146642201304274,-2.571428571428572,-2.3518542872996755,null,-1.970789009656695,-2.285714285714286,-2.1173690710819812,null,-1.7949358180091157,-2.0000000000000004,-1.8828838548642879,null,-1.6190826263615365,-1.7142857142857146,-1.6483986386465939,null,-1.4432294347139574,-1.4285714285714288,-1.4139134224289003,null,-1.2673762430663784,-1.142857142857143,-1.1794282062112063,null,-1.0915230514187992,-0.8571428571428574,-0.9449429899935127,null,-0.9156698597712201,-0.5714285714285716,-0.7104577737758189,null,0.9156698597712201,0.5714285714285716,0.710457773775819,null,1.0915230514187992,0.8571428571428574,0.9449429899935127,null,1.2673762430663784,1.1428571428571432,1.1794282062112065,null,1.4432294347139574,1.4285714285714288,1.4139134224289,null,1.6190826263615365,1.7142857142857146,1.648398638646594,null,1.7949358180091157,2.0000000000000004,1.8828838548642879,null,1.970789009656695,2.285714285714286,2.1173690710819812,null,2.146642201304274,2.571428571428572,2.3518542872996755,null,3.977981920846714,3.7142857142857153,3.7727698348513132,null,4.153835112494294,4.000000000000001,4.007255051069007,null,4.329688304141873,4.2857142857142865,4.2417402672867,null,4.505541495789451,4.571428571428572,4.476225483504394,null,4.681394687437031,4.857142857142858,4.710710699722088,null,4.8572478790846105,5.142857142857144,4.945195915939782,null,5.033101070732189,5.42857142857143,5.179681132157476,null,5.208954262379768,5.714285714285715,5.414166348375169,null,7.040293981922207,6.857142857142857,6.835081895926805,null,7.2161471735697855,7.142857142857142,7.069567112144499,null,7.392000365217364,7.428571428571428,7.304052328362193,null,7.567853556864944,7.7142857142857135,7.538537544579887,null,7.7437067485125235,8.0,7.773022760797581,null,7.919559940160101,8.285714285714285,8.007507977015274,null,8.095413131807682,8.571428571428571,8.241993193232968,null,8.271266323455261,8.857142857142858,8.476478409450662,null,10.102606042997701,10.0,9.897393957002299,null,10.27845923464528,10.285714285714286,10.131879173219994,null,10.454312426292859,10.571428571428571,10.366364389437686,null,10.630165617940438,10.857142857142858,10.60084960565538,null,10.806018809588016,11.142857142857142,10.835334821873074,null,10.981872001235596,11.428571428571429,11.069820038090768,null,11.157725192883175,11.714285714285715,11.304305254308463,null,11.333578384530755,12.0,11.538790470526155,null],"type":"scatter"}],                        {"hovermode":"closest","template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"yaxis":{"scaleanchor":"x","scaleratio":1}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('2d1f5c96-8549-4b1c-b704-aa31f8f1a15d');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ff.create_streamline(x, y, Fx, Fy, arrow_scale<span class="op">=</span><span class="fl">.1</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fig.update_yaxes(scaleanchor<span class="op">=</span><span class="st">"x"</span>, scaleratio<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>                            <div id="d55af3eb-6743-441b-94ac-1229307dbb7c" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("d55af3eb-6743-441b-94ac-1229307dbb7c")) {                    Plotly.newPlot(                        "d55af3eb-6743-441b-94ac-1229307dbb7c",                        [{"mode":"lines","x":[-1.8005309048163554e-06,-1.9876775994021045e-06,-2.194276268241424e-06,-2.4223487482544215e-06,-2.674127021151662e-06,-2.9520750572942234e-06,-3.2589129386195737e-06,-3.597643464914313e-06,-3.971581550743508e-06,-4.384386658173867e-06,-4.84009861878576e-06,-5.343177154060186e-06,-5.898545538229882e-06,-6.511638760642313e-06,-7.188456725870651e-06,-7.935622967636391e-06,-8.760449464517706e-06,-9.671008204037435e-06,-1.0676210170146305e-05,-1.1785892557014677e-05,-1.3010915029809667e-05,-1.4363266007677566e-05,-1.585617997790223e-05,-1.750426702074037e-05,-1.9323655784830862e-05,-2.133215132360533e-05,-2.3549409343459615e-05,-2.5997128561883187e-05,-2.8699263051379376e-05,-3.168225666705382e-05,-3.4975301833384265e-05,-3.861062522148018e-05,-4.262380314123959e-05,-4.70541096877497e-05,-5.1944901100497987e-05,-5.734404005508509e-05,-6.330436405832529e-05,-6.988420253684069e-05,-7.714794765867339e-05,-8.516668450475606e-05,-9.401888672044834e-05,-0.00010379118447900737,-0.0001145792122798639,-0.0001264885448488684,-0.00013963573032960142,-0.00015414943085545474,-0.00017017168167932084,-0.00018785928118170148,-0.0002073853253392599,-0.00022894090171732273,-0.0002527369594993445,-0.00027900637393507566,-0.0003080062253264515,-0.0003400203149332981,-0.00037536194236409415,-0.0004143769716691281,-0.0004574472161404941,-0.0005049941749355469,-0.0005574831581078854,-0.0006154278404402191,-0.0006793952886230414,-0.0007500115110232741,-0.0008279675843763101,-0.0009140264173677082,-0.001009030217359097,-0.0011139087333820186,-0.0012296883561280225,-0.0013575021640974683,-0.0014986010143545059,-0.0016543657865693007,-0.001826320900436329,-0.002016149239008058,-0.0022257086244170665,-0.002457050007707906,-0.002712437551510405,-0.0029943708029733784,-0.003305609175150437,-0.0036491989780138567,-0.004028503265706362,-0.004447234794914934,-0.00490949242050398,-0.005419801289434645,-0.00598315723262921,-0.006605075797581961,-0.007291646412555863,-0.008049592226942792,-0.008886336232469816,-0.009810074337455177,-0.010829856142269279,-0.011955674249950476,-0.013198563043044231,-0.01457070796833193,-0.016085566497432424,-0.01775800207622602,-0.019604432543550487,-0.02164299469398223,-0.023893726886564437,-0.026378771868484918,-0.029122602298752298,-0.03215227183392777,-0.03549769509051792,-0.03919196034614281,-0.043271679508391614,-0.0477773806985482,-0.052753949808295175,-0.05825112864525117,-0.06432407885843539,-0.07103402282101712,-0.07844897516845784,-0.0866445819104733,-0.09570508817652801,-0.10572446101662969,-0.11680770067109414,-0.12907238290832268,-0.14265048719296125,-0.1576905816923091,-0.1743604580288558,-0.1928503385107856,-0.21337681963944455,-0.2361877729316184,-0.261568504938543,-0.2898495941936883,-0.3214169914806231,-0.35672521961275905,-0.39631488586939945,-0.44083630066774937,-0.4910819094465886,-0.5480317157654646,-0.6129183008073049,-0.6873221482381773,-0.7733150797591577,-0.8736820718666749,-0.9922735348885077,-1.1345759663630055,-1.308631878938808,-1.521933226490054,-1.734377599164377,-1.9385458933968476,-2.1355294723471694,-2.3262300750092733,-2.51138642278769,-2.6916060622220277,-2.8673928544853755,-3.039168760352773,-3.2072906496140074,-3.3720632007566023,-3.533748834458633,-3.692575419428638,-3.8487423042089155,-4.002425083892082,-4.153779403171223,-4.3029413043303055,-4.449963760015536,-4.594940737308362,-4.738011349160313,-4.879299026720059,-5.0187954114543025,-5.156324992256572,-5.292010569797843,-5.4259802448179535,-5.558348073649696,-5.689216147860759,-5.81867629290681,-5.946811467907654,-6.073696928510099,-6.199401200154053,-6.323986898269144,-6.447511423884448,-6.570027557068263,-6.691583965993443,-6.812225645868853,-6.931981259891775,-7.050805669291837,-7.168732760258162,-7.285786100390883,-7.4019949252745185,-7.5173940662116525,-7.632016059262805,-7.745891353341369,-7.859048494580941,-7.971514290206545,-8.083313954633015,-8.194471240095778,-8.305008553773579,-8.414947063075571,-8.524306024331745,-8.633079185805515,-8.741267615800567,-8.848890391963346,-8.955965604331018,-9.062510426122891,-9.168541178116469,-9.274073387306064,-9.379121840453841,-9.48370063306762,-9.58782321427488,-9.691502428006403,-9.794750550854618,-9.897579326929696,-10.0,null,-3.464491356766966,-3.601437715526882,-3.736541478587897,-3.8696534686875745,-4.000529627361273,-4.129356438795764,-4.256311766614848,-4.38152779827893,-4.505090618633057,-4.6271146380115376,-4.747703944556448,-4.866951485624759,-4.984940681862771,-5.10174675154366,-5.217437806423079,-5.332075765609983,-5.445717123151657,-5.558413382464704,-5.670151081766482,-5.780921223760174,-5.890772863398738,-5.999751141654218,-6.107897712949817,-6.215251114200745,-6.321847084944196,-6.427718846269735,-6.532897344862961,-6.637411467361677,-6.741288229331158,-6.844552942444816,-6.9472293628719335,-7.049339823396883,-7.150887132665606,-7.251850637624523,-7.3522397446062175,-7.452074514840936,-7.551373890640303,-7.6501557817068,-7.748437143035487,-7.84623404538996,-7.943561739201666,-8.040434712629047,-8.136866744417421,-8.232870952118835,-8.328459836161324,-8.423645320197044,null,-6.564847619993313,-6.700351026605536,-6.834555964156222,-6.96753143412826,-7.099340686788736,-7.230037096593612,-7.359658162752988,-7.488250996742126,-7.615860374372411,-7.742527929480383,-7.868292456752739,-7.99318791113098,-8.117192323463513,-8.240306325961765,-8.362565833605023,-8.484004452630169,-8.604653684744848,-8.724543108617214,-8.843700541663525,-8.962152184690913,-9.079922751568901,-9.197035585784533,-9.313512765470112,-9.429375198269627,-9.544642707222458,-9.659334108684527,-9.773463855845222,-9.887014550230996,-10.0,null,-0.9596956002950723,-1.0693895218975555,-1.1909230219185218,-1.3243957114273055,-1.4685926092537365,-1.613380899832439,-1.7551425977269517,-1.8940962259312357,-2.0304461901271127,-2.1643788999219282,-2.2960623925060677,-2.425647429950251,-2.5532691328583415,-2.6790487208888907,-2.802678352441669,-2.92371061379637,-3.0424053769187243,-3.159005167404106,-3.2737140832109244,-3.3867058727690464,-3.498129947313009,-3.6081159394978295,-3.7167772167506747,-3.824213628616601,-3.9305136831642606,-4.035756291339176,-4.140012179865963,-4.2433450467074225,-4.345791041393986,-4.447240547269292,-4.54772638984408,-4.647302752517619,-4.746018991401948,-4.843920222119456,-4.941047817632492,-5.037439833088512,-5.133131370373583,-5.228154892534829,-5.32254049626619,-5.4163161491124185,-5.509507896831396,-5.602140045389169,-5.694228158927946,-5.785759340549834,-5.876752442953259,-5.967228109381575,-6.0572057316450465,-6.146703554981288,-6.235738771836312,-6.3243276059674995,-6.41248538806483,-6.5002266239154505,-6.587565055993196,-6.674513719233936,-6.76108499165545,-6.847290640394088,null,-1.9574945869609124,-2.0616537432634665,-2.163593619510011,-2.2635739935352,-2.3618080383361395,-2.458473338557548,-2.553719758922206,-2.6476752007457396,-2.7404499018402975,-2.8321397073029972,-2.922828597707178,-3.0125906713443698,-3.1014917183567308,-3.1895531035366034,-3.2767550248038093,-3.363147596105213,-3.4487800139323674,-3.5336968069267867,-3.617938440355222,-3.7015418230817687,-3.784540735644626,-3.866966193982236,-3.948846760282054,-4.030208810079405,-4.11107676292529,-4.191473282535141,-4.271417398889335,-4.350884273742981,-4.42985661946617,-4.5083539538030415,-4.586395750391308,-4.664000209875332,-4.741184374825676,-4.817964231591405,-4.894354800861354,-4.9703702184315866,-5.0460238074468,-5.1213281431936135,-5.196295111365958,-5.270935960591133,null,-0.6766470328470913,-0.7618989766120627,-0.8574543992423234,-0.9650590895576681,-1.0870288349308694,-1.2265505606346423,-1.388220662272989,-1.5681961163369191,-1.7490802591673411,-1.9309912083819434,-2.114663454834381,-2.300445113270216,-2.4884201727990085,-2.6784771331558,-2.870354069174181,-3.0636734987349925,-3.25797311215739,-3.452734731545889,-3.6474118556135604,-3.841455097678061,-4.034334440878278,-4.225516778544063,-4.41342798669246,-4.597153415095017,-4.777071885471979,-4.953532595416976,-5.126832958183482,-5.297228833737161,-5.464942290914613,-5.630167593182598,-5.793075881802224,-5.953818887574674,-6.1125319071068684,-6.269336214587589,-6.424341034925996,-6.577645172190797,-6.729338364370413,-6.879502418780816,-7.028212170127974,-7.175535946340286,-7.321443390586353,-7.465860329795531,-7.608858268996626,-7.750508769415644,-7.890877583961305,-8.030025301064603,-8.1680078992941,-8.304877227434432,-8.440681421938041,-8.575465271472105,-8.709270536545864,-8.842136230815683,-8.974098869548405,-9.10519268981969,-9.235449846288008,-9.364897964466563,-9.493515028863065,-9.621304397396365,-9.748296297807357,-9.87451920887337,-10.0,null,-0.40027799744215464,-0.44112400883236624,-0.4857851082533582,-0.5344681568780736,-0.5873351679128138,-0.644483876874336,-0.7059276727899224,-0.7715776906013243,-0.8412306512013004,-0.9145660613248854,-0.9911552542818853,-1.0698504079491595,-1.1487290266438102,-1.227477513208287,-1.3059335372299028,-1.38397183827726,-1.4614390986248615,-1.5376861173778984,-1.6127293213864533,-1.6866927064630595,-1.7596805057780713,-1.831781386035729,-1.90307155793713,-1.9736171265901845,-2.0434733408378642,-2.112635228056101,-2.1811196692452155,-2.2489731417937646,-2.3162370808596737,-2.3829486233073602,-2.449141215443192,-2.5148451139313446,-2.5800878020492437,-2.6448943381957903,-2.709287649704037,-2.773288782132714,-2.836917112042583,-2.900190429948454,-2.963111631274752,-3.025683758374903,-3.087921728491768,-3.1498394367923943,-3.211449853396404,-3.272765108788592,-3.333796569278399,-3.394554903894032,-3.4550501438753747,-3.515291735746864,-3.5752885888009613,-3.6350491176984194,-3.694581280788176,null,-1.2979832930611543,-1.4526785746544402,-1.6157580424383564,-1.7803932616498503,-1.947463733794585,-2.117548947341602,-2.291024458226409,-2.468110203056346,-2.648895491705809,-2.833352307944014,-3.021343216037744,-3.212627700592118,-3.406869434935947,-3.60364606762195,-3.802462336549592,-4.002766570093273,-4.203969936741455,-4.405037124657305,-4.6036292168436335,-4.799665999115182,-4.993248747869649,-5.18446478086997,-5.373390621690577,-5.560094358792585,-5.744637421917132,-5.927018312507139,-6.106636493491508,-6.283511951421424,-6.457833894094984,-6.629770058159658,-6.799470000571906,-6.967067766150924,-7.132684070219826,-7.296419239443717,-7.458363898664503,-7.618611294588268,-7.777246781295147,-7.934348565148676,-8.08998852350062,-8.244232906133988,-8.397142939386745,-8.548775349004949,-8.699182814732572,-8.848404101123798,-8.996360069174788,-9.143071223633797,-9.288592057955027,-9.43297323443638,-9.576261953562948,-9.718502278665582,-9.859735422339977,-10.0,null,-0.5219201891935032,-0.5635505948432566,-0.6057896834695278,-0.6485208770769457,-0.6916422604030998,-0.7350652631448718,-0.7787132598361222,-0.8225201882659174,-0.8664292462545795,-0.91039169820254,-0.9543658041251906,-0.9983158721973737,-1.0422114289896953,-1.0860138595342885,-1.1296103966115698,-1.1729959494221482,-1.2161760358375062,-1.2591560859390238,-1.3019414074717286,-1.3445371629642562,-1.3869483553412358,-1.429179663336102,-1.4712041559642213,-1.5130017912632034,-1.5545846527979634,-1.5959638030875265,-1.6371462075337888,-1.678133504604201,-1.718934056826745,-1.7595560898326514,-1.8000072388584591,-1.8402946076502928,-1.8804248199515463,-1.920404064690043,-1.9602381357869412,-1.999932467353716,-2.039492164917398,-2.078922033211402,-2.1182266009852198,null,-0.2378957727078692,-0.2495222946611353,-0.2611731844725753,-0.27283970046194206,-0.2845193940916779,-0.29621013509611416,-0.3079100635472596,-0.31961755021843175,-0.3313311636301375,-0.34304964250964964,-0.3547718726618072,-0.3664968674539981,-0.37822375127774777,-0.38995174547405576,-0.40167869319225424,-0.41339943818458735,-0.42511348091419165,-0.4368207218294913,-0.44852108258825574,-0.46021450315564216,-0.47190093931950905,-0.4835803605569655,-0.4952527481975775,-0.5069180938380562,-0.5185763979707687,-0.5302276687946694,-0.5418719211822651,null,-1.9146526554587382,-2.071982912137014,-2.2333446480758568,-2.399112155474157,-2.5695899568289313,-2.745016948237806,-2.925564790785292,-3.1113323821882997,-3.302337809647848,-3.498509108263364,-3.6996752555589527,-3.9055589932199997,-4.115773159641004,-4.3296213328435345,-4.5429197341710665,-4.753753083851331,-4.962215095380745,-5.1683823839581935,-5.372318858983695,-5.574078946199848,-5.773709974261202,-5.97125395526842,-6.166748919875341,-6.360229921372122,-6.551729791521716,-6.741279708869439,-6.928909624598624,-7.1146485797358565,-7.298477516458399,-7.480382936243904,-7.66044357658804,-7.838735091041316,-8.015249635578433,-8.189749352872528,-8.362314880022836,-8.533046080704867,-8.702034262843457,-8.869363179520002,-9.03510988362692,-9.199345461621927,-9.362135666692941,-9.52354146772593,-9.683619527397779,-9.84242262029122,-10.0,null,0.0035480903726980983,0.003916923125508731,0.004324107734962723,0.004773635784895092,0.005269915559942717,0.005817815980135421,0.006422715315839156,0.007090555253464359,0.007827900967081192,0.008642007953476138,0.009540896513149377,0.010533434913998718,0.011629432466856215,0.012839743984377705,0.014176387403638913,0.015652676749882133,0.017283373135050795,0.019084857161956847,0.021075327002328947,0.023275027617708943,0.025706518214997587,0.028394987244610093,0.03136862730967138,0.034650023469025015,0.03814236679263949,0.04180455165890962,0.04562933069266606,0.049609288986109945,0.0537369939389869,0.05800511281592868,0.0624065014617976,0.06693426828123172,0.07158181770413385,0.07634287712594556,0.0812115108868241,0.08618212434818417,0.09124946061060868,0.09640859193625495,0.1016549075131934,0.10697267102250407,0.11232386092273572,0.11770374724303068,0.12311046024710137,0.12854231938657357,0.1339978087115341,0.13947555609777673,0.14497431561272478,0.15049295247600192,0.15603043017573093,0.16158579938460704,0.16715818838562413,0.17274679476971144,0.17834981608300104,0.18396363673906002,0.1895875868098411,0.19522125117803846,0.20086424396527924,0.2065162057492511,0.21217680110833292,0.2178457164483678,0.2235226580733336,0.22920735046762886,0.23489953476256886,0.24059896736373432,0.24630541871921352,null,-2.7350214504110477,-2.911527660443353,-3.094271894139844,-3.2835257346244564,-3.4795048288169195,-3.6823524956760725,-3.8921203886381557,-4.108747280561075,-4.331739160926867,-4.555278824575912,-4.776523979530401,-4.995554948180632,-5.212433285795875,-5.427206929986397,-5.6399139636379525,-5.850585391037279,-6.059247199327634,-6.265921894762842,-6.470629648307483,-6.673389147813802,-6.874218228125831,-7.073134332174924,-7.27007053571762,-7.464787219594589,-7.657363838600981,-7.8478964917521985,-8.036472893082562,-8.223173413729358,-8.4080719611311,-8.591236725530942,-8.772730817567517,-8.952612815848278,-9.130937239637818,-9.307754958870685,-9.483113551408643,-9.657006529853343,-9.82928411470326,-10.0,null,0.6593411275656589,0.6980713431828534,0.7374028433085087,0.777318809474087,0.8178038645271357,0.8588439140088067,0.9004260091694096,0.942538228212042,0.985169572951321,1.0283098785586784,1.0719497344599223,1.1160804147722008,1.1606938169306957,1.2057824073713945,1.2513170259014395,1.2972578306136775,1.3435974277056228,1.3903300259372173,1.4374439504533036,1.484813852566175,1.5323830647465808,1.5801645924918937,1.6281706001681595,1.6764125425596195,1.7249012758151103,1.7736471517382633,1.8226600985221708,null,-3.6043755499820875,-3.805033472771594,-4.01283715791588,-4.228177971279505,-4.448813720670064,-4.668869941700568,-4.8881980382610575,-5.106960044742545,-5.325246417137067,-5.543092382378963,-5.760490175049237,-5.9773985381475505,-6.193750340023186,-6.40945884395447,-6.624422971770937,-6.838531780211639,-7.051668291110053,-7.263370348918762,-7.472531141535733,-7.679195736594069,-7.883487000481135,-8.085516122970011,-8.285384185581165,-8.483183466288354,-8.67899853295251,-8.87290716597963,-9.06498114182129,-9.255286902233188,-9.44388612909324,-9.630836240642097,-9.816190821948036,-10.0,null,1.4776669321654818,1.5543382507385974,1.631562807728315,1.7094698243100037,1.7881777791085351,1.8677979191515668,1.9484369729963014,2.0301993327568777,2.1131657767634078,2.1971543865717944,2.2821544206196496,2.3682137244125663,2.4553800201256557,2.54370128203694,2.6332260764812396,2.724003876958097,2.8160853630090994,2.909522710050295,3.0043698763513813,3.1006828926916103,3.1985201598225714,3.2979427586843553,3.3990147783251246,null,-4.291598044279438,-4.503212347557059,-4.715154327119644,-4.927619162458961,-5.1407361280764725,-5.354580889684276,-5.569184556119423,-5.784540616703844,-6.000610488319187,-6.217328145712031,-6.4346041470952935,-6.652329259196005,-6.870377811390666,-7.088610855893705,-7.3064063213216865,-7.522643171021464,-7.737293696196733,-7.950391973345839,-8.161965496964022,-8.372036505347955,-8.580623057884065,-8.787739913910457,-8.993399251744131,-9.197611257953966,-9.40038461058074,-9.601726875167438,-9.801644828752378,-10.0,null,2.3222203659615808,2.431378230477133,2.542945789459875,2.6571378659119684,2.7741826191920005,2.8943253650657876,3.0177920265681966,3.1442080600484594,3.273478677035003,3.4057621468726946,3.541227338130758,3.6800553022235913,3.8224410385924,3.968595488268729,4.118747810929424,4.273148011816293,4.430637361823065,4.589652123224841,4.750389311702817,4.913079046478947,5.077944380391431,5.245204594719919,5.415077982737763,5.587784272374421,5.7635467980295605,null,-4.603319737181522,-4.808574984775182,-5.0154122064638385,-5.223959333482718,-5.434305755533837,-5.646506501787877,-5.8605853080766055,-6.076536949610654,-6.294329112314969,-6.513904004660516,-6.735179861636963,-6.9580524547861025,-7.182320206714474,-7.406266065852955,-7.628975789614011,-7.850473027839028,-8.070773641603182,-8.289887262604795,-8.507818571947844,-8.724568354689932,-8.940134373222477,-9.154512092807545,-9.367695285374262,-9.57967653226224,-9.790447642492726,-10.0,null,-4.7751627772603245,-4.975974966909152,-5.17894916207482,-5.383566812859033,-5.590031936239751,-5.798552666418345,-6.009305329958314,-6.222437897440157,-6.438072243940716,-6.656305529262749,-6.877210924704553,-7.100837859991859,-7.326075394078252,-7.550921241648583,-7.775344714532167,-7.999396327087162,-8.223107562930517,-8.446493830821913,-8.669556920352452,-8.892287075408943,-9.114664771156104,-9.336662257333925,-9.55824491411554,-9.77937245470569,-10.0,null,-5.6307205590504115,-5.833187993003379,-6.038233362529525,-6.246019606290871,-6.45669146260739,-6.670376102285949,-6.8871832199543945,-7.107204681852076,-7.329270091937106,-7.551392035391638,-7.773545784237069,-7.99577788664074,-8.218117466079946,-8.440578541864966,-8.663161974067254,-8.885857123430712,-9.108643293009523,-9.331491000959424,-9.554363121136221,-9.777215918610421,-10.0,null,4.675014731968366,4.850327334596921,5.0275350878789435,5.206885346298247,5.388612192208964,5.572939934063864,5.760085803499813,5.950262037743514,6.143677473358313,6.340538735179436,6.541051073792339,6.745418881983834,6.953845902626295,7.166469687639456,7.381422611400151,7.597348170842071,7.814315806713751,8.032380293648067,8.251583060744295,8.47195325462583,8.693508607360261,8.91625615763547,null,-5.3299988859331675,-5.516187317026629,-5.705062365875301,-5.896834280790087,-6.0917067829640335,-6.289878335797864,-6.491542979418279,-6.696890777967422,-6.906107905798935,-7.11937638245052,-7.335415223794904,-7.552302933329999,-7.770044788010948,-7.988694458281705,-8.208291254436894,-8.428861426662984,-8.650419238558936,-8.872967870712193,-9.09650019812305,-9.320999475716379,-9.546439958889376,-9.772787480355495,-10.0,null,3.853315097735221,4.027801004689065,4.20993859187832,4.39863831290862,4.588407047936686,4.779185425630839,4.971322667646678,5.1651215817600615,5.360848589960922,5.55874078921274,5.759010931199844,5.961850894195445,6.167434026956563,6.37591662224613,6.587438698754816,6.802124219002533,7.020080837853499,7.24114746052641,7.462683841747321,7.684318223223006,7.906104591667262,8.128078817733993,8.35026102891895,8.572657585038257,8.79526275433797,9.018060161138333,9.241024058673357,9.464120466640214,9.687308202878395,9.91053983089046,null,4.670914941541268,4.872722153704606,5.07669963728285,5.282991238517635,5.491710568251381,5.702943253330606,5.916748347943473,6.133159156421566,6.351977544482839,6.57302724653313,6.796363163133758,7.022014450275883,7.249731905611721,7.476914332360739,7.703293960861142,7.928935644281459,8.153882547971818,8.37815965884879,8.60163331963129,8.82415543739527,9.045712825133737,9.266289968450806,9.48586965344266,9.704433497536947,9.921962398207263,null,-0.5804157022864054,-0.6327559806455447,-0.6882170394763509,-0.7469203725648406,-0.8090012338079173,-0.8746110936245142,-0.9439204854810672,-1.0171223619915324,-1.0944361160773948,-1.1761124726262757,-1.2624395266018844,-1.353680015188731,-1.4488067900407078,-1.5452127047566577,-1.642096270357099,-1.7397537976597999,-1.8384393174919023,-1.9383792277992136,-2.0397823583254624,-2.142847262883916,-2.2477678000739196,-2.3547376590110476,-2.4639542603301043,-2.5756223337135618,-2.6899574006827,-2.807189354163758,-2.9275663135139283,-3.0510352300230528,-3.177227338253118,-3.306263946898209,-3.4383016744729886,-3.5735077543581832,-3.712061594123381,-3.854156518347258,-4.000001740963056,-4.149824621584788,-4.3038114762923865,-4.460379133966423,-4.618489875986609,-4.778378178051104,-4.940269259433044,-5.1043827873107155,-5.270935960591133,-5.440146157456119,-5.61223327858182,null,0.696236991476761,0.7641045064763681,0.8370102230756213,0.9153291770932679,0.9994967925588956,1.0900236598206323,1.1875149316094724,1.2926963210007205,1.4064497596318635,1.527066091056268,1.6503750364388328,1.7766749037387815,1.9064748372937856,2.040264096270512,2.1773507157484193,2.3170909319952617,2.459892598115511,2.6061456802393295,2.7562340857234275,2.9105447310743138,3.069474911173682,3.2334386196465204,3.402872224726158,3.5782397459274353,3.760037860286907,3.9488006655775667,4.145104121605547,4.349162090675726,4.555887599792101,4.763609493166417,4.972505726888505,5.182701843831849,5.394279021856031,5.607279959070173,5.821713331413475,6.037557316869954,6.254762527200899,6.473254586079271,6.692936521439012,6.913691087800991,7.13538309434529,7.356843109176417,7.576912917380074,7.795611294239308,8.012961546250935,8.228980611546511,8.443680364187376,8.657068682392115,8.869150327019675,9.079927666091407,9.289401273328007,9.497570422823305,9.704433497536947,9.909988325884083,null,3.818360865062621,4.020189289779237,4.229691904297994,4.444865536499941,4.660179259340323,4.875479184276397,5.090913803951137,5.306568756581584,5.522479193381223,5.738639149227282,5.9550089346598085,6.171521194635954,6.388086047564741,6.604595569095611,6.8209277869651785,7.036950287678582,7.252410149687577,7.466196836968642,7.678251823887365,7.888617763300221,8.097330344844025,8.304419668851246,8.509911357413294,8.713802020088703,8.915762897002804,9.115733888767029,9.31379034930437,9.510001991058612,9.704433497536947,9.897145051511774,null,-1.0530893554110499,-1.1040632363995346,-1.1557896281563504,-1.208258691519438,-1.2614614736872838,-1.3153898319296218,-1.3700363662353077,-1.4253943596840557,-1.481263733343173,-1.5374081248386666,-1.5938453403481407,-1.6505976823170805,-1.7076858671397641,-1.76512931287329,-1.8229463762598304,-1.8811545500566034,-1.9397706290231707,-1.9988108509777565,-2.0582910179001193,-2.1182266009852198,-2.178632832757417,null,3.171643506887989,3.3632475432349676,3.5615858549799384,3.766595465554623,3.9786325703684557,4.198013809706662,4.423320206616937,4.647547672906127,4.870370343859324,5.091985298184902,5.3125067617160795,5.531987203371353,5.750374258728511,5.966970941633697,6.181629147080571,6.394359929438117,6.605172699156366,6.814076065151248,7.02107845244328,7.226147132362293,7.428853625281754,7.629215531337451,7.827344444502305,8.023341681612813,8.217299623777375,8.409302838247783,8.59942902327187,8.787749809030366,8.974331440674312,9.159235364089202,9.342518730871735,9.524234835795951,9.704433497536947,9.883161391441643,null,-0.209444710662412,-0.22126225613702033,-0.2332942777633793,-0.24543883706687275,-0.2576716229458942,-0.269987752638869,-0.28238280879900124,-0.29485278127148007,-0.3073940176466383,-0.3200031810695716,-0.332677214079645,-0.34541330748477783,-0.35820887345915153,-0.37106152219966226,-0.38396904159403533,-0.3969286386014126,-0.40992998308719386,-0.4229698099502208,-0.4360468321555171,-0.4491598458100796,-0.46230772264497766,-0.47548940335251366,-0.4887038916628157,-0.5019502490622152,-0.5152275900705074,-0.5285350780066054,-0.5418719211822651,-0.555237369472465,null,2.2631718710653335,2.4266561838912484,2.5951699162918302,2.7690158476472497,2.9484478058294172,3.133663836764544,3.324796115626226,3.5218983599987794,3.724931717234714,3.9337504541707506,4.148089196123943,4.367109830092197,4.585080073991243,4.800677893935228,5.0139872602855675,5.225075178115848,5.433996195854224,5.640795710381278,5.845512411853846,6.0481801036709655,6.248829062433945,6.447487055479378,6.64418010121145,6.838933034887365,7.031769926483491,7.2226962461430375,7.411554317607468,7.598396405869437,7.7833102779299885,7.9663762636901865,8.147668155822632,8.32725397246843,8.505196607584448,8.681554388615822,8.856254805369666,9.029164561825642,9.200360710356044,9.369922865966963,9.537924480754068,9.704433497536947,9.869512916634353,null,0.01850810770542921,0.02042657138184545,0.022542612962244135,0.024876137854988656,0.02744890457714,0.030284644746553013,0.033409171900144585,0.036850470769950405,0.04059703976656337,0.0445276737376723,0.04862285977431746,0.052872513552916445,0.05726669193727574,0.061795738343786155,0.06645038572983708,0.07122182438271274,0.07610174155063198,0.08108233930664532,0.08615633614223484,0.09131695683222496,0.09655791420461135,0.10187338564399795,0.10725798647660234,0.11270455020610193,0.11817895843745774,0.12366887611339195,0.12917278691010559,0.13468935265317583,0.14021738782594007,0.14575583834175632,0.1513037637721748,0.15686032239253223,0.16242475853724336,0.1679963918587557,0.17357460816348613,0.17915885156054578,0.18474839816866861,0.19034018880873482,0.19593331632726319,0.2015275902768323,0.20712283856303948,0.21271890538958438,0.21831564947199844,0.22391294247980653,0.22951066767367223,0.23510871870960948,0.24070699858678957,0.24630541871921352,0.25190389811453073,null,5.576306068105481,5.770316461610859,5.96222573099395,6.152077558856977,6.339912486427682,6.525768602448398,6.70968206684277,6.891687508607578,7.071818327549565,7.250011006782593,7.425928066500486,7.599668701837359,7.771357531023018,7.9411073826526,8.109020813196512,8.27519138134631,8.439704725279814,8.602639478937888,8.764068055835466,8.924057323135504,9.082669184238977,9.239961084656194,9.395986453184765,9.550795088250325,9.704433497536947,9.856945197644912,null,0.6576895490013026,0.6961659403723175,0.7348276999162149,0.773626195994698,0.8125191663195004,0.8514699308950409,0.8904466873168726,0.9294180768532048,0.9682818191134128,1.0069881759569697,1.0455399995944745,1.0839402850367303,1.1221921080054287,1.1602985786278097,1.1982628070135402,1.2360878778167237,1.2737768316174218,1.311332651493581,1.3487582535510878,1.3860564804749362,1.4232295148932952,1.4602589498395186,1.4971265164302974,1.5338385883698606,1.5704019419061712,1.6068228709365915,1.6431072347864983,1.6792605000125658,1.7152877771240629,1.7511938529613928,1.7869832193468884,1.8226600985221708,1.858228465803899,null,6.455739863078616,6.626949415468243,6.795949372184904,6.962871387738549,7.127834097749172,7.290936693007261,7.452267962713172,7.611919584044333,7.769975604901667,7.926513067664523,8.081602808030247,8.235310139928401,8.387695445804347,8.538814687814735,8.6887198525435,8.83741463670632,8.984828419126753,9.131009948903664,9.276012937714363,9.419887337235057,9.562679700129316,9.704433497536947,9.845189399313028,9.984985522234005,null,1.4578222884272751,1.528984806859567,1.5991695604811866,1.6684694370010504,1.736963653580073,1.8047204526556246,1.8717991470244648,1.9382269963941887,2.0039930055737845,2.0691402920479582,2.1337107747465343,2.197741876137087,2.2612671788478593,2.324316963225831,2.3869186512820324,2.449097176273618,2.510875292653173,2.572273837779745,2.633311954293749,2.6940072801750645,2.754371083676464,2.8144007405708145,2.874109399089823,2.933510640898241,2.9926171251934868,3.0514406755947885,3.1099923567059626,3.1682825418197442,3.226320972990445,3.2841168145053743,3.3416787006244846,3.3990147783251246,3.456132745678648,null,1.500628783082714,1.6762667702864817,1.852942723260158,2.0315360380152647,2.2125312952430374,2.396146747624222,2.5824020203078923,2.7711586495620235,2.9621486747529673,3.1549987160542106,3.34925311581147,3.544397505670627,3.7398827705885758,3.9351485398373214,4.129644950679598,4.322817524041744,4.513652054681733,4.701751318505755,4.886140061645737,5.06689072169983,5.244321438862022,5.418705242811457,5.590278595766613,5.7592479550410225,5.925794889833268,6.090080124135316,6.252246769505437,6.412422938073693,6.570723875378814,6.727253716887137,6.882106946467662,7.035369616530474,7.187119801800673,7.3374219923869965,7.486341436270088,7.633934079657287,7.780122149997094,7.924901747422648,8.068342421802381,8.210508197916571,8.351458175210208,8.491247046108086,8.629925546034727,8.767540845843875,8.904136895432128,9.03975472577218,9.17443271536547,9.308206826115931,9.441110812815392,9.573176409768056,9.704433497536947,9.834904089721974,9.964552689269652,null,2.2908678395546165,2.3846100721281456,2.477015386264908,2.5682028718401124,2.6582753580023386,2.7473223931032713,2.835422554592828,2.9226452646990193,3.009045751134874,3.094597086747017,3.1793297996485563,3.26329512358922,3.3465392757000316,3.429104126132591,3.511027756468735,3.5923449287384184,3.6730874819827335,3.753284669626355,3.832963448141248,3.912148725354376,3.9908635751074577,4.06912942369525,4.146949976910696,4.224321445190819,4.301260049147141,4.377757759453969,4.453819377640608,4.529462242479088,4.604702594290954,4.679555671173546,4.754035794598757,4.828156445788441,4.9019303340562566,4.97536945812808,5.048485161305319,null,0.6875426554436697,0.764745707205936,0.8509911448947083,0.9471416361424954,1.053932168344323,1.171824256399221,1.300822742850528,1.4401293224690495,1.5819375563997333,1.7208718165349648,1.8571301642805427,1.9909003271308912,2.122355042440228,2.251651046376887,2.3789296744184334,2.504318111609578,2.6278638233858125,2.7488599106993554,2.867342616558428,2.9835877786042175,3.0978249932204953,3.210247862554356,3.3210214875512243,3.4302880622300105,3.5381711269659224,3.6447788545029187,3.750206625117869,3.854539070618763,3.9578517154751864,4.060212308250417,4.161681912035185,4.262253797413891,4.361889130273273,4.460594644162235,4.558419598008131,4.655411508138124,4.7516138302269955,4.847066433651676,4.941806006630074,5.035866404127283,5.129278948132072,5.222072688056038,5.314274627557419,5.405909922945682,5.497000814694946,5.587542110519438,5.677539793849171,5.767015133000179,5.8559880791463605,5.9444773790056065,6.032500675374731,6.120074597081022,6.207214839684319,6.293936238068959,6.3802528319024425,6.466177924801475,6.551724137931039,6.636903458665174,null,4.038233702559962,4.21233175343805,4.383266152040376,4.551006099025134,4.715799807046507,4.877885725011055,5.037470769301992,5.194735919262339,5.349840592682487,5.5029261120747925,5.654118482970661,5.803530644463082,5.951264309847842,6.097411485281928,6.242046421220799,6.385057762568088,6.526436509623011,6.666280847684607,6.804679671451495,6.94171377910261,7.077456875539667,7.211974570148055,7.345312358498909,7.47752415576603,7.6086611758228635,7.738770879151687,7.867897350058232,7.996081626334089,8.12336198850862,8.249774214596513,8.375328247043022,8.499994755441367,8.623804675906715,8.746791293199738,8.868985834530399,8.990417644750657,9.111114342765038,9.231101961567305,9.350405073954338,9.469046905671163,9.587049437492432,9.704433497536947,9.821218844935565,9.937424245824786,null,1.5983515928577194,1.7691237963392723,1.9353019618340301,2.0973281304167557,2.255589208911358,2.410420508124176,2.562112198922488,2.7109160075265155,2.8570512482368535,3.0007099714772494,3.142061255448409,3.281254750126834,3.4184235965251375,3.5536868342299215,3.6871120170882836,3.8183064022890356,3.947313395784475,4.074331691390942,4.199532573205545,4.32306120145828,4.4449954217799466,4.565430459664974,4.684467097983701,4.8021953957952,4.918696233531216,5.034042582242613,5.148300554958459,5.2615302842882485,5.37378666019581,5.48510650134585,5.595439584943527,5.704827883498087,5.8133190634753955,5.920957006217787,6.027782219461631,6.13383219287708,6.239141706681313,6.343743100694233,6.447666509874349,6.550940071311576,6.653590106802206,6.755641284443968,6.8571167621304525,6.958035117320691,7.058380971469337,7.158167169055115,7.257399604694982,7.3560889550476,7.454253716542507,7.551911380473285,7.649078508603868,7.7457708015881686,7.842003161022557,7.937789745842306,8.033144023681107,8.128078817733993,8.222606349596703,null,6.383582497090799,6.509456340405027,6.634270666219518,6.758077524946085,6.880924965950925,7.002857459115997,7.123911016677319,7.244042294073122,7.363251013529371,7.481576272694163,7.599055098674821,7.7157220389866445,7.831609389863143,7.946747398141213,8.061164440372817,8.174887182232244,8.287940720810337,8.400348711993232,8.512133484796848,8.623316144256759,8.733916664245996,8.843938957761466,8.953374344935092,9.06224043060595,9.170555287641378,9.278336080515736,9.385599128574896,9.492359963727317,9.598633383151473,9.704433497536947,9.809773775314095,9.914667083273745,null,1.5992431276022678,1.7598693176339761,1.923055142233057,2.0893968546124135,2.259309315261593,2.43306936021807,2.6108374384236477,2.792667747258271,2.978512414693295,3.1682233082187388,3.361553863075642,3.558162825482114,3.757621230908489,3.95942337512537,4.163001882773624,4.367521516374914,4.569977807007248,4.769880270938884,4.967330264863586,5.162414145515832,5.355206797727318,null,3.1415959321513185,3.3073317364977886,3.469897762893712,3.6295328171933683,3.7864452949606715,3.9408183394443768,4.0928139439458615,4.242576245178041,4.390200715894704,4.5357361567618,4.6793205623366045,4.821082452052428,4.961105264649348,5.099160675539881,5.235326128596979,5.36973504396166,5.502505977677636,5.633744856635298,5.7635467980295605,5.891997604144285,6.019175000708724,6.145149670679547,null,0.04587291842840338,-0.0013575021640974683,-0.02183448989826231,null,-5.314388020880748,-5.332075765609983,-5.25526089680342,null,-7.845093733542256,-7.868292456752739,-7.787996042523712,null,-3.3695255093153107,-3.3867058727690464,-3.310221936910002,null,-3.184698546891818,-3.1895531035366034,-3.1216313230826,null,-3.9710706078680986,-4.034334440878278,-3.936091015174371,null,-1.5383452524573447,-1.5376861173778984,-1.4739136795137664,null,-4.333242150094352,-4.405037124657305,-4.305294863216389,null,-1.1012452967120436,-1.0860138595342885,-1.0341530547831845,null,-0.37226020961403405,-0.34304964250964964,-0.30395092480821406,null,-4.67292095180457,-4.753753083851331,-4.653988499259101,null,-0.005075847630564255,0.03136862730967138,0.06330852981094005,null,-5.345152145949534,-5.427206929986397,-5.327609002476681,null,0.9766027493644919,1.0283098785586784,1.043718832256828,null,-5.892259970610766,-5.9773985381475505,-5.878461816821717,null,2.0458535364747292,2.1131657767634078,2.109137751197477,null,-6.126735677139047,-6.217328145712031,-6.1207121636383865,null,3.1894873504265804,3.273478677035003,3.244022999040504,null,-6.41920367792637,-6.513904004660516,-6.420711469546477,null,-6.339350564169411,-6.438072243940716,-6.352202097163821,null,-7.008833742115186,-7.107204681852076,-7.0202930331472,null,5.851351172013675,5.950262037743514,5.8839529278333,null,-6.806110442345939,-6.906107905798935,-6.8290475778092645,null,5.659056408646472,5.759010931199844,5.684379669948162,null,6.254036604539741,6.351977544482839,6.263973565753446,null,-1.6668364621205578,-1.7397537976597999,-1.7278836999411218,null,2.662074744924326,2.7562340857234275,2.7057498419556403,null,5.8654544514070475,5.9550089346598085,5.857804016930266,null,-1.369408985970272,-1.4253943596840557,-1.435767907087457,null,5.4465295952467265,5.531987203371353,5.433141231672846,null,-0.28048268188815334,-0.3200031810695716,-0.348774739175757,null,4.931766795417118,5.0139872602855675,4.914415774519365,null,0.10789578860679823,0.07610174155063198,0.03951401499821632,null,7.198135926962609,7.250011006782593,7.155318838334114,null,1.1016411177197107,1.0839402850367303,1.0342361517519845,null,7.729343749911195,7.769975604901667,7.680116270130826,null,2.2040733242063646,2.197741876137087,2.1384422530458287,null,4.830201169943817,4.886140061645737,4.790007377185907,null,3.343958238039059,3.3465392757000316,3.280304739209853,null,2.964781240086744,2.9835877786042175,2.906049330713516,null,6.352885869642893,6.385057762568088,6.299551268096088,null,4.3008048166550275,4.32306120145828,4.2433452929922275,null,7.697095598921365,7.7157220389866445,7.638299497572146,null,2.6962923456646015,2.792667747258271,2.7016908200524288,null,4.205862897830175,4.242576245178041,4.154662125492127,null],"y":[2.6161646850653142e-05,2.8684329816286436e-05,3.144879025285263e-05,3.4478035010110375e-05,3.779724154995279e-05,4.1433960621617416e-05,4.5418337624170135e-05,4.978335431893299e-05,5.4565092797886905e-05,5.980302363894907e-05,6.554032051298009e-05,7.182420354467922e-05,7.87063140670341e-05,8.624312356353414e-05,9.44963798481524e-05,0.00010353359381376492,0.0001134285703745519,0.0001242619875085893,0.0001361220276798747,0.0001491050662618676,0.0001633164220002925,0.00017887117496684368,0.00019589505793327078,0.0002145254275820463,0.00023491232253647354,0.0002572196157348827,0.00028162626937344726,0.0003083277012496666,0.00033753727214325124,0.0003694879045870181,0.00040443384433253016,0.0004426525766323408,0.00048444691051585664,0.0005301472452909906,0.0005801140345962352,0.0006347404646316335,0.0006944553644299134,0.0007597263675034327,0.000831063345655636,0.0009090221373941887,0.0009942085950829238,0.0010872829768207026,0.001188964710964413,0.0013000375633573924,0.0014213552394437556,0.0015538474559004811,0.001698526518859822,0.0018564944484023016,0.0020289506918675926,0.002217200471363867,0.0024226638140394385,0.002646885316814007,0.002891544700753812,0.003158468213687371,0.0034496409434545683,0.0037672201078322587,0.004113549391217219,0.004491174402085463,0.004902859329320108,0.00535160487971531,0.005840667583036918,0.006373580555196767,0.006954175814158248,0.007586608247116544,0.008275381331232623,0.009025374713646173,0.009841873759597775,0.010730601180014787,0.01169775085195468,0.01275002394640623,0.013894667478197675,0.015139515391899394,0.01649303229514132,0.017964359946926578,0.019563366602458387,0.021300699307786886,0.023187839226554985,0.02523716006698784,0.027461989659498087,0.029876674713147366,0.03249664875243141,0.03533850320330956,0.03842006155862521,0.041760456507081045,0.04538020985575564,0.049301315012808544,0.05354732172330934,0.05814342266594075,0.06311654142016465,0.06849542120101049,0.07431071363040509,0.08059506666823069,0.08738321066141808,0.09471204128354138,0.10262069792858952,0.11115063588888141,0.12034569038609888,0.13025213023390236,0.14091869858744133,0.1523966378762509,0.16473969561815593,0.17800410736774985,0.19224855255641593,0.20753407842203941,0.2239239865915046,0.24148367614804656,0.2602804361603184,0.2803831796298457,0.30186210957002757,0.3247883063790482,0.34923322369018805,0.37526807730283807,0.40296310836630767,0.4323866973460948,0.46360429892625454,0.4966771591295114,0.5316607634470358,0.5686029469939218,0.6075415721329662,0.6485016418017366,0.6914916619806579,0.7364989849374677,0.7834837408918993,0.8323707745375479,0.8830387022020485,0.935304722201602,0.9889030150038849,1.043453222481725,1.0984131449007464,1.153005555274948,1.2061011093656848,1.2560239710784025,1.3002159421088422,1.3346315436815601,1.3526085905831646,1.3432603764479758,1.3041396938406908,1.2419221777119738,1.1614505633740713,1.0661946792647434,0.9587216618567069,0.8409839912425845,0.7145021221734602,0.580484230683366,0.43990717359175946,0.2935727476696819,0.1421477503635309,-0.013806868488247304,-0.17381437952589174,-0.337465949696405,-0.5044081284114021,-0.6743299799902385,-0.8468764619172742,-1.021780519164908,-1.1988704471416742,-1.3779944517049127,-1.5588622357568482,-1.7409765442047522,-1.924244650936604,-2.108609080494439,-2.2940184283372247,-2.480426487141946,-2.667791530087647,-2.856075717773689,-3.045244603515143,-3.2352667176603944,-3.4261132159380114,-3.6177575801026265,-3.810175361617482,-4.003343960997209,-4.197242436889556,-4.391830039550941,-4.586949553186838,-4.782575646902683,-4.978670880098744,-5.175211753129729,-5.372188784920304,-5.569593048473194,-5.767416125388153,-5.965650065197752,-6.164287348901113,-6.363320856169577,-6.562743835775214,-6.76254987885733,-6.962732894695796,-7.163285678650187,-7.36415595908062,-7.565305953140667,-7.76673285165101,-7.968433954836389,-8.17040666652386,-8.372648488742046,-8.575157016687728,-8.777929934029471,-8.98096500852084,-9.18426008789836,-9.387813096041738,-9.59162202937588,-9.79568495349616,-10.0,null,-1.0346969392673273,-1.2152150395780588,-1.3984092012404847,-1.583682002030221,-1.7703087663769619,-1.9581961875928862,-2.1472873253771834,-2.3374982538397386,-2.528706652840059,-2.720860570627381,-2.9139173311685873,-3.107838581853267,-3.3025896931784517,-3.498139263002912,-3.694458703764166,-3.891521896163116,-4.089304896581845,-4.287785308218742,-4.4868336246731895,-4.686332027049735,-4.8862726102758325,-5.086647965828166,-5.287451138838739,-5.488675590019852,-5.690315161749724,-5.892364047765499,-6.094816765996451,-6.297668134140908,-6.500913247649075,-6.7045474598226384,-6.908566363782759,-7.112965776092258,-7.317704859332922,-7.522696593406207,-7.7279158636295,-7.933361415966846,-8.13903201276845,-8.344926434529238,-8.551043481274528,-8.757381973633748,-8.963940753653102,-9.170718685389772,-9.37771465532337,-9.584927572614644,-9.792356369236693,-10.0,null,-2.2497142134866124,-2.4330423400986687,-2.6173151383846527,-2.8024992898301946,-2.9885641866488033,-3.175474752833604,-3.3631812016403124,-3.5516547133202057,-3.7408700201454472,-3.9308035830158508,-4.121433428127683,-4.31273551334435,-4.504603627857644,-4.696968211082411,-4.8898180583978474,-5.083142626758391,-5.27693198016028,-5.471176740878413,-5.665868045735369,-5.86099750677442,-6.0565571757996794,-6.252539512322855,-6.448937354520027,-6.64574389285575,-6.842952646077337,-7.040557439320841,-7.238546418382491,-7.436853555369995,-7.635467980295566,null,0.48422234881921966,0.4238330062217166,0.34380940253437764,0.24165502244652437,0.11618950810570539,-0.02405699913829551,-0.1739854944128556,-0.33207406696208963,-0.49712287999356874,-0.6681700415896419,-0.8444328084421127,-1.0252656963045315,-1.2101300749405617,-1.398571709725843,-1.5895506489235647,-1.781803374735068,-1.9752119209756867,-2.1697177691286065,-2.3652707438334435,-2.5618274138937265,-2.7593498760146202,-2.9578048135321096,-3.1571627567940537,-3.3573974940987323,-3.5584855968565625,-3.760406032660117,-3.963139846888854,-4.166669898372636,-4.3709375679673235,-4.575598633260123,-4.78059736993882,-4.985931288110182,-5.191597884488884,-5.397594664159407,-5.603919156950903,-5.8105689296691265,-6.017541595129565,-6.224834818713202,-6.432446322999452,-6.640373890904906,-6.848615367660831,-7.057168661889126,-7.26601544420919,-7.475075054888676,-7.684341069660709,-7.893814084390789,-8.103494590480393,-8.313382988020939,-8.523479597238122,-8.733784668472971,-8.944298390906486,-9.155020900202244,-9.365952285214487,-9.577092593886935,-9.788441838448923,-10.0,null,-1.774769815968435,-1.9760885245028899,-2.178217126522867,-2.3811288952594216,-2.5847999778433426,-2.7892090327173493,-2.9943369088265106,-3.200166367841411,-3.40668184595397,-3.6138692503281185,-3.8217157851960275,-4.030209803029853,-4.239340676820617,-4.449009165580497,-4.659027679888939,-4.869385832975056,-5.080083533612545,-5.291120460352559,-5.502496115855124,-5.714209869702585,-5.926260992289257,-6.138648681747207,-6.351372085401946,-6.5644303169058436,-6.77782246993783,-6.991547629162041,-7.205599364487908,-7.419856286515488,-7.6342179084920545,-7.848685474678765,-8.063263435098788,-8.277955842973965,-8.49276639734594,-8.707698480312036,-8.922755189662432,-9.13793936757505,-9.353253625918379,-9.568700368625436,-9.784281811530382,-10.0,null,1.4656776990811604,1.5599315504782538,1.6542632424551602,1.7477722907592383,1.8392950801528674,1.9272570011925314,2.0094023206425913,2.0787436152698078,2.1275815204643944,2.157800044305313,2.1709034262087155,2.167912896389149,2.1496047240572125,2.1166474631456946,2.0696858434698395,2.0093920152555356,1.9364940714281875,1.8517873667550528,1.7561325309450915,1.650443634336046,1.5356698893380205,1.4128011190310605,1.2836003677387993,1.1495374800108866,1.0111327174504758,0.8688026027738935,0.7229007609221192,0.5737305008853575,0.4215543329165836,0.2666012870810359,0.10907262396837147,-0.05085365055236046,-0.2130191738379672,-0.37728230661852,-0.5435157493875575,-0.7116045792947876,-0.8814446202205115,-1.0529410793698943,-1.226007398941377,-1.4005638672113854,-1.5764238831003468,-1.75335115145403,-1.9312928386838646,-2.1102077131673207,-2.2900578211278395,-2.4708081286946246,-2.6524262130673906,-2.834881994762916,-3.0181475044286694,-3.2021966788986447,-3.3870051821120297,-3.5725502472719803,-3.7588105372311533,-3.945766020584567,-4.133397861352972,-4.321684489474051,-4.510534558003229,-4.699895117996944,-4.889755504148246,-5.080105633337883,-5.270935960591133,null,-0.1938169748158085,-0.25645729582879184,-0.3292711511897206,-0.41331377459547625,-0.5095961244198453,-0.6190235481379833,-0.7423237332107107,-0.8799705994128502,-1.0321147416508545,-1.1985335383434048,-1.3786133082166625,-1.5698112648130351,-1.7672687474112347,-1.969807812550279,-2.176622496136294,-2.3870151376427726,-2.600223319226033,-2.8140859107592373,-3.0282661078146864,-3.2427832734317654,-3.4576520439158127,-3.6728835781273474,-3.8884864387056446,-4.104467225734064,-4.320823076405419,-4.537381758243089,-4.754050877552382,-4.97084500662834,-5.187776632660027,-5.404856517937313,-5.622093987266803,-5.839497159414318,-6.057073135042348,-6.274828150499571,-6.492767704563423,-6.710896663580321,-6.929219349218037,-7.147739266828282,-7.366412211817265,-7.585197177626151,-7.804097558476347,-8.023116415609577,-8.242256516120769,-8.461520366504477,-8.680910241742737,-8.900428210615834,-9.120076157799856,-9.339855803219931,-9.55976871905069,-9.779816344692478,-10.0,null,2.272938318108178,2.3802628221188478,2.47556630868033,2.5550593826910575,2.620149226655128,2.6716796530292033,2.7101565097682947,2.735879572548809,2.7490283010063408,2.749722953305234,2.7380713132609156,2.714205832837477,2.6783131269559064,2.630656229841085,2.5715893242815238,2.5015645538004403,2.4211308640004194,2.331127947905186,2.2332192577056382,2.128163976233532,2.0165631244233158,1.8989557787782907,1.7758281101465911,1.6476206010838546,1.5147339008808753,1.377577871101126,1.2370125895350625,1.0934293719752475,0.9470461490516922,0.7980557504249184,0.6466297910845196,0.49292181550686287,0.3370698659738647,0.17920724207913885,0.019456067452933823,-0.14208260892647573,-0.305316769630668,-0.470162170733742,-0.6365414460372367,-0.804383340182234,-0.9736220486494656,-1.1441966469565354,-1.3160505947238708,-1.4891193090626107,-1.66320530735317,-1.8382295591899176,-2.0141595541415045,-2.190965030704427,-2.3686177622924562,-2.547091368898827,-2.7263611507509786,-2.9064039408866984,null,-1.7328328225315488,-1.9142985799454255,-2.1015624291909925,-2.2940064588848994,-2.4910635136725165,-2.6922170326986476,-2.8969991968385775,-3.1049880571695345,-3.315804124747001,-3.529106750710744,-3.744590512706395,-3.961981742073454,-4.181035269254869,-4.401467565843127,-4.622618560590891,-4.8443702023952255,-5.066665440677934,-5.2894537385286355,-5.512690138915382,-5.736334490134593,-5.9603507993616605,-6.184705856882003,-6.409201196156543,-6.633675597314804,-6.858142555880038,-7.082614167931359,-7.30708385848761,-7.531518834460956,-7.755925639482829,-7.980312789261607,-8.204688038436613,-8.42905846724303,-8.653430556264286,-8.877810251181142,-9.102203019079017,-9.326613897597964,-9.551047537987387,-9.775508242948254,-10.0,null,-4.194423270925368,-4.4113206404362755,-4.629216225102709,-4.847925004541809,-5.067380667092214,-5.28752417229545,-5.508302748969196,-5.729669056833682,-5.95158048122484,-6.17399853673858,-6.396888360535371,-6.620218279839237,-6.843959441147636,-7.068085491020178,-7.292544273952272,-7.517226479290736,-7.742112273932916,-7.967190030603124,-8.192449041349581,-8.417879423872794,-8.643472039416935,-8.869218420561213,-9.095110707519472,-9.32114159177839,-9.547304266087233,-9.773592379962997,-10.0,null,3.061263669997505,3.1491889533710733,3.226953503099052,3.2946980150857588,3.3524189351007365,3.40000668570341,3.437275869174819,3.4639916840471017,3.4798950914959548,3.48472814236197,3.4782599827537783,3.4603132441743334,3.4307897620595327,3.3897374973421055,3.3382643983288958,3.277538986719472,3.2082985741988246,3.131203119695881,3.046847543045766,2.9557712894743986,2.858465894771042,2.755381069574213,2.6469296682153196,2.5334918042229155,2.4154183034257493,2.293033635740091,2.1666384312651736,2.036511660735499,1.9029476001318333,1.7662224901791106,1.6265267326453419,1.4840326085658315,1.3389632263793203,1.191728154915964,1.0424680135242603,0.8912894659821866,0.7382899737008479,0.5835588773498781,0.4271783198824206,0.2692240385280371,0.10976604782721822,-0.05113076848682141,-0.21340614229606736,-0.37700397077093584,-0.5418719211822651,null,-0.15909691662731973,-0.17524806368792234,-0.19303836480188785,-0.2126342344064618,-0.2342190256274943,-0.2579947716716138,-0.28418411235991137,-0.31303242757189764,-0.3448102026121447,-0.3798156544439095,-0.4183776525497791,-0.46085897414003796,-0.5076599408851088,-0.559222493770541,-0.6160347747016246,-0.678636298992723,-0.7476238230638206,-0.8236580381948357,-0.9074712563771872,-0.999876301423333,-1.1017768822110003,-1.214179811976802,-1.3382095577739026,-1.4747490929044158,-1.6197249727454963,-1.7714079380424206,-1.9294828307852985,-2.0936307427166465,-2.263534925315435,-2.4388853389470935,-2.6193820041438265,-2.8047373394997175,-2.9946776703684463,-3.1889440789111108,-3.387292745483589,-3.5894949083273,-3.795336545847781,-4.004617865019737,-4.217152661386436,-4.432305529262974,-4.648543870524904,-4.865684751813205,-5.0836605924508,-5.302411049204217,-5.52188204378141,-5.74202494486387,-5.962795876704033,-6.184155131935731,-6.406066670634965,-6.628497691117731,-6.85141826068721,-7.074800996707878,-7.29857838701977,-7.522610530260468,-7.74687511213209,-7.9713597843509945,-8.196053166657846,-8.420944749051747,-8.646024805981558,-8.871284320791139,-9.096714918990365,-9.322308809149524,-9.54805873040062,-9.773957905683165,-10.0,null,3.828739786953072,3.8937468834258233,3.9497780217486884,3.996429999006489,4.033244612913952,4.059725396578866,4.075358320179543,4.079637343208951,4.0721129375358185,4.053043803166792,4.023362915444862,3.9838793344855485,3.935317086955406,3.8783294501084242,3.8135098634641302,3.7414004207736955,3.6624985941393966,3.577262645333583,3.4861160475708175,3.3894511509316647,3.287632261993288,3.180998263955656,3.0699135797383335,2.9548347946236166,2.8360240654856614,2.713707129772832,2.5880904454838998,2.4593634578065355,2.327700526842836,2.193262577234078,2.056198517898446,1.9166464704321147,1.7747348372410965,1.6305832346254476,1.4843033114325852,1.336043488495502,1.1860728198965251,1.0344827586206904,null,-4.2878915847263706,-4.499919621984065,-4.71303974747231,-4.927181519204453,-5.1422821627189625,-5.358285557828906,-5.575141383202881,-5.792804390897071,-6.011233788398447,-6.230392710030689,-6.4502477629751755,-6.670768635866644,-6.8919277600884,-7.113700015631698,-7.335954781274363,-7.558512739223255,-7.781354265266858,-8.004466915867923,-8.227809870863712,-8.450809274105056,-8.673225972189753,-8.895148636127745,-9.116658718378329,-9.337831424319523,-9.558736531781584,-9.779439087087773,-10.0,null,4.619080046343788,4.670084845342792,4.711754011602601,4.743582785914313,4.764818759593281,4.775094838016223,4.775012144883307,4.765123051984119,4.745911951264626,4.7178161826674625,4.681240748088461,4.636568694333885,4.584168380263284,4.524398445439081,4.457611053459642,4.38415382898245,4.304370806905579,4.218746185140045,4.1280881218646766,4.032760467618086,3.9330599646928537,3.8292560216698828,3.7215941887215234,3.6102990723779733,3.495576797889612,3.377617103308518,3.256595131381241,3.132672971653518,3.00600099468498,2.876719012138693,2.744957290156229,2.6108374384236477,null,-5.578266665544408,-5.789077858819567,-5.997586071572091,-6.204232299621216,-6.409396836410786,-6.613413725900591,-6.816581563003458,-7.019171776158039,-7.2213792856298635,-7.422759862934052,-7.623296457816144,-7.823106585518998,-8.022298744944967,-8.220973864331867,-8.419226518522576,-8.617145965488755,-8.814817039156843,-9.01232092770854,-9.209735860634176,-9.407137723379641,-9.604600615075707,-9.802197362309132,-10.0,null,5.427348366816762,5.478217554491598,5.519194811115783,5.550708391227062,5.573113141988493,5.586711872947417,5.591771186481809,5.5885334396052215,5.577225898817247,5.558067779735451,5.531275633456957,5.497067397077226,5.455665334774171,5.407298039181224,5.352328107285704,5.29132745168816,5.224625572654583,5.1525144379811785,5.075267615289569,4.993142332728395,4.906381173834179,4.815213484096544,4.7198565487664315,4.620516588018701,4.5173896054538005,4.410662118206634,4.300511790996341,4.187192118226603,null,-6.140117671097942,-6.3170548215631595,-6.492833684730568,-6.6676787350762305,-6.841798976177301,-7.01539226493438,-7.188592739818652,-7.3606970157881015,-7.531431561244361,-7.700860768120043,-7.869040532608138,-8.036018925700517,-8.201836690245024,-8.36652758215086,-8.530118566183948,-8.692629870297367,-8.852645279707406,-9.008530373881143,-9.160504441829756,-9.308785986771994,-9.453554460095146,-9.594955895799817,-9.733107194811112,-9.8680993736494,-10.0,null,6.224434076753035,6.292207725994103,6.351639062966406,6.402924122582636,6.446216840967285,6.481640179693201,6.509295129744096,6.52926816970642,6.541637556940934,6.5464786993058475,6.543868765337699,6.53389062901822,6.516643291793027,6.492431787241038,6.461636966287212,6.424560064811185,6.381483451318669,6.332673073597668,6.278380435361939,6.218844203326739,6.1542915217916665,6.08493909447645,6.010994080338673,5.93265484020648,5.850111563452646,5.7635467980295605,null,7.034517411014367,7.125366695340269,7.2089576321763325,7.285172292026907,7.354191355000779,7.416156803205176,7.471165424359139,7.519277670167174,7.560524876304612,7.594915341416289,7.622439613071975,7.643075226009209,7.6567398548204295,7.6634727180118,7.663515380577838,7.6570954221621434,7.644423238633145,7.625695781511411,7.601099524952424,7.5708128232696765,7.5350077806762314,7.493851725731805,7.44750836208717,7.3961386519794345,7.339901477832516,null,7.810685210433267,7.885474347245488,7.954052996130965,8.016444905918778,8.072645962056669,8.122628514600883,8.166345183845312,8.203732330179314,8.234559815269606,8.258663331710046,8.276234311100055,8.287458535510527,8.29250628930848,8.291535809821877,8.284696091080676,8.272129170325957,8.25397199422872,8.230357938377988,8.20141803675136,8.16728196565855,8.128078817733993,null,-8.261642881870415,-8.392894337520719,-8.519124354007003,-8.640520252833086,-8.757223453276678,-8.869335929404699,-8.976925093235877,-9.080027502019144,-9.178651673924541,-9.272780220118543,-9.36237144944747,-9.447360566848541,-9.5276605631307,-9.603140628730875,-9.673034844915298,-9.736942554419755,-9.794976779154307,-9.847233935047221,-9.893796926613394,-9.934737776303713,-9.970119885553821,-10.0,null,8.526278743331744,8.63471698214212,8.738298628568142,8.837071252956157,8.93105210474263,9.02023089901423,9.104571990955382,9.184016093386177,9.258481661009508,9.327866044222368,9.391637883815342,9.449259402471409,9.50084177358449,9.546498589109806,9.586329301614931,9.620422088788096,9.64885628939263,9.671704494732456,9.689034358464092,9.700910171874131,9.707394239996496,9.708548085113975,9.704433497536947,null,-6.869514190940141,-7.002201592849971,-7.132646894372373,-7.259482624840359,-7.378871012580312,-7.49098164104085,-7.5961923072034025,-7.694789273678468,-7.786985999619306,-7.872936881105005,-7.952747576865422,-8.026482956281388,-8.094173373169063,-8.155819756642794,-8.211397871809876,-8.260862010398467,-8.304148307857739,-8.341139587605278,-8.371438049914275,-8.395168107816966,-8.412514541939107,-8.423645320197044,-8.42871528322623,-8.42786914719645,-8.421243962045322,-8.408971130459328,-8.391178064968578,-8.367989543108676,-8.33952880710067,-8.305918444787185,null,-6.71122474062769,-6.795078408778644,-6.871339362674084,-6.9401288519701785,-7.001528948438114,-7.055591175812319,-7.1023437317400955,-7.14179771536442,-7.173925976870208,-7.19872748403233,-7.216235352136687,-7.226470633206823,-7.2294479066450315,-7.2252893222944135,-7.214277850809644,-7.196680901581425,-7.17274540348293,-7.142702144198244,-7.106794100341745,-7.065269192137475,-7.018348533947092,-6.9662440741643135,-6.909159442002457,-6.847290640394088,-6.780826614754729,null,2.3491389490044163,2.506345567566367,2.668203265290959,2.834656308518923,3.005668880081007,3.1812270019750564,3.3613406257865783,3.5460460217612297,3.735408618903927,3.929526481580533,4.128534658080866,4.33245603304438,4.538516033930621,4.740971654075887,4.938367467380907,5.131552904833551,5.3212013775925175,5.507860300374645,5.691984584580826,5.873959878251846,6.054119205618399,6.23275522712192,6.410129522941666,6.586479817831556,6.762025768149449,6.9369737460477054,7.111520937968752,7.285409756467555,7.457970865184304,7.629239035373729,7.799277680303295,7.968142349664081,8.135881360644444,8.302536271920722,8.46814221643902,8.632728102483647,8.796252182492953,8.95686800710422,9.113488966557096,9.266365923247744,9.41570663510883,9.561682467200725,9.704433497536947,9.84407240838383,9.980687439477197,null,-2.2124969805236203,-2.3570933171249333,-2.505713337044152,-2.6582989701664026,-2.814814830934967,-2.9752516546616006,-3.1396305536632507,-3.3080085363314256,-3.4804859399256456,-3.6533240999042507,-3.8201676345630506,-3.9815036539989928,-4.137953657905797,-4.28996228344475,-4.436615361158079,-4.5772215888177845,-4.712200180803903,-4.84184729382831,-4.966360661093197,-5.085855767173055,-5.200376293055407,-5.309900477534717,-5.414344406356008,-5.513562853094297,-5.607348051750709,-5.6954266256059265,-5.777454802068288,-5.85287096857584,-5.919508667929413,-5.977016782832795,-6.025712974362088,-6.065852463548822,-6.09764489092839,-6.1212672874613645,-6.136874297198651,-6.144606388826299,-6.144596538131526,-6.136975698286314,-6.121877266507836,-6.0994406846373765,-6.069814265623014,-6.03334064224819,-5.990490694572248,-5.941574256259612,-5.886879451613301,-5.8266770576215015,-5.76122252594375,-5.690757633878592,-5.615511842482824,-5.535703422164922,-5.451540392712399,-5.363221314589629,-5.270935960591133,-5.174865890919479,null,-5.0153107886217985,-5.073335955057887,-5.122851806973139,-5.162906168280271,-5.1925560361781535,-5.2122532868825315,-5.222443331740119,-5.223510556563049,-5.215797127768021,-5.199616738397423,-5.175264753046812,-5.143025695797479,-5.103178713219657,-5.056001451784796,-5.001772668462679,-4.940773817172567,-4.873326986898097,-4.800075842423091,-4.7213693740043,-4.637501991369133,-4.54874884801292,-4.455367970664157,-4.357602018032053,-4.255692761482751,-4.150044047583412,-4.040928104329469,-3.928532248012049,-3.813029749578755,-3.694581280788176,-3.5733361702042847,null,5.560571314170842,5.777537858996274,5.995301286709628,6.213825933420058,6.433079618368989,6.653033255586507,6.873660517719845,7.094937544016808,7.316078548164391,7.536184916443872,7.755372532561534,7.973768547024925,8.191488039335269,8.408635858790358,8.625308138711254,8.841593553151146,9.057574368631542,9.273327331336102,9.488924421195208,9.704433497536947,9.919918855841068,null,-4.239240549163472,-4.298061458307059,-4.347453088099914,-4.386898473316521,-4.415958668266804,-4.434132710933759,-4.440864450376054,-4.436164254166149,-4.420771560350261,-4.395346386365904,-4.360469038455165,-4.3166640385281285,-4.264431552498591,-4.204432299922851,-4.1372104235536815,-4.063235952135615,-3.9829446609111825,-3.8967416065877716,-3.805004086937714,-3.7081043153326227,-3.606599934366171,-3.5008328226825087,-3.391069014267109,-3.2775507158567816,-3.1604992498004183,-3.040117535375443,-2.916592195247464,-2.7900953549982876,-2.66078618944377,-2.5288122585977533,-2.3943106677459873,-2.257409079553149,-2.1182266009852198,-1.9768745637518155,null,3.9500561759130175,4.160786239016733,4.374692270496508,4.589969545306301,4.806203078387885,5.023322992378805,5.24126690921263,5.45997894290735,5.679408852109779,5.89951132357219,6.120245363499713,6.341573778218013,6.563462729160836,6.785881349985626,7.0088014158589935,7.232184299087926,7.455861543636924,7.679786605147505,7.903946618121267,8.128329730986735,8.352925003303515,8.577722315581038,8.802712289909518,9.027886219892778,9.253236008611864,9.478754113545545,9.704433497536947,9.93026758503106,null,-3.4211299920397282,-3.499009799553191,-3.5677570233290927,-3.627212070657219,-3.6771312703133576,-3.7172065667071994,-3.7470849352239393,-3.766389133748481,-3.7747408152611293,-3.77178640454669,-3.757225407857951,-3.7309046418584737,-3.693799213395333,-3.6468985447779305,-3.590962154007882,-3.526670780278071,-3.454639072130581,-3.3754253934271663,-3.289539541208372,-3.1974489233647025,-3.099583581539518,-2.9963403350303306,-2.8880862460230743,-2.7751615537090393,-2.657882187332156,-2.5365537104352764,-2.4115732272281063,-2.2831903033178893,-2.151607951493058,-2.0170122831014634,-1.8795744421385159,-1.7394522576572875,-1.5967916637853712,-1.451727926666262,-1.3044947926608739,-1.1553769603799147,-1.0044743594061458,-0.8518716140649225,-0.6976467549209264,-0.5418719211822651,-0.3846139694603199,null,0.6813138016136175,0.7539502145438615,0.8342759122920409,0.9230872879302403,1.0212572516062934,1.1297405199170978,1.2495785248324918,1.3819036103162112,1.5263319334001935,1.6782275132534128,1.8368511610162184,2.001822722327139,2.172763992300691,2.349304801499331,2.5310874543064514,2.7177697784519257,2.9090270469938186,3.1045530147416294,3.304060280652342,3.507280153477687,3.713962164423048,3.9238733402611583,4.136797324298875,4.352446582905831,4.569463621270062,4.787350236852676,5.006036931311819,5.225461833153453,5.445569646959793,5.666310773888185,5.887640571628955,6.109518728571011,6.3319087320109695,6.554777414210143,6.778094563217994,7.001832587839196,7.225957421802008,7.450341473286304,7.6749435273681215,7.899751350783994,8.124753681925313,8.349940131393197,8.575301094879048,8.800827676591545,9.026511621742017,9.252345256838403,9.478321436733754,9.704433497536947,9.930675214627247,null,-2.4951587786601808,-2.3846232358314454,-2.268865349912552,-2.1482686514125984,-2.023185824167842,-1.8939419377936755,-1.7608372077668708,-1.6241493752895604,-1.4841357773755828,-1.3411133353239677,-1.1956203647296153,-1.0478362563862191,-0.8978948250536174,-0.745917130863905,-0.5920131293648065,-0.43628305616576313,-0.2788185966317922,-0.11970388010769106,0.0409836701458719,0.20317260647215818,0.36679682586375684,0.5317950224210222,0.6981102101085188,0.8656893050660468,1.0344827586206904,1.204444233663379,null,2.831356874707563,3.0365784679753816,3.2449316117757423,3.456067397538126,3.6696709559823066,3.885458443269746,4.103174130158221,4.3225661314522075,4.542980007700123,4.764052183344225,4.98572106546743,5.207932144057919,5.430636969537556,5.653792305645371,5.877359423237966,6.101303508118914,6.32559316174569,6.550199978055776,6.775098183044129,7.000264326359773,7.225673476468902,7.451177308657353,7.676628369523215,7.902030826389868,8.127393665607475,8.352725084862534,8.578032581804855,8.803323030620916,9.02860274846746,9.253877553333805,9.479152814625078,9.704433497536947,9.929724202113189,null,-0.8946213897060016,-0.744887186432873,-0.5927464646330538,-0.43835009452244655,-0.2818337969631415,-0.1233282388321264,0.037045984578620406,0.19918929249629969,0.36301105255355104,0.5284282537249343,0.6953646319545523,0.8637499210568826,1.0335192075963615,1.2046123726049185,1.3769736062420197,1.5504984381114593,1.724998233986712,1.9004279481794857,2.0767555607001764,2.2539512568191835,2.4319872181044317,2.6108374384236477,2.790477561347192,2.970884735972696,null,2.9280807114621936,3.1438845954173296,3.359969330989518,3.5763535039690098,3.7930516899440345,4.010075426318647,4.22743391862087,4.445053214101447,4.662747731301037,4.880522702604095,5.098394063103553,5.316375537832723,5.5344790160920585,5.752714851230788,5.971092102896204,6.1896187344114075,6.408301774816657,6.62714745283461,6.846161308343817,7.06534828569621,7.284694484908233,7.504138587796078,7.723679543414807,7.943321163952799,8.163066901865687,8.382919890934236,8.602882981811756,8.822958772914365,9.043149637358113,9.263457746526527,9.483885090754722,9.704433497536947,9.9251046475995,null,-2.1537391057181283,-2.2202828155240644,-2.268622284143772,-2.3003447106557813,-2.3164606509991668,-2.317669335857933,-2.30451109611952,-2.27746302371376,-2.2370019618744674,-2.1836457890430196,-2.117978259438847,-2.0406602960679896,-1.9524298926391577,-1.854092809047387,-1.7465065217409652,-1.6305812084619848,-1.5075785004359616,-1.3784391620591627,-1.2445395010598936,-1.1065247803165548,-0.9647710302351147,-0.8196000453594632,-0.6712897754203127,-0.5200822864377255,-0.3661899524764678,-0.20980033634343442,-0.051080083493744155,0.10982193732466783,0.27277207580184104,0.4376497973044273,0.6043459401858886,0.7727612605059146,0.9428045588350553,1.1143841227206899,1.287422077500871,1.461841567792952,1.637414448500044,1.8140033604704318,1.9915678599370086,2.1700706540118873,2.3494772634883283,2.529755730994788,2.7108763672332454,2.8928115293747965,3.0755354267483277,3.2590239498065596,3.443254519035543,3.628205951025194,3.8138583393670515,4.00019294841251,4.187192118226603,4.374830275393549,4.563000880101509,null,2.6916005379690233,2.8973752878424897,3.1038236179132337,3.3109317949001316,3.5186872595356142,3.7270785157018107,3.936095028351298,4.145727131083305,4.355950071733387,4.566551901828996,4.777470288872292,4.988706553645782,5.200261609436486,5.412136045022706,5.624330190556114,5.8368441701885665,6.049677944342644,6.262831343830285,6.476304097510578,6.69009585479461,6.904206204016681,7.118634687471868,7.333335867610902,7.548245935127248,7.763359031275247,7.978603978131968,8.193947310323761,8.409393444286376,8.624946419849262,8.840609939304507,9.056387401691648,9.272281932976735,9.488296412695025,9.704433497536947,9.920695642283516,null,-0.5315755232248502,-0.5098818121452862,-0.4764494879796217,-0.4288937308754903,-0.3646556196691524,-0.2811935004945898,-0.1762970968446762,-0.04866440091201518,0.09511488780072774,0.2483322396413019,0.4095108007259487,0.5774842476770417,0.751316234993471,0.9302439194217271,1.113637616938421,1.300971454779317,1.4916965952776327,1.6841193644732275,1.8777093261121234,2.0724039767711737,2.2681500992362853,2.4649019034769406,2.662619631760915,2.861268491810847,3.060817827102637,3.2612404620174065,3.4625121781922292,3.664611290857623,3.867518302445033,4.071215616664171,4.275687300444879,4.480791688660386,4.686326519045279,4.892187740823212,5.098367821129564,5.304865037657134,5.511677608695949,5.718803717321029,5.926241530323885,6.133989213018751,6.342044940795905,6.550406908099639,6.759073335360085,6.968042474294769,7.177309746602898,7.386810360091928,7.596507193235105,7.806401258706071,8.016493431133199,8.226784463774546,8.43727500303337,8.647965601127371,8.858856727174327,9.069948776914966,9.281242081259595,9.492736913816557,9.704433497536947,9.916332010590352,null,-0.8143038548674681,-0.6716123433833143,-0.524509434090108,-0.3736721795819147,-0.21946105010995787,-0.06216406041298583,0.09796969861747229,0.26072304714032946,0.4259052504661742,0.5933477023022515,0.7629004748838728,0.9344295321858862,1.1078144567281747,1.2829465787601269,1.4597159347150157,1.6377966774463868,1.8169935086587738,1.99725888875569,2.1785496638985986,2.3608265149718015,2.5440534933122017,2.7281950761872533,2.9131978682538993,3.099028505805279,3.2856579563964843,3.4730592643152285,3.6612073456959653,3.850078809136795,4.039651798025261,4.229905851430514,4.4207857878604955,4.61217881816059,4.804066544690501,4.996438203798032,5.189283647846789,5.382593296105599,5.576358090663458,5.770569456748255,5.965219266917032,6.160299808660604,6.355803755028205,6.551724137931039,6.748054323828637,6.944787991539528,null,-0.6911456198638337,-0.5854035776131887,-0.46664291621422826,-0.33708417565368975,-0.198432790695664,-0.052026205846326334,0.10106733027472714,0.2599807799100322,0.4240004351006732,0.5925314666333215,0.7650726482918024,0.941197482164938,1.120539876497757,1.302783119105742,1.4875960115995053,1.6740287247669947,1.861750394737017,2.0506989149264996,2.240820347059744,2.432061602305616,2.6242970655600217,2.8174532084178487,3.011489176474093,3.2063682194304857,3.4020571255548706,3.5985257539811215,3.7957466447598414,3.9936946912951683,4.1923468632860565,4.391657746762524,4.591431468618358,4.791642508463044,4.99228356032434,5.193347764444484,5.3948286700161745,5.5967202019566855,5.799016631189707,6.001712547985669,6.204802837978217,6.408282660530354,6.612147429170186,6.8163927938552575,7.021014624857248,7.226002478824718,7.4312788188248255,7.636825020596028,7.842610107424502,8.048614750720212,8.25483791405675,8.461278567926286,8.66793569196664,8.874808276797506,9.081895325525512,9.289195854968387,9.496708896640694,9.704433497536947,9.912368720742677,null,3.191333825475578,3.3813685061734713,3.572207273782942,3.7638257450232793,3.956201360594525,4.149313199042179,4.34313337344906,4.5375106228245325,4.732364611534598,4.927683239445013,5.123456159833339,5.319673645352221,5.516326535992672,5.713406192677764,5.9109044557487636,6.108813607718375,6.307126339759158,6.505835721472458,6.704935173547877,6.904418442977569,7.1042795805350565,7.3044855063743945,7.504981303091004,7.705761335848965,7.906822712348401,8.10816265413439,8.30977849045653,8.511667652563478,8.713827668394696,8.91625615763547,9.118950827104861,9.321909466448666,null,-2.5641419092446176,-2.6532465617925363,-2.728744153823998,-2.7914402261077775,-2.841802812003885,-2.880084886043539,-2.9064039408866984,-2.9207989637062326,-2.9232749028272904,-2.913839426866071,-2.8925343129201417,-2.8594619216173776,-2.8148063473659004,-2.758848358486233,-2.691973231604975,-2.6147611843416927,-2.528890521491374,-2.4352984605268952,-2.334626587794764,-2.227449799743976,-2.1142862955495456,null,-0.48327363688727587,-0.33873630631578777,-0.18888886948614392,-0.0343267931803144,0.12444562769132261,0.2869972676500687,0.4529564436636182,0.6220002956280748,0.7938069345810348,0.9680431532618314,1.1445212344526965,1.3230828529086285,1.5035470822917159,1.6853458214199613,1.8683179863407116,2.052403871079166,2.237550176404005,2.4237090735094764,2.6108374384236477,2.7988962203617618,2.987849916273831,3.1776661304458305,null,-0.07741295996120229,0.010730601180014787,-0.08715041318607597,null,-3.7930986078295446,-3.891521896163116,-3.8274947462169373,null,-4.024161545029825,-4.121433428127683,-4.061830694449096,null,-2.4633142923738114,-2.5618274138937265,-2.4974053093370636,null,-4.349127068687297,-4.449009165580497,-4.37561548915018,null,1.6131146272668178,1.5356698893380205,1.5543307924769594,null,-2.714088083078097,-2.8140859107592373,-2.7370594466779528,null,2.4007374417081504,2.331127947905186,2.3383029937344455,null,-4.302634356234717,-4.401467565843127,-4.315966355731411,null,-6.078359931722403,-6.17399853673858,-6.081958924211672,null,3.336413144282659,3.277538986719472,3.2706813150198584,null,-1.245087056484845,-1.3382095577739026,-1.243447526198965,null,3.9354872353757324,3.8783294501084242,3.8693710553990326,null,-6.144798476635584,-6.230392710030689,-6.1315870211968555,null,4.689022715321645,4.636568694333885,4.622024789311699,null,-7.147426176788388,-7.2213792856298635,-7.121460443512672,null,5.600411665219106,5.558067779735451,5.53227336158064,null,-7.47715949610439,-7.531431561244361,-7.435868163262265,null,6.5786010920630185,6.5464786993058475,6.510213683119188,null,7.57646319312704,7.560524876304612,7.509277262774667,null,8.221708932062905,8.203732330179314,8.154271584942306,null,-9.06530878466423,-9.080027502019144,-9.005173631425064,null,9.259193913048302,9.258481661009508,9.194750147218258,null,-7.9497320468742885,-7.952747576865422,-7.886188018243214,null,-7.194114396398802,-7.173925976870208,-7.126435980788965,null,5.063120002090371,5.131552904833551,5.0322599001446555,null,-4.93268546933014,-4.966360661093197,-4.880039509970227,null,-5.219761882497271,-5.175264753046812,-5.151787019570326,null,7.01207839889614,7.094937544016808,6.995477051788641,null,-4.368596660391634,-4.3166640385281285,-4.301515643267308,null,5.807652028209927,5.89951132357219,5.80373973360866,null,-3.6478813524985143,-3.590962154007882,-3.5817144936383096,null,2.8142159792232766,2.9090270469938186,2.815960735872524,null,-1.4266058852547672,-1.3411133353239677,-1.3732597695667421,null,5.1095112086715435,5.207932144057919,5.12115945748886,null,0.271637903543389,0.36301105255355104,0.31913281245048947,null,5.216576175282925,5.316375537832723,5.235855014354328,null,-1.3274300336626035,-1.2445395010598936,-1.2720805064617808,null,5.100294923762745,5.200261609436486,5.125341744407702,null,1.974188325732295,2.0724039767711737,2.0092550330056524,null,1.5431131556191449,1.6377966774463868,1.585944585848171,null,2.3345697906725897,2.432061602305616,2.371684670142481,null,5.221423679802637,5.319673645352221,5.256382650092862,null,-2.9474782059679416,-2.9207989637062326,-2.879287534964465,null,0.5289834685132192,0.6220002956280748,0.5743441568855074,null],"type":"scatter"}],                        {"hovermode":"closest","template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"yaxis":{"scaleanchor":"x","scaleratio":1}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('d55af3eb-6743-441b-94ac-1229307dbb7c');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };                });            </script>        </div>
+</div>
+</div>
+</section>
+<section id="scipy" class="level3">
+<h3 class="anchored" data-anchor-id="scipy">scipy</h3>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>nx <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ny <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, nx)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, ny)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(x, y, indexing<span class="op">=</span><span class="st">'ij'</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>Fx <span class="op">=</span> fx(X, Y)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>Fy <span class="op">=</span> fy(X, Y)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.stack([X.flatten(), Y.flatten()], axis<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>r.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>(64, 2)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">12</span>, <span class="dv">12</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">12</span>, <span class="dv">12</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.scatter(r[:, <span class="dv">0</span>], r[:, <span class="dv">1</span>])</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.quiver(X, Y, Fx, Fy)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_ivp</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fx(x, y):</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fy(x, y):</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> y</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dSdt(t, S):</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    x, y <span class="op">=</span> S</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    Fx <span class="op">=</span> fx(x, y)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    Fy <span class="op">=</span> fy(x, y)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    F <span class="op">=</span> np.sqrt(Fx<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> Fy<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    dx_dt <span class="op">=</span> Fx<span class="op">/</span>F </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    dy_dt <span class="op">=</span> Fy<span class="op">/</span>F </span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [dx_dt, dy_dt]</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> boundary(t, S):</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> np.<span class="bu">abs</span>(S[<span class="dv">0</span>]) <span class="op">&gt;</span> <span class="dv">12</span> <span class="kw">or</span> np.<span class="bu">abs</span>(S[<span class="dv">1</span>]) <span class="op">&gt;</span> <span class="dv">12</span>:</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>boundary.terminal <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">12</span>, <span class="dv">12</span>)</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">12</span>, <span class="dv">12</span>)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>t_span <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1000</span>]</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>t_eval <span class="op">=</span> np.linspace(t_span[<span class="dv">0</span>], t_span[<span class="dv">1</span>], <span class="dv">10000</span>)</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> S0 <span class="kw">in</span> r:</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> solve_ivp(dSdt, t_span, S0, t_eval<span class="op">=</span>t_eval, events<span class="op">=</span>boundary)</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    xs, ys <span class="op">=</span> sol.y</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    plt.plot(xs, ys, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>plt.scatter(r[:, <span class="dv">0</span>], r[:, <span class="dv">1</span>])</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>plt.quiver(X, Y, Fx, Fy)</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.gca().set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">12</span>, <span class="dv">12</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">12</span>, <span class="dv">12</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>t_span <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">1000</span>]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>t_eval <span class="op">=</span> np.linspace(t_span[<span class="dv">0</span>], t_span[<span class="dv">1</span>], <span class="dv">10000</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> S0 <span class="kw">in</span> r:</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> solve_ivp(dSdt, t_span, S0, t_eval<span class="op">=</span>t_eval, events<span class="op">=</span>boundary)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    xs, ys <span class="op">=</span> sol.y</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    plt.plot(xs, ys, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="pyvista-k3d-jupyter" class="level3">
+<h3 class="anchored" data-anchor-id="pyvista-k3d-jupyter">PyVista (+ K3D-jupyter)</h3>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyvista <span class="im">as</span> pv </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pv.set_jupyter_backend(<span class="st">'static'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_coordinates(bounds):</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    xbounds <span class="op">=</span> (bounds[<span class="dv">0</span>], bounds[<span class="dv">1</span>])</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    ybounds <span class="op">=</span> (bounds[<span class="dv">2</span>], bounds[<span class="dv">3</span>])</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    zbounds <span class="op">=</span> (bounds[<span class="dv">4</span>], bounds[<span class="dv">5</span>])</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    meshgrid <span class="op">=</span> np.mgrid[xbounds[<span class="dv">0</span>]:xbounds[<span class="dv">1</span>]<span class="op">+</span><span class="dv">1</span>, ybounds[<span class="dv">0</span>]:ybounds[<span class="dv">1</span>]<span class="op">+</span><span class="dv">1</span>, zbounds[<span class="dv">0</span>]:zbounds[<span class="dv">1</span>]<span class="op">+</span><span class="dv">1</span>]</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.stack(meshgrid, axis<span class="op">=-</span><span class="dv">1</span>).astype(np.float32)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_mesh(Fx, Fy, Fz):</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    Nx, Ny, Nz <span class="op">=</span> Fx.shape</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    co_bounds <span class="op">=</span> (<span class="dv">0</span>, Nx<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, Ny<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, Nz<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    co_coords <span class="op">=</span> create_coordinates(co_bounds).reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    co_coord <span class="op">=</span> co_coords.reshape(Nx, Ny, Nz, <span class="dv">3</span>)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> co_coord[..., <span class="dv">0</span>]</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> co_coord[..., <span class="dv">1</span>]</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> co_coord[..., <span class="dv">2</span>]</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    mesh <span class="op">=</span> pv.StructuredGrid(x, y, z)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    vectors <span class="op">=</span> np.stack([Fx, Fy, Fz], axis<span class="op">=-</span><span class="dv">1</span>).transpose(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">3</span>).reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    mesh[<span class="st">'vector'</span>] <span class="op">=</span> vectors</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    mesh.active_vectors_name <span class="op">=</span> <span class="st">'vector'</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    magnitude <span class="op">=</span> np.linalg.norm(vectors, axis<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    mesh[<span class="st">'magnitude'</span>] <span class="op">=</span> magnitude</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    mesh.active_scalars_name <span class="op">=</span> <span class="st">'magnitude'</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mesh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fx(x, y, z):</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fy(x, y, z):</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> y</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fz(x, y, z):</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.zeros_like(x)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>nx <span class="op">=</span> <span class="dv">128</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>ny <span class="op">=</span> <span class="dv">128</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>nz <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, nx)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, ny)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.zeros(nz)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>X, Y, Z <span class="op">=</span> np.meshgrid(x, y, z, indexing<span class="op">=</span><span class="st">'ij'</span>)</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>Fx <span class="op">=</span> fx(X, Y, Z)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>Fy <span class="op">=</span> fy(X, Y, Z)</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>Fz <span class="op">=</span> fz(X, Y, Z)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>Fx.shape, Fy.shape, Fz.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>((128, 128, 1), (128, 128, 1), (128, 128, 1))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mesh <span class="op">=</span> create_mesh(Fx, Fy, Fz)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mesh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Header</td>
+<td data-quarto-table-cell-role="th">Data Arrays</td>
+</tr>
+<tr class="even">
+<td><table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">StructuredGrid</td>
+<td data-quarto-table-cell-role="th">Information</td>
+</tr>
+<tr class="even">
+<td>N Cells</td>
+<td>16129</td>
+</tr>
+<tr class="odd">
+<td>N Points</td>
+<td>16384</td>
+</tr>
+<tr class="even">
+<td>X Bounds</td>
+<td>0.000e+00, 1.270e+02</td>
+</tr>
+<tr class="odd">
+<td>Y Bounds</td>
+<td>0.000e+00, 1.270e+02</td>
+</tr>
+<tr class="even">
+<td>Z Bounds</td>
+<td>0.000e+00, 0.000e+00</td>
+</tr>
+<tr class="odd">
+<td>Dimensions</td>
+<td>128, 128, 1</td>
+</tr>
+<tr class="even">
+<td>N Arrays</td>
+<td>2</td>
+</tr>
+</tbody>
+</table></td>
+<td><table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Name</td>
+<td data-quarto-table-cell-role="th">Field</td>
+<td data-quarto-table-cell-role="th">Type</td>
+<td data-quarto-table-cell-role="th">N Comp</td>
+<td data-quarto-table-cell-role="th">Min</td>
+<td data-quarto-table-cell-role="th">Max</td>
+</tr>
+<tr class="even">
+<td>vector</td>
+<td>Points</td>
+<td>float64</td>
+<td>3</td>
+<td>-2.000e+01</td>
+<td>2.000e+01</td>
+</tr>
+<tr class="odd">
+<td><strong>magnitude</strong></td>
+<td>Points</td>
+<td>float64</td>
+<td>1</td>
+<td>7.874e-02</td>
+<td>2.236e+01</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>line_streamlines <span class="op">=</span> mesh.streamlines_evenly_spaced_2D(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    start_position<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    separating_distance<span class="op">=</span><span class="dv">4</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> line_streamlines.tube(radius<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> pv.Plotter()</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>p.show_bounds()</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>p.add_mesh(m, lighting<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>p.view_xy()</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> k3d</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> k3d.plot()</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plot <span class="op">+=</span> k3d.vtk_poly_data(m)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plot.display()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"cc854be7e1ab4bf89f4d452a200364c6","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+</div>
+<div>
+    <iframe src="k3d.html" height="800px" width="100%"></iframe>
+</div>
+</section>
+</section>
+<section id="d-vector-field-1" class="level2">
+<h2 class="anchored" data-anchor-id="d-vector-field-1">3D vector field</h2>
+<p><span class="math display">
+\mathbf{F}(x, y, z) = F_x(x, y, z)\mathbf{\hat{x}} + F_y(x, y, z)\mathbf{\hat{y}} + F_z(x, y, z)\mathbf{\hat{z}}
+</span></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
