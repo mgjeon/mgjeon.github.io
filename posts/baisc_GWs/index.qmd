@@ -129,17 +129,17 @@ $$
 
 Also, we use the Lorenz gauge condition $\partial_{\mu} \bar{h}^{\mu}{}_{\nu} = 0$.
 
-After many calculations, we get the following linearized EFE in Lorenz gauge.
+After many calculations, we get the following linearized EFE in the Lorenz gauge.
 
 $$
 \Box \bar{h}_{\mu \nu} = - \frac{16 \pi G}{c^4} T_{\mu \nu}
 $$
 
-Here, $\Box = \eta^{\mu \nu}\partial_{\mu}\partial_{\nu} = \partial^{\nu} \partial_{\nu}$ is the d'Alembert operator.
+Here, $\Box = \eta^{\mu \nu}\partial_{\mu}\partial_{\nu} = \partial^{\nu} \partial_{\nu}$ is the d'Alembertian.
 
 This is the wave equation.
 
-In electrodynamics, the Maxwell equation in Lorenz gauge $\partial_{\mu}A^{\mu}=0$ in the Gaussian units is
+In electrodynamics, the Maxwell equation in the Lorenz gauge $\partial_{\mu}A^{\mu}=0$ in the Gaussian units is
 
 $$
 \Box A^{\mu} = -\frac{4 \pi}{c} J^{\mu}
