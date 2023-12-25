@@ -45,5 +45,5 @@ git push
 
 Publish the changes
 ```
-git publish gh-pages
+quarto publish gh-pages
 ```
