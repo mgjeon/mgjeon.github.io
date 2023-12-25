@@ -1,47 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/mgjeon/mgjeon.github.io/posts/stable-diffusion-inference/Stable_Diffusion_Inference_low_level.html</loc>
-    <lastmod>2023-11-12T12:24:14.943Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/mgjeon/mgjeon.github.io/posts/spherical-astronomy/index.html</loc>
-    <lastmod>2023-11-12T12:24:13.634Z</lastmod>
+    <loc>https://github.com/mgjeon/mgjeon.github.io/index.html</loc>
+    <lastmod>2023-12-25T12:37:37.932Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/mgjeon/mgjeon.github.io/posts/explain-words/index.html</loc>
-    <lastmod>2023-11-12T12:24:11.621Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/mgjeon/mgjeon.github.io/posts/derivative-of-1d-scalar-function/index.html</loc>
-    <lastmod>2023-11-12T12:24:10.422Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/mgjeon/mgjeon.github.io/posts/charged-particle-motion-in-dipole/index.html</loc>
-    <lastmod>2023-11-12T12:24:08.676Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/mgjeon/mgjeon.github.io/about.html</loc>
-    <lastmod>2023-11-12T12:24:05.657Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/mgjeon/mgjeon.github.io/index.html</loc>
-    <lastmod>2023-11-12T12:24:07.317Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/mgjeon/mgjeon.github.io/posts/conservation-law/index.html</loc>
-    <lastmod>2023-11-12T12:24:09.081Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/mgjeon/mgjeon.github.io/posts/draw-1d-scalar-function/index.html</loc>
-    <lastmod>2023-11-12T12:24:11.022Z</lastmod>
+    <lastmod>2023-12-25T12:37:37.082Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/mgjeon/mgjeon.github.io/posts/field-line-isee-nlfff/index.html</loc>
-    <lastmod>2023-11-12T12:24:12.931Z</lastmod>
+    <lastmod>2023-12-25T12:37:36.272Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/mgjeon/mgjeon.github.io/posts/stable-diffusion-inference/Stable_Diffusion_Inference_high_level.html</loc>
-    <lastmod>2023-11-12T12:24:14.140Z</lastmod>
+    <lastmod>2023-12-25T12:37:35.552Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/mgjeon/mgjeon.github.io/posts/conservation-law/index.html</loc>
+    <lastmod>2023-12-25T12:37:35.052Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/mgjeon/mgjeon.github.io/posts/charged-particle-motion-in-dipole/index.html</loc>
+    <lastmod>2023-12-25T12:37:34.602Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/mgjeon/mgjeon.github.io/about.html</loc>
+    <lastmod>2023-12-25T12:37:34.232Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/mgjeon/mgjeon.github.io/posts/baisc_GWs/index.html</loc>
+    <lastmod>2023-12-25T12:37:34.812Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/mgjeon/mgjeon.github.io/posts/stable-diffusion-inference/Stable_Diffusion_Inference_low_level.html</loc>
+    <lastmod>2023-12-25T12:37:35.322Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/mgjeon/mgjeon.github.io/posts/derivative-of-1d-scalar-function/index.html</loc>
+    <lastmod>2023-12-25T12:37:35.942Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/mgjeon/mgjeon.github.io/posts/spherical-astronomy/index.html</loc>
+    <lastmod>2023-12-25T12:37:36.712Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/mgjeon/mgjeon.github.io/posts/draw-1d-scalar-function/index.html</loc>
+    <lastmod>2023-12-25T12:37:37.332Z</lastmod>
   </url>
 </urlset>
