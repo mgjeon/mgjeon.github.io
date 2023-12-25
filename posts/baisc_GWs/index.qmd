@@ -1,5 +1,5 @@
 ---
-title: "The very very basics of gravitational wave"
+title: "The very, very basics of gravitational wave"
 author: "Mingyu Jeon"
 date: "2023-12-25"
 bibliography: references.bib
@@ -72,7 +72,7 @@ $$
 \end{bmatrix}
 $$
 
-    - Here, $\displaystyle \gamma = \frac{1}{\sqrt{1-\frac{u^2}{c^2}}}$ and $u^2 = u_{x}^2 + u_{y}^2 + u_{z}^2$ is the Lorentz factor.
+    - Here, the Lorentz factor is denoted by $\displaystyle \gamma = \frac{1}{\sqrt{1-\frac{u^2}{c^2}}}$ and $u^2 = u_{x}^2 + u_{y}^2 + u_{z}^2$.
 
 - Energy-momentum tensor
 
