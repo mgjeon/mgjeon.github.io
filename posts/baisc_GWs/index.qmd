@@ -147,4 +147,4 @@ $$
 
 Here, $A^{\mu}$ is the four-potential and $J^{\mu}$ is the four-current.
 
-As you can see, the form of the linearized EFE is very similar to that of the Maxwell equation which predicts electromagnetic waves. Therefore, we can expect the existence of of gravitational waves. The theory of gravitational waves in linearized gravity is also very similar to the theory of electromagnetic waves. For these reason, Landau and Lifshitz wrote the famous physics textbook "The Classical Theory of Fields" which covers both electrodynamics and relativity.
+As you can see, the form of the linearized EFE is very similar to that of the Maxwell equation which predicts electromagnetic waves. Therefore, we can expect the existence of gravitational waves. The theory of gravitational waves in linearized gravity is also very similar to that of electromagnetic waves. For these reasons, Landau and Lifshitz wrote the famous physics textbook "The Classical Theory of Fields" which covers both electrodynamics and relativity.
