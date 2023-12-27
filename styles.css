@@ -1,4 +1,7 @@
 /* css styles */
-.katex-display { overflow: auto hidden }
+.katex-display { 
+    overflow: auto hidden;
+    padding: 1em;
+}
 
 .uri { word-break: break-all }
