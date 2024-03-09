@@ -1,0 +1,2337 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Mingyu Jeon">
+<meta name="dcterms.date" content="2024-03-09">
+
+<title>Mingyu Jeon - Solar Eruptions &amp; Magnetic Fields</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Mingyu Jeon</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mgjeon"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Solar Eruptions &amp; Magnetic Fields</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">solar physics</div>
+                <div class="quarto-category">english</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Mingyu Jeon </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 9, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#heliophysics-2024-decadal-whitepapers" id="toc-heliophysics-2024-decadal-whitepapers" class="nav-link active" data-scroll-target="#heliophysics-2024-decadal-whitepapers">Heliophysics 2024 Decadal Whitepapers</a></li>
+  <li><a href="#d-storage-release-caspi2023" id="toc-d-storage-release-caspi2023" class="nav-link" data-scroll-target="#d-storage-release-caspi2023">3D Storage &amp; Release <span class="citation" data-cites="caspi2023">(Caspi et al. 2023)</span></a></li>
+  <li><a href="#solar-eruptions---storage-release-caspi2023" id="toc-solar-eruptions---storage-release-caspi2023" class="nav-link" data-scroll-target="#solar-eruptions---storage-release-caspi2023">Solar eruptions - Storage &amp; Release <span class="citation" data-cites="caspi2023">(Caspi et al. 2023)</span></a></li>
+  <li><a href="#the-big-open-questions-caspi2023" id="toc-the-big-open-questions-caspi2023" class="nav-link" data-scroll-target="#the-big-open-questions-caspi2023">The Big Open Questions <span class="citation" data-cites="caspi2023">(Caspi et al. 2023)</span></a></li>
+  <li><a href="#d-knowledge-caspi2023" id="toc-d-knowledge-caspi2023" class="nav-link" data-scroll-target="#d-knowledge-caspi2023">3D Knowledge <span class="citation" data-cites="caspi2023">(Caspi et al. 2023)</span></a></li>
+  <li><a href="#solar-magnetic-field-models" id="toc-solar-magnetic-field-models" class="nav-link" data-scroll-target="#solar-magnetic-field-models">Solar magnetic field models</a></li>
+  <li><a href="#plasma-beta-in-the-solar-atmosphere" id="toc-plasma-beta-in-the-solar-atmosphere" class="nav-link" data-scroll-target="#plasma-beta-in-the-solar-atmosphere">Plasma <span class="math inline">\beta</span> in the solar atmosphere</a></li>
+  <li><a href="#suggested-physical-mechanisms" id="toc-suggested-physical-mechanisms" class="nav-link" data-scroll-target="#suggested-physical-mechanisms">Suggested physical mechanisms</a></li>
+  <li><a href="#magnetic-fields" id="toc-magnetic-fields" class="nav-link" data-scroll-target="#magnetic-fields">Magnetic fields</a></li>
+  <li><a href="#magnetic-energy" id="toc-magnetic-energy" class="nav-link" data-scroll-target="#magnetic-energy">Magnetic energy</a></li>
+  <li><a href="#helmholtz-decomposition" id="toc-helmholtz-decomposition" class="nav-link" data-scroll-target="#helmholtz-decomposition">Helmholtz decomposition</a></li>
+  <li><a href="#potential-field" id="toc-potential-field" class="nav-link" data-scroll-target="#potential-field">Potential field</a></li>
+  <li><a href="#magnetic-free-energy" id="toc-magnetic-free-energy" class="nav-link" data-scroll-target="#magnetic-free-energy">Magnetic free energy</a></li>
+  <li><a href="#accuracy-of-magnetic-energy-computations-valori2013" id="toc-accuracy-of-magnetic-energy-computations-valori2013" class="nav-link" data-scroll-target="#accuracy-of-magnetic-energy-computations-valori2013">Accuracy of magnetic energy computations <span class="citation" data-cites="valori2013">(Valori et al. 2013)</span></a></li>
+  <li><a href="#accuracy-of-magnetic-energy-computations-valori2013-1" id="toc-accuracy-of-magnetic-energy-computations-valori2013-1" class="nav-link" data-scroll-target="#accuracy-of-magnetic-energy-computations-valori2013-1">Accuracy of magnetic energy computations <span class="citation" data-cites="valori2013">(Valori et al. 2013)</span></a></li>
+  <li><a href="#accuracy-of-magnetic-energy-computations-valori2013-2" id="toc-accuracy-of-magnetic-energy-computations-valori2013-2" class="nav-link" data-scroll-target="#accuracy-of-magnetic-energy-computations-valori2013-2">Accuracy of magnetic energy computations <span class="citation" data-cites="valori2013">(Valori et al. 2013)</span></a></li>
+  <li><a href="#how-to-calculate-potential-field-mathbfb_textp-nabla-phi" id="toc-how-to-calculate-potential-field-mathbfb_textp-nabla-phi" class="nav-link" data-scroll-target="#how-to-calculate-potential-field-mathbfb_textp-nabla-phi">How to calculate potential field <span class="math inline">\mathbf{B}_\text{p} = \nabla \phi</span></a></li>
+  <li><a href="#magnetic-helicity" id="toc-magnetic-helicity" class="nav-link" data-scroll-target="#magnetic-helicity">Magnetic helicity</a></li>
+  <li><a href="#decomposition-of-the-magnetic-helicity-berger2003" id="toc-decomposition-of-the-magnetic-helicity-berger2003" class="nav-link" data-scroll-target="#decomposition-of-the-magnetic-helicity-berger2003">Decomposition of the magnetic helicity <span class="citation" data-cites="berger2003">(Berger 2003)</span></a></li>
+  <li><a href="#reliability-of-magnetic-energy-and-helicity-computations-thalmann2019" id="toc-reliability-of-magnetic-energy-and-helicity-computations-thalmann2019" class="nav-link" data-scroll-target="#reliability-of-magnetic-energy-and-helicity-computations-thalmann2019">Reliability of magnetic energy and helicity computations <span class="citation" data-cites="thalmann2019">(Thalmann et al. 2019)</span></a></li>
+  <li><a href="#reliability-of-magnetic-energy-and-helicity-computations-thalmann2019-1" id="toc-reliability-of-magnetic-energy-and-helicity-computations-thalmann2019-1" class="nav-link" data-scroll-target="#reliability-of-magnetic-energy-and-helicity-computations-thalmann2019-1">Reliability of magnetic energy and helicity computations <span class="citation" data-cites="thalmann2019">(Thalmann et al. 2019)</span></a></li>
+  <li><a href="#reliability-of-magnetic-energy-and-helicity-computations-thalmann2019-2" id="toc-reliability-of-magnetic-energy-and-helicity-computations-thalmann2019-2" class="nav-link" data-scroll-target="#reliability-of-magnetic-energy-and-helicity-computations-thalmann2019-2">Reliability of magnetic energy and helicity computations <span class="citation" data-cites="thalmann2019">(Thalmann et al. 2019)</span></a></li>
+  <li><a href="#how-to-calculate-magnetic-helicity" id="toc-how-to-calculate-magnetic-helicity" class="nav-link" data-scroll-target="#how-to-calculate-magnetic-helicity">How to calculate magnetic helicity</a></li>
+  <li><a href="#connectivity-based-methods" id="toc-connectivity-based-methods" class="nav-link" data-scroll-target="#connectivity-based-methods">Connectivity-based methods</a></li>
+  <li><a href="#free-energy-relative-helicity-diagram-of-solar-ars-tziotziou2012" id="toc-free-energy-relative-helicity-diagram-of-solar-ars-tziotziou2012" class="nav-link" data-scroll-target="#free-energy-relative-helicity-diagram-of-solar-ars-tziotziou2012">Free energy – Relative helicity diagram of solar ARs <span class="citation" data-cites="tziotziou2012">(Tziotziou et al. 2012)</span></a></li>
+  <li><a href="#relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017" id="toc-relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017" class="nav-link" data-scroll-target="#relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017">Relative magnetic helicity as a diagnostic of solar eruptivity <span class="citation" data-cites="pariat2017">(Pariat et al. 2017)</span></a></li>
+  <li><a href="#relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017-1" id="toc-relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017-1" class="nav-link" data-scroll-target="#relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017-1">Relative magnetic helicity as a diagnostic of solar eruptivity <span class="citation" data-cites="pariat2017">(Pariat et al. 2017)</span></a></li>
+  <li><a href="#relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017-2" id="toc-relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017-2" class="nav-link" data-scroll-target="#relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017-2">Relative magnetic helicity as a diagnostic of solar eruptivity <span class="citation" data-cites="pariat2017">(Pariat et al. 2017)</span></a></li>
+  <li><a href="#changes-of-magnetic-energy-and-helicity-in-solar-ars-from-major-flares-liu2023" id="toc-changes-of-magnetic-energy-and-helicity-in-solar-ars-from-major-flares-liu2023" class="nav-link" data-scroll-target="#changes-of-magnetic-energy-and-helicity-in-solar-ars-from-major-flares-liu2023">Changes of Magnetic Energy and Helicity in Solar ARs from Major Flares <span class="citation" data-cites="liu2023">(Liu et al. 2023)</span></a></li>
+  <li><a href="#surface-calculated-quantities---sharp-parameters" id="toc-surface-calculated-quantities---sharp-parameters" class="nav-link" data-scroll-target="#surface-calculated-quantities---sharp-parameters">Surface-calculated quantities - SHARP parameters</a></li>
+  <li><a href="#surface-calculated-quantities---mathbfv-or-mathbfe" id="toc-surface-calculated-quantities---mathbfv-or-mathbfe" class="nav-link" data-scroll-target="#surface-calculated-quantities---mathbfv-or-mathbfe">Surface-calculated quantities - <span class="math inline">\mathbf{v}</span> or <span class="math inline">\mathbf{E}</span></a></li>
+  <li><a href="#surface-calculated-quantities---mathbfv-or-mathbfe-1" id="toc-surface-calculated-quantities---mathbfv-or-mathbfe-1" class="nav-link" data-scroll-target="#surface-calculated-quantities---mathbfv-or-mathbfe-1">Surface-calculated quantities - <span class="math inline">\mathbf{v}</span> or <span class="math inline">\mathbf{E}</span></a></li>
+  <li><a href="#surface-calculated-quantities---mathbfv-or-mathbfe-2" id="toc-surface-calculated-quantities---mathbfv-or-mathbfe-2" class="nav-link" data-scroll-target="#surface-calculated-quantities---mathbfv-or-mathbfe-2">Surface-calculated quantities - <span class="math inline">\mathbf{v}</span> or <span class="math inline">\mathbf{E}</span></a></li>
+  <li><a href="#surface-calculated-quantities---flux-of-quantities" id="toc-surface-calculated-quantities---flux-of-quantities" class="nav-link" data-scroll-target="#surface-calculated-quantities---flux-of-quantities">Surface-calculated quantities - Flux of quantities</a></li>
+  <li><a href="#surface-calculated-quantities---flux-of-quantities-1" id="toc-surface-calculated-quantities---flux-of-quantities-1" class="nav-link" data-scroll-target="#surface-calculated-quantities---flux-of-quantities-1">Surface-calculated quantities - Flux of quantities</a></li>
+  <li><a href="#surface-calculated-quantities---flux-of-quantities-2" id="toc-surface-calculated-quantities---flux-of-quantities-2" class="nav-link" data-scroll-target="#surface-calculated-quantities---flux-of-quantities-2">Surface-calculated quantities - Flux of quantities</a></li>
+  <li><a href="#surface-calculated-quantities---flux-of-quantities-3" id="toc-surface-calculated-quantities---flux-of-quantities-3" class="nav-link" data-scroll-target="#surface-calculated-quantities---flux-of-quantities-3">Surface-calculated quantities - Flux of quantities</a></li>
+  <li><a href="#magnetic-flux-rope-mfr" id="toc-magnetic-flux-rope-mfr" class="nav-link" data-scroll-target="#magnetic-flux-rope-mfr">Magnetic flux rope (MFR)</a></li>
+  <li><a href="#kink-instability-ki" id="toc-kink-instability-ki" class="nav-link" data-scroll-target="#kink-instability-ki">Kink instability (KI)</a></li>
+  <li><a href="#identification-of-mfrs-duan2019" id="toc-identification-of-mfrs-duan2019" class="nav-link" data-scroll-target="#identification-of-mfrs-duan2019">Identification of MFRs <span class="citation" data-cites="duan2019">(Duan et al. 2019)</span></a></li>
+  <li><a href="#identification-of-mfrs-duan2019-1" id="toc-identification-of-mfrs-duan2019-1" class="nav-link" data-scroll-target="#identification-of-mfrs-duan2019-1">Identification of MFRs <span class="citation" data-cites="duan2019">(Duan et al. 2019)</span></a></li>
+  <li><a href="#torus-instability-ti" id="toc-torus-instability-ti" class="nav-link" data-scroll-target="#torus-instability-ti">Torus instability (TI)</a></li>
+  <li><a href="#torus-instability-ti-1" id="toc-torus-instability-ti-1" class="nav-link" data-scroll-target="#torus-instability-ti-1">Torus instability (TI)</a></li>
+  <li><a href="#ti-parameter---ki-parameter-diagram" id="toc-ti-parameter---ki-parameter-diagram" class="nav-link" data-scroll-target="#ti-parameter---ki-parameter-diagram">TI Parameter - KI Parameter diagram</a></li>
+  <li><a href="#ti-parameter---ki-parameter-diagram-1" id="toc-ti-parameter---ki-parameter-diagram-1" class="nav-link" data-scroll-target="#ti-parameter---ki-parameter-diagram-1">TI Parameter - KI Parameter diagram</a></li>
+  <li><a href="#ti-parameter---ki-parameter-diagram-2" id="toc-ti-parameter---ki-parameter-diagram-2" class="nav-link" data-scroll-target="#ti-parameter---ki-parameter-diagram-2">TI Parameter - KI Parameter diagram</a></li>
+  <li><a href="#ti-parameter---ki-parameter-diagram-3" id="toc-ti-parameter---ki-parameter-diagram-3" class="nav-link" data-scroll-target="#ti-parameter---ki-parameter-diagram-3">TI Parameter - KI Parameter diagram</a></li>
+  <li><a href="#tether-cutting-reconnection" id="toc-tether-cutting-reconnection" class="nav-link" data-scroll-target="#tether-cutting-reconnection">Tether-cutting reconnection</a></li>
+  <li><a href="#tether-cutting-reconnection-1" id="toc-tether-cutting-reconnection-1" class="nav-link" data-scroll-target="#tether-cutting-reconnection-1">Tether-cutting reconnection</a></li>
+  <li><a href="#double-arc-instability-ishiguro2017" id="toc-double-arc-instability-ishiguro2017" class="nav-link" data-scroll-target="#double-arc-instability-ishiguro2017">Double arc instability <span class="citation" data-cites="ishiguro2017">(Ishiguro et al. 2017)</span></a></li>
+  <li><a href="#double-arc-instability" id="toc-double-arc-instability" class="nav-link" data-scroll-target="#double-arc-instability">Double arc instability</a></li>
+  <li><a href="#a-physics-based-method-that-can-predict-imminent-large-solar-flares-kusano2020" id="toc-a-physics-based-method-that-can-predict-imminent-large-solar-flares-kusano2020" class="nav-link" data-scroll-target="#a-physics-based-method-that-can-predict-imminent-large-solar-flares-kusano2020">A physics-based method that can predict imminent large solar flares <span class="citation" data-cites="kusano2020">(Kusano et al. 2020)</span></a></li>
+  <li><a href="#kappa-scheme-kusano2020" id="toc-kappa-scheme-kusano2020" class="nav-link" data-scroll-target="#kappa-scheme-kusano2020"><span class="math inline">\kappa</span>-scheme <span class="citation" data-cites="kusano2020">(Kusano et al. 2020)</span></a></li>
+  <li><a href="#kappa-scheme-kusano2020-1" id="toc-kappa-scheme-kusano2020-1" class="nav-link" data-scroll-target="#kappa-scheme-kusano2020-1"><span class="math inline">\kappa</span>-scheme <span class="citation" data-cites="kusano2020">(Kusano et al. 2020)</span></a></li>
+  <li><a href="#a-physics-based-method-that-can-predict-imminent-large-solar-flares-kusano2020-1" id="toc-a-physics-based-method-that-can-predict-imminent-large-solar-flares-kusano2020-1" class="nav-link" data-scroll-target="#a-physics-based-method-that-can-predict-imminent-large-solar-flares-kusano2020-1">A physics-based method that can predict imminent large solar flares <span class="citation" data-cites="kusano2020">(Kusano et al. 2020)</span></a></li>
+  <li><a href="#magnetic-topology-analysis" id="toc-magnetic-topology-analysis" class="nav-link" data-scroll-target="#magnetic-topology-analysis">Magnetic topology analysis</a></li>
+  <li><a href="#separatrices" id="toc-separatrices" class="nav-link" data-scroll-target="#separatrices">Separatrices</a></li>
+  <li><a href="#separatrices---regions-of-magnetic-field-discontinuity" id="toc-separatrices---regions-of-magnetic-field-discontinuity" class="nav-link" data-scroll-target="#separatrices---regions-of-magnetic-field-discontinuity">Separatrices - Regions of magnetic field discontinuity</a></li>
+  <li><a href="#separatrices---regions-of-magnetic-field-discontinuity-1" id="toc-separatrices---regions-of-magnetic-field-discontinuity-1" class="nav-link" data-scroll-target="#separatrices---regions-of-magnetic-field-discontinuity-1">Separatrices - Regions of magnetic field discontinuity</a></li>
+  <li><a href="#separatrices---regions-of-magnetic-field-discontinuity-2" id="toc-separatrices---regions-of-magnetic-field-discontinuity-2" class="nav-link" data-scroll-target="#separatrices---regions-of-magnetic-field-discontinuity-2">Separatrices - Regions of magnetic field discontinuity</a></li>
+  <li><a href="#quasi-separatrix-layers-qsls" id="toc-quasi-separatrix-layers-qsls" class="nav-link" data-scroll-target="#quasi-separatrix-layers-qsls">Quasi-Separatrix Layers (QSLs)</a></li>
+  <li><a href="#squashing-factor-q" id="toc-squashing-factor-q" class="nav-link" data-scroll-target="#squashing-factor-q">Squashing factor <span class="math inline">Q</span></a></li>
+  <li><a href="#qsl-reconnection" id="toc-qsl-reconnection" class="nav-link" data-scroll-target="#qsl-reconnection">QSL reconnection</a></li>
+  <li><a href="#qsl-reconnection-1" id="toc-qsl-reconnection-1" class="nav-link" data-scroll-target="#qsl-reconnection-1">QSL reconnection</a></li>
+  <li><a href="#fastqsl-zhang2022" id="toc-fastqsl-zhang2022" class="nav-link" data-scroll-target="#fastqsl-zhang2022">FastQSL <span class="citation" data-cites="zhang2022">(Zhang et al. 2022)</span></a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>This post is based on the presentation during the lab meeting on 2023-11-28.</p>
+<section id="heliophysics-2024-decadal-whitepapers" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="heliophysics-2024-decadal-whitepapers"><a href="https://baas.aas.org/vol-55-issue-3">Heliophysics 2024 Decadal Whitepapers</a></h2>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/heliophysics_2024_decadal_whitepapers_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="d-storage-release-caspi2023" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="d-storage-release-caspi2023">3D Storage &amp; Release <span class="citation" data-cites="caspi2023">(<a href="#ref-caspi2023" role="doc-biblioref">Caspi et al. 2023</a>)</span></h2>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/heliophysics_2024_decadal_whitepapers_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="solar-eruptions---storage-release-caspi2023" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="solar-eruptions---storage-release-caspi2023">Solar eruptions - Storage &amp; Release <span class="citation" data-cites="caspi2023">(<a href="#ref-caspi2023" role="doc-biblioref">Caspi et al. 2023</a>)</span></h2>
+<ul>
+<li>Coronal mass ejections (CMEs)</li>
+<li>Solar flares
+<ul>
+<li>eruptive flares : flares with a CME</li>
+<li>confined flares : flares not associated with a CME</li>
+</ul></li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/heliophysics_2024_decadal_whitepapers_fig1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="the-big-open-questions-caspi2023" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="the-big-open-questions-caspi2023">The Big Open Questions <span class="citation" data-cites="caspi2023">(<a href="#ref-caspi2023" role="doc-biblioref">Caspi et al. 2023</a>)</span></h2>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/heliophysics_2024_decadal_whitepapers_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="d-knowledge-caspi2023" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="d-knowledge-caspi2023">3D Knowledge <span class="citation" data-cites="caspi2023">(<a href="#ref-caspi2023" role="doc-biblioref">Caspi et al. 2023</a>)</span></h2>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/heliophysics_2024_decadal_whitepapers_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="solar-magnetic-field-models" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="solar-magnetic-field-models">Solar magnetic field models</h2>
+<ul>
+<li>Static model (time-independent); <span class="math inline">\mathbf{v} = \mathbf{0}</span>
+<ul>
+<li><strong>Force-free field model</strong> : initial condition of MHD simulations
+<ul>
+<li>pros: related with magnetic field observations directly</li>
+<li>cons: cannot explain the forced structures in the photosphere and lower chromosphere and their dynamical evolution</li>
+</ul></li>
+<li><strong>Magnetohydrostatic (MHS) model</strong>
+<ul>
+<li>pros: partly overcome the disadvantage of the force-free field model</li>
+<li>cons: still static model</li>
+</ul></li>
+</ul></li>
+<li>Dynamic model (time-dependent); <span class="math inline">\mathbf{v} \neq \mathbf{0}</span>
+<ul>
+<li><strong>Magnetohydrodynamic (MHD) model</strong>
+<ul>
+<li>pros: may provide the best way to study the observed complex magnetic structures and dynamical evolution</li>
+<li>cons: the most difficult, complicated and expensive model</li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="footer">
+<p><span class="citation" data-cites="guo2017b">Guo et al. (<a href="#ref-guo2017b" role="doc-biblioref">2017b</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="plasma-beta-in-the-solar-atmosphere" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="plasma-beta-in-the-solar-atmosphere">Plasma <span class="math inline">\beta</span> in the solar atmosphere</h2>
+<ul>
+<li><span class="math inline">\beta = \dfrac{p}{\frac{B^2}{8\pi}}</span> is the ratio of gas pressure to magnetic pressure (cgs-Gaussian unit)</li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/plasmabeta.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="gary2001">Gary (<a href="#ref-gary2001" role="doc-biblioref">2001</a>)</span>, <span class="citation" data-cites="wiegelmann2017">Wiegelmann et al. (<a href="#ref-wiegelmann2017" role="doc-biblioref">2017</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="suggested-physical-mechanisms" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="suggested-physical-mechanisms">Suggested physical mechanisms</h2>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/physical_mechanisms.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="green2018">Green et al. (<a href="#ref-green2018" role="doc-biblioref">2018</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="magnetic-fields" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="magnetic-fields">Magnetic fields</h2>
+<ul>
+<li>Fundamental quantities
+<ul>
+<li>Energy</li>
+<li>Helicity</li>
+<li>Surface-calculated quantities</li>
+</ul></li>
+<li>Instabilities
+<ul>
+<li>Kink instability</li>
+<li>Torus instability</li>
+<li>Double arc instability</li>
+</ul></li>
+<li>Magnetic topology analysis (magnetic reconnection)
+<ul>
+<li>Separatrices</li>
+<li>Quasi-Separatrix Layers (QSLs)</li>
+</ul></li>
+</ul>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="magnetic-energy" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="magnetic-energy">Magnetic energy</h2>
+<ul>
+<li>Total magnetic energy <span class="math inline">E</span> in a volume <span class="math inline">V</span> (cgs-Gaussian units)</li>
+</ul>
+<p><span class="math display">
+E = \frac{1}{8\pi} \int_{V} B^2 \rm{d}V
+</span></p>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/derosa.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="derosa2009">DeRosa et al. (<a href="#ref-derosa2009" role="doc-biblioref">2009</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="helmholtz-decomposition" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="helmholtz-decomposition">Helmholtz decomposition</h2>
+<ul>
+<li>Magnetic field</li>
+</ul>
+<p><span class="math display">
+\mathbf{B} = \mathbf{B}_\text{p} + \mathbf{B}_\text{J}
+</span></p>
+<ul>
+<li>Potential (current-free) field</li>
+</ul>
+<p><span class="math display">
+\mathbf{B}_\text{p} = \nabla \phi
+</span></p>
+<ul>
+<li>Non-potential (current-carrying) component of the magnetic field</li>
+</ul>
+<p><span class="math display">
+\mathbf{B}_\text{J} = \mathbf{B} - \mathbf{B}_\text{p}
+</span></p>
+<ul>
+<li>Current density in MHD (cgs-Gaussian units)</li>
+</ul>
+<p><span class="math display">
+\mathbf{J} = \frac{1}{4\pi} \nabla \times \mathbf{B}
+</span></p>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="potential-field" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="potential-field">Potential field</h2>
+<ul>
+<li>Usually, the potential field <span class="math inline">\mathbf{B}_p</span> is computed from the same distribution of normal field of <span class="math inline">\mathbf{B}</span> on the boundary of <span class="math inline">V</span>.</li>
+</ul>
+<p><span class="math display">
+(\mathbf{\hat{n}} \cdot \mathbf{B}_\text{p})|_{\partial V} = (\mathbf{\hat{n}} \cdot \mathbf{B})|_{\partial V}
+</span></p>
+<ul>
+<li>Then, the potential field <span class="math inline">\mathbf{B}_\text{p} = \nabla \phi</span> is calculated by solving the Laplace equation with the Neumann boundary condition.</li>
+</ul>
+<p><span class="math display">
+\begin{cases}
+\nabla^2 \phi &amp;= 0\\
+(\mathbf{\hat{n}} \cdot \nabla \phi)|_{\partial V} &amp; = (\mathbf{\hat{n}} \cdot \mathbf{B})|_{\partial V}
+\end{cases}
+</span></p>
+<ul>
+<li>With such a prescription, the potential field is chosen as a reference is uniquely defined and represents the <strong>minimal energy state</strong> for a given distribution of the normal component of the field on the boundaries.</li>
+</ul>
+<div class="footer">
+<p><span class="citation" data-cites="valori2013">Valori et al. (<a href="#ref-valori2013" role="doc-biblioref">2013</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="magnetic-free-energy" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="magnetic-free-energy">Magnetic free energy</h2>
+<ul>
+<li>Without changing the field significantly at the boundaries of the considered volume, the energy that can be converted into kinetic and thermal energies is given by the free enery, i.e., by the difference between the total magnetic energy and the energy of the corresponding current-free (potential) field.</li>
+</ul>
+<p><span class="math display">
+E_\text{free} = E - E_\text{p}
+</span></p>
+<ul>
+<li><strong>To use this formula, the magnetic field must be divergence-free (solenoidal).</strong></li>
+</ul>
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/accuracy_energy.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="valori2013">Valori et al. (<a href="#ref-valori2013" role="doc-biblioref">2013</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="accuracy-of-magnetic-energy-computations-valori2013" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="accuracy-of-magnetic-energy-computations-valori2013">Accuracy of magnetic energy computations <span class="citation" data-cites="valori2013">(<a href="#ref-valori2013" role="doc-biblioref">Valori et al. 2013</a>)</span></h2>
+<ul>
+<li>Decomposition of the magnetic energy <span class="citation" data-cites="valori2013">(Thomson’s theorem extended by <a href="#ref-valori2013" role="doc-biblioref">Valori et al. 2013</a>)</span></li>
+</ul>
+<p><span class="math display">
+E = E_\text{p, s} + E_\text{J, s} + E_\text{p, ns} + E_\text{J, ns} + E_\text{mix}
+</span></p>
+<p><span class="math inline">E_\text{p, s}</span> : energy of solenoidal component of the potential field (positive)</p>
+<p><span class="math inline">E_\text{J, s}</span> : energy of solenoidal component of the current-carrying field (positive)</p>
+<p><span class="math inline">E_\text{p, ns}</span> : energy of nonsolenoidal component of the potential field (positive)</p>
+<p><span class="math inline">E_\text{J, ns}</span> : energy of nonsolenoidal component of the current-carrying field (positive)</p>
+<p><span class="math inline">E_\text{mix}</span> : energy corresponding to all cross terms (can be negative)</p>
+<p><span class="math display">
+\begin{align*}
+E_{\text{mix}} &amp; = \frac{1}{4\pi} \left( \int_{V} \mathbf{B}_\text{p,s} \cdot \nabla \zeta \, dV + \int_{V} \mathbf{B}_\text{J,s} \cdot \nabla \psi \, dV \right. \\
+&amp; \left. + \int_{V} \mathbf{B}_\text{p,s} \cdot \nabla \psi \, dV + \int_{V} \mathbf{B}_\text{J,s} \cdot \nabla \zeta \, dV \right. \\
+&amp; \left. + \int_{V} \nabla \zeta \cdot \nabla \psi \, dV + \int_{V} \mathbf{B}_\text{p,s} \cdot \mathbf{B}_\text{J,s} \, dV \right)
+\end{align*}
+</span></p>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="accuracy-of-magnetic-energy-computations-valori2013-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="accuracy-of-magnetic-energy-computations-valori2013-1">Accuracy of magnetic energy computations <span class="citation" data-cites="valori2013">(<a href="#ref-valori2013" role="doc-biblioref">Valori et al. 2013</a>)</span></h2>
+<ul>
+<li>For a perfectly solenoidal field,</li>
+</ul>
+<p><span class="math display">
+E = E_\text{p, s} + E_\text{J, s}
+</span></p>
+<p><span class="math display">
+E_\text{J, s} = E - E_\text{p, s}
+</span></p>
+<ul>
+<li>The free energy of the field is the energy of the solenoidal component of its current-carrying part</li>
+</ul>
+<p><span class="math display">
+E_\text{free} = E_\text{J, s}
+</span></p>
+<ul>
+<li>For a nonsolenoidal field, <span class="math inline">\tilde{E}_\text{free}</span> even can be negative.</li>
+</ul>
+<p><span class="math display">
+\begin{align*}
+\tilde{E}_{\text{free}} &amp; = E - E_\text{p} \\
+&amp; = E - (E_\text{p, s} + E_\text{p, ns}) \\
+&amp; = E_\text{J, s} + E_\text{J, ns} + E_\text{mix} \\
+&amp; = E_\text{free} + E_\text{J, ns} + E_\text{mix} \\
+\end{align*}
+</span></p>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="accuracy-of-magnetic-energy-computations-valori2013-2" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="accuracy-of-magnetic-energy-computations-valori2013-2">Accuracy of magnetic energy computations <span class="citation" data-cites="valori2013">(<a href="#ref-valori2013" role="doc-biblioref">Valori et al. 2013</a>)</span></h2>
+<ul>
+<li><span class="math inline">E_\text{div}</span> : upper limit of the energy associated with all non-solenoidal components</li>
+</ul>
+<p><span class="math display">
+E_\text{div} = E_\text{p, ns} + E_\text{J, ns} + |E_\text{mix}|
+</span></p>
+<ul>
+<li>At least <span class="citation" data-cites="valori2016">(<a href="#ref-valori2016" role="doc-biblioref">Valori et al. 2016</a>)</span>,</li>
+</ul>
+<p><span class="math display">
+E_\text{div} / E &lt; 0.1
+</span></p>
+<ul>
+<li>More strictly <span class="citation" data-cites="thalmann2019">(<a href="#ref-thalmann2019" role="doc-biblioref">Thalmann et al. 2019</a>)</span>,</li>
+</ul>
+<p><span class="math display">
+E_\text{div} / E \lesssim 0.05
+</span></p>
+<ul>
+<li>Simpler test <span class="citation" data-cites="mastrano2018">(<a href="#ref-mastrano2018" role="doc-biblioref">Mastrano et al. 2018</a>)</span> <span class="math inline">\nabla \cdot \mathbf{B} = 0 \Rightarrow W_\text{f1} = W_\text{f2}</span> (inverse is not true)</li>
+</ul>
+<p><span class="math display">
+W_\text{f1} = \frac{1}{8\pi} \int_V (\mathbf{B} - \mathbf{B}_\text{p})^2 \rm{d}V
+</span></p>
+<p><span class="math display">
+W_\text{f2} = \frac{1}{8\pi} \int_V \mathbf{B}^2 \rm{d}V - \frac{1}{8\pi} \int_V \mathbf{B}_\text{p}^2 \rm{d}V
+</span></p>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="how-to-calculate-potential-field-mathbfb_textp-nabla-phi" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="how-to-calculate-potential-field-mathbfb_textp-nabla-phi">How to calculate potential field <span class="math inline">\mathbf{B}_\text{p} = \nabla \phi</span></h2>
+<ul>
+<li><span class="math inline">\mathbf{\hat{n}} \cdot \mathbf{B}</span> is given on the <em>all</em> boundaries
+<ul>
+<li>Solve Laplace equation directly</li>
+</ul></li>
+</ul>
+<p><span class="math display">
+\begin{cases}
+\nabla^2 \phi &amp;= 0\\
+(\mathbf{\hat{n}} \cdot \nabla \phi)|_{\partial V} &amp; = (\mathbf{\hat{n}} \cdot \mathbf{B})|_{\partial V}
+\end{cases}
+</span></p>
+<ul>
+<li><span class="math inline">\mathbf{\hat{n}} \cdot \mathbf{B}</span> is given on the <em>only one</em> boundary (usually bottom one)
+<ul>
+<li>Use alternative ways such as Green’s function methods <span class="citation" data-cites="sakurai1982">(<a href="#ref-sakurai1982" role="doc-biblioref">Sakurai 1982</a>)</span></li>
+</ul></li>
+</ul>
+<p><span class="math display">
+\phi(\mathbf{r}) = \int_{S} \frac{B_n(\mathbf{r}')}{2\pi|\mathbf{r}-\mathbf{r'}|} \rm{d}S
+</span></p>
+<ul>
+<li>If the reference potential field does not have the same normal components on all boundaries, then the potential field does not satisfy Thomson’s theorem, and does not represent the state with the minimum energy for a given distribution of magnetic field on the boundaries <span class="citation" data-cites="mastrano2018">(<a href="#ref-mastrano2018" role="doc-biblioref">Mastrano et al. 2018</a>)</span>.</li>
+</ul>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="magnetic-helicity" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="magnetic-helicity">Magnetic helicity</h2>
+<ul>
+<li>Classical magnetic helicity</li>
+</ul>
+<p><span class="math display">
+\mathscr{H} = \int_V \mathbf{A} \cdot \mathbf{B} \rm{d}V
+</span></p>
+<ul>
+<li>Relative magnetic helicity (Berger &amp; Field <span class="citation" data-cites="berger1984">(<a href="#ref-berger1984" role="doc-biblioref">1984</a>)</span> and Finn &amp; Antonsen <span class="citation" data-cites="finn1985">(<a href="#ref-finn1985" role="doc-biblioref">1985</a>)</span>)</li>
+</ul>
+<p><span class="math display">
+H_V = \int_V (\mathbf{A} + \mathbf{A}_\text{p}) \cdot (\mathbf{B} - \mathbf{B}_\text{p}) \rm{d}V
+</span></p>
+<ul>
+<li><p><span class="math inline">\mathbf{A}</span> : vector potential of <span class="math inline">\mathbf{B} = \nabla \times \mathbf{A}</span></p></li>
+<li><p><span class="math inline">\mathbf{A}_\text{p}</span> : vector potential of <span class="math inline">\mathbf{B}_\text{p} = \nabla \times \mathbf{A}_\text{p}</span></p></li>
+<li><p>In order for <span class="math inline">H_V</span> to be gauge invariant,</p>
+<ol type="1">
+<li><span class="math inline">\mathbf{B}</span> and <span class="math inline">\mathbf{B}_\text{p}</span> are solenoidal (divergence-free)</li>
+<li>reference field <span class="math inline">\mathbf{B}_\text{p}</span> satisfies <span class="math inline">(\mathbf{\hat{n}} \cdot \mathbf{B}_\text{p})|_{\partial V} = (\mathbf{\hat{n}} \cdot \mathbf{B})|_{\partial V}</span></li>
+</ol></li>
+<li><p>The usual choice of the reference field is the electirc current-free (potential) field.</p></li>
+</ul>
+<div class="footer">
+<p><span class="citation" data-cites="valori2016">Valori et al. (<a href="#ref-valori2016" role="doc-biblioref">2016</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="decomposition-of-the-magnetic-helicity-berger2003" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="decomposition-of-the-magnetic-helicity-berger2003">Decomposition of the magnetic helicity <span class="citation" data-cites="berger2003">(<a href="#ref-berger2003" role="doc-biblioref">Berger 2003</a>)</span></h2>
+<ul>
+<li>Relative magnetic helicity</li>
+</ul>
+<p><span class="math display">
+H_V = \int_V (\mathbf{A} + \mathbf{A}_\text{p}) \cdot (\mathbf{B} - \mathbf{B}_\text{p}) \rm{d}V
+</span></p>
+<ul>
+<li>Decomposition of <span class="math inline">H_V</span></li>
+</ul>
+<p><span class="math display">
+H_V = H_\text{J} + H_\text{PJ}
+</span></p>
+<ul>
+<li><span class="math inline">H_\text{J}</span>: classical magnetic helicity of <span class="math inline">\mathbf{B}_\text{J} = \mathbf{B} - \mathbf{B}_\text{p}</span></li>
+</ul>
+<p><span class="math display">
+H_\text{J} = \int_V (\mathbf{A} - \mathbf{A}_\text{p}) \cdot (\mathbf{B} - \mathbf{B}_\text{p}) \rm{d}V
+</span></p>
+<ul>
+<li><span class="math inline">H_\text{PJ}</span>: a sorf of multual helicity between <span class="math inline">\mathbf{B}_\text{p}</span> and <span class="math inline">\mathbf{B}_\text{J}</span></li>
+</ul>
+<p><span class="math display">
+H_\text{PJ} = 2\int_V \mathbf{A}_\text{p} \cdot (\mathbf{B} - \mathbf{B}_\text{p}) \rm{d}V
+</span></p>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="reliability-of-magnetic-energy-and-helicity-computations-thalmann2019" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="reliability-of-magnetic-energy-and-helicity-computations-thalmann2019">Reliability of magnetic energy and helicity computations <span class="citation" data-cites="thalmann2019">(<a href="#ref-thalmann2019" role="doc-biblioref">Thalmann et al. 2019</a>)</span></h2>
+<ul>
+<li>Quantitative threshold for the divergence-freeness</li>
+</ul>
+<p><span class="math display">
+E_\text{div} / E \lesssim 0.05
+</span></p>
+<p>Here, <span class="math inline">E_\text{div} = E_\text{p, ns} + E_\text{J, ns} + |E_\text{mix}|</span> is the nonpotential contribution and <span class="math inline">E</span> is the total magnetic energy.</p>
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/reliability.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="reliability-of-magnetic-energy-and-helicity-computations-thalmann2019-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="reliability-of-magnetic-energy-and-helicity-computations-thalmann2019-1">Reliability of magnetic energy and helicity computations <span class="citation" data-cites="thalmann2019">(<a href="#ref-thalmann2019" role="doc-biblioref">Thalmann et al. 2019</a>)</span></h2>
+<ul>
+<li><p>NOAA 11158 between February 12 00:00 UT and February 16 00:00 UT</p></li>
+<li><p>Free parameters</p>
+<ul>
+<li>Preprocessing <span class="citation" data-cites="wiegelmann2006">(<a href="#ref-wiegelmann2006" role="doc-biblioref">Wiegelmann et al. 2006</a>)</span>
+<ul>
+<li><span class="math inline">(\mu_1, \mu_2, \mu_3, \mu_4)</span></li>
+</ul></li>
+<li>NLFFF optimization method of Wiegelmann &amp; Inhester <span class="citation" data-cites="wiegelmann2010">(<a href="#ref-wiegelmann2010" role="doc-biblioref">2010</a>)</span>
+<ul>
+<li><span class="math inline">(w_f, w_d, w_\text{hor}, \nu)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">(\mu_1, \mu_2, w_f, \nu) = (1, 1, 1, 10^{-3})</span></p>
+<ul>
+<li>SERIES I
+<ul>
+<li><span class="math inline">(\mu_3, \mu_4, w_d, w_\text{hor}) = (10^{-3}, 10^{-3}, 1, 1)</span></li>
+</ul></li>
+<li>SERIES II
+<ul>
+<li><span class="math inline">(\mu_3, \mu_4, w_d, w_\text{hor}) = (10^{-3}, 10^{-3}, 2, \propto B_\text{hor})</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="reliability-of-magnetic-energy-and-helicity-computations-thalmann2019-2" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="reliability-of-magnetic-energy-and-helicity-computations-thalmann2019-2">Reliability of magnetic energy and helicity computations <span class="citation" data-cites="thalmann2019">(<a href="#ref-thalmann2019" role="doc-biblioref">Thalmann et al. 2019</a>)</span></h2>
+<div class="absolute" data-left="0">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/reliability_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/reliability_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-right="15%" data-bottom="15%">
+<ul>
+<li>Coulomb gauge</li>
+</ul>
+<p><span class="math display">
+\nabla \cdot \mathbf{A} = \nabla \cdot \mathbf{A}_\text{p} = 0
+</span></p>
+<ul>
+<li>DeVore gauge <span class="citation" data-cites="devore2000">(<a href="#ref-devore2000" role="doc-biblioref">DeVore 2000</a>)</span></li>
+</ul>
+<p><span class="math display">
+A_z = A_\text{p, z} = 0
+</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="how-to-calculate-magnetic-helicity" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="how-to-calculate-magnetic-helicity">How to calculate magnetic helicity</h2>
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/helicity_cal.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="valori2016">Valori et al. (<a href="#ref-valori2016" role="doc-biblioref">2016</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="connectivity-based-methods" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="connectivity-based-methods">Connectivity-based methods</h2>
+<ul>
+<li>Use the magnetic connectivity matrix to calculate <span class="math inline">E_\text{c}</span> and <span class="math inline">H_m</span> <span class="citation" data-cites="georgoulis2012">(<a href="#ref-georgoulis2012" role="doc-biblioref">Georgoulis et al. 2012</a>)</span></li>
+</ul>
+<div class="absolute" data-left="5%">
+<p><span class="math display">
+\begin{align*}
+E_\text{c} &amp; = E_{\text{c}_\text{self}} + E_{\text{c}_\text{mul}} \\
+&amp; = Ad^2 \sum_{l=1}^{N} \alpha_l^2 \Phi_l^{2\delta} + \frac{1}{8\pi}\sum_{l=1}^{N}\sum_{m=1, l\neq m}^{N} \alpha_l \mathcal{L}_{lm}^{\text{arch}}\Phi_{l}\Phi_{m}
+\end{align*}
+</span></p>
+</div>
+<div class="absolute" data-right="5%">
+<p><span class="math display">
+\begin{align*}
+H_\text{m} &amp; = H_{\text{m}_\text{self}} + H_{\text{m}_\text{mul}} \\
+&amp; = 8\pi d^2 A \sum_{l=1}^{N} \alpha_l \Phi_l^{2\delta} + \sum_{l=1}^{N}\sum_{m=1, l\neq m}^{N} \mathcal{L}_{lm}^{\text{arch}}\Phi_{l}\Phi_{m}
+\end{align*}
+</span></p>
+</div>
+<div class="absolute" data-left="25%" data-bottom="5%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/connectivity.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="tziotziou2012">Tziotziou et al. (<a href="#ref-tziotziou2012" role="doc-biblioref">2012</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="free-energy-relative-helicity-diagram-of-solar-ars-tziotziou2012" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="free-energy-relative-helicity-diagram-of-solar-ars-tziotziou2012">Free energy – Relative helicity diagram of solar ARs <span class="citation" data-cites="tziotziou2012">(<a href="#ref-tziotziou2012" role="doc-biblioref">Tziotziou et al. 2012</a>)</span></h2>
+<ul>
+<li>Blue diamonds : Non-flaring ARs</li>
+<li>Red squares/asterisks : M-/X-class flaring ARs</li>
+</ul>
+<div class="absolute" data-left="0">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/eh_diagram.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-right="5%">
+<ul>
+<li>Threshold for relative magnetic helicity <span class="math inline">H_\text{V}</span> <br> (denoted as <span class="math inline">|H_m|</span> in this diagram)</li>
+</ul>
+<p><span class="math display">
+|H_\text{V}| \sim 2 \times 10^{42} \text{ Mx}^2
+</span></p>
+<ul>
+<li>Threshold for free magnetic energy <span class="math inline">E_\text{free}</span> <br> (denoted as <span class="math inline">E_\text{c}</span> in this diagram)</li>
+</ul>
+<p><span class="math display">
+E_\text{free} \sim 4 \times 10^{31} \text{ erg}
+</span></p>
+<ul>
+<li>Scaling relation <span class="citation" data-cites="tziotziou2014">(<a href="#ref-tziotziou2014" role="doc-biblioref">Tziotziou et al. 2014</a>)</span></li>
+</ul>
+<p><span class="math display">
+|H_V| \propto E_\text{free}^{0.84 \pm 0.05}
+</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017">Relative magnetic helicity as a diagnostic of solar eruptivity <span class="citation" data-cites="pariat2017">(<a href="#ref-pariat2017" role="doc-biblioref">Pariat et al. 2017</a>)</span></h2>
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/helicity_energy.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-left="10%">
+<ul>
+<li>3D visco-resistive MHD simulations
+<ul>
+<li>ND : no arcade</li>
+<li>WD : weak arcade</li>
+<li>MD : medium arcade</li>
+<li>SD : strong arcade</li>
+</ul></li>
+</ul>
+</div>
+<div class="absolute" data-right="10%">
+<ul>
+<li>from <span class="math inline">t = 0</span> to <span class="math inline">t=200</span>
+<ul>
+<li><span class="math inline">t &lt; 30</span> : emerging flux rope rises in the convection zone</li>
+<li><span class="math inline">t \in [30, 120]</span> : pre-eruptive phase</li>
+<li><span class="math inline">t \in [120, 150]</span> : eruptive phase</li>
+<li><span class="math inline">t  &gt; 150</span> : post-eruptive phase</li>
+</ul></li>
+</ul>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017-1">Relative magnetic helicity as a diagnostic of solar eruptivity <span class="citation" data-cites="pariat2017">(<a href="#ref-pariat2017" role="doc-biblioref">Pariat et al. 2017</a>)</span></h2>
+<p><span class="math display">
+H_V = H_\text{J} + H_\text{PJ}
+</span></p>
+<p><span class="math display">
+E = E_\text{free} + E_\text{p}
+</span></p>
+<p>Here, <span class="math inline">E = E_\text{mag}</span> and <span class="math inline">E_\text{inj} = E_\text{mag} - E_\text{mag}(t=0)</span></p>
+<div class="absolute" data-left="5%" data-bottom="5%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/helicity_energy_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-right="5%" data-bottom="5%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/helicity_energy_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="820"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017-2" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="relative-magnetic-helicity-as-a-diagnostic-of-solar-eruptivity-pariat2017-2">Relative magnetic helicity as a diagnostic of solar eruptivity <span class="citation" data-cites="pariat2017">(<a href="#ref-pariat2017" role="doc-biblioref">Pariat et al. 2017</a>)</span></h2>
+<p><span class="math display">
+H_V = H_\text{J} + H_\text{PJ}
+</span></p>
+<p><span class="math display">
+E = E_\text{free} + E_\text{p}
+</span></p>
+<p>Here, <span class="math inline">E = E_\text{mag}</span> and <span class="math inline">E_\text{inj} = E_\text{mag} - E_\text{mag}(t=0)</span></p>
+<div class="absolute" data-left="5%" data-bottom="5%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/helicity_energy_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="860"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-right="5%" data-bottom="5%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/helicity_energy_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="changes-of-magnetic-energy-and-helicity-in-solar-ars-from-major-flares-liu2023" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="changes-of-magnetic-energy-and-helicity-in-solar-ars-from-major-flares-liu2023">Changes of Magnetic Energy and Helicity in Solar ARs from Major Flares <span class="citation" data-cites="liu2023">(<a href="#ref-liu2023" role="doc-biblioref">Liu et al. 2023</a>)</span></h2>
+<ul>
+<li>Here, <span class="math inline">H</span> = <span class="math inline">H_V</span></li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/change_hel_ene_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="surface-calculated-quantities---sharp-parameters" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="surface-calculated-quantities---sharp-parameters">Surface-calculated quantities - SHARP parameters</h2>
+<ul>
+<li>SOLAR FLARE PREDICTION USING SDO/HMI VECTOR MAGNETIC FIELD DATA WITH A MACHINE-LEARNING ALGORITHM <span class="citation" data-cites="bobra2015">(<a href="#ref-bobra2015" role="doc-biblioref">Bobra et al. 2015</a>)</span></li>
+</ul>
+<div class="absolute" data-left="0">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/SHARP.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-right="0">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/SHARP_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="surface-calculated-quantities---mathbfv-or-mathbfe" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="surface-calculated-quantities---mathbfv-or-mathbfe">Surface-calculated quantities - <span class="math inline">\mathbf{v}</span> or <span class="math inline">\mathbf{E}</span></h2>
+<ul>
+<li><span class="math inline">\mathbf{v}</span> : DAVE4VM (differential affine velocity estimator for vector magnetograms) <span class="citation" data-cites="schuck2008">(<a href="#ref-schuck2008" role="doc-biblioref">Schuck 2008</a>)</span></li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/DAVE4VM.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="surface-calculated-quantities---mathbfv-or-mathbfe-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="surface-calculated-quantities---mathbfv-or-mathbfe-1">Surface-calculated quantities - <span class="math inline">\mathbf{v}</span> or <span class="math inline">\mathbf{E}</span></h2>
+<ul>
+<li><span class="math inline">\mathbf{E}</span> : PDFI_SS <span class="citation" data-cites="fisher2020">(<a href="#ref-fisher2020" role="doc-biblioref">Fisher et al. 2020</a>)</span>
+<ul>
+<li>PDFI : poloidal–toroidal decomposition (PTD) plus Doppler plus Fourier local correlation tracking (FLCT) plus ideal</li>
+<li>SS : spherical staggered</li>
+</ul></li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/PDFI_SS.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="surface-calculated-quantities---mathbfv-or-mathbfe-2" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="surface-calculated-quantities---mathbfv-or-mathbfe-2">Surface-calculated quantities - <span class="math inline">\mathbf{v}</span> or <span class="math inline">\mathbf{E}</span></h2>
+<ul>
+<li>DAVE4VM vs PDFI_SS <span class="citation" data-cites="wang2023">(<a href="#ref-wang2023" role="doc-biblioref">Wang et al. 2023</a>)</span></li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Inversion.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="surface-calculated-quantities---flux-of-quantities" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="surface-calculated-quantities---flux-of-quantities">Surface-calculated quantities - Flux of quantities</h2>
+<ul>
+<li>Magnetic energy (Poynting) flux <span class="citation" data-cites="schuck2006 guo2017b liu2023">(<a href="#ref-schuck2006" role="doc-biblioref">Schuck 2006</a>; <a href="#ref-guo2017b" role="doc-biblioref">Guo et al. 2017b</a>; <a href="#ref-liu2023" role="doc-biblioref">Liu et al. 2023</a>)</span></li>
+</ul>
+<p><span class="math display">
+\left.\frac{dE}{dt}\right|_{S} = \frac{1}{4\pi}\int_{S}B_t^2V_{\perp n}\rm{d}S - \frac{1}{4\pi}\int_{S}(\mathbf{B}_t \cdot \mathbf{V}_{\perp t})B_n \rm{d}S
+</span></p>
+<ul>
+<li>Flux of magnetic helicity <span class="citation" data-cites="berger1984 chae2001 liu2023">(<a href="#ref-berger1984" role="doc-biblioref">Berger 1984</a>; <a href="#ref-chae2001" role="doc-biblioref">Chae 2001</a>; <a href="#ref-liu2023" role="doc-biblioref">Liu et al. 2023</a>)</span></li>
+</ul>
+<p><span class="math display">
+\left.\frac{dH}{dt}\right|_{S} = 2\int_{S}(\mathbf{A}_p \cdot \mathbf{B}_t)\rm{d}S - 2\int_{S}(\mathbf{A}_p \cdot \mathbf{V}_{\perp t})B_n \rm{d}S
+</span></p>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="surface-calculated-quantities---flux-of-quantities-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="surface-calculated-quantities---flux-of-quantities-1">Surface-calculated quantities - Flux of quantities</h2>
+<ul>
+<li>On short timescales (~1 hr) after <em>eruptive</em> flares, there are decreases in both the coronal magnetic energy, <span class="math inline">E</span>, and helicity <span class="math inline">H</span>; and their photospheric fluxes, <span class="math inline">dE/dt</span> and <span class="math inline">dH/dt</span>. <span class="citation" data-cites="liu2023">(<a href="#ref-liu2023" role="doc-biblioref">Liu et al. 2023</a>)</span></li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/change_hel_ene_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:47.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="surface-calculated-quantities---flux-of-quantities-2" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="surface-calculated-quantities---flux-of-quantities-2">Surface-calculated quantities - Flux of quantities</h2>
+<ul>
+<li>Fluxes of topological quantities <span class="citation" data-cites="alielden2023">(<a href="#ref-alielden2023" role="doc-biblioref">Alielden et al. 2023</a>)</span></li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ARTop0.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-left="0">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ARTop1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-right="0">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ARTop2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:94.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="surface-calculated-quantities---flux-of-quantities-3" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="surface-calculated-quantities---flux-of-quantities-3">Surface-calculated quantities - Flux of quantities</h2>
+<ul>
+<li>Fluxes of topological quantities <span class="citation" data-cites="alielden2023">(<a href="#ref-alielden2023" role="doc-biblioref">Alielden et al. 2023</a>)</span></li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ARTop3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="magnetic-flux-rope-mfr" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="magnetic-flux-rope-mfr">Magnetic flux rope (MFR)</h2>
+<ul>
+<li><p>Magnetic flux rope (MFR) can be defined as a coherent group of magnetic field lines winding an axis with more than one turn <span class="citation" data-cites="liu2016 duan2019">(<a href="#ref-liu2016" role="doc-biblioref">Liu et al. 2016</a>; <a href="#ref-duan2019" role="doc-biblioref">Duan et al. 2019</a>)</span>.</p></li>
+<li><p>Magnetic flux rope of the Titov–Démoulin semi-analytical NLFFF model <span class="citation" data-cites="titov1999 guo2017a">(<a href="#ref-titov1999" role="doc-biblioref">Titov et al. 1999</a>; <a href="#ref-guo2017a" role="doc-biblioref">Guo et al. 2017a</a>)</span></p></li>
+</ul>
+<div class="absolute" data-right="45%" width="60%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MFR_0.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-left="40%" width="60%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MFR.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="kink-instability-ki" class="level2">
+<h2 class="anchored" data-anchor-id="kink-instability-ki">Kink instability (KI)</h2>
+<ul>
+<li>Magnetic twist number <span class="math inline">T_\text{w}</span> for a given (closed) field line <span class="citation" data-cites="berger2006 jing2018 duan2019">(<a href="#ref-berger2006" role="doc-biblioref">Berger et al. 2006</a>; <a href="#ref-jing2018" role="doc-biblioref">Jing et al. 2018</a>; <a href="#ref-duan2019" role="doc-biblioref">Duan et al. 2019</a>)</span></li>
+</ul>
+<p><span class="math display">
+T_\text{w} = \int_L \frac{(\nabla \times \mathbf{B}) \cdot \mathbf{B}}{4 \pi B^2} \rm{d}l
+</span></p>
+<ul>
+<li>If the magnetic field is force-free, i.e., <span class="math inline">\nabla \times \mathbf{B} = \alpha \mathbf{B}</span>,</li>
+</ul>
+<p><span class="math display">
+T_\text{w} = \frac{1}{4\pi} \int_L \alpha \rm{d}l
+</span></p>
+<ul>
+<li>KI parameter - There is a critical value to determine whether MFR is eruptive or not.</li>
+</ul>
+<p><span class="math display">
+|T_\text{w}| &gt; |T_\text{w}|_\text{crit}
+</span></p>
+<ul>
+<li><span class="math inline">T_\text{w}</span> is not identical to the classical winding number of field lines about a common axis, the parameter often used in the analysis of the helical KI. Nevertheless, accroding to Liu et al.’s <span class="citation" data-cites="liu2016">(<a href="#ref-liu2016" role="doc-biblioref">2016</a>)</span> analysis, the magnetic field line that possesses the extremum value (maximum or minimum) of <span class="math inline">|T_\text{w}|</span> in a MFR can be reliably regarded as the rope axis, and <span class="math inline">T_\text{w}</span> computed in the vicinity of the axis approaches the winding number. <span class="citation" data-cites="duan2019">(<a href="#ref-duan2019" role="doc-biblioref">Duan et al. 2019</a>)</span></li>
+</ul>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="identification-of-mfrs-duan2019" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="identification-of-mfrs-duan2019">Identification of MFRs <span class="citation" data-cites="duan2019">(<a href="#ref-duan2019" role="doc-biblioref">Duan et al. 2019</a>)</span></h2>
+<ul>
+<li><strong>MFRs generally exist prior to major solar flares.</strong> With a rigorous definition, over 90% of the studied events have well-defined MFRs in the flare site, i.e., a coherent group of magnetic field lines with twists above one turn and the field line possessing the peak value of twist being the rope axis. The other 10% of events also have MFR-like structures as their magnetic twist numbers are very close to one. Most of the MFRs have corresponding filaments or filament channels as seen in SDO/AIA 304 Å observations. <span class="citation" data-cites="duan2019">(<a href="#ref-duan2019" role="doc-biblioref">Duan et al. 2019</a>)</span></li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MFR_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="identification-of-mfrs-duan2019-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="identification-of-mfrs-duan2019-1">Identification of MFRs <span class="citation" data-cites="duan2019">(<a href="#ref-duan2019" role="doc-biblioref">Duan et al. 2019</a>)</span></h2>
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MFR_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="torus-instability-ti" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="torus-instability-ti">Torus instability (TI)</h2>
+<ul>
+<li>Decay index <span class="math inline">n</span> <span class="citation" data-cites="kliem2006 jing2018 duan2019">(<a href="#ref-kliem2006" role="doc-biblioref">Kliem et al. 2006</a>; <a href="#ref-jing2018" role="doc-biblioref">Jing et al. 2018</a>; <a href="#ref-duan2019" role="doc-biblioref">Duan et al. 2019</a>)</span></li>
+</ul>
+<p><span class="math display">
+n = - \frac{\partial \log (B_\text{ext})}{\partial \log (h)}
+</span></p>
+<ul>
+<li><p><span class="math inline">B_\text{ext}</span> : external strapping field stabilizing the MFR (usually potential field)</p></li>
+<li><p><span class="math inline">h</span> : vertical height locally, radial distance globally, or oblique height</p></li>
+<li><p>TI parameter - There is a critical value to determine whether MFR is eruptive or not.</p></li>
+</ul>
+<p><span class="math display">
+n &gt; n_\text{crit}
+</span></p>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="torus-instability-ti-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="torus-instability-ti-1">Torus instability (TI)</h2>
+<ul>
+<li>Illustration of calculating the decay index <span class="math inline">n</span> at the apex of the MFR axis <span class="citation" data-cites="duan2019">(<a href="#ref-duan2019" role="doc-biblioref">Duan et al. 2019</a>)</span></li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MFR_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="ti-parameter---ki-parameter-diagram" class="level2">
+<h2 class="anchored" data-anchor-id="ti-parameter---ki-parameter-diagram">TI Parameter - KI Parameter diagram</h2>
+<ul>
+<li>Laboratory experiment designed to study the Sun-like line-tied MFRs <span class="citation" data-cites="myers2015">(<a href="#ref-myers2015" role="doc-biblioref">Myers et al. 2015</a>)</span></li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><video src="images/41586_2015_BFnature16188_MOESM294_ESM.mp4" class="img-fluid quarto-figure quarto-figure-center" style="width:80.0%" controls=""><a href="images/41586_2015_BFnature16188_MOESM294_ESM.mp4">Video</a></video></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="ti-parameter---ki-parameter-diagram-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="ti-parameter---ki-parameter-diagram-1">TI Parameter - KI Parameter diagram</h2>
+<ul>
+<li>Laboratory experiment designed to study the Sun-like line-tied MFRs <span class="citation" data-cites="myers2015">(<a href="#ref-myers2015" role="doc-biblioref">Myers et al. 2015</a>)</span></li>
+</ul>
+<div class="absolute" data-right="20%" width="100%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/KI_TI_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-right="5%" width="35%" data-top="20%">
+<ul>
+<li>Potential field decay index <span class="math inline">n</span></li>
+</ul>
+<p><span class="math display">
+n(z) = - \frac{z}{|\mathbf{B}_\text{pot}|}\frac{\partial |\mathbf{B}_\text{pot}|}{\partial z}
+</span></p>
+<ul>
+<li>Edge safety factor <span class="math inline">q_a</span> : inverse of the edge magnetic twist <span class="math inline">\iota_a</span></li>
+</ul>
+<p><span class="math display">
+q_a = \frac{2\pi}{\iota_a} = \left.\frac{\rm{d}\Phi_\text{T}}{\rm{d}\psi_\text{P}}\right|_{r=a} \approx \frac{2\pi a}{L}\frac{B_\text{Ta}}{B_\text{Pa}}
+</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="ti-parameter---ki-parameter-diagram-2" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="ti-parameter---ki-parameter-diagram-2">TI Parameter - KI Parameter diagram</h2>
+<ul>
+<li>Statistical Analysis of Torus and Kink Instabilities in Solar Eruptions <span class="citation" data-cites="jing2018">(<a href="#ref-jing2018" role="doc-biblioref">Jing et al. 2018</a>)</span>
+<ul>
+<li>Black : confined flare</li>
+<li>Color : ejective flare</li>
+</ul></li>
+</ul>
+<div class="absolute" data-right="40%" width="70%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/KI_TI_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-right="0" width="50%" data-top="40%">
+<ul>
+<li><ol type="1">
+<li><span class="math inline">T_\text{w}</span> appears to play little role in discriminating between confined and ejective events</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>The events with <span class="math inline">n \gtrsim 0.8</span> are all ejective, and all confined events have <span class="math inline">n \lesssim 0.8</span>. However, <span class="math inline">n \gtrsim 0.8</span> is not a necessary condition for eruption because some events with <span class="math inline">n \lesssim 0.8</span> also erupted.</li>
+</ol></li>
+</ul>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="ti-parameter---ki-parameter-diagram-3" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="ti-parameter---ki-parameter-diagram-3">TI Parameter - KI Parameter diagram</h2>
+<ul>
+<li>A Study of Pre-flare Solar Coronal Magnetic Fields: Magnetic Flux Ropes <span class="citation" data-cites="duan2019">(<a href="#ref-duan2019" role="doc-biblioref">Duan et al. 2019</a>)</span>
+<ul>
+<li>Green : non-MFR event (<span class="math inline">|T_\text{w}|_\text{max} &lt; 1</span>)</li>
+</ul></li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/KI_TI_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+<ul>
+<li>It clearly shows lower limits for TI and KI thresholds, which are <span class="math inline">n_\text{crit}=1.3</span> and <span class="math inline">|T_\text{w}|_\text{crit}=2</span>, respectively, as all the events above <span class="math inline">n_\text{crit}</span> and nearly 90% of the events above <span class="math inline">|T_\text{w}|_\text{crit}|</span> erupted. Furthermore, by such criterion, over 70% of the events can be discriminated between eruptive and confined flares, and KI seems to play a nearly equally important role as TI in discriminating between the two types of flares. More than half of the events with both parameters are below the lower limits, and 29% are eruptive. These events might be triggered by magnetic reconnection rather than MHD instabilities.</li>
+</ul>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="tether-cutting-reconnection" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="tether-cutting-reconnection">Tether-cutting reconnection</h2>
+<ul>
+<li>Tether-cutting reconnection scenario proposed by Moore et al. <span class="citation" data-cites="moore2001">(<a href="#ref-moore2001" role="doc-biblioref">2001</a>)</span> explains the eruption of the sigmoidal field often observed before solar eruptions. <span class="citation" data-cites="ishiguro2017">(<a href="#ref-ishiguro2017" role="doc-biblioref">Ishiguro et al. 2017</a>)</span></li>
+</ul>
+<div class="absolute" data-right="55%" width="40%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tether_cutting_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-left="55%" width="38%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tether_cutting_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="tether-cutting-reconnection-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="tether-cutting-reconnection-1">Tether-cutting reconnection</h2>
+<div class="absolute" data-right="50%" width="45%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tether_cutting_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-left="50%" width="45%" data-top="20%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tether_cutting_6.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="chen2014">Chen et al. (<a href="#ref-chen2014" role="doc-biblioref">2014</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="double-arc-instability-ishiguro2017" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="double-arc-instability-ishiguro2017">Double arc instability <span class="citation" data-cites="ishiguro2017">(<a href="#ref-ishiguro2017" role="doc-biblioref">Ishiguro et al. 2017</a>)</span></h2>
+<ul>
+<li>The tether-cutting scenario proposes that the internal reconnection proceeds in the core of the sheared magnetic field in the pre-eruptive phase, and it may form a double arc flux rope (sigmoidal field) that carries an electric current <span class="citation" data-cites="ishiguro2017">(<a href="#ref-ishiguro2017" role="doc-biblioref">Ishiguro et al. 2017</a>)</span>.</li>
+</ul>
+<div class="absolute" data-right="50%" width="45%" data-top="30%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/dai.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-left="50%" width="45%" data-top="20%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tether_cutting_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="ishiguro2017">Ishiguro et al. (<a href="#ref-ishiguro2017" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="kusano2020">Kusano et al. (<a href="#ref-kusano2020" role="doc-biblioref">2020</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="double-arc-instability" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="double-arc-instability">Double arc instability</h2>
+<ul>
+<li>DAI parameter <span class="math inline">\kappa</span> <span class="citation" data-cites="ishiguro2017 muhamad2018 kusano2020">(<a href="#ref-ishiguro2017" role="doc-biblioref">Ishiguro et al. 2017</a>; <a href="#ref-muhamad2018" role="doc-biblioref">Muhamad et al. 2018</a>; <a href="#ref-kusano2020" role="doc-biblioref">Kusano et al. 2020</a>)</span></li>
+</ul>
+<p><span class="math display">
+\kappa = T_\text{w} \frac{\Phi_\text{rec}}{\Phi_\text{over}}
+</span></p>
+<center>
+<p><span class="math inline">T_\text{w}</span> : magnetic twist of the DA</p>
+<p><span class="math inline">\Phi_\text{rec}</span> : magnetic flux within DA</p>
+<span class="math inline">\Phi_\text{over}</span> : magnetic flux overlying DA
+</center>
+<ul>
+<li>There is a threshold.</li>
+</ul>
+<p><span class="math display">
+\kappa &gt; \kappa_0
+</span></p>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="a-physics-based-method-that-can-predict-imminent-large-solar-flares-kusano2020" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="a-physics-based-method-that-can-predict-imminent-large-solar-flares-kusano2020">A physics-based method that can predict imminent large solar flares <span class="citation" data-cites="kusano2020">(<a href="#ref-kusano2020" role="doc-biblioref">Kusano et al. 2020</a>)</span></h2>
+<ul>
+<li><span class="math inline">\kappa</span> is evaluated by</li>
+</ul>
+<p><span class="math display">
+\kappa = \left|\frac{\int_\text{rec} T_\text{w}\rm{d}\Phi}{\Phi_{\text{over}}}\right|
+</span></p>
+<p>where the integral is taken over the magnetic flux subject to the trigger-reconnection which forms the DA.</p>
+<ul>
+<li>If the DA is formed by the magnetic reconnection of magnetic fluxes rooted near the PIL, then <span class="math inline">\kappa</span> can be calculated by the area integral over the reconnection-region <span class="math inline">S_\text{rec}</span> on the photosphere: <span class="math display">
+\kappa = \left|\frac{\int_{S_\text{rec}} \tau\rm{d}S}{\Phi_{\text{over}}}\right|
+</span></li>
+</ul>
+<p>where</p>
+<p><span class="math display">
+\tau = T_\text{w}|B_z|
+</span></p>
+<p>is defined as the magnetic twist flux density with the vertical magnetic field <span class="math inline">B_z</span>.</p>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="kappa-scheme-kusano2020" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="kappa-scheme-kusano2020"><span class="math inline">\kappa</span>-scheme <span class="citation" data-cites="kusano2020">(<a href="#ref-kusano2020" role="doc-biblioref">Kusano et al. 2020</a>)</span></h2>
+<ol type="1">
+<li>calculate <span class="math inline">T_\text{w}</span></li>
+<li>calculate <span class="math inline">\tau = T_\text{w} |B_z|</span></li>
+<li>calculate <span class="math inline">B_{\text{np}} = |\mathbf{B}_{\text{h}} - \mathbf{B}_\text{p}|</span></li>
+<li>identify multiple High Free-Energy Regions (HiFERs) using the condition <span class="math inline">B_\text{np} &gt; B_0 = 1000 \text{ G}</span></li>
+<li>sort the HiFERs by the size (largest size is the fisrt HiFER). <span class="math inline">S_{H, i}</span> is the area of the <span class="math inline">i</span>-th HiFER</li>
+<li>select one point in PIL within HiFER</li>
+<li>consider hypothetical reconnection region as a circle with <span class="math inline">r</span></li>
+<li>calculate unsigned magnetic flux of each pole</li>
+<li>for area with small unsigned magnetic flux, calculate <span class="math inline">\int_{S_\text{rec}}  \tau \rm{d}S</span></li>
+<li>identify magnetic field lines rooted on the hypothetical reconnection region (predicted trigger-reconnection region)</li>
+<li>identify strongest sheared field line among them, which is defined by field line that reaches farthest from the reconnection region</li>
+<li>calculate <span class="math inline">\Phi_{\text{over}}</span> for all flux crossing over the strongest sheared field line</li>
+<li>calculate <span class="math inline">\kappa = \left| \frac{\int_{S_\text{rec}}  \tau \rm{d}S}{\Phi_{\text{over}}} \right|</span></li>
+<li>since <span class="math inline">\kappa</span> depends on <span class="math inline">r</span> (radius of reconnection region), we can find the minimum <span class="math inline">r</span> while satisfying <span class="math inline">\kappa &gt; \kappa_0 = 0.1</span></li>
+<li>The minium <span class="math inline">r</span> is the critical length scale <span class="math inline">r_c</span></li>
+<li>for each point with <span class="math inline">r_c</span>, calculate the area of the footprint of the overlying field within the HiFER <span class="math inline">S_r</span></li>
+<li>calculate the first level of releasable energy <span class="math inline">E_r = \displaystyle \frac{S_r ^{1/2}}{8\pi}  \int_{S_r} B^2_{\text{np}} \rm{d} S</span>, which is the mininum energy of the flare driven by a DAI</li>
+<li>calculate the second level of releasable energy for <span class="math inline">i</span>-th HiFER <span class="math inline">E_{H, i} = \displaystyle \frac{S_{H, i} ^{1/2}}{8\pi}  \int_{S_{H, i}} B^2_{\text{np}} \rm{d} S</span></li>
+<li>calculate the total free energy of an AR <span class="math inline">E_{\text{AR}} = \displaystyle \sum_i E_{H, i}</span></li>
+</ol>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="kappa-scheme-kusano2020-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="kappa-scheme-kusano2020-1"><span class="math inline">\kappa</span>-scheme <span class="citation" data-cites="kusano2020">(<a href="#ref-kusano2020" role="doc-biblioref">Kusano et al. 2020</a>)</span></h2>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Kusano00.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Kusano0.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="a-physics-based-method-that-can-predict-imminent-large-solar-flares-kusano2020-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="a-physics-based-method-that-can-predict-imminent-large-solar-flares-kusano2020-1">A physics-based method that can predict imminent large solar flares <span class="citation" data-cites="kusano2020">(<a href="#ref-kusano2020" role="doc-biblioref">Kusano et al. 2020</a>)</span></h2>
+<ul>
+<li>If any point on a PIL satisfies the conditions <span class="math inline">r_c &lt; 1 \text{ Mm}</span> and <span class="math inline">E_r &gt; 4 \times 10^{31} \text{ erg}</span>, an X-class flare usually occurs.</li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Kusano1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><video src="images/aaz2511s1.mp4" class="img-fluid quarto-figure quarto-figure-center" style="width:80.0%" controls=""><a href="images/aaz2511s1.mp4">Video</a></video></p>
+</figure>
+</div>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="magnetic-topology-analysis" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="magnetic-topology-analysis">Magnetic topology analysis</h2>
+<ul>
+<li>The random or user-defined tracing of magnetic field lines does not guarantee that key features of the magnetic field will be identified.</li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/topology.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%"></p>
+</figure>
+</div>
+</div>
+<ul>
+<li><p>Magnetic reconnection, responsible for changing both the topology and geometry of a magnetic field, is a typical example of a phenomenon whose occurrence is strongly associated with the geometry of the magnetic field.</p></li>
+<li><p>In particular, magnetic reconnection is linked to the formation of intense field-aligned current sheets, that are induced by the existence of gradients of the magnetic field, following Ampère’s equation (<span class="math inline">\mu_0 \mathbf{J} = \nabla \times \mathbf{B}</span>).</p></li>
+<li><p>These currents develop preferentially in specific locations of the magnetic field, that is in regions where the connectivity of the magnetic field is discontinuous.</p></li>
+<li><p>The aim of the magnetic topology is to determine the locations of such regions.</p></li>
+</ul>
+<div class="footer">
+<p><span class="citation" data-cites="pariat2020">Pariat (<a href="#ref-pariat2020" role="doc-biblioref">2020</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="separatrices" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="separatrices">Separatrices</h2>
+<div class="absolute" data-right="60%" width="30%" data-bottom="20%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fieldline.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-left="50%" width="50%" data-bottom="20%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/topology3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<ul>
+<li><p>Let us consider a field line which links the footpoint <span class="math inline">\mathbf{r}_1</span> of coordinate <span class="math inline">(x_1, y_1)</span> of the plane <span class="math inline">P_1</span> to the footpoint <span class="math inline">\mathbf{r}_2</span>, of coordinate <span class="math inline">(X_2, Y_2)</span> of the plane <span class="math inline">P_2</span>.</p></li>
+<li><p>Two mappings exist that associate a footpoint on one plane to the other: the mapping <span class="math inline">\Pi_{12}</span> from <span class="math inline">P_1</span> to <span class="math inline">P_2</span>: <span class="math inline">\mathbf{r}_1(x_1, y_1) \mapsto \mathbf{r}_2(X_2, Y_2)</span>; and the inverse mapping <span class="math inline">\Pi_{21}</span> from <span class="math inline">P_2</span> to <span class="math inline">P_1</span>: <span class="math inline">\mathbf{r}_2(X_2, Y_2) \mapsto \mathbf{r}_1(x_1, y_1)</span>.</p></li>
+<li><p>A separatrix is present when the mapping contains a discontinuity, i.e.&nbsp;where the function <span class="math inline">\Pi_{12}</span> (or <span class="math inline">\Pi_{21}</span>) is discontinuous.</p></li>
+</ul>
+<div class="footer">
+<p><span class="citation" data-cites="longcope2008">Longcope et al. (<a href="#ref-longcope2008" role="doc-biblioref">2008</a>)</span>, <span class="citation" data-cites="pariat2012">Pariat et al. (<a href="#ref-pariat2012" role="doc-biblioref">2012</a>)</span>, <span class="citation" data-cites="pariat2020">Pariat (<a href="#ref-pariat2020" role="doc-biblioref">2020</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="separatrices---regions-of-magnetic-field-discontinuity" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="separatrices---regions-of-magnetic-field-discontinuity">Separatrices - Regions of magnetic field discontinuity</h2>
+<ul>
+<li>Null points <span class="math inline">\mathbf{x}_\text{NP}</span></li>
+</ul>
+<p><span class="math display">
+\mathbf{B}(\mathbf{x}_\text{NP}) = \mathbf{0}
+</span></p>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fan_spine.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/np1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/np4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="longcope2005">Longcope (<a href="#ref-longcope2005" role="doc-biblioref">2005</a>)</span>, <span class="citation" data-cites="jiang2017">Jiang et al. (<a href="#ref-jiang2017" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="mason2019">Mason et al. (<a href="#ref-mason2019" role="doc-biblioref">2019</a>)</span>, <span class="citation" data-cites="pariat2020">Pariat (<a href="#ref-pariat2020" role="doc-biblioref">2020</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="separatrices---regions-of-magnetic-field-discontinuity-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="separatrices---regions-of-magnetic-field-discontinuity-1">Separatrices - Regions of magnetic field discontinuity</h2>
+<ul>
+<li>Bald patches (BPs)
+<ul>
+<li>Regions where some field lines touch the boundary tangentially</li>
+</ul></li>
+</ul>
+<p><span class="math display">
+\mathbf{x}_\text{BP} \in \partial V \quad \text{with } \partial V \text{ a line-tying boundary}
+</span></p>
+<p><span class="math display">
+B_n (\mathbf{x}_\text{BP}) = 0
+</span></p>
+<p><span class="math display">
+(\mathbf{B} \cdot \nabla B_n)(\mathbf{x}_\text{BP}) &gt; 0
+</span></p>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/bp1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/bp2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/bp3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="longcope2005">Longcope (<a href="#ref-longcope2005" role="doc-biblioref">2005</a>)</span>, <span class="citation" data-cites="jiang2017">Jiang et al. (<a href="#ref-jiang2017" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="mason2019">Mason et al. (<a href="#ref-mason2019" role="doc-biblioref">2019</a>)</span>, <span class="citation" data-cites="pariat2020">Pariat (<a href="#ref-pariat2020" role="doc-biblioref">2020</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="separatrices---regions-of-magnetic-field-discontinuity-2" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="separatrices---regions-of-magnetic-field-discontinuity-2">Separatrices - Regions of magnetic field discontinuity</h2>
+<ul>
+<li>Separators
+<ul>
+<li>1D topological structures and are found at the intersection of two separatrix surfaces.</li>
+<li>Separators can be found to connect two 3D magnetic null points.</li>
+</ul></li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sep.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="longcope2005">Longcope (<a href="#ref-longcope2005" role="doc-biblioref">2005</a>)</span>, <span class="citation" data-cites="jiang2017">Jiang et al. (<a href="#ref-jiang2017" role="doc-biblioref">2017</a>)</span>, <span class="citation" data-cites="mason2019">Mason et al. (<a href="#ref-mason2019" role="doc-biblioref">2019</a>)</span>, <span class="citation" data-cites="pariat2020">Pariat (<a href="#ref-pariat2020" role="doc-biblioref">2020</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="quasi-separatrix-layers-qsls" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="quasi-separatrix-layers-qsls">Quasi-Separatrix Layers (QSLs)</h2>
+<ul>
+<li><p>Numerous solar flares, however, have not been associated with separatrices, i.e.&nbsp;with magnetic-field connectivity discontinuities. This has led to the <strong>generalization of the concept of separatrices</strong> to Quasi-Separatrix Layers (QSLs). QSLs were introduced in Démoulin et al. <span class="citation" data-cites="demoulin1996">(<a href="#ref-demoulin1996" role="doc-biblioref">1996</a>)</span> and are defined as regions where the mapping of the field lines, while still continuous (unlike seperatrices), possesses very strong gradients.</p></li>
+<li><p>QSLs are 3D magnetic volumes of high squashing factor <span class="math inline">Q</span>, in which the magnetic connectivity varies strongly.</p></li>
+</ul>
+<div class="absolute" data-right="55%" width="40%" data-bottom="10%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/qsla1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="absolute" data-left="55%" width="45%" data-bottom="13%">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/qsla2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="pariat2020">Pariat (<a href="#ref-pariat2020" role="doc-biblioref">2020</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="squashing-factor-q" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="squashing-factor-q">Squashing factor <span class="math inline">Q</span></h2>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fieldline.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+</figure>
+</div>
+</div>
+<ul>
+<li>Mappings
+<ul>
+<li><span class="math inline">\Pi_{12}</span> : <span class="math inline">\mathbf{r}_1(x_1, y_1) \mapsto \mathbf{r}_2(X_2, Y_2)</span></li>
+<li><span class="math inline">\Pi_{21}</span> : <span class="math inline">\mathbf{r}_2(X_2, Y_2) \mapsto \mathbf{r}_1(x_1, y_1)</span>.</li>
+</ul></li>
+<li>Jacobian matrices associated with the mappings</li>
+</ul>
+<p><span class="math display">
+D_{12} = \frac{d\mathbf{r}_2}{d\mathbf{r}_1} = \begin{pmatrix}
+\displaystyle  \frac{\partial X_2}{\partial x_1} &amp; \displaystyle \frac{\partial X_2}{\partial y_1} \\
+\\
+\displaystyle  \frac{\partial Y_2}{\partial x_1} &amp; \displaystyle \frac{\partial Y_2}{\partial y_1}
+\end{pmatrix}
+\quad \quad
+D_{21} = \frac{d\mathbf{r}_1}{d\mathbf{r}_2} = \begin{pmatrix}
+\displaystyle  \frac{\partial x_1}{\partial X_2} &amp; \displaystyle \frac{\partial x_1}{\partial Y_2} \\
+\\
+\displaystyle  \frac{\partial y_1}{\partial X_2} &amp; \displaystyle \frac{\partial y_1}{\partial Y_2}
+\end{pmatrix}
+</span></p>
+<ul>
+<li>Norms of the Jacobian matrices</li>
+</ul>
+<p><span class="math display">
+N_{12} = \sqrt{\left( \frac{\partial X_2}{\partial x_1} \right)^2 + \left( \frac{\partial X_2}{\partial y_1} \right)^2 + \left( \frac{\partial Y_2}{\partial x_1} \right)^2 + \left( \frac{\partial Y_2}{\partial y_1} \right)^2}
+</span></p>
+<p><span class="math display">
+N_{21} = \sqrt{\left( \frac{\partial x_1}{\partial X_2} \right)^2 + \left( \frac{\partial x_1}{\partial Y_2} \right)^2 + \left( \frac{\partial y_1}{\partial X_2} \right)^2 + \left( \frac{\partial y_1}{\partial Y_2} \right)^2}.
+</span></p>
+<ul>
+<li>Determinants of the Jacobian matrices</li>
+</ul>
+<p><span class="math display">
+\Delta_{12} = \text{det}(D_{12})
+\quad \quad
+\Delta_{21} = \text{det}(D_{21})
+</span></p>
+<ul>
+<li>Squashing factor (or squashing degree) <span class="math inline">Q</span> for a field line</li>
+</ul>
+<p><span class="math display">
+Q = \frac{N_{12}^2}{|\Delta_{12}|} = \frac{N_{21}^2}{|\Delta_{21}|}
+</span></p>
+<div class="footer">
+<p><span class="citation" data-cites="pariat2020">Pariat (<a href="#ref-pariat2020" role="doc-biblioref">2020</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="qsl-reconnection" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="qsl-reconnection">QSL reconnection</h2>
+<ul>
+<li>QSLs are preferential sites for electric current build-up and magnetic reconnection.</li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/qsl2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/qsl3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="zhao2016">Zhao et al. (<a href="#ref-zhao2016" role="doc-biblioref">2016</a>)</span>, <span class="citation" data-cites="yang2020">Yang et al. (<a href="#ref-yang2020" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="pariat2020">Pariat (<a href="#ref-pariat2020" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="cheng2023">Cheng et al. (<a href="#ref-cheng2023" role="doc-biblioref">2023</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="qsl-reconnection-1" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="qsl-reconnection-1">QSL reconnection</h2>
+<ul>
+<li>QSLs have been associated with flare ribbons in a large number of events.</li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/qsl1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+<div class="footer">
+<p><span class="citation" data-cites="zhao2016">Zhao et al. (<a href="#ref-zhao2016" role="doc-biblioref">2016</a>)</span>, <span class="citation" data-cites="yang2020">Yang et al. (<a href="#ref-yang2020" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="pariat2020">Pariat (<a href="#ref-pariat2020" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="cheng2023">Cheng et al. (<a href="#ref-cheng2023" role="doc-biblioref">2023</a>)</span></p>
+</div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="fastqsl-zhang2022" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="fastqsl-zhang2022">FastQSL <span class="citation" data-cites="zhang2022">(<a href="#ref-zhang2022" role="doc-biblioref">Zhang et al. 2022</a>)</span></h2>
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/FastQSL.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+<ul>
+<li>Computation time : 107s for 900 x 540 x 360 grid data</li>
+</ul>
+<div class="center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/fastqsl2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/7pcfzM1FwnA" width="100%" height="100%" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<!---------------------------------------------------------------------------------------------------------------------->
+</section>
+<section id="references" class="level2">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-alielden2023" class="csl-entry" role="listitem">
+Alielden et al. 2023. <span>“ARTop: An Open-Source Tool for Measuring Active Region Topology at the Solar Photosphere.”</span> <a href="https://doi.org/10.1093/rasti/rzad029">https://doi.org/10.1093/rasti/rzad029</a>.
+</div>
+<div id="ref-berger1984" class="csl-entry" role="listitem">
+Berger. 1984. <span>“Rigorous New Limits on Magnetic Helicity Dissipation in the Solar Corona.”</span> <a href="https://doi.org/10.1080/03091928408210078">https://doi.org/10.1080/03091928408210078</a>.
+</div>
+<div id="ref-berger2003" class="csl-entry" role="listitem">
+———. 2003. <span>“Topological Quantities in Magnetohydrodynamics.”</span> In <em>Advances in Nonlinear Dynamos</em>. <a href="https://doi.org/10.1201/9780203493137">https://doi.org/10.1201/9780203493137</a>.
+</div>
+<div id="ref-berger2006" class="csl-entry" role="listitem">
+Berger et al. 2006. <span>“The Writhe of Open and Closed Curves.”</span> <a href="https://doi.org/10.1088/0305-4470/39/26/005">https://doi.org/10.1088/0305-4470/39/26/005</a>.
+</div>
+<div id="ref-bobra2015" class="csl-entry" role="listitem">
+Bobra et al. 2015. <span>“SOLAR FLARE PREDICTION USING SDO/HMI VECTOR MAGNETIC FIELD DATA WITH a MACHINE-LEARNING ALGORITHM.”</span> <a href="https://doi.org/10.1088/0004-637X/798/2/135">https://doi.org/10.1088/0004-637X/798/2/135</a>.
+</div>
+<div id="ref-caspi2023" class="csl-entry" role="listitem">
+Caspi et al. 2023. <span>“Magnetic Energy Powers the Corona: How We Can Understand Its 3D Storage &amp; Release.”</span> <a href="https://doi.org/10.3847/25c2cfeb.1dbfea1f">https://doi.org/10.3847/25c2cfeb.1dbfea1f</a>.
+</div>
+<div id="ref-chae2001" class="csl-entry" role="listitem">
+Chae. 2001. <span>“Observational Determination of the Rate of Magnetic Helicity Transport Through the Solar Surface via the Horizontal Motion of Field Line Footpoints.”</span> <a href="https://doi.org/10.1086/324173">https://doi.org/10.1086/324173</a>.
+</div>
+<div id="ref-chen2014" class="csl-entry" role="listitem">
+Chen et al. 2014. <span>“DIRECT OBSERVATIONS OF TETHER-CUTTING RECONNECTION DURING a MAJOR SOLAR EVENT FROM 2014 FEBRUARY 24 TO 25.”</span> <a href="https://doi.org/10.1088/2041-8205/797/2/L15">https://doi.org/10.1088/2041-8205/797/2/L15</a>.
+</div>
+<div id="ref-cheng2023" class="csl-entry" role="listitem">
+Cheng et al. 2023. <span>“Ultra-High-Resolution Observations of Persistent Null-Point Reconnection in the Solar Corona.”</span> <a href="https://doi.org/10.1038/s41467-023-37888-w">https://doi.org/10.1038/s41467-023-37888-w</a>.
+</div>
+<div id="ref-demoulin1996" class="csl-entry" role="listitem">
+Démoulin et al. 1996. <span>“Quasi-Separatrix Layers in Solar Flares. I. Method.”</span> <a href="https://ui.adsabs.harvard.edu/abs/1996A%26A...308..643D">https://ui.adsabs.harvard.edu/abs/1996A%26A...308..643D</a>.
+</div>
+<div id="ref-derosa2009" class="csl-entry" role="listitem">
+DeRosa et al. 2009. <span>“A CRITICAL ASSESSMENT OF NONLINEAR FORCE-FREE FIELD MODELING OF THE SOLAR CORONA FOR ACTIVE REGION 10953.”</span> <a href="https://doi.org/10.1088/0004-637X/696/2/1780">https://doi.org/10.1088/0004-637X/696/2/1780</a>.
+</div>
+<div id="ref-devore2000" class="csl-entry" role="listitem">
+DeVore. 2000. <span>“Magnetic Helicity Generation by Solar Differential Rotation.”</span> <a href="https://doi.org/10.1086/309274">https://doi.org/10.1086/309274</a>.
+</div>
+<div id="ref-duan2019" class="csl-entry" role="listitem">
+Duan et al. 2019. <span>“A Study of Pre-Flare Solar Coronal Magnetic Fields: Magnetic Flux Ropes.”</span> <a href="https://doi.org/10.3847/1538-4357/ab3e33">https://doi.org/10.3847/1538-4357/ab3e33</a>.
+</div>
+<div id="ref-finn1985" class="csl-entry" role="listitem">
+Finn et al. 1985. <span>“Magnetic Helicity: What Is It and What Is It Good For?”</span> <a href="https://www.researchgate.net/publication/261319440_Magnetic_Helicity_What_Is_It_and_What_Is_It_Good_For">https://www.researchgate.net/publication/261319440_Magnetic_Helicity_What_Is_It_and_What_Is_It_Good_For</a>.
+</div>
+<div id="ref-fisher2020" class="csl-entry" role="listitem">
+Fisher et al. 2020. <span>“The PDFI_SS Electric Field Inversion Software.”</span> <a href="https://doi.org/10.3847/1538-4365/ab8303">https://doi.org/10.3847/1538-4365/ab8303</a>.
+</div>
+<div id="ref-gary2001" class="csl-entry" role="listitem">
+Gary. 2001. <span>“Plasma Beta Above a Solar Active Region: Rethinking the Paradigm.”</span> <a href="https://doi.org/10.1023/A:1012722021820">https://doi.org/10.1023/A:1012722021820</a>.
+</div>
+<div id="ref-georgoulis2012" class="csl-entry" role="listitem">
+Georgoulis et al. 2012. <span>“MAGNETIC ENERGY AND HELICITY BUDGETS IN THE ACTIVE-REGION SOLAR CORONA. II. NONLINEAR FORCE-FREE APPROXIMATION.”</span> <a href="https://doi.org/10.1088/0004-637X/759/1/1">https://doi.org/10.1088/0004-637X/759/1/1</a>.
+</div>
+<div id="ref-green2018" class="csl-entry" role="listitem">
+Green et al. 2018. <span>“The Origin, Early Evolution and Predictability of Solar Eruptions.”</span> <a href="https://doi.org/10.1007/s11214-017-0462-5">https://doi.org/10.1007/s11214-017-0462-5</a>.
+</div>
+<div id="ref-guo2017a" class="csl-entry" role="listitem">
+Guo et al. 2017a. <span>“Magnetic Helicity Estimations in Models and Observations of the Solar Magnetic Field. III. Twist Number Method.”</span> <a href="https://doi.org/10.3847/1538-4357/aa6aa8">https://doi.org/10.3847/1538-4357/aa6aa8</a>.
+</div>
+<div id="ref-guo2017b" class="csl-entry" role="listitem">
+———. 2017b. <span>“Origin and Structures of Solar Eruptions II: Magnetic Modeling.”</span> <a href="https://doi.org/10.1007/s11430-017-9081-x">https://doi.org/10.1007/s11430-017-9081-x</a>.
+</div>
+<div id="ref-ishiguro2017" class="csl-entry" role="listitem">
+Ishiguro et al. 2017. <span>“Double Arc Instability in the Solar Corona.”</span> <a href="https://doi.org/10.3847/1538-4357/aa799b">https://doi.org/10.3847/1538-4357/aa799b</a>.
+</div>
+<div id="ref-jiang2017" class="csl-entry" role="listitem">
+Jiang et al. 2017. <span>“A Magnetic Bald-Patch Flare in Solar Active Region 11117.”</span> <a href="https://doi.org/10.1088/1674–4527/17/9/93">https://doi.org/10.1088/1674–4527/17/9/93</a>.
+</div>
+<div id="ref-jing2018" class="csl-entry" role="listitem">
+Jing et al. 2018. <span>“Statistical Analysis of Torus and Kink Instabilities in Solar Eruptions.”</span> <a href="https://doi.org/10.3847/1538-4357/aad6e4">https://doi.org/10.3847/1538-4357/aad6e4</a>.
+</div>
+<div id="ref-kliem2006" class="csl-entry" role="listitem">
+Kliem et al. 2006. <span>“Torus Instability.”</span> <a href="https://doi.org/10.1103/PhysRevLett.96.255002">https://doi.org/10.1103/PhysRevLett.96.255002</a>.
+</div>
+<div id="ref-kusano2020" class="csl-entry" role="listitem">
+Kusano et al. 2020. <span>“A Physics-Based Method That Can Predict Imminent Large Solar Flares.”</span> <a href="https://doi.org/10.1126/science.aaz251">https://doi.org/10.1126/science.aaz251</a>.
+</div>
+<div id="ref-liu2016" class="csl-entry" role="listitem">
+Liu et al. 2016. <span>“STRUCTURE, STABILITY, AND EVOLUTION OF MAGNETIC FLUX ROPES FROM THE PERSPECTIVE OF MAGNETIC TWIST.”</span> <a href="https://doi.org/10.3847/0004-637X/818/2/148">https://doi.org/10.3847/0004-637X/818/2/148</a>.
+</div>
+<div id="ref-liu2023" class="csl-entry" role="listitem">
+———. 2023. <span>“Changes of Magnetic Energy and Helicity in Solar Active Regions from Major Flares.”</span> <a href="https://doi.org/10.3847/1538-4357/aca3a6">https://doi.org/10.3847/1538-4357/aca3a6</a>.
+</div>
+<div id="ref-longcope2005" class="csl-entry" role="listitem">
+Longcope. 2005. <span>“Topological Methods for the Analysis of Solar Magnetic Fields.”</span> <a href="https://doi.org/10.12942/lrsp-2005-7">https://doi.org/10.12942/lrsp-2005-7</a>.
+</div>
+<div id="ref-longcope2008" class="csl-entry" role="listitem">
+Longcope et al. 2008. <span>“Defining and Calculating Self-Helicity in Coronal Magnetic Fields.”</span> <a href="https://doi.org/10.1086/524011">https://doi.org/10.1086/524011</a>.
+</div>
+<div id="ref-mason2019" class="csl-entry" role="listitem">
+Mason et al. 2019. <span>“Observations of Solar Coronal Rain in Null Point Topologies.”</span> <a href="https://doi.org/10.3847/2041-8213/ab0c5d">https://doi.org/10.3847/2041-8213/ab0c5d</a>.
+</div>
+<div id="ref-mastrano2018" class="csl-entry" role="listitem">
+Mastrano et al. 2018. <span>“A Check on the Validity of Magnetic Field Reconstructions.”</span> <a href="https://doi.org/10.1007/s11207-018-1351-0">https://doi.org/10.1007/s11207-018-1351-0</a>.
+</div>
+<div id="ref-moore2001" class="csl-entry" role="listitem">
+Moore et al. 2001. <span>“ONSET OF THE MAGNETIC EXPLOSION IN SOLAR FLARES AND CORONAL MASS EJECTIONS.”</span> <a href="https://doi.org/10.1086/320559">https://doi.org/10.1086/320559</a>.
+</div>
+<div id="ref-muhamad2018" class="csl-entry" role="listitem">
+Muhamad et al. 2018. <span>“A Study of Magnetic Field Characteristics of the Flaring Active Region Based on Nonlinear Force-Free Field Extrapolation.”</span> <a href="https://doi.org/10.3847/1538-4357/aad181">https://doi.org/10.3847/1538-4357/aad181</a>.
+</div>
+<div id="ref-myers2015" class="csl-entry" role="listitem">
+Myers et al. 2015. <span>“A Dynamic Magnetic Tension Force as the Cause of Failed Solar Eruptions.”</span> <a href="https://doi.org/10.1038/nature16188">https://doi.org/10.1038/nature16188</a>.
+</div>
+<div id="ref-pariat2020" class="csl-entry" role="listitem">
+Pariat. 2020. <span>“Using Magnetic Helicity, Topology, and Geometry to Investigate Complex Magnetic Fields.”</span> In <em>Topics in Magnetohydrodynamic Topology, Reconnection and Stability Theory</em>. <a href="https://doi.org/10.1007/978-3-030-16343-3">https://doi.org/10.1007/978-3-030-16343-3</a>.
+</div>
+<div id="ref-pariat2012" class="csl-entry" role="listitem">
+Pariat et al. 2012. <span>“Estimation of the Squashing Degree Within a Three-Dimensional Domain.”</span> <a href="https://doi.org/10.1051/0004-6361/201118515">https://doi.org/10.1051/0004-6361/201118515</a>.
+</div>
+<div id="ref-pariat2017" class="csl-entry" role="listitem">
+———. 2017. <span>“Relative Magnetic Helicity as a Diagnostic of Solar Eruptivity.”</span> <a href="https://doi.org/10.1051/0004-6361/201630043">https://doi.org/10.1051/0004-6361/201630043</a>.
+</div>
+<div id="ref-sakurai1982" class="csl-entry" role="listitem">
+Sakurai. 1982. <span>“Green’s Function Methods for Potential Magnetic Fields.”</span> <a href="https://doi.org/10.1007/BF00170988">https://doi.org/10.1007/BF00170988</a>.
+</div>
+<div id="ref-schuck2006" class="csl-entry" role="listitem">
+Schuck. 2006. <span>“Tracking Magnetic Footpoints with the Magnetic Induction Equation.”</span> <a href="https://doi.org/10.1086/505015">https://doi.org/10.1086/505015</a>.
+</div>
+<div id="ref-schuck2008" class="csl-entry" role="listitem">
+———. 2008. <span>“Tracking Vector Magnetograms with the Magnetic Induction Equation.”</span> <a href="https://doi.org/10.1086/589434">https://doi.org/10.1086/589434</a>.
+</div>
+<div id="ref-thalmann2019" class="csl-entry" role="listitem">
+Thalmann et al. 2019. <span>“On the Reliability of Magnetic Energy and Helicity Computations Based on Nonlinear Force-Free Coronal Magnetic Field Models.”</span> <a href="https://doi.org/10.3847/2041-8213/ab2e73">https://doi.org/10.3847/2041-8213/ab2e73</a>.
+</div>
+<div id="ref-titov1999" class="csl-entry" role="listitem">
+Titov et al. 1999. <span>“Basic Topology of Twisted Magnetic Configurations in Solar Flares.”</span> <a href="https://ui.adsabs.harvard.edu/abs/1999A%26A...351..707T">https://ui.adsabs.harvard.edu/abs/1999A%26A...351..707T</a>.
+</div>
+<div id="ref-tziotziou2012" class="csl-entry" role="listitem">
+Tziotziou et al. 2012. <span>“THE MAGNETIC ENERGY–HELICITY DIAGRAM OF SOLAR ACTIVE REGIONS.”</span> <a href="https://doi.org/10.1088/2041-8205/759/1/L4">https://doi.org/10.1088/2041-8205/759/1/L4</a>.
+</div>
+<div id="ref-tziotziou2014" class="csl-entry" role="listitem">
+———. 2014. <span>“Validation of the Magnetic Energy Vs. Helicity Scaling in Solar Magnetic Structures.”</span> <a href="https://doi.org/10.1051/0004-6361/201424864">https://doi.org/10.1051/0004-6361/201424864</a>.
+</div>
+<div id="ref-valori2013" class="csl-entry" role="listitem">
+Valori et al. 2013. <span>“Accuracy of Magnetic Energy Computations.”</span> <a href="https://doi.org/10.1051/0004-6361/201220982">https://doi.org/10.1051/0004-6361/201220982</a>.
+</div>
+<div id="ref-valori2016" class="csl-entry" role="listitem">
+———. 2016. <span>“Magnetic Helicity Estimations in Models and Observations of the Solar Magnetic Field. Part i: Finite Volume Methods.”</span> <a href="https://doi.org/10.1007/s11214-016-0299-3">https://doi.org/10.1007/s11214-016-0299-3</a>.
+</div>
+<div id="ref-wang2023" class="csl-entry" role="listitem">
+Wang et al. 2023. <span>“A Comparative Study of Data-Driven MHD Simulations of Solar Coronal Evolution with Photospheric Flows Derived from Two Different Approaches.”</span> <a href="https://doi.org/10.3389/fspas.2023.1157304">https://doi.org/10.3389/fspas.2023.1157304</a>.
+</div>
+<div id="ref-wiegelmann2006" class="csl-entry" role="listitem">
+Wiegelmann et al. 2006. <span>“PREPROCESSING OF VECTOR MAGNETOGRAPH DATA FOR a NONLINEAR FORCE-FREE MAGNETIC FIELD RECONSTRUCTION.”</span> <a href="https://doi.org/10.1007/s11207-006-2092-z">https://doi.org/10.1007/s11207-006-2092-z</a>.
+</div>
+<div id="ref-wiegelmann2010" class="csl-entry" role="listitem">
+———. 2010. <span>“How to Deal with Measurement Errors and Lacking Data in Nonlinear Force-Free Coronal Magnetic Field Modelling? (Research Note).”</span> <a href="https://doi.org/10.1051/0004-6361/201014391">https://doi.org/10.1051/0004-6361/201014391</a>.
+</div>
+<div id="ref-wiegelmann2017" class="csl-entry" role="listitem">
+———. 2017. <span>“Coronal Magnetic Field Models.”</span> <a href="https://doi.org/10.1007/s11214-015-0178-3">https://doi.org/10.1007/s11214-015-0178-3</a>.
+</div>
+<div id="ref-yang2020" class="csl-entry" role="listitem">
+Yang et al. 2020. <span>“Imaging and Spectral Study on the Null Point of a Fan-Spine Structure During a Solar Flare.”</span> <a href="https://doi.org/10.3847/1538-4357/ab9ac7">https://doi.org/10.3847/1538-4357/ab9ac7</a>.
+</div>
+<div id="ref-zhang2022" class="csl-entry" role="listitem">
+Zhang et al. 2022. <span>“FastQSL: A Fast Computation Method for Quasi-Separatrix Layers.”</span> <a href="https://doi.org/10.3847/1538-4357/ac8d61">https://doi.org/10.3847/1538-4357/ac8d61</a>.
+</div>
+<div id="ref-zhao2016" class="csl-entry" role="listitem">
+Zhao et al. 2016. <span>“HOOKED FLARE RIBBONS AND FLUX-ROPE-RELATED QSL FOOTPRINTS.”</span> <a href="https://doi.org/10.3847/0004-637X/823/1/62">https://doi.org/10.3847/0004-637X/823/1/62</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

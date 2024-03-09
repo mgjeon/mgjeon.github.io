@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -81,7 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,13 +96,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
 
@@ -117,16 +124,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Mingyu Jeon</span>
     </a>
@@ -138,18 +172,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/mgjeon" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/mgjeon"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -215,15 +249,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+
 <section id="stable-diffusion-inference-low-level" class="level1">
 <h1>Stable Diffusion Inference (low-level)</h1>
 <p>Create an image using <a href="https://github.com/huggingface/diffusers">Diffusers library</a>.</p>
 <section id="install-and-import-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="install-and-import-libraries">Install and Import Libraries</h2>
-<div class="cell">
+<div id="cell-3" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">-</span>qq diffusers transformers scipy ftfy accelerate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div id="cell-4" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>device <span class="op">=</span> <span class="st">"cuda"</span> <span class="cf">if</span> torch.cuda.is_available() <span class="cf">else</span> <span class="st">"cpu"</span></span>
@@ -232,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>'cuda'</code></pre>
 </div>
 </div>
-<div class="cell">
+<div id="cell-5" class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> [<span class="st">"a photograph of an astronaut riding a horse"</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">512</span>  <span class="co"># default height of Stable Diffusion</span></span>
@@ -246,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>batch_size <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div id="cell-6" class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> diffusers <span class="im">import</span> LMSDiscreteScheduler, StableDiffusionPipeline</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>scheduler <span class="op">=</span> LMSDiscreteScheduler.from_pretrained(</span>
@@ -256,7 +291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CompVis/stable-diffusion-v1-4"</span>, scheduler<span class="op">=</span>scheduler</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div id="cell-7" class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pipe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>StableDiffusionPipeline {
@@ -295,13 +330,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</code></pre>
 </div>
 </div>
-<div class="cell">
+<div id="cell-8" class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pipe <span class="op">=</span> pipe.to(device)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="low-level" class="level2">
 <h2 class="anchored" data-anchor-id="low-level">Low-level</h2>
-<div class="cell">
+<div id="cell-10" class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Load the autoencoder model which will be used to decode the latents into image space.</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>vae <span class="op">=</span> pipe.vae</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -314,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="models" class="level3">
 <h3 class="anchored" data-anchor-id="models">Models</h3>
-<div class="cell">
+<div id="cell-12" class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>vae</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>AutoencoderKL(
@@ -532,13 +567,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 )</code></pre>
 </div>
 </div>
-<div class="cell">
+<div id="cell-13" class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tokenizer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>CLIPTokenizer(name_or_path='/root/.cache/huggingface/hub/models--CompVis--stable-diffusion-v1-4/snapshots/133a221b8aa7292a167afc5127cb63fb5005638b/tokenizer', vocab_size=49408, model_max_length=77, is_fast=False, padding_side='right', truncation_side='right', special_tokens={'bos_token': AddedToken("&lt;|startoftext|&gt;", rstrip=False, lstrip=False, single_word=False, normalized=True), 'eos_token': AddedToken("&lt;|endoftext|&gt;", rstrip=False, lstrip=False, single_word=False, normalized=True), 'unk_token': AddedToken("&lt;|endoftext|&gt;", rstrip=False, lstrip=False, single_word=False, normalized=True), 'pad_token': '&lt;|endoftext|&gt;'}, clean_up_tokenization_spaces=True)</code></pre>
 </div>
 </div>
-<div class="cell">
+<div id="cell-14" class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>text_encoder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>CLIPTextModel(
@@ -571,7 +606,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 )</code></pre>
 </div>
 </div>
-<div class="cell">
+<div id="cell-15" class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>unet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>UNet2DConditionModel(
@@ -1093,7 +1128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="inference" class="level3">
 <h3 class="anchored" data-anchor-id="inference">Inference</h3>
-<div class="cell">
+<div id="cell-17" class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>text_input <span class="op">=</span> tokenizer(</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    prompt <span class="op">*</span> batch_size,</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    padding<span class="op">=</span><span class="st">"max_length"</span>,</span>
@@ -1123,7 +1158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           49407, 49407, 49407, 49407, 49407, 49407, 49407]], device='cuda:0'))</code></pre>
 </div>
 </div>
-<div class="cell">
+<div id="cell-18" class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    text_embeddings <span class="op">=</span> text_encoder(text_input)[<span class="dv">0</span>]</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1148,7 +1183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         device='cuda:0'))</code></pre>
 </div>
 </div>
-<div class="cell">
+<div id="cell-19" class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>uncond_input <span class="op">=</span> tokenizer(</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">""</span>] <span class="op">*</span> batch_size,</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    padding<span class="op">=</span><span class="st">"max_length"</span>,</span>
@@ -1177,7 +1212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           49407, 49407, 49407, 49407, 49407, 49407, 49407]], device='cuda:0'))</code></pre>
 </div>
 </div>
-<div class="cell">
+<div id="cell-20" class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    uncond_embeddings <span class="op">=</span> text_encoder(uncond_input)[<span class="dv">0</span>]</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1202,7 +1237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         device='cuda:0'))</code></pre>
 </div>
 </div>
-<div class="cell">
+<div id="cell-21" class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>text_embeddings <span class="op">=</span> torch.cat([uncond_embeddings, text_embeddings])</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>text_embeddings.shape, text_embeddings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1242,7 +1277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         device='cuda:0'))</code></pre>
 </div>
 </div>
-<div class="cell">
+<div id="cell-22" class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>latents <span class="op">=</span> torch.randn(</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    (batch_size, unet.in_channels, height <span class="op">//</span> <span class="dv">8</span>, width <span class="op">//</span> <span class="dv">8</span>),</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    generator<span class="op">=</span>generator,</span>
@@ -1318,7 +1353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         device='cuda:0'))</code></pre>
 </div>
 </div>
-<div class="cell">
+<div id="cell-23" class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>scheduler.set_timesteps(num_inference_steps)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>scheduler.timesteps.shape, pipe.scheduler.timesteps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1341,7 +1376,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 \tilde{\boldsymbol{\epsilon}}_\theta(\mathbf{z}_t, \mathbf{c}) = w\boldsymbol{\epsilon}_\theta(\mathbf{z}_t, \mathbf{c}) + (1-w)\boldsymbol{\epsilon}_{\theta}(\mathbf{z}_t).
 </span></p>
 <p>Here, <span class="math inline">\boldsymbol{\epsilon}_\theta(\mathbf{z}_t, \mathbf{c})</span> and <span class="math inline">\boldsymbol{\epsilon}_{\theta}(\mathbf{z}_t)</span> are conditional and unconditional <span class="math inline">\boldsymbol{\epsilon}</span>-predictions, given by <span class="math inline">\boldsymbol{\epsilon}_\theta := (\mathbf{z}_t - \alpha_t\hat{\mathbf{x}}_\theta)/\sigma_t</span>, and <span class="math inline">w</span> is the <em>guidance weight</em>. Setting <span class="math inline">w = 1</span> disables classifier-free guidance, while increasing <span class="math inline">w &gt; 1</span> strengthens the effect of guidance.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<div class="cell">
+<div id="cell-25" class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm.auto <span class="im">import</span> tqdm</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>latents <span class="op">=</span> latents <span class="op">*</span> scheduler.init_noise_sigma</span>
@@ -1367,14 +1402,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># compute the previous noisy sample x_t -&gt; x_t-1</span></span>
 <span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>    latents <span class="op">=</span> scheduler.step(noise_pred, t, latents).prev_sample</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div id="cell-26" class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># scale and decode the image latents with vae</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>latents <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> <span class="fl">0.18215</span> <span class="op">*</span> latents</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> vae.decode(latents).sample</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div id="cell-27" class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> (image <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> <span class="fl">0.5</span>).clamp(<span class="dv">0</span>, <span class="dv">1</span>)</span>
@@ -1382,14 +1417,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> (image <span class="op">*</span> <span class="dv">255</span>).<span class="bu">round</span>().astype(<span class="st">"uint8"</span>)</span>
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>pil_images <span class="op">=</span> [Image.fromarray(image) <span class="cf">for</span> image <span class="kw">in</span> images]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div id="cell-28" class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pil_image <span class="kw">in</span> pil_images:</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    display(pil_image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Stable_Diffusion_Inference_low_level_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Stable_Diffusion_Inference_low_level_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Stable_Diffusion_Inference_low_level_files/figure-html/cell-23-output-2.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="Stable_Diffusion_Inference_low_level_files/figure-html/cell-23-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1494,10 +1537,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mgjeon\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1507,8 +1567,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1520,7 +1589,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1564,6 +1756,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1589,6 +1782,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1649,6 +1868,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

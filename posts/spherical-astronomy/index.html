@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -79,16 +86,43 @@ ul.task-list li input[type="checkbox"] {
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Mingyu Jeon</span>
     </a>
@@ -100,18 +134,18 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/mgjeon" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/mgjeon"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -183,6 +217,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <p>This post is based on the project report that was written during the astronomical observation class in 2019.</p>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
@@ -199,13 +234,16 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="celestial-sphere-model">Celestial Sphere Model</h2>
 <section id="celestial-sphere" class="level3">
 <h3 class="anchored" data-anchor-id="celestial-sphere">Celestial Sphere</h3>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1], [1, 1]]">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <p><img src="celestial-sphere1.jpg" class="img-fluid"></p>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="celestial-sphere2.jpg" class="img-fluid"></p>
 </div>
@@ -306,67 +344,91 @@ ul.task-list li input[type="checkbox"] {
 <section id="altitude-of-celestial-poles" class="level4">
 <h4 class="anchored" data-anchor-id="altitude-of-celestial-poles">Altitude of Celestial Poles</h4>
 <div id="fig-hemi" class="quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 51.0%;justify-content: center;">
-<div id="fig-north" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hemi-north.jpg" class="img-fluid figure-img" data-ref-parent="fig-hemi" width="300"></p>
-<figcaption class="figure-caption">(a) Northern hemisphere observer</figcaption>
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hemi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-hemi" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-north" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-north-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hemi-north.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-ref-parent="fig-hemi" width="300">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-north-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Northern hemisphere observer
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 49.0%;justify-content: center;">
-<div id="fig-south" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hemi-south.jpg" class="img-fluid figure-img" data-ref-parent="fig-hemi" width="288"></p>
-<figcaption class="figure-caption">(b) Southern hemisphere observer</figcaption>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-hemi" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-south" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-south-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hemi-south.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-ref-parent="fig-hemi" width="288">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-south-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Southern hemisphere observer
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Schematic illustrations explaining the altitude of celestial poles</figcaption><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hemi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Schematic illustrations explaining the altitude of celestial poles
+</figcaption>
 </figure>
 </div>
-<p><a href="#fig-north">Figure&nbsp;1 (a)</a> represents a situation in which the observer is located in the northern hemisphere, while <a href="#fig-south">Figure&nbsp;1 (b)</a> depicts a case in the southern hemisphere. In these diagrams, the blue line represents the horizon, the red line signifies the celestial equator, the black line is perpendicular to the horizon, the green line is perpendicular to the celestial equator, the orange point represents the observer, the green point represents Polaris, and <span class="math inline">\phi</span> denotes the observer’s latitude. From these figures, we can conclude that the altitude of celestial poles is equal to the observer’s latitude.</p>
+<p><a href="#fig-north" class="quarto-xref">Figure&nbsp;1 (a)</a> represents a situation in which the observer is located in the northern hemisphere, while <a href="#fig-south" class="quarto-xref">Figure&nbsp;1 (b)</a> depicts a case in the southern hemisphere. In these diagrams, the blue line represents the horizon, the red line signifies the celestial equator, the black line is perpendicular to the horizon, the green line is perpendicular to the celestial equator, the orange point represents the observer, the green point represents Polaris, and <span class="math inline">\phi</span> denotes the observer’s latitude. From these figures, we can conclude that the altitude of celestial poles is equal to the observer’s latitude.</p>
 </section>
 </section>
 <section id="earths-rotation-1" class="level3">
 <h3 class="anchored" data-anchor-id="earths-rotation-1">Earth’s Rotation</h3>
 <p>First, let’s review the following concept for convenience.</p>
 <div id="fig-hand" class="quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-left" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hand-left.jpg" class="img-fluid figure-img" data-ref-parent="fig-hand"></p>
-<figcaption class="figure-caption">(a) Left-hand screw rule</figcaption>
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-hand" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-left" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hand-left.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-ref-parent="fig-hand">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Left-hand screw rule
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-right" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hand-right.jpg" class="img-fluid figure-img" data-ref-parent="fig-hand"></p>
-<figcaption class="figure-caption">(b) Right-hand screw rule</figcaption>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-hand" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-right" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hand-right.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" data-ref-parent="fig-hand">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Right-hand screw rule
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: Illustrations explaining the rotation direction</figcaption><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hand-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Illustrations explaining the rotation direction
+</figcaption>
 </figure>
 </div>
-<p><a href="#fig-left">Figure&nbsp;2 (a)</a> illustrates the left-hand screw rule, while <a href="#fig-right">Figure&nbsp;2 (b)</a> illustrates the right-hand screw rule. Imagine you’re directly looking at your thumbs and curling your other fingers. If you focus on your left thumb, the rotation direction is clockwise. Conversely, if you focus on your right thumb, the rotation direction is counterclockwise. To determine the rotation direction, simply observe your thumbs, curl your other fingers, and match the finger’s rotation direction with the given rotation direction: clockwise for the left hand and counterclockwise for the right hand.</p>
+<p><a href="#fig-left" class="quarto-xref">Figure&nbsp;2 (a)</a> illustrates the left-hand screw rule, while <a href="#fig-right" class="quarto-xref">Figure&nbsp;2 (b)</a> illustrates the right-hand screw rule. Imagine you’re directly looking at your thumbs and curling your other fingers. If you focus on your left thumb, the rotation direction is clockwise. Conversely, if you focus on your right thumb, the rotation direction is counterclockwise. To determine the rotation direction, simply observe your thumbs, curl your other fingers, and match the finger’s rotation direction with the given rotation direction: clockwise for the left hand and counterclockwise for the right hand.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="rotation.jpg" class="img-fluid figure-img"></p>
+<p><img src="rotation.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>In 3D space, the direction of a rotation vector is uniqe, but the rotation direction is not. Therefore, when describing a rotation, it is necessary to specify the viewpoint or indicate the direction of the rotation vector.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="earth-revolution.png" class="img-fluid figure-img"></p>
+<p><img src="earth-revolution.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>If your right thumb points in the direction of (Celestial) North Pole, then the Earth’s rotation follows right-hand screw rule. In other words, if you were to observe Earth’s North Pole from space, you would see that it rotates counterclockwise. Therefore, the direction of the Earth’s rotation vector is from South Pole to North Pole. Due to relative motion, the celestial sphere appears to rotate in the opposite direction around the Earth.</p>
@@ -376,7 +438,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="sidereal-time">Sidereal Time</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="sidereal-time.jpg" class="img-fluid figure-img"></p>
+<p><img src="sidereal-time.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>The (Local) Hour Angle is the inversely measured right ascension from the intersection of the celestial equator and the meridian above horizon. When the hour angle of a celestial object is zero, we call that the celestial object is at its upper culmination.</p>
@@ -447,7 +509,7 @@ ul.task-list li input[type="checkbox"] {
 <h4 class="anchored" data-anchor-id="a-formula-to-convert-ra-dec-to-az-alt">A formula to convert (RA, Dec) to (Az, Alt)</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="coord-xyz.jpg" class="img-fluid figure-img"></p>
+<p><img src="coord-xyz.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>In the figure above, the point <span class="math inline">​P</span> has coordinates <span class="math inline">(x, y, z)</span> in <span class="math inline">xyz</span> Cartesian coordinates system, and <span class="math inline">(x', y', z')</span> in <span class="math inline">x'y'z'</span> Cartesian coordinates system. Each of these coordinates has the following relations with spherical coordinates in its respective frame.</p>
@@ -504,7 +566,7 @@ z
 </span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="coord-rd.jpg" class="img-fluid figure-img"></p>
+<p><img src="coord-rd.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>In the figure above, we have <span class="math inline">\chi = 90^{\circ} - \psi</span>. The values of <span class="math inline">(x, y, z)</span> and <span class="math inline">(x', y', z')</span> are determined by the following equations.</p>
@@ -732,10 +794,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mgjeon\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -745,8 +824,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -758,7 +846,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -802,6 +1013,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -827,6 +1039,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -887,6 +1125,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

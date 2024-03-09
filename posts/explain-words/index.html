@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -79,16 +86,43 @@ ul.task-list li input[type="checkbox"] {
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Mingyu Jeon</span>
     </a>
@@ -100,18 +134,18 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/mgjeon" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/mgjeon"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -194,6 +228,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+
 <p>2019년 우주관측 수업에서 <a href="https://www.kasi.re.kr/resources/htmlconverter_skin/doc.html?fn=1573189224138_1.pdf&amp;rs=/file/htmlconverter_preview">2020 역서</a> <code>09. 천문상수와 자료</code> 설명용으로 작성한 글</p>
 <section id="국제천문연맹-천문상수" class="level2">
 <h2 class="anchored" data-anchor-id="국제천문연맹-천문상수">국제천문연맹 천문상수</h2>
@@ -269,19 +304,22 @@ f = \frac{a-b}{a}
 </section>
 <section id="일반-경도세차-경사각-변화율-경도-적도세차-경사각-적도세차-장동상수" class="level3">
 <h3 class="anchored" data-anchor-id="일반-경도세차-경사각-변화율-경도-적도세차-경사각-적도세차-장동상수">일반 경도세차, 경사각 변화율, 경도 적도세차, 경사각 적도세차, 장동상수</h3>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 55.6%;justify-content: center;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="earth-precession-rev.jpg" class="img-fluid figure-img" width="300"></p>
+<p><img src="earth-precession-rev.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="300"></p>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 44.4%;justify-content: center;">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="earth-precession-rot.png" class="img-fluid figure-img" width="240"></p>
+<p><img src="earth-precession-rot.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="240"></p>
 </figure>
 </div>
 </div>
@@ -291,13 +329,13 @@ f = \frac{a-b}{a}
 <p>그리스의 히파르코스(Hipparchus of Nicaea)가 춘분점이 이동한다는 현상을 BC 127년에 발견함으로써 지구의 세차운동이 알려졌기 때문에, 역사적으로 지구의 세차운동은 분점의 세차운동(precession of the equinoxes)이라고 불렸다. 그러나 뉴턴 이후 천체역학이 발달하면서 세차운동이 태양, 달, 지구 외 행성들이 지구에 작용하는 중력에 의해 발생한다는 사실을 알게 되면서 새로운 용어가 만들어졌다. 주로 태양과 달에 의해 지구의 적도 평면이 변하는 현상을 일월 세차(Lunisolar precession), 주로 지구 외 행성에 의해 지구의 황도 평면이 변하는 현상을 행성 세차(Planetary precession)라고 명명했으며, 이 둘의 결합으로 발생하는 실제 세차운동을 일반 세차(General Precession)라고 명명했다. 그러나 태양과 달이 지구의 황도평면을 변화시키기도 하고, 지구 외 행성이 지구의 적도평면을 변화시키기도 하기에, 용어에 있어 혼선이 존재한다는 판단 하에 2006년 IAU가 각각의 용어를 재정의했다. 즉 일월세차(Lunisolar precession)를 적도 세차(Precession of the equator)로, 행성 세차(Planetary precession)를 황도 세차(Precession of the ecliptic)로 용어를 바꾸었다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="earth-precession-eps.jpg" class="img-fluid figure-img"></p>
+<p><img src="earth-precession-eps.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>위 그림은 지구의 황도평면과 수직한 직선 상에 존재하면서 지구의 북극 근방에 있는 관측자가 지구를 바라보았을 때 천구의 북극(지구 자전축의 끝부분)이 이동하는 경로를 나타낸 것이다. 점선의 운동경로(path of mean celestial pole)는 세차운동에 의한 경로이고, 실선의 운동경로(path of instantaneous celestial pole)는 세차운동에 의한 원운동에 장동운동에 의한 타원운동이 결합된 운동에 의한 경로이다. 천구의 북극이 점선의 운동경로를 따라 이동하는 각속력을 일반 경도세차(General precession in longitude) <span class="math inline">p_A</span>라고 한다. 장동운동에 의해 천구의 북극은 국소적인 타원운동을 하게 되는데, 이 타원의 장반경(semi-major axis)을 장동장수(constant of nutation) <span class="math inline">N</span>이라 한다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="earth-colure.jpg" class="img-fluid figure-img"></p>
+<p><img src="earth-colure.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>Equinoctial colure는 천구의 북극(Celestial North Pole), 천구의 남극(Celestial South Pole), 춘분점(Vernal Equinox), 추분점(Autumnal Equinox)을 지나는 대원이다. Solstitial colure는 천구의 북극(Celestial North Pole), 천구의 남극(Celestial South Pole), 하지점(Summer Solstice), 동지점(Winter Solstice)을 지나는 대원이다.</p>
@@ -324,7 +362,7 @@ f = \frac{a-b}{a}
 <h3 class="anchored" data-anchor-id="광행차-상수">광행차 상수</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="aberration.png" class="img-fluid figure-img"></p>
+<p><img src="aberration.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>광행차(aberration)란 관측자의 속도에 의존하여 관측대상의 겉보기 위치가 바뀌는 현상이다. 관측자가 <span class="math inline">v</span>의 속력으로 움직인다고 하자. 관측자가 움직이는 방향을 각도를 측정하는 기준선으로 설정하고, 관측자가 정지했을 때 특정 관측 대상에 대한 시선방향과 기준선이 이루는 각을 <span class="math inline">\theta</span>, 관측자가 움직일 때 특정 관측 대상에 대한 시선방향과 기준선이 이루는 각을 <span class="math inline">\phi</span>라고 하자. 그러면 <span class="math inline">v/c \ll 1</span>일 때 다음이 성립한다.</p>
@@ -377,7 +415,7 @@ e = \frac{\sqrt{a^2 - b^2}}{a}
 <h3 class="anchored" data-anchor-id="장동주기-교점주기">장동주기 (교점주기)</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="node.png" class="img-fluid figure-img"></p>
+<p><img src="node.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>천체의 공전궤도가 어떤 기준평면과 만나는 2개의 점을 통틀어서 궤도 교점(orbital node)이라고 하며, 기준평면의 어느 한쪽을 <em>위쪽</em>으로 정의하였을 때, 천체가 아래에서 위로 올라오는 교점을 승교점(ascending node), 위에서 아래로 내려가는 교점을 강교점(descending node)이라고 한다.</p>
@@ -528,10 +566,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mgjeon\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -541,8 +596,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -554,7 +618,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -598,6 +785,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -623,6 +811,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -683,6 +897,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
