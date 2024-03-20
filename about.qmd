@@ -15,4 +15,4 @@ number-sections: false
 
 ## Mingyu Jeon (전민규)
 
-I am a master's student affiliated with the [Sun and Space Weather Laboratory](https://sunspaceweather.khu.ac.kr/) at Kyung Hee University, studying **solar physics** and **deep learning**. My research interest includes computational magnetohydrodynamics and scientific machine learning.
+I am a master's student affiliated with the [Sun and Space Weather Laboratory](https://sunspaceweather.khu.ac.kr/) at Kyung Hee University, studying **solar physics** and **deep learning**. My research interest includes plasma physics and scientific machine learning.
