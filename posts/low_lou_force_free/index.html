@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.552">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Mingyu Jeon">
+<meta name="dcterms.date" content="2024-03-30">
+
+<title>Mingyu Jeon - Low and Lou (1990) force free magnetic fields</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Mingyu Jeon</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mgjeon"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Low and Lou (1990) force free magnetic fields</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">solar physics</div>
+                <div class="quarto-category">english</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Mingyu Jeon </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 30, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#low-lou-ode" id="toc-low-lou-ode" class="nav-link active" data-scroll-target="#low-lou-ode">Low-Lou ODE</a>
+  <ul class="collapse">
+  <li><a href="#rewrite-low-lou-ode-using-mathbfsmu" id="toc-rewrite-low-lou-ode-using-mathbfsmu" class="nav-link" data-scroll-target="#rewrite-low-lou-ode-using-mathbfsmu">Rewrite Low-Lou ODE using <span class="math inline">\mathbf{S}(\mu)</span></a></li>
+  </ul></li>
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a>
+  <ul class="collapse">
+  <li><a href="#bounds" id="toc-bounds" class="nav-link" data-scroll-target="#bounds"><code>bounds</code></a></li>
+  <li><a href="#resolutions" id="toc-resolutions" class="nav-link" data-scroll-target="#resolutions"><code>resolutions</code></a></li>
+  <li><a href="#n-m" id="toc-n-m" class="nav-link" data-scroll-target="#n-m"><span class="math inline">n</span> &amp; <span class="math inline">m</span></a></li>
+  <li><a href="#l-phi" id="toc-l-phi" class="nav-link" data-scroll-target="#l-phi"><span class="math inline">l</span> &amp; <span class="math inline">\Phi</span></a></li>
+  </ul></li>
+  <li><a href="#algorithm" id="toc-algorithm" class="nav-link" data-scroll-target="#algorithm">Algorithm</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>Force free magnetic fields are defined as magntic fields without Lorentz force</p>
+<p><span class="math display">
+\begin{align*}
+\mathbf{J} \times \mathbf{B} &amp; = \mathbf{0} \\
+\nabla \cdot \mathbf{B} &amp; = 0
+\end{align*}
+</span></p>
+<p>In magnetohydrodynamics (MHD), the current density <span class="math inline">\mathbf{J}</span> is given by (in SI units)</p>
+<p><span class="math display">
+\mathbf{J} = \frac{1}{\mu_0} \nabla \times \mathbf{B}
+</span></p>
+<p>Therefore, force free magnetic fields are determined by the following partial differential equations (PDEs)</p>
+<p><span class="math display">
+\begin{align*}
+\mathbf{(\nabla \times \mathbf{B})} \times \mathbf{B} &amp; = \mathbf{0} \\
+\nabla \cdot \mathbf{B} &amp; = 0
+\end{align*}
+</span></p>
+<p>The analytical solution of these PDEs in a general case is unknown. But <span class="citation" data-cites="low1990modeling">Low and Lou (<a href="#ref-low1990modeling" role="doc-biblioref">1990</a>)</span> shows that we can calculate “axisymmetric” force free fields. If we rotate the plane perpendicular to the axis of symmetry, we can generate a quite general force free fields. In this post, I try to calculate this Low and Lou fields, referencing <a href="https://github.com/RobertJaro/NF2">this code</a>.</p>
+<section id="low-lou-ode" class="level2">
+<h2 class="anchored" data-anchor-id="low-lou-ode">Low-Lou ODE</h2>
+<p>To calculate Low and Lou fields, we have to solve the following ordinary differential equation (ODE).</p>
+<p><span class="math display">\begin{cases}
+\displaystyle (1-\mu^2)\frac{d^2 P}{d\mu^2} + n(n+1)P + a^2 \frac{1+n}{n}P^{1 + \frac{2}{n}} = 0 \\
+\mu = \cos\theta \in [-1, 1] \\
+P(-1) = 0 \\
+P(1) = 0 \\
+\\
+P'(-1) = 10 \text{ for numerical normalization}
+\end{cases}
+</span></p>
+<p>For fixed <span class="math inline">n</span>, <span class="math inline">a</span> serves as a eignvalue for this homogenous BVP.</p>
+<p>For <span class="math inline">n=1</span>, we can list the positive eigenvalues in ascending order with <span class="math inline">m=0, 1, 2, ...</span>.</p>
+<p>We denote a eigenvalue as <span class="math inline">a^2 _{n, m}</span> and the corresponding eigenfunction as <span class="math inline">P_{n, m}</span>.</p>
+<p>For <span class="math inline">n=1, m=0, 1, 2</span>,</p>
+<p><span class="math display">
+\begin{align}
+a^2 _{1, 0} &amp;= 0 \\
+a^2 _{1, 1} &amp;= 0.425 \\
+a^2 _{1, 2} &amp;= 2.55 \\
+\end{align}
+</span></p>
+<p>If you carefully see the Figure 1 by <span class="citation" data-cites="low1990modeling">Low and Lou (<a href="#ref-low1990modeling" role="doc-biblioref">1990</a>)</span>, we can notice that</p>
+<p><span class="math display">P_{1,0} (\mu) \sim \cos\left(\displaystyle\frac{\pi}{2} \mu\right)</span></p>
+<p><span class="math display">P_{1,1} (\mu) \sim -\sin\left(\displaystyle\pi \mu\right)</span></p>
+<p><span class="math display">P_{1,2} (\mu) \sim -\cos\left(\displaystyle\frac{3\pi}{2} \mu\right)</span></p>
+<p>Then we can generally say that</p>
+<p>For <span class="math inline">m=0, 2</span> (even <span class="math inline">m</span>)</p>
+<p><span class="math display">P_{1,m} (\mu) \sim \cos\left(\displaystyle\frac{(m + 1)\pi}{2} \mu\right)</span></p>
+<p>For <span class="math inline">m=1</span> (odd <span class="math inline">m</span>) <span class="math display">P_{1,m} (\mu) \sim \sin\left(\displaystyle\frac{(m + 1)\pi}{2} \mu\right)</span></p>
+<p>This is the initial guess of the solution.</p>
+<section id="rewrite-low-lou-ode-using-mathbfsmu" class="level3">
+<h3 class="anchored" data-anchor-id="rewrite-low-lou-ode-using-mathbfsmu">Rewrite Low-Lou ODE using <span class="math inline">\mathbf{S}(\mu)</span></h3>
+<p><span class="math display">
+(1-\mu^2)P'' + n(n+1)P + a^2 \frac{1+n}{n}P^{1 + \frac{2}{n}} = 0
+</span></p>
+<p><span class="math display">
+\rightarrow P'' =  \frac{1}{1-\mu^2}\left[- n(n+1)P - a^2 \frac{1+n}{n}P^{1 + \frac{2}{n}}\right]
+</span></p>
+<p><span class="math display">
+\rightarrow P'' =  \frac{-1}{1-\mu^2 + \epsilon}\left[n(n+1)P + a^2 \frac{1+n}{n}P^{1 + \frac{2}{n}}\right]
+</span></p>
+<p>where <span class="math inline">\epsilon = 10^{-6}</span> for numerical stability.</p>
+<p>Target <code>y</code> <span class="math display">
+\mathbf{S}(\mu) = \begin{bmatrix}
+                     P(\mu) \\
+                     P'(\mu)
+                 \end{bmatrix}
+              = \begin{bmatrix}
+                     y[0] \\
+                     y[1]
+                 \end{bmatrix}
+</span></p>
+<p>ODE system <code>F(x, y)</code> <span class="math display">
+\frac{d\mathbf{S}}{d\mu} = \mathbf{F}(\mu, \mathbf{S}(\mu))
+                         = \begin{bmatrix}
+                             P'(\mu) \\
+                             P''(\mu)
+                           \end{bmatrix}
+                         = \begin{bmatrix}
+                             y[1] \\
+                            \displaystyle \frac{-1}{1-\mu^2 + \epsilon}\left[n(n+1)P + a^2 \frac{1+n}{n}P^{1 + \frac{2}{n}}\right]
+                           \end{bmatrix}   
+</span></p>
+<p><span class="math display">\begin{cases}
+\mu = \cos\theta \in [-1, 1] \\
+P(-1) = 0 \\
+P(1) = 0 \\
+\end{cases}
+</span></p>
+<p><span class="math display">
+P'(-1) = 10
+</span></p>
+<p>Domain</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mu_span <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">100</span> <span class="co"># number of points</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> np.linspace(mu_span[<span class="dv">0</span>], mu_span[<span class="dv">1</span>], N)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Boundary condition function <code>bc</code> defined from <code>ya</code>, <code>yb</code></p>
+<p><span class="math display">
+\text{ya} = \mathbf{S}(-1) = \begin{bmatrix}
+                                 P(-1) \\
+                                 P'(-1)
+                             \end{bmatrix}
+                          = \begin{bmatrix}
+                                 0 \\
+                                 10
+                             \end{bmatrix}
+                          = \begin{bmatrix}
+                                 \text{ya}[0] \\
+                                 \text{ya}[1]
+                             \end{bmatrix}
+</span></p>
+<p><span class="math display">
+\text{yb} = \mathbf{S}(1) = \begin{bmatrix}
+                                 P(1) \\
+                                 P'(1)
+                             \end{bmatrix}
+                            = \begin{bmatrix}
+                                 0 \\
+                                 ?
+                              \end{bmatrix}
+                            = \begin{bmatrix}
+                                 \text{yb}[0] \\
+                                 \text{yb}[1]
+                              \end{bmatrix}
+</span></p>
+<p><span class="math display">
+\text{bc} = \begin{bmatrix}
+                 \text{ya} - \mathbf{S}(-1) \\
+                 \text{yb} - \mathbf{S}(1)
+            \end{bmatrix}
+          = \begin{bmatrix}
+                 \text{ya}[0] - 0 \\
+                 \text{ya}[1] - 10 \\
+                 \text{yb}[0] - 0
+            \end{bmatrix}
+          = \begin{bmatrix}
+                 \text{ya}[0] \\
+                 \text{ya}[1] - 10\\
+                 \text{yb}[0]
+            \end{bmatrix}
+</span></p>
+<p>Initial guess <code>y0</code></p>
+<p>For the given spacing <code>h</code>,</p>
+<p><span class="math display">
+\begin{align}
+\text{y0} &amp; = [\mathbf{S}(-1), \mathbf{S}(-1 + h), \mathbf{S}(-1 + 2h), \cdots, \mathbf{S}(1)] \\
+          &amp; = \begin{bmatrix}
+                  P(\mu=-1) &amp; P(\mu=-1+h) &amp; P(\mu=-1+2h) &amp; \cdots &amp; P(\mu=1) \\
+                  P'(\mu=-1) &amp; P'(\mu=-1+h) &amp; P'(\mu=-1+2h) &amp; \cdots &amp; P'(\mu=1) \\
+               \end{bmatrix}
+\end{align}
+</span></p>
+<p>For <span class="math inline">m=0, 2</span> (even <span class="math inline">m</span>)</p>
+<p><span class="math display">P_{1,m} (\mu) \sim \cos\left(\displaystyle\frac{(m + 1)\pi}{2} \mu\right)</span></p>
+<p>For <span class="math inline">m=1</span> (odd <span class="math inline">m</span>) <span class="math display">P_{1,m} (\mu) \sim \sin\left(\displaystyle\frac{(m + 1)\pi}{2} \mu\right)</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> m <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    P_init <span class="op">=</span> np.cos(mu <span class="op">*</span> (m <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> np.pi <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    P_init <span class="op">=</span> np.sin(mu <span class="op">*</span> (m <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> np.pi <span class="op">/</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Since <span class="math inline">P'(-1) = 10</span>,</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dP_init <span class="op">=</span> <span class="dv">10</span><span class="op">*</span>np.ones_like(mu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, together,</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>S_init <span class="op">=</span> np.vstack([P_init, dP_init])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-19" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_bvp</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-20" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_P_and_a2(n, m):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ODE system</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Define BVP (Low and Lou 1990)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># a2 -&gt; eigenvalue</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># S = [P, dP/dmu]</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># F = dSdmu</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dP/dmu = 10 at mu = -1</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> F(x, y, p):</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        mu <span class="op">=</span> x</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        P <span class="op">=</span> y[<span class="dv">0</span>]</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        dP <span class="op">=</span> y[<span class="dv">1</span>]</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        a2 <span class="op">=</span> p[<span class="dv">0</span>]</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        ddP <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>(n<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span>)<span class="op">*</span>P <span class="op">+</span> a2<span class="op">*</span>((<span class="dv">1</span><span class="op">+</span>n)<span class="op">/</span>n)<span class="op">*</span>P<span class="op">**</span>(<span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">/</span>n)) <span class="op">/</span> (<span class="dv">1</span><span class="op">-</span>mu<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="fl">1e-6</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> [dP, ddP] </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Boundary Condition</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> bc(ya, yb, p):</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> [ya[<span class="dv">0</span>], ya[<span class="dv">1</span>]<span class="op">-</span><span class="dv">10</span>, yb[<span class="dv">0</span>]]</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Domain</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    mu_span <span class="op">=</span> [<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    N <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> np.linspace(mu_span[<span class="dv">0</span>], mu_span[<span class="dv">1</span>], N)</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initial guess</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># For given m, use different initial guess</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> m <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        P_guess <span class="op">=</span> np.cos(mu <span class="op">*</span> (m <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> np.pi <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>        P_guess <span class="op">=</span> np.sin(mu <span class="op">*</span> (m <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> np.pi <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># For initial guess of dP/dmu, just use BC value</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    dP_guess <span class="op">=</span> <span class="dv">10</span><span class="op">*</span>np.ones_like(mu)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    y_guess <span class="op">=</span> np.vstack([P_guess, dP_guess])</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># For each initial eigenvalue, solve the problem.</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># If it is successful, return that otherwise do not return.</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># np.vectorize -&gt; for loop &amp; return type : array</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">@np.vectorize</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> solve_eigenvalue_problem(a2_0):</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>        sol <span class="op">=</span> solve_bvp(F, bc, mu, y_guess, p<span class="op">=</span>[a2_0], tol<span class="op">=</span><span class="fl">1e-6</span>)</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> sol.success <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> sol</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">None</span> </span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    a2_0_list <span class="op">=</span> np.linspace(<span class="fl">0.0</span>, <span class="fl">10.0</span>, <span class="dv">100</span>)</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> solve_eigenvalue_problem(a2_0_list)</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    eigenvalues <span class="op">=</span> np.array([sol.p <span class="cf">for</span> sol <span class="kw">in</span> results <span class="cf">if</span> sol <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>])</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>     <span class="co"># round &amp; unique value &amp; sorting</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>    eigenvalues <span class="op">=</span> np.sort(np.unique(np.<span class="bu">round</span>(eigenvalues, <span class="dv">4</span>)))</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The smallest value for given m is desired eigenvalue</span></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>    eigenvalue <span class="op">=</span> eigenvalues[<span class="dv">0</span>]</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>    <span class="co"># If this eigenvalue is zero for nonzero m, choose the next big eigenvalue</span></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> m <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> (eigenvalue <span class="op">&gt;</span> <span class="dv">0</span>):</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>            eigenvalue <span class="op">=</span> eigenvalues[<span class="dv">1</span>]</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Solve again with that eigenvalue</span></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>    sol <span class="op">=</span> solve_eigenvalue_problem([eigenvalue])[<span class="dv">0</span>]</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sol.sol, sol.p[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-21" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>, lw<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>, lw<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="vs">r'$\mu$'</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r'P($\mu$)'</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>mu_plot <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1000</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> m <span class="kw">in</span> [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]:</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    S, a2 <span class="op">=</span> find_P_and_a2(n, m)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    P_plot <span class="op">=</span> S(mu_plot)[<span class="dv">0</span>]</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a2 <span class="op">&lt;</span> <span class="fl">1e-3</span>:</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        P_label <span class="op">=</span> <span class="st">'P'</span> <span class="vs">r'$_{'</span> <span class="ss">f'</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">'</span> <span class="vs">r'}(\mu)$ with $a^2'</span> <span class="vs">r'_{'</span> <span class="ss">f'</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">'</span> <span class="vs">r'}$ = 0'</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        P_label <span class="op">=</span> <span class="st">'P'</span> <span class="vs">r'$_{'</span> <span class="ss">f'</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">'</span> <span class="vs">r'}(\mu)$ with $a^2'</span> <span class="vs">r'_{'</span> <span class="ss">f'</span><span class="sc">{</span>n<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>m<span class="sc">}</span><span class="ss">'</span> <span class="vs">r'}$ = '</span> <span class="ss">f'</span><span class="sc">{</span>a2<span class="sc">:.3g}</span><span class="ss">'</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    ax.plot(mu_plot, P_plot, label<span class="op">=</span>P_label)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>fig.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We successfuly solve Low-Lou ODE for <span class="math inline">n=1, m=0, 1, 2</span>. (see Figure 1 by <span class="citation" data-cites="low1990modeling">Low and Lou (<a href="#ref-low1990modeling" role="doc-biblioref">1990</a>)</span>)</p>
+</section>
+</section>
+<section id="parameters" class="level2">
+<h2 class="anchored" data-anchor-id="parameters">Parameters</h2>
+<section id="bounds" class="level3">
+<h3 class="anchored" data-anchor-id="bounds"><code>bounds</code></h3>
+<p><code>bounds=[x_min, x_max, y_min, y_max, z_min, z_max]</code></p>
+</section>
+<section id="resolutions" class="level3">
+<h3 class="anchored" data-anchor-id="resolutions"><code>resolutions</code></h3>
+<p><code>resolutions=[Nx, Ny, Nz]</code> where <code>Nx</code>, <code>Ny</code>, <code>Nz</code> respectively mean that the number of points in x-, y-, z-axis.</p>
+</section>
+<section id="n-m" class="level3">
+<h3 class="anchored" data-anchor-id="n-m"><span class="math inline">n</span> &amp; <span class="math inline">m</span></h3>
+<p><span class="math inline">P_{n,m}(\mu)</span> &amp; <span class="math inline">a^2 _{n,m}</span> are eigenfunction and eigenvalues for Low-Lou ODE with fixed <span class="math inline">n</span>. And <span class="math inline">m</span> is just used for denoting differenct eigenfunction and eigenvalues.</p>
+<p><span class="math display">
+\displaystyle (1-\mu^2)\frac{d^2 P_{n,m}}{d\mu^2} + n(n+1)P_{n,m} + a^2 _{n,m} \frac{1+n}{n}P_{n,m}^{1 + \frac{2}{n}} = 0
+</span></p>
+</section>
+<section id="l-phi" class="level3">
+<h3 class="anchored" data-anchor-id="l-phi"><span class="math inline">l</span> &amp; <span class="math inline">\Phi</span></h3>
+<p>See Figure 02 by <span class="citation" data-cites="low1990modeling">Low and Lou (<a href="#ref-low1990modeling" role="doc-biblioref">1990</a>)</span></p>
+</section>
+</section>
+<section id="algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="algorithm">Algorithm</h2>
+<p>For each physical coordinate <span class="math inline">(x, y, z)</span>,</p>
+<p>Calculate corresponding</p>
+<ol type="1">
+<li>local Cartesian coordinate <span class="math inline">(X, Y, Z)</span></li>
+<li>local spherical coordinate <span class="math inline">(r, \theta, \phi)</span></li>
+<li><span class="math inline">\mu = \cos\theta</span></li>
+<li><span class="math inline">P'_{n,m}(\mu)</span> and <span class="math inline">P_{n,m}(\mu)</span> by solving Low-Lou ODE</li>
+<li><span class="math inline">(B_r, B_\theta, B_\phi)</span></li>
+<li><span class="math inline">(B_X, B_Y, B_Z)</span></li>
+<li><span class="math inline">(B_x, B_y, B_z)</span></li>
+</ol>
+<p>Then, we get a vector <span class="math inline">(B_x, B_y, B_z)</span> at the point <span class="math inline">(x, y, z)</span></p>
+<div id="cell-25" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyvista <span class="im">as</span> pv</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pv.set_jupyter_backend(<span class="st">'static'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>pv.global_theme.notebook <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>pv.start_xvfb()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The local spherical coordinates are</p>
+<p><span class="math display">r = \sqrt{X^2 + Y^2 + Z^2}</span></p>
+<p><span class="math display">\theta= \arccos\frac{Z}{r}</span></p>
+<p><span class="math display">\phi = \arctan2\frac{Y}{X}</span></p>
+<p><code>S</code> refers to <span class="math inline">\mathbf{S}_{n,m}(\mu)</span> and <code>a2</code> refers to <span class="math inline">a^2 _{n,m}</span></p>
+<p><span class="math display">
+\mathbf{S}_{n,m}(\mu) = \begin{bmatrix}
+                     P_{n,m}(\mu) \\
+                     P'_{n,m}(\mu)
+                 \end{bmatrix}
+</span></p>
+<p>The magnetic field is</p>
+<p><span class="math display">
+\mathbf{B}(r, \theta, \phi) = B_r \hat{r} + B_\theta \hat{\theta} + B_\phi \hat{\phi}
+</span></p>
+<p>where</p>
+<p><span class="math display">
+B_r = \frac{1}{r^2 \sin\theta} \frac{\partial A}{\partial \theta}
+</span></p>
+<p><span class="math display">
+B_\theta = -\frac{1}{r \sin\theta} \frac{\partial A}{\partial r}
+</span></p>
+<p><span class="math display">
+B_\phi = \frac{Q}{r \sin\theta}
+</span></p>
+<p>Here <span class="math inline">A</span> is</p>
+<p><span class="math display">
+A = (r^{-n})P_{n,m}(\mu)
+</span></p>
+<p><span class="math display">
+\frac{\partial A}{\partial \theta} = (- r^{-n}\sin\theta) P'_{n,m}(\mu)
+</span></p>
+<p><span class="math display">
+\frac{\partial A}{\partial r} = (-n r^{-n-1}) P_{n,m}(\mu)
+</span></p>
+<p>For <span class="math inline">n=1</span>,</p>
+<p><span class="math display">
+Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
+</span></p>
+<p><span class="math display">
+\alpha = \sqrt{a^2 _{n,m}} \left(1 + \frac{1}{n} \right) A^{\frac{1}{n}}
+</span></p>
+<div id="cell-30" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LowLouMag:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"A Low and Lou (1990) NLFFF"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                 bounds<span class="op">=</span>[<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">2</span>],</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                 resolutions<span class="op">=</span>[<span class="dv">64</span>,<span class="dv">64</span>,<span class="dv">64</span>],</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                 n<span class="op">=</span><span class="dv">1</span>, m<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                 l<span class="op">=</span><span class="fl">0.3</span>, Phi<span class="op">=</span>np.pi<span class="op">/</span><span class="dv">2</span>):</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.bounds <span class="op">=</span> bounds</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.resolutions <span class="op">=</span> resolutions</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.n <span class="op">=</span> n</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.m <span class="op">=</span> m</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.l <span class="op">=</span> l</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Phi <span class="op">=</span> Phi</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>): </span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"### Low and Lou (1990) NLFFF</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"bounds = </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>bounds<span class="sc">}</span><span class="ss">&lt;br&gt;</span><span class="ch">\n</span><span class="ss">"</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"resolutions = </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>resolutions<span class="sc">}</span><span class="ss">&lt;br&gt;</span><span class="ch">\n</span><span class="ss">"</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"n = </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>n<span class="sc">}</span><span class="ss">&lt;br&gt;</span><span class="ch">\n</span><span class="ss">"</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"m = </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>m<span class="sc">}</span><span class="ss">&lt;br&gt;</span><span class="ch">\n</span><span class="ss">"</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"l = </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>l<span class="sc">}</span><span class="ss">&lt;br&gt;</span><span class="ch">\n</span><span class="ss">"</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"Phi = </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>Phi<span class="op">/</span>np<span class="sc">.</span>pi<span class="sc">}</span><span class="ss">π&lt;br&gt;</span><span class="ch">\n</span><span class="ss">"</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    _repr_markdown_ <span class="op">=</span> <span class="fu">__str__</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> create_physical_coordinates(<span class="va">self</span>):</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>        x_1D <span class="op">=</span> np.linspace(<span class="va">self</span>.bounds[<span class="dv">0</span>], <span class="va">self</span>.bounds[<span class="dv">1</span>], <span class="va">self</span>.resolutions[<span class="dv">0</span>])</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>        y_1D <span class="op">=</span> np.linspace(<span class="va">self</span>.bounds[<span class="dv">2</span>], <span class="va">self</span>.bounds[<span class="dv">3</span>], <span class="va">self</span>.resolutions[<span class="dv">1</span>])</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>        z_1D <span class="op">=</span> np.linspace(<span class="va">self</span>.bounds[<span class="dv">4</span>], <span class="va">self</span>.bounds[<span class="dv">5</span>], <span class="va">self</span>.resolutions[<span class="dv">2</span>])</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>        x_spacing <span class="op">=</span> np.diff(x_1D)[<span class="dv">0</span>]</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>        y_spacing <span class="op">=</span> np.diff(y_1D)[<span class="dv">0</span>]</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>        z_spacing <span class="op">=</span> np.diff(z_1D)[<span class="dv">0</span>]</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>        spacing <span class="op">=</span> (x_spacing, y_spacing, z_spacing)</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>        origin <span class="op">=</span> (x_1D[<span class="dv">0</span>], y_1D[<span class="dv">0</span>], z_1D[<span class="dv">0</span>]) <span class="co"># The bottom left corner of the data set</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.grid <span class="op">=</span> pv.ImageData(dimensions<span class="op">=</span><span class="va">self</span>.resolutions, spacing<span class="op">=</span>spacing, origin<span class="op">=</span>origin)</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x_1D <span class="op">=</span> x_1D</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y_1D <span class="op">=</span> y_1D</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.z_1D <span class="op">=</span> z_1D</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.grid</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> calculate_local_Cartesian_coordinates(<span class="va">self</span>):</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>        <span class="co"># information of point source &amp; Z-axis</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>        l <span class="op">=</span> <span class="va">self</span>.l</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>        Phi <span class="op">=</span> <span class="va">self</span>.Phi</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>        <span class="co"># physical coordinates (x, y, z)</span></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="va">self</span>.grid.x</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> <span class="va">self</span>.grid.y</span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>        z <span class="op">=</span> <span class="va">self</span>.grid.z</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>        <span class="co"># local Cartesian coordinates (X, Y, Z)</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>        X <span class="op">=</span> x<span class="op">*</span>np.cos(Phi) <span class="op">-</span> (z<span class="op">+</span>l)<span class="op">*</span>np.sin(Phi)</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>        Y <span class="op">=</span> y</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>        Z <span class="op">=</span> x<span class="op">*</span>np.sin(Phi) <span class="op">+</span> (z<span class="op">+</span>l)<span class="op">*</span>np.cos(Phi)</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.X, <span class="va">self</span>.Y, <span class="va">self</span>.Z <span class="op">=</span> X, Y, Z</span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> calculate_local_spherical_coordinates(<span class="va">self</span>):</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>        <span class="co"># local Cartesian coordinates (X, Y, Z)</span></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>        X <span class="op">=</span> <span class="va">self</span>.X</span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>        Y <span class="op">=</span> <span class="va">self</span>.Y</span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>        Z <span class="op">=</span> <span class="va">self</span>.Z</span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>        <span class="co"># local spherical coordinates (r, theta, phi)</span></span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>        r <span class="op">=</span> np.sqrt(X<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> Y<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> Z<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>        theta <span class="op">=</span> np.arccos(Z<span class="op">/</span>r)</span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>        phi <span class="op">=</span> np.arctan2(Y, X) </span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.r, <span class="va">self</span>.theta, <span class="va">self</span>.phi <span class="op">=</span> r, theta, phi</span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> calculate_eigenfunctions(<span class="va">self</span>):</span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a>        <span class="co"># calculate mu=cos(theta)</span></span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>        mu <span class="op">=</span> np.cos(<span class="va">self</span>.theta)</span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>        <span class="co"># eigenfunction parameter n, m</span></span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a>        n <span class="op">=</span> <span class="va">self</span>.n</span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>        m <span class="op">=</span> <span class="va">self</span>.m</span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a>        <span class="co"># calculate eigenfunction &amp; its derivates and eigenvalues</span></span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a>        <span class="co"># S = [P, dP]</span></span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a>        S, a2 <span class="op">=</span> find_P_and_a2(n, m)</span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a>        P, dP <span class="op">=</span> S(mu)</span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.P, <span class="va">self</span>.dP, <span class="va">self</span>.a2 <span class="op">=</span> P, dP, a2</span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> calculate_local_spherical_magnetic_fields(<span class="va">self</span>):</span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a>        <span class="co"># eigenfunctions and eigenvalue</span></span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>        n, m <span class="op">=</span> <span class="va">self</span>.n, <span class="va">self</span>.m</span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a>        P, dP, a2 <span class="op">=</span> <span class="va">self</span>.P, <span class="va">self</span>.dP, <span class="va">self</span>.a2</span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a>        <span class="co"># r, theta info</span></span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a>        r, theta <span class="op">=</span> <span class="va">self</span>.r, <span class="va">self</span>.theta</span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>        A <span class="op">=</span> (r<span class="op">**</span>(<span class="op">-</span>n)) <span class="op">*</span> P</span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>        dA_dtheta <span class="op">=</span> <span class="op">-</span>(r<span class="op">**</span>(<span class="op">-</span>n)) <span class="op">*</span> np.sin(theta) <span class="op">*</span> dP</span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a>        dA_dr <span class="op">=</span> <span class="op">-</span>(n<span class="op">*</span>(r<span class="op">**</span>(<span class="op">-</span>n<span class="op">-</span><span class="dv">1</span>))) <span class="op">*</span> P</span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>        Q <span class="op">=</span> np.sqrt(a2) <span class="op">*</span> A <span class="op">*</span> np.<span class="bu">abs</span>(A)<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span>n)</span>
+<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>        alpha <span class="op">=</span> np.sqrt(a2) <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span><span class="op">/</span>n) <span class="op">*</span> A<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span>n)</span>
+<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a>        Br <span class="op">=</span> (r<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> np.sin(theta))<span class="op">**</span>(<span class="op">-</span><span class="dv">1</span>) <span class="op">*</span> dA_dtheta</span>
+<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>        Btheta <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="op">*</span> (r<span class="op">*</span>np.sin(theta))<span class="op">**</span>(<span class="op">-</span><span class="dv">1</span>) <span class="op">*</span> dA_dr</span>
+<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a>        Bphi <span class="op">=</span> (r<span class="op">*</span>np.sin(theta))<span class="op">**</span>(<span class="op">-</span><span class="dv">1</span>) <span class="op">*</span> Q</span>
+<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Br, <span class="va">self</span>.Btheta, <span class="va">self</span>.Bphi, <span class="va">self</span>.alpha <span class="op">=</span> Br, Btheta, Bphi, alpha</span>
+<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> calculate_local_Cartesian_magnetic_fields(<span class="va">self</span>):</span>
+<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a>        Br, Btheta, Bphi <span class="op">=</span> <span class="va">self</span>.Br, <span class="va">self</span>.Btheta, <span class="va">self</span>.Bphi</span>
+<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a>        r, theta, phi <span class="op">=</span> <span class="va">self</span>.r, <span class="va">self</span>.theta, <span class="va">self</span>.phi</span>
+<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a>        BX <span class="op">=</span> Br <span class="op">*</span> np.sin(theta) <span class="op">*</span> np.cos(phi) <span class="op">+</span> Btheta <span class="op">*</span> np.cos(theta) <span class="op">*</span> np.cos(phi) <span class="op">-</span> Bphi <span class="op">*</span> np.sin(phi)</span>
+<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a>        BY <span class="op">=</span> Br <span class="op">*</span> np.sin(theta) <span class="op">*</span> np.sin(phi) <span class="op">+</span> Btheta <span class="op">*</span> np.cos(theta) <span class="op">*</span> np.sin(phi) <span class="op">+</span> Bphi <span class="op">*</span> np.cos(phi)</span>
+<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a>        BZ <span class="op">=</span> Br <span class="op">*</span> np.cos(theta) <span class="op">-</span> Bphi <span class="op">*</span> np.sin(theta)</span>
+<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.BX, <span class="va">self</span>.BY, <span class="va">self</span>.BZ <span class="op">=</span> BX, BY, BZ</span>
+<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> calculate_physical_magnetic_fields(<span class="va">self</span>):</span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a>        BX, BY, BZ <span class="op">=</span> <span class="va">self</span>.BX, <span class="va">self</span>.BY, <span class="va">self</span>.BZ</span>
+<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a>        Phi <span class="op">=</span> <span class="va">self</span>.Phi</span>
+<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a>        Bx <span class="op">=</span> BX <span class="op">*</span> np.cos(Phi) <span class="op">+</span> BZ <span class="op">*</span> np.sin(Phi)</span>
+<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a>        By <span class="op">=</span> BY</span>
+<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a>        Bz <span class="op">=</span> <span class="op">-</span> BX <span class="op">*</span> np.sin(Phi) <span class="op">+</span> BZ <span class="op">*</span> np.cos(Phi)</span>
+<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Bx, <span class="va">self</span>.By, <span class="va">self</span>.Bz <span class="op">=</span> Bx, By, Bz</span>
+<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> calculate_final_magnetic_fields(<span class="va">self</span>):</span>
+<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a>        bx <span class="op">=</span> <span class="va">self</span>.Bx.reshape(<span class="va">self</span>.resolutions).transpose(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a>        by <span class="op">=</span> <span class="va">self</span>.By.reshape(<span class="va">self</span>.resolutions).transpose(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a>        bz <span class="op">=</span> <span class="va">self</span>.Bz.reshape(<span class="va">self</span>.resolutions).transpose(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> bx, by, bz</span>
+<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a>    <span class="co">##------ All in one ------##</span></span>
+<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> calculate(<span class="va">self</span>):</span>
+<span id="cb9-146"><a href="#cb9-146" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.create_physical_coordinates()</span>
+<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.calculate_local_Cartesian_coordinates()</span>
+<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.calculate_local_spherical_coordinates()</span>
+<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.calculate_eigenfunctions()</span>
+<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.calculate_local_spherical_magnetic_fields()</span>
+<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.calculate_local_Cartesian_magnetic_fields()</span>
+<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.calculate_physical_magnetic_fields()</span>
+<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a>        bx, by, bz <span class="op">=</span> <span class="va">self</span>.calculate_final_magnetic_fields()</span>
+<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> bx, by, bz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-31" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> LowLouMag()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="low-and-lou-1990-nlfff" class="level3 cell-output cell-output-display cell-output-markdown">
+<h3 class="anchored" data-anchor-id="low-and-lou-1990-nlfff">Low and Lou (1990) NLFFF</h3>
+<p>bounds = [-1, 1, -1, 1, 0, 2]<br> resolutions = [64, 64, 64]<br> n = 1<br> m = 1<br> l = 0.3<br> Phi = 0.5π<br></p>
+</section>
+</div>
+<div id="cell-32" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>b.create_physical_coordinates()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ImageData</td>
+<td data-quarto-table-cell-role="th">Information</td>
+</tr>
+<tr class="even">
+<td>N Cells</td>
+<td>250047</td>
+</tr>
+<tr class="odd">
+<td>N Points</td>
+<td>262144</td>
+</tr>
+<tr class="even">
+<td>X Bounds</td>
+<td>-1.000e+00, 1.000e+00</td>
+</tr>
+<tr class="odd">
+<td>Y Bounds</td>
+<td>-1.000e+00, 1.000e+00</td>
+</tr>
+<tr class="even">
+<td>Z Bounds</td>
+<td>0.000e+00, 2.000e+00</td>
+</tr>
+<tr class="odd">
+<td>Dimensions</td>
+<td>64, 64, 64</td>
+</tr>
+<tr class="even">
+<td>Spacing</td>
+<td>3.175e-02, 3.175e-02, 3.175e-02</td>
+</tr>
+<tr class="odd">
+<td>N Arrays</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+<div id="cell-33" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>b.calculate_local_Cartesian_coordinates()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-34" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>b.grid.x[<span class="dv">0</span>], b.grid.y[<span class="dv">0</span>], b.grid.z[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>(-1.0, -1.0, 0.0)</code></pre>
+</div>
+</div>
+<div id="cell-35" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>b.X[<span class="dv">0</span>], b.Y[<span class="dv">0</span>], b.Z[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>(-0.30000000000000004, -1.0, -1.0)</code></pre>
+</div>
+</div>
+<div id="cell-36" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>b.calculate_local_spherical_coordinates()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-37" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>b.r[<span class="dv">0</span>], b.theta[<span class="dv">0</span>], b.phi[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>(1.445683229480096, 2.3346567297775978, -1.8622531212727638)</code></pre>
+</div>
+</div>
+<div id="cell-38" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>b.calculate_eigenfunctions()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-39" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>b.P[<span class="dv">0</span>], b.dP[<span class="dv">0</span>], b.a2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>(2.3671821639686197, 4.145376627987454, 0.4274037235234833)</code></pre>
+</div>
+</div>
+<div id="cell-40" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>b.calculate_local_spherical_magnetic_fields()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-41" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>b.Br[<span class="dv">0</span>], b.Btheta[<span class="dv">0</span>], b.Bphi[<span class="dv">0</span>], b.alpha[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>(-1.3719698429432043,
+ 1.0848561237109233,
+ 1.6788928338597737,
+ 2.140955710310132)</code></pre>
+</div>
+</div>
+<div id="cell-42" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>b.calculate_local_Cartesian_magnetic_fields()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-43" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>b.BX[<span class="dv">0</span>], b.BY[<span class="dv">0</span>], b.BZ[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>(2.108420021547058, 1.185348144787035, -0.26343650351723624)</code></pre>
+</div>
+</div>
+<div id="cell-44" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>b.calculate_physical_magnetic_fields()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-45" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>b.Bx[<span class="dv">0</span>], b.By[<span class="dv">0</span>], b.Bz[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>(-0.26343650351723613, 1.185348144787035, -2.108420021547058)</code></pre>
+</div>
+</div>
+<div id="cell-46" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>bx, by, bz <span class="op">=</span> b.calculate_final_magnetic_fields()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-47" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">-</span>q git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>mgjeon<span class="op">/</span>magnetic_field_line.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-48" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> magplot.base <span class="im">import</span> create_mesh, mag_plotter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-49" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>mesh <span class="op">=</span> create_mesh(bx, by, bz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-50" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>b_plot <span class="op">=</span> mag_plotter(mesh)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>b_tube, b_bottom, b_dargs <span class="op">=</span> b_plot.create_mesh(i_siz<span class="op">=</span><span class="dv">32</span>, j_siz<span class="op">=</span><span class="dv">32</span>, </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>                                               i_resolution<span class="op">=</span><span class="dv">8</span>, j_resolution<span class="op">=</span><span class="dv">8</span>, </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>                                               vmin<span class="op">=-</span><span class="dv">100</span>, vmax<span class="op">=</span><span class="dv">100</span>, </span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>                                               max_time<span class="op">=</span><span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-51" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> pv.Plotter()</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_plot.grid.outline())</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_bottom, cmap<span class="op">=</span><span class="st">'gray'</span>, <span class="op">**</span>b_dargs)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_tube, lighting<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>p.camera_position <span class="op">=</span> <span class="st">'xy'</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>p.show_bounds()</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-52" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> pv.Plotter(off_screen<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_plot.grid.outline())</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>p.add_mesh(pv.Plane(center<span class="op">=</span>(mesh.center[<span class="dv">0</span>], mesh.center[<span class="dv">1</span>], <span class="op">-</span><span class="dv">1</span>), direction<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), i_size<span class="op">=</span><span class="dv">64</span>, j_size<span class="op">=</span><span class="dv">64</span>), color<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_bottom.contour(scalars<span class="op">=</span>b_bottom[<span class="st">'vector'</span>][:, <span class="dv">2</span>]), cmap<span class="op">=</span><span class="st">'bwr'</span>, <span class="op">**</span>b_dargs)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_tube, lighting<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>p.camera_position <span class="op">=</span> <span class="st">'xy'</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-28-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>It seems to correspond to Figure 8, not Figure 3. I don’t know why.</p>
+<div id="cell-54" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>mesh_new <span class="op">=</span> create_mesh(<span class="op">*</span>LowLouMag(Phi<span class="op">=</span>np.pi<span class="op">/</span><span class="dv">4</span>).calculate()).reflect((<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>b_plot_new <span class="op">=</span> mag_plotter(mesh_new)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>b_tube_new, b_bottom_new, b_dargs_new <span class="op">=</span> b_plot_new.create_mesh(i_siz<span class="op">=</span><span class="dv">32</span>, j_siz<span class="op">=</span><span class="dv">32</span>, </span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>                                                   i_resolution<span class="op">=</span><span class="dv">8</span>, j_resolution<span class="op">=</span><span class="dv">8</span>, </span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>                                                   vmin<span class="op">=-</span><span class="dv">100</span>, vmax<span class="op">=</span><span class="dv">100</span>, </span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>                                                   max_time<span class="op">=</span><span class="dv">10000</span>)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> pv.Plotter(off_screen<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_plot_new.grid.outline())</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>p.add_mesh(pv.Plane(center<span class="op">=</span>(mesh_new.center[<span class="dv">0</span>], mesh_new.center[<span class="dv">1</span>], <span class="op">-</span><span class="dv">1</span>), direction<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), i_size<span class="op">=</span><span class="dv">64</span>, j_size<span class="op">=</span><span class="dv">64</span>), color<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_bottom_new.contour(scalars<span class="op">=</span>b_bottom_new[<span class="st">'vector'</span>][:, <span class="dv">2</span>]), cmap<span class="op">=</span><span class="st">'bwr'</span>, <span class="op">**</span>b_dargs_new)</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_tube_new, lighting<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>p.camera_position <span class="op">=</span> <span class="st">'xy'</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-29-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-55" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>mesh_new <span class="op">=</span> create_mesh(<span class="op">*</span>LowLouMag(Phi<span class="op">=</span><span class="fl">0.47</span>).calculate()).reflect((<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>b_plot_new <span class="op">=</span> mag_plotter(mesh_new)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>b_tube_new, b_bottom_new, b_dargs_new <span class="op">=</span> b_plot_new.create_mesh(i_siz<span class="op">=</span><span class="dv">40</span>, j_siz<span class="op">=</span><span class="dv">40</span>, </span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>                                                   i_resolution<span class="op">=</span><span class="dv">8</span>, j_resolution<span class="op">=</span><span class="dv">8</span>, </span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>                                                   vmin<span class="op">=-</span><span class="dv">100</span>, vmax<span class="op">=</span><span class="dv">100</span>, </span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>                                                   max_time<span class="op">=</span><span class="dv">10000</span>)</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> pv.Plotter(off_screen<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_plot_new.grid.outline())</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>p.add_mesh(pv.Plane(center<span class="op">=</span>(mesh_new.center[<span class="dv">0</span>], mesh_new.center[<span class="dv">1</span>], <span class="op">-</span><span class="dv">1</span>), direction<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), i_size<span class="op">=</span><span class="dv">64</span>, j_size<span class="op">=</span><span class="dv">64</span>), color<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_bottom_new.contour(scalars<span class="op">=</span>b_bottom_new[<span class="st">'vector'</span>][:, <span class="dv">2</span>]), cmap<span class="op">=</span><span class="st">'bwr'</span>, <span class="op">**</span>b_dargs_new)</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_tube_new, lighting<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>p.camera_position <span class="op">=</span> <span class="st">'xy'</span></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-30-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-56" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>mesh_new <span class="op">=</span> create_mesh(<span class="op">*</span>LowLouMag(Phi<span class="op">=</span><span class="fl">0.27</span>).calculate()).reflect((<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>b_plot_new <span class="op">=</span> mag_plotter(mesh_new)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>b_tube_new, b_bottom_new, b_dargs_new <span class="op">=</span> b_plot_new.create_mesh(i_siz<span class="op">=</span><span class="dv">40</span>, j_siz<span class="op">=</span><span class="dv">40</span>, </span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>                                                   i_resolution<span class="op">=</span><span class="dv">8</span>, j_resolution<span class="op">=</span><span class="dv">8</span>, </span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>                                                   vmin<span class="op">=-</span><span class="dv">100</span>, vmax<span class="op">=</span><span class="dv">100</span>, </span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>                                                   max_time<span class="op">=</span><span class="dv">10000</span>)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> pv.Plotter(off_screen<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_plot_new.grid.outline())</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>p.add_mesh(pv.Plane(center<span class="op">=</span>(mesh_new.center[<span class="dv">0</span>], mesh_new.center[<span class="dv">1</span>], <span class="op">-</span><span class="dv">1</span>), direction<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), i_size<span class="op">=</span><span class="dv">64</span>, j_size<span class="op">=</span><span class="dv">64</span>), color<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_bottom_new.contour(scalars<span class="op">=</span>b_bottom_new[<span class="st">'vector'</span>][:, <span class="dv">2</span>]), cmap<span class="op">=</span><span class="st">'bwr'</span>, <span class="op">**</span>b_dargs_new)</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_tube_new, lighting<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>p.camera_position <span class="op">=</span> <span class="st">'xy'</span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-31-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With <code>reflect((0, 1, 0))</code>, these seems to correspond to Figure 4, 5, and 6, respectively. However, I don’t know why I need to use <code>reflect((0, 1, 0))</code>.</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-low1990modeling" class="csl-entry" role="listitem">
+Low, BC, and YQ Lou. 1990. <span>“Modeling Solar Force-Free Magnetic Fields.”</span> <em>Astrophysical Journal, Part 1 (ISSN 0004-637X), Vol. 352, March 20, 1990, p. 343-352.</em> 352: 343–52.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/mgjeon\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
