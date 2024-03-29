@@ -564,7 +564,7 @@ P'(-1) = 10
 </section>
 <section id="l-phi" class="level3">
 <h3 class="anchored" data-anchor-id="l-phi"><span class="math inline">l</span> &amp; <span class="math inline">\Phi</span></h3>
-<p>See Figure 02 by <span class="citation" data-cites="low1990modeling">Low and Lou (<a href="#ref-low1990modeling" role="doc-biblioref">1990</a>)</span></p>
+<p>See Figure 2 by <span class="citation" data-cites="low1990modeling">Low and Lou (<a href="#ref-low1990modeling" role="doc-biblioref">1990</a>)</span></p>
 </section>
 </section>
 <section id="algorithm" class="level2">
@@ -581,12 +581,6 @@ P'(-1) = 10
 <li><span class="math inline">(B_x, B_y, B_z)</span></li>
 </ol>
 <p>Then, we get a vector <span class="math inline">(B_x, B_y, B_z)</span> at the point <span class="math inline">(x, y, z)</span></p>
-<div id="cell-25" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyvista <span class="im">as</span> pv</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pv.set_jupyter_backend(<span class="st">'static'</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>pv.global_theme.notebook <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>pv.start_xvfb()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>The local spherical coordinates are</p>
 <p><span class="math display">r = \sqrt{X^2 + Y^2 + Z^2}</span></p>
 <p><span class="math display">\theta= \arccos\frac{Z}{r}</span></p>
@@ -629,6 +623,12 @@ Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
 <p><span class="math display">
 \alpha = \sqrt{a^2 _{n,m}} \left(1 + \frac{1}{n} \right) A^{\frac{1}{n}}
 </span></p>
+<div id="cell-29" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyvista <span class="im">as</span> pv</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pv.set_jupyter_backend(<span class="st">'static'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>pv.global_theme.notebook <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>pv.start_xvfb()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div id="cell-30" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LowLouMag:</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"A Low and Lou (1990) NLFFF"</span></span>
