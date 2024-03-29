@@ -433,12 +433,12 @@ P'(-1) = 10
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dP_init <span class="op">=</span> <span class="dv">10</span><span class="op">*</span>np.ones_like(mu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then, together,</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>S_init <span class="op">=</span> np.vstack([P_init, dP_init])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="cell-19" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-19" class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.integrate <span class="im">import</span> solve_bvp</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-20" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-20" class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_P_and_a2(n, m):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ODE system</span></span>
@@ -511,7 +511,7 @@ P'(-1) = 10
 <span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sol.sol, sol.p[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-21" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-21" class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'k'</span>, lw<span class="op">=</span><span class="dv">2</span>)</span>
@@ -623,13 +623,13 @@ Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
 <p><span class="math display">
 \alpha = \sqrt{a^2 _{n,m}} \left(1 + \frac{1}{n} \right) A^{\frac{1}{n}}
 </span></p>
-<div id="cell-29" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-29" class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyvista <span class="im">as</span> pv</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pv.set_jupyter_backend(<span class="st">'static'</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>pv.global_theme.notebook <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>pv.start_xvfb()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-30" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-30" class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LowLouMag:</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"A Low and Lou (1990) NLFFF"</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -785,7 +785,7 @@ Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
 <span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a>        bx, by, bz <span class="op">=</span> <span class="va">self</span>.calculate_final_magnetic_fields()</span>
 <span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> bx, by, bz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-31" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-31" class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> LowLouMag()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="low-and-lou-1990-nlfff" class="level3 cell-output cell-output-display cell-output-markdown">
@@ -793,7 +793,7 @@ Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
 <p>bounds = [-1, 1, -1, 1, 0, 2]<br> resolutions = [64, 64, 64]<br> n = 1<br> m = 1<br> l = 0.3<br> Phi = 0.5π<br></p>
 </section>
 </div>
-<div id="cell-32" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-32" class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>b.create_physical_coordinates()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -844,43 +844,43 @@ Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
 </div>
 </div>
 </div>
-<div id="cell-33" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-33" class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>b.calculate_local_Cartesian_coordinates()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-34" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-34" class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>b.grid.x[<span class="dv">0</span>], b.grid.y[<span class="dv">0</span>], b.grid.z[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>(-1.0, -1.0, 0.0)</code></pre>
 </div>
 </div>
-<div id="cell-35" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-35" class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>b.X[<span class="dv">0</span>], b.Y[<span class="dv">0</span>], b.Z[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>(-0.30000000000000004, -1.0, -1.0)</code></pre>
 </div>
 </div>
-<div id="cell-36" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-36" class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>b.calculate_local_spherical_coordinates()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-37" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-37" class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>b.r[<span class="dv">0</span>], b.theta[<span class="dv">0</span>], b.phi[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>(1.445683229480096, 2.3346567297775978, -1.8622531212727638)</code></pre>
 </div>
 </div>
-<div id="cell-38" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-38" class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>b.calculate_eigenfunctions()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-39" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-39" class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>b.P[<span class="dv">0</span>], b.dP[<span class="dv">0</span>], b.a2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>(2.3671821639686197, 4.145376627987454, 0.4274037235234833)</code></pre>
 </div>
 </div>
-<div id="cell-40" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-40" class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>b.calculate_local_spherical_magnetic_fields()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-41" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-41" class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>b.Br[<span class="dv">0</span>], b.Btheta[<span class="dv">0</span>], b.Bphi[<span class="dv">0</span>], b.alpha[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>(-1.3719698429432043,
@@ -889,44 +889,44 @@ Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
  2.140955710310132)</code></pre>
 </div>
 </div>
-<div id="cell-42" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-42" class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>b.calculate_local_Cartesian_magnetic_fields()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-43" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-43" class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>b.BX[<span class="dv">0</span>], b.BY[<span class="dv">0</span>], b.BZ[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>(2.108420021547058, 1.185348144787035, -0.26343650351723624)</code></pre>
 </div>
 </div>
-<div id="cell-44" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-44" class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>b.calculate_physical_magnetic_fields()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-45" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-45" class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>b.Bx[<span class="dv">0</span>], b.By[<span class="dv">0</span>], b.Bz[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>(-0.26343650351723613, 1.185348144787035, -2.108420021547058)</code></pre>
 </div>
 </div>
-<div id="cell-46" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-46" class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>bx, by, bz <span class="op">=</span> b.calculate_final_magnetic_fields()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-47" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-47" class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">-</span>q git<span class="op">+</span>https:<span class="op">//</span>github.com<span class="op">/</span>mgjeon<span class="op">/</span>magnetic_field_line.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-48" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-48" class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> magplot.base <span class="im">import</span> create_mesh, mag_plotter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-49" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-49" class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>mesh <span class="op">=</span> create_mesh(bx, by, bz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-50" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-50" class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>b_plot <span class="op">=</span> mag_plotter(mesh)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>b_tube, b_bottom, b_dargs <span class="op">=</span> b_plot.create_mesh(i_siz<span class="op">=</span><span class="dv">32</span>, j_siz<span class="op">=</span><span class="dv">32</span>, </span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>                                               i_resolution<span class="op">=</span><span class="dv">8</span>, j_resolution<span class="op">=</span><span class="dv">8</span>, </span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>                                               vmin<span class="op">=-</span><span class="dv">100</span>, vmax<span class="op">=</span><span class="dv">100</span>, </span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>                                               max_time<span class="op">=</span><span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-51" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-51" class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> pv.Plotter()</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_plot.grid.outline())</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_bottom, cmap<span class="op">=</span><span class="st">'gray'</span>, <span class="op">**</span>b_dargs)</span>
@@ -942,14 +942,15 @@ Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
 </div>
 </div>
 </div>
-<div id="cell-52" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-52" class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> pv.Plotter(off_screen<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_plot.grid.outline())</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>p.add_mesh(pv.Plane(center<span class="op">=</span>(mesh.center[<span class="dv">0</span>], mesh.center[<span class="dv">1</span>], <span class="op">-</span><span class="dv">1</span>), direction<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), i_size<span class="op">=</span><span class="dv">64</span>, j_size<span class="op">=</span><span class="dv">64</span>), color<span class="op">=</span><span class="st">'gray'</span>)</span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_bottom.contour(scalars<span class="op">=</span>b_bottom[<span class="st">'vector'</span>][:, <span class="dv">2</span>]), cmap<span class="op">=</span><span class="st">'bwr'</span>, <span class="op">**</span>b_dargs)</span>
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_tube, lighting<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'black'</span>)</span>
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>p.camera_position <span class="op">=</span> <span class="st">'xy'</span></span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>p.show_bounds()</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -959,7 +960,7 @@ Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
 </div>
 </div>
 <p>It seems to correspond to Figure 8, not Figure 3. I don’t know why.</p>
-<div id="cell-54" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-54" class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>mesh_new <span class="op">=</span> create_mesh(<span class="op">*</span>LowLouMag(Phi<span class="op">=</span>np.pi<span class="op">/</span><span class="dv">4</span>).calculate()).reflect((<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>b_plot_new <span class="op">=</span> mag_plotter(mesh_new)</span>
@@ -974,7 +975,8 @@ Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
 <span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_bottom_new.contour(scalars<span class="op">=</span>b_bottom_new[<span class="st">'vector'</span>][:, <span class="dv">2</span>]), cmap<span class="op">=</span><span class="st">'bwr'</span>, <span class="op">**</span>b_dargs_new)</span>
 <span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_tube_new, lighting<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'black'</span>)</span>
 <span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>p.camera_position <span class="op">=</span> <span class="st">'xy'</span></span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>p.show_bounds()</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -983,7 +985,7 @@ Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
 </div>
 </div>
 </div>
-<div id="cell-55" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-55" class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>mesh_new <span class="op">=</span> create_mesh(<span class="op">*</span>LowLouMag(Phi<span class="op">=</span><span class="fl">0.47</span>).calculate()).reflect((<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>b_plot_new <span class="op">=</span> mag_plotter(mesh_new)</span>
@@ -998,7 +1000,8 @@ Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
 <span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_bottom_new.contour(scalars<span class="op">=</span>b_bottom_new[<span class="st">'vector'</span>][:, <span class="dv">2</span>]), cmap<span class="op">=</span><span class="st">'bwr'</span>, <span class="op">**</span>b_dargs_new)</span>
 <span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_tube_new, lighting<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'black'</span>)</span>
 <span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>p.camera_position <span class="op">=</span> <span class="st">'xy'</span></span>
-<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>p.show_bounds()</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1007,7 +1010,7 @@ Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
 </div>
 </div>
 </div>
-<div id="cell-56" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
+<div id="cell-56" class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>mesh_new <span class="op">=</span> create_mesh(<span class="op">*</span>LowLouMag(Phi<span class="op">=</span><span class="fl">0.27</span>).calculate()).reflect((<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>b_plot_new <span class="op">=</span> mag_plotter(mesh_new)</span>
@@ -1022,7 +1025,8 @@ Q(A) = \sqrt{a^2 _{n,m}} A^{1 + \frac{1}{n}}
 <span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_bottom_new.contour(scalars<span class="op">=</span>b_bottom_new[<span class="st">'vector'</span>][:, <span class="dv">2</span>]), cmap<span class="op">=</span><span class="st">'bwr'</span>, <span class="op">**</span>b_dargs_new)</span>
 <span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>p.add_mesh(b_tube_new, lighting<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'black'</span>)</span>
 <span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>p.camera_position <span class="op">=</span> <span class="st">'xy'</span></span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>p.show_bounds()</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>p.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
