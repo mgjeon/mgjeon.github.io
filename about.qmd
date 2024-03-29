@@ -4,15 +4,16 @@ image: profile.jpg
 about:
   template: jolla
   links:
+    - icon: house
+      text: Homepage
+      href: https://www.mgjeon.com/
     - icon: github
       text: Github
       href: https://github.com/mgjeon
-    - icon: envelope
-      text: mgjeon at khu.ac.kr
 toc: false
 number-sections: false
 ---
 
 ## Mingyu Jeon (전민규)
 
-I am a master's student affiliated with the [Sun and Space Weather Laboratory](https://sunspaceweather.khu.ac.kr/) at Kyung Hee University, studying **solar physics** and **deep learning**. My research interest includes plasma physics and scientific machine learning.
+I am a master’s student affiliated with the [Sun and Space Weather Laboratory](https://sunspaceweather.khu.ac.kr/) at Kyung Hee University, studying how to apply **machine learning** methods to **solar physics** and **space weather**. My research interests include **plasma physics** and **physics-informed machine learning**. 
