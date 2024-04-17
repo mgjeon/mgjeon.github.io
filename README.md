@@ -21,6 +21,7 @@ nbdev_clean --fname posts/
 Update main branch
 ```
 git add .
+git commit -m "update"
 git push
 ```
 
