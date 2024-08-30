@@ -1103,7 +1103,7 @@ torch.Size([1, 2, 520, 693]) torch.Size([1, 2, 520, 693])</code></pre>
 <span id="cb47-53"><a href="#cb47-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-54"><a href="#cb47-54" aria-hidden="true" tabindex="-1"></a>        <span class="co"># IoU for class 0, IoU for class 1</span></span>
 <span id="cb47-55"><a href="#cb47-55" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (TN) / ((TN + FP) + (TN + FN) - TN) =&gt; TN / (TN + FP + FN) -&gt; IoU for class 0</span></span>
-<span id="cb47-56"><a href="#cb47-56" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (TP) / ((FN + TP) + (FP + TP) - TP) =&gt; TN / (FN + FP + TP) -&gt; IoU for class 1</span></span>
+<span id="cb47-56"><a href="#cb47-56" aria-hidden="true" tabindex="-1"></a>        <span class="co"># (TP) / ((FN + TP) + (FP + TP) - TP) =&gt; TP / (FN + FP + TP) -&gt; IoU for class 1</span></span>
 <span id="cb47-57"><a href="#cb47-57" aria-hidden="true" tabindex="-1"></a>        iou <span class="op">=</span> diag <span class="op">/</span> (hsum1 <span class="op">+</span> hsum0 <span class="op">-</span> diag)</span>
 <span id="cb47-58"><a href="#cb47-58" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> acc_global, acc, iou</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
