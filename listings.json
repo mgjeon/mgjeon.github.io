@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/semantic-segmentation-fcn-resnet50/index.html",
       "/posts/double-pendulum-python/index.html",
       "/posts/double-pendulum-julia/index.html",
       "/posts/low_lou_force_free/index.html",

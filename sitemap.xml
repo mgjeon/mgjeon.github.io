@@ -21,28 +21,32 @@
     <lastmod>2024-08-28T22:45:38.838Z</lastmod>
   </url>
   <url>
-    <loc>https://mgjeon.github.io/posts/stable-diffusion-inference/Stable_Diffusion_Inference_high_level.html</loc>
-    <lastmod>2024-08-28T22:45:39.178Z</lastmod>
+    <loc>https://mgjeon.github.io/posts/semantic-segmentation-fcn-resnet50/index.html</loc>
+    <lastmod>2024-08-30T12:33:23.712Z</lastmod>
   </url>
   <url>
-    <loc>https://mgjeon.github.io/posts/explain-words/index.html</loc>
-    <lastmod>2024-08-28T22:45:38.848Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mgjeon.github.io/posts/field-line-isee-nlfff/index.html</loc>
-    <lastmod>2024-08-28T22:45:38.868Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mgjeon.github.io/index.html</loc>
-    <lastmod>2024-08-28T22:45:38.838Z</lastmod>
+    <loc>https://mgjeon.github.io/posts/stable-diffusion-inference/Stable_Diffusion_Inference_low_level.html</loc>
+    <lastmod>2024-08-28T22:45:39.188Z</lastmod>
   </url>
   <url>
     <loc>https://mgjeon.github.io/posts/spherical-astronomy/index.html</loc>
     <lastmod>2024-08-28T22:45:39.178Z</lastmod>
   </url>
   <url>
-    <loc>https://mgjeon.github.io/posts/stable-diffusion-inference/Stable_Diffusion_Inference_low_level.html</loc>
-    <lastmod>2024-08-28T22:45:39.188Z</lastmod>
+    <loc>https://mgjeon.github.io/index.html</loc>
+    <lastmod>2024-08-28T22:45:38.838Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mgjeon.github.io/posts/field-line-isee-nlfff/index.html</loc>
+    <lastmod>2024-08-28T22:45:38.868Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mgjeon.github.io/posts/explain-words/index.html</loc>
+    <lastmod>2024-08-28T22:45:38.848Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mgjeon.github.io/posts/stable-diffusion-inference/Stable_Diffusion_Inference_high_level.html</loc>
+    <lastmod>2024-08-28T22:45:39.178Z</lastmod>
   </url>
   <url>
     <loc>https://mgjeon.github.io/posts/derivative-of-1d-scalar-function/index.html</loc>
@@ -62,6 +66,6 @@
   </url>
   <url>
     <loc>https://mgjeon.github.io/posts/double-pendulum-julia/index.html</loc>
-    <lastmod>2024-08-28T23:14:00.466Z</lastmod>
+    <lastmod>2024-08-30T12:33:23.732Z</lastmod>
   </url>
 </urlset>
