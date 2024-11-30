@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Mingyu Jeon">
-<meta name="dcterms.date" content="2023-10-20">
+<meta name="dcterms.date" content="2024-11-30">
 
-<title>보존법칙 – Mingyu Jeon</title>
+<title>A collection of resources on pendulum – Mingyu Jeon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,49 +69,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -153,10 +110,10 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">보존법칙</h1>
+      <h1 class="title">A collection of resources on pendulum</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">physics</div>
-                <div class="quarto-category">korean</div>
+                <div class="quarto-category">english</div>
               </div>
                   </div>
   </div>
@@ -174,7 +131,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 20, 2023</p>
+        <p class="date">November 30, 2024</p>
       </div>
     </div>
     
@@ -190,12 +147,18 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#역학적-에너지-보존-법칙" id="toc-역학적-에너지-보존-법칙" class="nav-link active" data-scroll-target="#역학적-에너지-보존-법칙">역학적 에너지 보존 법칙</a>
+  <li><a href="#contents" id="toc-contents" class="nav-link active" data-scroll-target="#contents">Contents</a></li>
+  <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
+  <li><a href="#experiment" id="toc-experiment" class="nav-link" data-scroll-target="#experiment">Experiment</a></li>
+  <li><a href="#simulation" id="toc-simulation" class="nav-link" data-scroll-target="#simulation">Simulation</a>
   <ul class="collapse">
-  <li><a href="#퍼텐셜-에너지potential-energy의-정의" id="toc-퍼텐셜-에너지potential-energy의-정의" class="nav-link" data-scroll-target="#퍼텐셜-에너지potential-energy의-정의">퍼텐셜 에너지(Potential Energy)의 정의</a></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">C</a></li>
+  <li><a href="#javascript" id="toc-javascript" class="nav-link" data-scroll-target="#javascript">JavaScript</a></li>
+  <li><a href="#processing" id="toc-processing" class="nav-link" data-scroll-target="#processing">Processing</a></li>
+  <li><a href="#julia" id="toc-julia" class="nav-link" data-scroll-target="#julia">Julia</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
   </ul></li>
-  <li><a href="#운동량-보존-법칙" id="toc-운동량-보존-법칙" class="nav-link" data-scroll-target="#운동량-보존-법칙">운동량 보존 법칙</a></li>
-  <li><a href="#각운동량-보존-법칙" id="toc-각운동량-보존-법칙" class="nav-link" data-scroll-target="#각운동량-보존-법칙">각운동량 보존 법칙</a></li>
+  <li><a href="#inverted-pendulum" id="toc-inverted-pendulum" class="nav-link" data-scroll-target="#inverted-pendulum">Inverted Pendulum</a></li>
   </ul>
 </nav>
     </div>
@@ -206,121 +169,193 @@ window.Quarto = {
 
 
 
-<p>2018년에 물리학실험 보고서용으로 작성한 글</p>
-<section id="역학적-에너지-보존-법칙" class="level2">
-<h2 class="anchored" data-anchor-id="역학적-에너지-보존-법칙">역학적 에너지 보존 법칙</h2>
-<p>뉴턴의 운동법칙은 근본적으로 미분방정식으로 서술된다. 특히 힘과 가속도와 같은 물리량들은 벡터량이기 때문에 다루기가 쉽지 않다. 이러한 이유로 물리학자들은 스칼라량인 일이라는 개념을 만든 후에, 뉴턴 운동법칙을 수학적으로 약간 조작하여 운동에너지라는 새로운 개념을 만들게 되었다. 그리고 그것을 통해 일-(운동)에너지 정리를 이끌어 내었다. 이 정리는 ’물체에 가해진 알짜힘이 한 일은 물체의 운동에너지 변화량과 같다’라는 사실을 알려준다(<span class="math inline">\mathbf{F} = m \mathbf{a}</span>에서의 <span class="math inline">\mathbf{F}</span>가 알짜힘(합력, net force)이기 때문이다). 일-운동에너지 정리를 식으로 나타내면 다음과 같다.</p>
-<p><span class="math display">
-W_{\text{알짜 힘}} = \Delta K
-</span></p>
-<p>이 정리는 수학적으로 유도된 정리이기 때문에, 물체에 가해지는 모든 알짜힘에 대해 성립하는 정리이다. 그러나 물리학자들은 여기서 한발 더 나아가 좌변을 다음과 같이 쓰고 싶어했다.</p>
-<p><span class="math display">
--\Delta U = \Delta K
-</span></p>
-<p>왜냐하면 만약 이렇게 쓸 수만 있다면, <span class="math inline">K</span>라는 양과 <span class="math inline">U</span>라는 양이 ’보존’되기 때문이다. 그런데 다행히도 물리학자들은 중력이나 탄성력, 전기력과 같은 특정한 힘들이 하는 일은 위와 같이 쓸수 있음을 알게 되었고, <span class="math inline">U</span>를 ’위치에너지(퍼텐셜에너지)’라 정의하였다. 또한 퍼텐셜에너지를 정의할 수 있는 힘을 보존력이라고 부르게 되었다. 따라서 다음과 같이 쓸 수 있다.</p>
-<p><span class="math display">
-W_{\text{보존력}} = -\Delta U_{\text{보존력}}
-</span></p>
-<p>또한 모든 힘은 이러한 보존력과 보존력이 아닌 힘, 즉 비보존력 두 가지로 나뉜다는 사실을 알게 되었다. 일은 힘과 변위벡터의 내적으로 정의되고, 내적은 수학적으로 분배법칙이 성립하기 때문에 일-운동에너지 정리는 다음과 같이 쓸 수 있다.</p>
-<p><span class="math display">
-W_{\text{보존력}} + W_{\text{비보존력}} = \Delta K
-</span> <span class="math display">
-W_{\text{비보존력}} = \Delta K + \Delta U_{\text{보존력}}
-</span></p>
-<p>이때 물체의 운동에너지와 퍼텐셜에너지의 합을 역학적 에너지라고 정의하게 되면 다음을 얻는다.</p>
-<p><span class="math display">
-W_{\text{비보존력}} = \Delta E_{\text{역학적}}
-</span></p>
-<p>따라서 비보존력이 일을 하지 않으면 물체의 역학적 에너지는 일정하게 유지된다. 즉 어떤 물체에 보존력만 일을 한다면 그 물체의 역학적 에너지는 일정하게 유지된다. 바로 이것을 역학적 에너지 보존 법칙이라고 부른다.</p>
-<section id="퍼텐셜-에너지potential-energy의-정의" class="level3">
-<h3 class="anchored" data-anchor-id="퍼텐셜-에너지potential-energy의-정의">퍼텐셜 에너지(Potential Energy)의 정의</h3>
+<p>This post contains a collection of resources on pendulum.</p>
+<blockquote class="blockquote">
+<p>It is better to solve one problem five different ways, than to solve five problems one way. — <cite><a href="https://www.goodreads.com/quotes/9924322-it-is-better-to-solve-one-problem-five-different-ways">George Pólya</a></cite></p>
+</blockquote>
+<section id="contents" class="level2">
+<h2 class="anchored" data-anchor-id="contents">Contents</h2>
 <ul>
-<li>어떤 물체의 위치벡터가 벡터함수 <span class="math inline">\mathbf{r}(t)</span> <span class="math inline">(a\leq t \leq b)</span>로 주어지고, 시간 <span class="math inline">a\leq t \leq b</span> 동안 물체가 움직인 경로가 곡선 <span class="math inline">C</span>이며 그동안 물체에 가해진 힘이 <span class="math inline">\mathbf{F}(\mathbf{r})</span>일 때(또는 물체가 벡터장 <span class="math inline">\mathbf{F}(\mathbf{r})</span>가 있는 공간에서 곡선 <span class="math inline">C</span>를 따라 움직였을 때), <strong>힘 <span class="math inline">\mathbf{F}</span>가 물체에 한 일 <span class="math inline">W</span></strong>는 다음과 같이 정의한다. 이때 <span class="math inline">\rm{d}\mathbf{l} = \rm{d}\mathbf{r} = \mathbf{r}'\rm{d}t</span> 이다.</li>
-</ul>
-<p><span class="math display">
-\begin{align*}
-W &amp; = \int_{C} \mathbf{F} \cdot \rm{d}\mathbf{l} \\
-&amp; = \int_{a}^{b} \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\rm{d}t
-\end{align*}
-</span></p>
+<li><a href="#description">Description</a></li>
+<li><a href="#experiment">Experiment</a></li>
+<li><a href="#simulation">Simulation</a>
 <ul>
-<li>어떤 힘 <span class="math inline">\mathbf{F}</span>가 보존력일때, 즉 위치벡터 <span class="math inline">\mathbf{r}(t)</span>에 대한 벡터함수 <span class="math inline">\mathbf{F}(\mathbf{r}(t))</span>가 보존장일때, 다음을 만족하는 스칼라 함수 <span class="math inline">U(\mathbf{r}(t))</span>를 <strong>힘 <span class="math inline">\mathbf{F}</span>에 대한 퍼텐셜 에너지</strong>라고 정의한다.</li>
+<li><a href="#c">C</a></li>
+<li><a href="#javascript">JavaScript</a></li>
+<li><a href="#processing">Processing</a></li>
+<li><a href="#julia">Julia</a></li>
+<li><a href="#python">Python</a></li>
+</ul></li>
+<li><a href="#inverted-pendulum">Inverted Pendulum</a></li>
 </ul>
-<p><span class="math display">
-\mathbf{F}(\mathbf{r}) = -\nabla U(\mathbf{r})
-</span></p>
-<ul>
-<li>어떤 힘 <span class="math inline">\mathbf{F}</span>가 <span class="math inline">\mathbf{F}(\mathbf{r}) = - \nabla U(\mathbf{r})</span>로 주어지는 보존력이고, 위치벡터가 <span class="math inline">\mathbf{r}(t)</span>로 주어지는 물체가 시간 <span class="math inline">a \leq t \leq b</span>동안 힘 <span class="math inline">\mathbf{F}</span>를 받으며 경로 <span class="math inline">C</span>를 따라 움직였다고 하면, 선적분의 기본정리에 의해 다음이 성립한다.</li>
-</ul>
-<p><span class="math display">
-U(\mathbf{r}(b)) - U(\mathbf{r}(a)) = - \int_{C} \mathbf{F} \cdot \rm{d}\mathbf{l}
-</span></p>
-<ul>
-<li>따라서 <strong>보존력 <span class="math inline">\mathbf{F}</span>에 대한 위치 <span class="math inline">\mathbf{r}</span>에서의 퍼텐셜 에너지 <span class="math inline">U(\mathbf{r})</span></strong>은 선적분을 이용해 다음과 같이 쓸 수 있다. 이때 <span class="math inline">\mathbf{r}^{*}</span>는 퍼텐셜 에너지가 0이 되는 임의의 기준점이다.</li>
-</ul>
-<p><span class="math display">
-U(\mathbf{r}) = - \int_{\mathbf{r}^{*}}^{\mathbf{r}} \mathbf{F} \cdot \rm{d} \mathbf{l}
-</span></p>
+</section>
+<section id="description" class="level1">
+<h1>Description</h1>
+<p><strong>Double Pendulum</strong><br>
+<em>Wikipedia</em><br>
+<a href="https://en.wikipedia.org/wiki/Double_pendulum">Website</a></p>
+<p><strong>Double Pendulum</strong><br>
+<em>Wolfram Research</em><br>
+<a href="https://scienceworld.wolfram.com/physics/DoublePendulum.html">Website</a></p>
+<p><strong>Double Pendulum</strong><br>
+<em>Math24.net</em><br>
+<a href="https://math24.net/double-pendulum.html">Website</a></p>
+<p><strong>Single and Double plane pendulum</strong><br>
+<em>Gabriela González</em><br>
+<a href="https://www.phys.lsu.edu/faculty/gonzalez/Teaching/Phys7221/DoublePendulum.pdf">PDF</a></p>
+<p><strong>The Double Pendulum: Equations of Motion &amp; Lagrangian Mechanics</strong><br>
+<em>Jousef</em><br>
+<a href="https://www.jousefmurad.com/engineering/double-pendulum-1/">Website</a></p>
+<p><strong>Double pendulum: Lagrangian formulation</strong><br>
+<em>Diego Assencio</em><br>
+<a href="https://dassencio.org/33">Website</a><br>
+2014-02-28</p>
+<p><strong>ME564 Lecture 20: Chaos in ODEs (Lorenz and the double pendulum)</strong><br>
+<em>Steve Brunton</em><br>
+<a href="https://www.youtube.com/watch?v=Hh1zufQUUjM">Youtube</a><br>
+2016-04-28</p>
+<p><strong>Equations of motion for a double pendulum</strong><br>
+<em>Dot Physics</em><br>
+<a href="https://www.youtube.com/watch?v=KSsZUn0bfwE">Youtube</a><br>
+2021-12-30</p>
+</section>
+<section id="experiment" class="level1">
+<h1>Experiment</h1>
+<p><strong>Double Pendulum</strong><br>
+<em>MAKE: MAGAZINE</em><br>
+<a href="https://makezine.com/projects/double-pendulum/">Website</a><br>
+2012-12-18</p>
+<p><strong>Pendulus ( for one hour )</strong><br>
+<em>Make Anything</em><br>
+<a href="https://www.youtube.com/watch?v=hXOEoH5q3Hw">Youtube</a><br>
+2017-01-30</p>
+<p><strong>Is it Possible to Predict Randomness? The Double Pendulum Experiment</strong><br>
+<em>The Action Lab</em><br>
+<a href="https://www.youtube.com/watch?v=4xViPStT5II">Youtube</a><br>
+2018-11-28</p>
+</section>
+<section id="simulation" class="level1">
+<h1>Simulation</h1>
+<section id="c" class="level2">
+<h2 class="anchored" data-anchor-id="c">C</h2>
+<p><strong>The Double Pendulum</strong><br>
+<em>Michael S. Wheatland</em><br>
+<a href="http://www.physics.usyd.edu.au/~wheat/dpend_html/">Website</a><br>
+2014-09-18</p>
+</section>
+<section id="javascript" class="level2">
+<h2 class="anchored" data-anchor-id="javascript">JavaScript</h2>
+<p><strong>Double Pendulum</strong><br>
+<em>myPhysicsLab</em><br>
+<a href="https://www.myphysicslab.com/pendulum/double-pendulum-en.html">Website</a></p>
+</section>
+<section id="processing" class="level2">
+<h2 class="anchored" data-anchor-id="processing">Processing</h2>
+<p><strong>Coding Challenge 93: Double Pendulum</strong><br>
+<em>The Coding Train</em><br>
+<a href="https://thecodingtrain.com/challenges/93-double-pendulum">Website</a><br>
+2018-02-14</p>
+</section>
+<section id="julia" class="level2">
+<h2 class="anchored" data-anchor-id="julia">Julia</h2>
+<p><strong>Double Pendulum Problem</strong><br>
+<em>Plots.jl</em><br>
+<a href="https://docs.juliaplots.org/stable/user_gallery/misc/double_pendulum/#Double-Pendulum-Problem">Website</a></p>
+<p><strong>[07x10] How to Solve the Double Pendulum Equations in Julia using DifferentialEquations.jl and Pluto</strong><br>
+<em>doggo dot jl</em><br>
+<a href="https://www.youtube.com/watch?v=k2NbYt_QmiQ">Youtube</a><br>
+2022-11-21</p>
+</section>
+<section id="python" class="level2">
+<h2 class="anchored" data-anchor-id="python">Python</h2>
+<p><strong>The double pendulum problem</strong><br>
+<em>Matplotlib</em><br>
+<a href="https://matplotlib.org/stable/gallery/animation/double_pendulum.html#sphx-glr-gallery-animation-double-pendulum-py">Website</a></p>
+<p><strong>The double pendulum</strong><br>
+<em>Christian Hill</em><br>
+<a href="https://scipython.com/blog/the-double-pendulum/">Website</a><br>
+2017-07-16</p>
+<p><strong>The Double-SPRINGED Pendulum in PYTHON</strong><br>
+<em>Mr.&nbsp;P Solver</em><br>
+<a href="https://www.youtube.com/watch?v=SZdZeT93C1s">Youtube</a><br>
+2021-04-06</p>
+<p><strong>The Double Pendulum in PYTHON</strong><br>
+<em>Mr.&nbsp;P Solver</em><br>
+<a href="https://www.youtube.com/watch?v=8ZZDNd4eyVI">Youtube</a><br>
+2021-09-07</p>
+<p><strong>Modeling a Double Pendulum with Python</strong><br>
+<em>Dot Physics</em><br>
+<a href="https://www.youtube.com/watch?v=Q-_SxAI_Arc">Youtube</a><br>
+2021-12-30</p>
+<p><strong>How to Cheat the Double Pendulum Using Springs Instead of Strings</strong><br>
+<em>Dot Physics</em><br>
+<a href="https://www.youtube.com/watch?v=bMYywnU00eA">Youtube</a><br>
+2022-01-04</p>
+<p><strong>How To Solve and Animate a 3D Double Pendulum in Python</strong><br>
+<em>Mr.&nbsp;P Solver</em><br>
+<a href="https://www.youtube.com/watch?v=MtG9cueB548">Youtube</a><br>
+2022-04-04</p>
+<p><strong>Modeling the Double Pendulum with Python and sympy</strong><br>
+<em>Dot Physics</em><br>
+<a href="https://www.youtube.com/watch?v=-_9skOyQmUM">Youtube</a><br>
+2022-11-29</p>
+<p><strong>Double Pendulum Simulation in Python! || Simulating Physics with Python</strong><br>
+<em>Younes Lab</em><br>
+<a href="https://www.youtube.com/watch?v=Hc8_QO2dZU4">Youtube</a><br>
+2024-01-04</p>
 </section>
 </section>
-<section id="운동량-보존-법칙" class="level2">
-<h2 class="anchored" data-anchor-id="운동량-보존-법칙">운동량 보존 법칙</h2>
-<p>관성기준계의 원점에 대해 위치벡터가 <span class="math inline">\mathbf{r}_{1}, \mathbf{r}_{2}, \cdots, \mathbf{r}_{n}</span>으로 주어지고, 질량이 각각 <span class="math inline">m_{1}, m_{2}, \cdots, m_{n}</span>인 <span class="math inline">n</span>개의 물체들로 구성된 계를 설정하자. 각 물체는 위치벡터의 첨자에 따라 <span class="math inline">1, 2, \cdots, n</span>번째 물체라고 하겠다. 관성기준계에 대해 물체의 위치벡터를 표현하였으므로, <span class="math inline">i</span>번째 물체에 대해 뉴턴 제 2법칙을 적용하면 다음과 같다. 이때 <span class="math inline">\mathbf{F}_{\text{내력}, i}</span>는 <span class="math inline">i</span>번째 물체를 제외한 계 내부의 <span class="math inline">n-1</span>개의 물체들이 <span class="math inline">i</span>번째 물체에 작용하는 힘들의 합력이고, <span class="math inline">\mathbf{F}_{\text{외력}, i}</span>는 주어진 계 외부의 물체들이 <span class="math inline">i</span>번째 물체에 작용하는 힘들의 합력이다. 또한 <span class="math inline">\mathbf{v}_{i} = \displaystyle \frac{d}{dt} \mathbf{r}_{i}</span>이다.</p>
-<p><span class="math display">
-\mathbf{F}_{\text{내력}, i} + \mathbf{F}_{\text{외력}, i} = m_{i} \frac{d}{dt} \mathbf{v}_{i}
-</span></p>
-<p>이때 뉴턴 제 3법칙에 의해</p>
-<p><span class="math display">
-\sum_{i=1}^{n} \mathbf{F}_{\text{내력}, i} = \mathbf{0}
-</span></p>
-<p>이 성립하고, 물체의 질량이 시간에 대해 변하지 않는다는 가정을 한다면</p>
-<p><span class="math display">
-m_{i} \frac{d}{dt} \mathbf{v}_{i} = \frac{d}{dt} (m_{i} \mathbf{v}_{i})
-</span></p>
-<p>이 성립한다. 따라서 <span class="math inline">i</span>번째 물체에 대한 뉴턴 운동방정식 양변에 시그마를 취하면 다음과 같다. 이때 <span class="math inline">\mathbf{F}_{\text{외력}} = \displaystyle \sum_{i=1}^{n} \mathbf{F}_{\text{외력}, i}</span>이다.</p>
-<p><span class="math display">
-\mathbf{F}_{\text{외력}} = \frac{d}{dt} \left( \sum_{i=1}^{n} m_{i} \mathbf{v}_{i} \right)
-</span></p>
-<p>이때 새로운 물리량 <span class="math inline">\mathbf{p} \equiv m\mathbf{v}</span>를 정의하고, 이것을 (선)운동량이라고 부르자. 그러면 <span class="math inline">i</span>번째 물체의 운동량은 <span class="math inline">\mathbf{p}_{i} = m_{i}\mathbf{v}_{i}</span>이므로, 위 식의 우변은 계 내부 물체들의 총운동량의 시간에 대한 변화율이다. 그러므로 계 내부 물체들의 총운동량을 <span class="math inline">\mathbf{P} = \displaystyle \sum_{i=1}^{n} m_{i} \mathbf{v}_{i}</span>라고 하면 다음 식이 성립한다.</p>
-<p><span class="math display">
-\mathbf{F}_{\text{외력}} = \frac{d}{dt} \mathbf{P}
-</span></p>
-<p>여기서 <span class="math inline">\mathbf{F}_{\text{외력}} = \mathbf{0}</span>일때 <span class="math inline">\mathbf{P} = \text{일정}</span> 임을 알수 있다. 즉 어떤 계에 작용하는 알짜 외력이 0이면, 그 계의 총운동량은 시간에 대해 변하지 않는다. 이 사실을 운동량 보존 법칙이라고 한다.</p>
-</section>
-<section id="각운동량-보존-법칙" class="level2">
-<h2 class="anchored" data-anchor-id="각운동량-보존-법칙">각운동량 보존 법칙</h2>
-<p>일반적으로 힘 <span class="math inline">\mathbf{F}</span>가 작용하는 위치의 위치벡터를 <span class="math inline">\mathbf{r}</span>이라고 한다면, 그 위치에 있는 물체에 작용하는 토크(돌림힘)는 다음과 같이 주어진다.</p>
-<p><span class="math display">
-\boldsymbol{\tau} = \mathbf{r} \times \mathbf{F}
-</span></p>
-<p>만약 이 힘 <span class="math inline">\mathbf{F}</span>가 그 위치에 있는 물체에 작용하는 알짜힘이라면, 뉴턴 제 2법칙에 의해 다음과 같이 나타날 수 있다.</p>
-<p><span class="math display">
-\boldsymbol{\tau} = \mathbf{r} \times \frac{d\mathbf{p}}{dt}
-</span></p>
-<p>그런데 다음이 성립하므로</p>
-<p><span class="math display">
-\begin{align*}
-\frac{d}{dt} (\mathbf{r} \times \mathbf{p}) &amp; = \frac{d\mathbf{r}}{dt} \times \mathbf{p} + \mathbf{r} \times \frac{d\mathbf{p}}{dt} \\
-&amp; = \mathbf{v} \times m\mathbf{v} + \mathbf{r} \times \frac{d\mathbf{p}}{dt} \\
-&amp; = \mathbf{r} \times \frac{d\mathbf{p}}{dt}
-\end{align*}
-</span></p>
-<p>알짜힘에 의한 토크는 다음과 같이 쓸 수 있다. 이때 <span class="math inline">\mathbf{l} = \mathbf{r} \times \mathbf{p}</span>은 각운동량이다.</p>
-<p><span class="math display">
-\begin{align*}
-\boldsymbol{\tau} &amp; = \frac{d}{dt} (\mathbf{r} \times \mathbf{p}) \\
-&amp; = \frac{d\mathbf{l}}{dt}
-\end{align*}
-</span></p>
-<p>여러 물체로 이루어진 계에서 각 물체에 대해, 뉴턴 제 2법칙을 반복적으로 적용하면 다음을 얻는다. 이때 <span class="math inline">\mathbf{F}_{\text{ext}}</span>는 계에 대한 외력의 총합이고, <span class="math inline">\mathbf{P}</span>는 계 내부 물체들의 운동량의 총합이다.</p>
-<p><span class="math display">
-\mathbf{F}_{\text{ext}} = \frac{d\mathbf{P}}{dt}
-</span></p>
-<p>따라서 <span class="math inline">\mathbf{F}_{\text{ext}}</span>가 작용하는 위치에 작용하는 토크를 <span class="math inline">\boldsymbol{\tau}_{\text{ext}}</span>라고 쓴다면 다음이 성립한다. 이때 <span class="math inline">\mathbf{L}</span>은 계 내부 물체들의 각운동량의 총합이다.</p>
-<p><span class="math display">
-\boldsymbol{\tau}_{\text{ext}} = \frac{d\mathbf{L}}{dt}
-</span></p>
-<p>따라서 알짜 외부 토크가 <span class="math inline">\mathbf{0}</span>이면 계의 총 각운동량은 보존됨을 알 수 있고, 이를 각운동량 보존 법칙이라고 한다.</p>
+<section id="inverted-pendulum" class="level1">
+<h1>Inverted Pendulum</h1>
+<p><strong>Inverted pendulum</strong><br>
+<em>Wikipedia</em><br>
+<a href="https://en.wikipedia.org/wiki/Inverted_pendulum">Website</a></p>
+<p><strong>Pendulum</strong><br>
+<em>Gymnasium</em><br>
+<a href="https://gymnasium.farama.org/environments/classic_control/pendulum/">Website</a></p>
+<p><strong>Inverted Double Pendulum</strong><br>
+<em>Gymnasium</em><br>
+<a href="https://gymnasium.farama.org/environments/mujoco/inverted_double_pendulum/">Website</a></p>
+<p><strong>Double Pendulum on a Cart</strong><br>
+<em>Tobias Glück</em><br>
+<a href="https://www.youtube.com/watch?v=B6vr1x6KDaY">Youtube</a><br>
+2011-03-30</p>
+<p><strong>Classic Inverted Pendulum - Equations of Motion</strong><br>
+<em>Brianno Coller</em><br>
+<a href="https://www.youtube.com/watch?v=5qJY-ZaKSic">Youtube</a><br>
+2015-03-19</p>
+<p><strong>Inverted Pendulum on a Cart [Control Bootcamp]</strong><br>
+<em>Steve Brunton</em><br>
+<a href="https://www.youtube.com/watch?v=qjhAAQexzLg">Youtube</a><br>
+2017-01-29</p>
+<p><strong>Equations of Motion for the Inverted Pendulum (2DOF) Using Lagrange’s Equations</strong><br>
+<em>Good Vibrations with Freeball</em><br>
+<a href="https://www.youtube.com/watch?v=Fo7kuUAHj3s">Youtube</a><br>
+2019-12-07</p>
+<p><strong>Swing-up control of the double inverted pendulum : Simulation Vs. Experiment</strong><br>
+<em>Embedded Control Lab</em><br>
+<a href="https://www.youtube.com/watch?v=e7669NPbENY">Youtube</a><br>
+2022-04-08</p>
+<p><strong>The Experimental Double Pendulum on a Cart: A Benchmark System for Chaos, Learning, and Control</strong><br>
+<em>Steve Brunton</em><br>
+<a href="https://www.youtube.com/watch?v=OkEsTLeIP98">Youtube</a><br>
+2022-08-12</p>
+<p><strong>Inverted Pendulum - Arduino Balancing Robot</strong><br>
+<em>Ian Carey</em><br>
+<a href="https://www.youtube.com/watch?v=UL99bJTtESk">Youtube</a><br>
+2022-09-22</p>
+<p><strong>Reinforcement learning control of an inverted pendulum using Python, Simulink, and LW-RCP</strong><br>
+<em>Embedded Control Lab</em><br>
+<a href="https://www.youtube.com/watch?v=lM6rYjM6HBU">Youtube</a><br>
+2023-05-26</p>
+<p><strong>Inverted Double Pendulum</strong><br>
+<em>lloydwatts60</em><br>
+<a href="https://www.youtube.com/watch?v=hLp671WaSuE">Youtube</a><br>
+2024-02-06</p>
+<p><strong>How to train simple AIs to balance a double pendulum</strong><br>
+<em>Pezzza’s Work</em><br>
+<a href="https://www.youtube.com/watch?v=9gQQAO4I1Ck">Youtube</a><br>
+2024-06-05</p>
 
 
 </section>
@@ -416,7 +451,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/mgjeon\.github\.io\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
