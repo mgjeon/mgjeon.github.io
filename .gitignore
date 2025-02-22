@@ -3,4 +3,7 @@
 /docs/
 /_freeze/
 **/.ipynb_checkpoints/
-*.nc
+posts/CASA/image*
+posts/CASA/casa*
+posts/CASA/HD*
+posts/CASA/*.last
