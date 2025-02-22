@@ -237,7 +237,7 @@ window.Quarto = {
 
 
 
-<p>This post is based on content from the lecture “Topics in Magnetohydrodynamics” in 2023 by Professor Tetsuya Magara at Kyung Hee University.</p>
+<p>This post is based on content from the “Topics in Magnetohydrodynamics” lecture in 2023 by Professor <a href="http://web.khu.ac.kr/~magara/">Tetsuya Magara</a> at Kyung Hee University.</p>
 <section id="obtaining-the-dispersion-relation" class="level1">
 <h1>Obtaining the dispersion relation</h1>
 <p>First, import SymPy and define the necessary symbols.</p>
@@ -365,7 +365,7 @@ H = \frac{p_0}{\rho_0 g_0}
 <p><span class="math inline">\displaystyle \rho_{0}^{2} \left(\omega^{4} - \omega^{2} \left(\frac{\gamma^{2} g_{0}^{2}}{4 c_{s0}^{2}} + c_{s0}^{2} \left(k_{x}^{2} + k_{z}^{2}\right)\right) + g_{0}^{2} k_{x}^{2} \left(\gamma - 1\right)\right)</span></p>
 </div>
 </div>
-<p>Since the dispersion relation is given by <span class="math inline">detA = 0</span>, we can divide by <span class="math inline">\rho_0^2</span> for it.</p>
+<p>Since the dispersion relation is given by <span class="math inline">\text{det}A = 0</span>, we can divide by <span class="math inline">\rho_0^2</span> for it.</p>
 <div id="cell-33" class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>dispersion <span class="op">=</span> Add(Mul(wc4, Pow(w, <span class="dv">4</span>)), Mul(Integer(<span class="op">-</span><span class="dv">1</span>), Mul(_wc2, Pow(w, <span class="dv">2</span>))), wc0)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>dispersion</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

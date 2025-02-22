@@ -3,6 +3,7 @@
     "listing": "/index.html",
     "items": [
       "/posts/AG_wave/index.html",
+      "/posts/CASA/index.html",
       "/posts/pendulum/index.html",
       "/posts/semantic-segmentation-fcn-resnet50/index.html",
       "/posts/double-pendulum-python/index.html",
