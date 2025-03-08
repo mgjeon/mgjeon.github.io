@@ -4,11 +4,14 @@ project:
 
 website:
   title: "Mingyu Jeon"
+  site-url: "https://mgjeon.github.io"
+  site-path: "/"
   navbar:
     right:
       - about.qmd
       - icon: github
         href: https://github.com/mgjeon
+  google-analytics: "G-W1ZRB9HZ0F"
 
 toc: true
 number-sections: false
