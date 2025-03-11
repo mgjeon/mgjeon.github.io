@@ -6,6 +6,8 @@ bibliography: references.bib
 categories: [physics, english]
 ---
 
+This post is based on content from the "Relativistic Astrophysics" lecture in 2023 by Professor [Gwangson Choe](https://orcid.org/0000-0002-8047-6396) at Kyung Hee University.
+
 ## Sign conventions and notations
 
 I use the following sign conventions [@misner1973gravitation] and notations.

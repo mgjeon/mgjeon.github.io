@@ -5,7 +5,7 @@ date: "2023-10-21"
 categories: [astronomy, korean]
 ---
 
-2019년 우주관측 수업에서 [2020 역서](https://www.kasi.re.kr/resources/htmlconverter_skin/doc.html?fn=1573189224138_1.pdf&rs=/file/htmlconverter_preview) `09. 천문상수와 자료` 설명용으로 작성한 글
+2019년 우주관측 수업 ([경희대학교 박수종 교수](http://soojong.khu.ac.kr/))에서 [2020 역서](https://www.kasi.re.kr/resources/htmlconverter_skin/doc.html?fn=1573189224138_1.pdf&rs=/file/htmlconverter_preview) `09. 천문상수와 자료` 설명용으로 작성한 글
 
 ## 국제천문연맹 천문상수
 
