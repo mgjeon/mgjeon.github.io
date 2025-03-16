@@ -5,7 +5,7 @@ date: "2023-10-21"
 categories: [astronomy, english]
 ---
 
-This post is based on the project report from the "Solar-Terrestrial Physics" lecture in 2019 by Professor [Soojong Park](http://soojong.khu.ac.kr/) at Kyung Hee University.
+This post is based on the project report from the "Astronomical Observation" lecture in 2019 by Professor [Soojong Park](http://soojong.khu.ac.kr/) at Kyung Hee University.
 
 ## Introduction
 
