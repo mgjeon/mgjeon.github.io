@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Mingyu Jeon">
+<meta name="dcterms.date" content="2025-08-01">
+
+<title>SHARP Data Guide (1) – Mingyu Jeon</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-W1ZRB9HZ0F"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Mingyu Jeon</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mgjeon"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">SHARP Data Guide (1)</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">solar physics</div>
+                <div class="quarto-category">python</div>
+                <div class="quarto-category">english</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Mingyu Jeon </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 1, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sharp-data-product-on-jsoc" id="toc-sharp-data-product-on-jsoc" class="nav-link active" data-scroll-target="#sharp-data-product-on-jsoc">SHARP Data Product on JSOC</a></li>
+  <li><a href="#sharp-vs-sharp-cea" id="toc-sharp-vs-sharp-cea" class="nav-link" data-scroll-target="#sharp-vs-sharp-cea">SHARP vs SHARP CEA</a></li>
+  <li><a href="#noaa-ar-to-harp-matching" id="toc-noaa-ar-to-harp-matching" class="nav-link" data-scroll-target="#noaa-ar-to-harp-matching">NOAA AR to HARP Matching</a></li>
+  <li><a href="#sharp-cea-data" id="toc-sharp-cea-data" class="nav-link" data-scroll-target="#sharp-cea-data">SHARP CEA Data</a>
+  <ul class="collapse">
+  <li><a href="#download-merged-fits-files" id="toc-download-merged-fits-files" class="nav-link" data-scroll-target="#download-merged-fits-files">1. Download merged FITS files</a></li>
+  <li><a href="#download-segments-and-keywords-separately" id="toc-download-segments-and-keywords-separately" class="nav-link" data-scroll-target="#download-segments-and-keywords-separately">2. Download segments and keywords separately</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<div id="76d6466f" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings<span class="op">;</span> warnings.filterwarnings(<span class="st">"ignore"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The Solar Dynamics Observatory <span class="citation" data-cites="Pesnell2012">(SDO, <a href="#ref-Pesnell2012" role="doc-biblioref">Pesnell et al. 2012</a>)</span> / Helioseismic and Magnetic Imager <span class="citation" data-cites="Schou2012">(HMI, <a href="#ref-Schou2012" role="doc-biblioref">Schou et al. 2012</a>)</span> have produced a wealth of data for the Sun, particularly the magnetic field on the solar surface (photosphere). The Space-Weather HMI Active Region Patches <span class="citation" data-cites="Bobra2014">(SHARPs, <a href="#ref-Bobra2014" role="doc-biblioref">Bobra et al. 2014</a>)</span> are a set of data products derived from the HMI data, which have been used extensively in solar physics and space weather research. The information for the SHARP data is available on <a href="http://jsoc.stanford.edu/doc/data/hmi/sharp/sharp.htm">this JSOC page</a>.</p>
+<p>This post focuses on how to download the SHARP CEA data from the JSOC.</p>
+<section id="sharp-data-product-on-jsoc" class="level2">
+<h2 class="anchored" data-anchor-id="sharp-data-product-on-jsoc">SHARP Data Product on JSOC</h2>
+<p>All SDO data are available from the Standford <a href="http://jsoc.stanford.edu/">Joint Science Operations Center (JSOC)</a>, which employs the Data Record Management System (DRMS) to manage the data. The data can be accessed through Python using the SunPy’s <code>drms</code> package.</p>
+<p>We can establish a connection to the JSOC by creating a <code>drms.Client</code> instance.</p>
+<div id="f05f31a6" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> drms</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> drms.Client()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>For each <em>dataseries</em>, there are several <em>records</em> identified by one or more <em>prime keywords</em>.</li>
+<li>For each <em>record</em>, there are several <em>keywords</em> that describe the data and <em>segments</em> that contains actual data.</li>
+<li>Users can <em>export</em> the record as a FITS file whose header contains <em>keywords</em> and data array contains <em>segments</em>.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>JSOC Dataseries Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>hmi.sharp_*</code></td>
+<td>SHARP data products</td>
+</tr>
+</tbody>
+</table>
+<div id="27cb9c78" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>c.series(<span class="st">'hmi.sharp_'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>['hmi.sharp_720s',
+ 'hmi.sharp_720s_dconS',
+ 'hmi.sharp_720s_nrt',
+ 'hmi.sharp_cea_720s',
+ 'hmi.sharp_cea_720s_dconS',
+ 'hmi.sharp_cea_720s_nrt']</code></pre>
+</div>
+</div>
+<p>Here, <code>_nrt</code> indicates the near-real-time (NRT) data series with preliminary calibration, whereas the absence of <code>_nrt</code> indicates the definitive data series.</p>
+<p>Also, <code>_720s</code> indicates that the data series are obtained with a 720s (12m) cadence.</p>
+</section>
+<section id="sharp-vs-sharp-cea" class="level2">
+<h2 class="anchored" data-anchor-id="sharp-vs-sharp-cea">SHARP vs SHARP CEA</h2>
+<ul>
+<li>The SHARP data series <code>hmi.sharp_720s</code> are definitive data with 31 segments in Charge-Coupled Device (CCD) coordinate system. (a direct cutout from the full-disk image)</li>
+<li>The SHARP CEA data seires <code>hmi.sharp_cea_720s</code> are definitive data with 11 segments in Cylindrical Equal-Area (CEA) coordinate system centered on the patch.</li>
+</ul>
+<div id="e267a569" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_colwidth'</span>, <span class="va">None</span>)  <span class="co"># Remove the limit on column string length</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a8dfbbd6" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sharp <span class="op">=</span> c.info(<span class="st">'hmi.sharp_720s'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="c105ce71" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sharp.segments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">units</th>
+<th data-quarto-table-cell-role="th">protocol</th>
+<th data-quarto-table-cell-role="th">dims</th>
+<th data-quarto-table-cell-role="th">note</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">magnetogram</td>
+<td>int</td>
+<td>Gauss</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>magnetogram</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">bitmap</td>
+<td>char</td>
+<td>Enumerated</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Mask for the patch</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Dopplergram</td>
+<td>int</td>
+<td>m/s</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Dopplergram</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">continuum</td>
+<td>int</td>
+<td>DN/s</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>continuum intensity</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">inclination</td>
+<td>int</td>
+<td>deg</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Inclination</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">azimuth</td>
+<td>int</td>
+<td>deg</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Azimuth</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">field</td>
+<td>int</td>
+<td>gauss</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Field Strength</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">vlos_mag</td>
+<td>int</td>
+<td>cm/s</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>LOS Velocity with Field</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">dop_width</td>
+<td>int</td>
+<td>mA</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Doppler Width</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">eta_0</td>
+<td>int</td>
+<td>adimensional</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Eta_0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">damping</td>
+<td>int</td>
+<td>Doppler width units</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Damping</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">src_continuum</td>
+<td>int</td>
+<td>data units</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Continuum</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">src_grad</td>
+<td>int</td>
+<td>data units</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Gradient</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">alpha_mag</td>
+<td>int</td>
+<td>adimensional</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Filling Factor with Field</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">chisq</td>
+<td>int</td>
+<td></td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Chisq</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">conv_flag</td>
+<td>char</td>
+<td></td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>flag and index of ME-inversion convergence process</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">info_map</td>
+<td>int</td>
+<td></td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>updated quality map</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">confid_map</td>
+<td>char</td>
+<td></td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>updated confidence index</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">inclination_err</td>
+<td>int</td>
+<td>deg</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>std of Inclination_Err</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">azimuth_err</td>
+<td>int</td>
+<td>deg</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>std of Azimuth_Err</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">field_err</td>
+<td>int</td>
+<td>gauss</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>std of Field_Err</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">vlos_err</td>
+<td>int</td>
+<td>cm/s</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>std of VLos_Err</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">alpha_err</td>
+<td>int</td>
+<td>adimensional</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>std of Alpha_Err</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">field_inclination_err</td>
+<td>int</td>
+<td></td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>cor.coef of Field_Inclination_Err</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">field_az_err</td>
+<td>int</td>
+<td></td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>cor.coef of Field_azimuth_Err</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">inclin_azimuth_err</td>
+<td>int</td>
+<td></td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>cor.coef of Inclination_Azimuth_Err</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">field_alpha_err</td>
+<td>int</td>
+<td></td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>cor.coef of Field_Alpha_Err</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">inclination_alpha_err</td>
+<td>int</td>
+<td></td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>cor.coef of Inclination_Alpha_Err</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">azimuth_alpha_err</td>
+<td>int</td>
+<td></td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>cor.coef of Azimuth_Alpha_Err</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">disambig</td>
+<td>char</td>
+<td>none</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Flag for 180 degree change in azimuth</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">conf_disambig</td>
+<td>char</td>
+<td>none</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Confidence of disambiguation result</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="f811f01f" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sharp_cea <span class="op">=</span> c.info(<span class="st">'hmi.sharp_cea_720s'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="e80a1853" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sharp_cea.segments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">units</th>
+<th data-quarto-table-cell-role="th">protocol</th>
+<th data-quarto-table-cell-role="th">dims</th>
+<th data-quarto-table-cell-role="th">note</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">magnetogram</td>
+<td>int</td>
+<td>Gauss</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Line-of-sight magnetogram in CEA projection</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">bitmap</td>
+<td>char</td>
+<td>Enumerated</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Mask for the patch in CEA coordinates</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Dopplergram</td>
+<td>int</td>
+<td>m/s</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Dopplergram in CEA projection</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">continuum</td>
+<td>int</td>
+<td>DN/s</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Intensitygram in CEA projection</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Bp</td>
+<td>int</td>
+<td>Gauss</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>B_phi, positive westward</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Bt</td>
+<td>int</td>
+<td>Gauss</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>B_theta, positive southward</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Br</td>
+<td>int</td>
+<td>Gauss</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>B_r, positive up</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Bp_err</td>
+<td>int</td>
+<td>Gauss</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Standard deviation of B_phi</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Bt_err</td>
+<td>int</td>
+<td>Gauss</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Standard deviation of B_theta</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Br_err</td>
+<td>int</td>
+<td>Gauss</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>Standard deviation of B_r</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">conf_disambig</td>
+<td>char</td>
+<td>none</td>
+<td>fits</td>
+<td>VARxVAR</td>
+<td>confidence of disambiguation result</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="noaa-ar-to-harp-matching" class="level2">
+<h2 class="anchored" data-anchor-id="noaa-ar-to-harp-matching">NOAA AR to HARP Matching</h2>
+<p>A record of the SHARP data series is identified by two <em>prime keywords</em>: <code>HARPNUM</code> (HARP number) and <code>T_REC</code> (observation time). Since HARP is identified independently from the National Oceanic and Atmospheric Administration (NOAA), the HARP number is different from NOAA active region (AR) number. Even one HARP can correspond to zero, one, or more NOAA ARs. There is a file for mapping between HARP numbers and NOAA AR numbers <a href="http://jsoc.stanford.edu/doc/data/hmi/harpnum_to_noaa/all_harps_with_noaa_ars.txt">here</a>.</p>
+<p>Also, the SHARP keywords include those for NOAA AR numbers, which start with <code>NOAA_</code>.</p>
+<div id="9318907e" class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sharp.keywords[sharp.keywords.index.<span class="bu">str</span>.startswith(<span class="st">'NOAA_'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">recscope</th>
+<th data-quarto-table-cell-role="th">defval</th>
+<th data-quarto-table-cell-role="th">units</th>
+<th data-quarto-table-cell-role="th">note</th>
+<th data-quarto-table-cell-role="th">linkinfo</th>
+<th data-quarto-table-cell-role="th">is_time</th>
+<th data-quarto-table-cell-role="th">is_integer</th>
+<th data-quarto-table-cell-role="th">is_real</th>
+<th data-quarto-table-cell-role="th">is_numeric</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NOAA_AR</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>NOAA AR number that best matches this HARP</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">NOAA_NUM</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Number of NOAA ARs that match this HARP (0 allowed)</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NOAA_ARS</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>Comma-separated list of NOAA ARs matching this HARP</td>
+<td>None</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>As an example, let’s find the HARP number corresponding to the NOAA AR number 12673 which produced the largest solar flare in solar cycle 24.</p>
+<p>To do this, we need to query keywords <code>HARPNUM</code> and <code>NOAA_AR</code> using the <code>drms.Client.query</code> method. The <code>key</code> argument specifies which keywords to query. We need to use two primary keys: the HARP number (blank in this case) and the time range (2017-09-04T00:00:00 in this case).</p>
+<div id="1b90e2d6" class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> c.query(<span class="st">'hmi.sharp_720s[][2017-09-04T00:00:00]'</span>, key<span class="op">=</span>[<span class="st">'HARPNUM'</span>, <span class="st">'NOAA_AR'</span>, <span class="st">'NOAA_ARS'</span>, <span class="st">'NOAA_NUM'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="c8612a2a" class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">HARPNUM</th>
+<th data-quarto-table-cell-role="th">NOAA_AR</th>
+<th data-quarto-table-cell-role="th">NOAA_ARS</th>
+<th data-quarto-table-cell-role="th">NOAA_NUM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>7115</td>
+<td>12673</td>
+<td>12673</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>7117</td>
+<td>12674</td>
+<td>12674,12679</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>7118</td>
+<td>0</td>
+<td>MISSING</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>7120</td>
+<td>12675</td>
+<td>12675</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>7121</td>
+<td>0</td>
+<td>MISSING</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>7122</td>
+<td>12677</td>
+<td>12677</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>7123</td>
+<td>12675</td>
+<td>12675,12676</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>As you can see, the HARP number for the NOAA AR 12673 is 7115.</p>
+<p>There are summary images for HARP data <a href="http://jsoc.stanford.edu/doc/data/hmi/harp/harp_definitive/">here</a>. The following image is the summary image for the HARPs on 2017-09-04T00:00:00.</p>
+<div id="92b4a527" class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>Image(<span class="st">'http://jsoc.stanford.edu/doc/data/hmi/harp/harp_definitive/2017/09/04/harp.2017.09.04_00:00:00_TAI.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>At this time, the AR 12673 (HARP 7115) is located near the center of the solar disk, with a slight southward shift.</p>
+</section>
+<section id="sharp-cea-data" class="level2">
+<h2 class="anchored" data-anchor-id="sharp-cea-data">SHARP CEA Data</h2>
+<p>Let’s now download the SHARP CEA data for the HARP 7115 (NOAA AR 12673) on 2017-09-04T00:00:00.</p>
+<p>There are basically two ways to download data from the JSOC:</p>
+<ol type="1">
+<li>Download merged FITS files (<em>export</em>), which requires an email address registered <a href="http://jsoc.stanford.edu/ajax/exportdata.html">here</a>.</li>
+<li>Download <em>segments</em> (data) and <em>keywords</em> (metadata) separately and merge them as FITS files if needed.</li>
+</ol>
+<div id="18c81242" class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct query</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">'hmi.sharp_cea_720s[7115][2017-09-04T00:00:00]'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="download-merged-fits-files" class="level3">
+<h3 class="anchored" data-anchor-id="download-merged-fits-files">1. Download merged FITS files</h3>
+<div id="629f0696" class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sharp_cea_path <span class="op">=</span> Path(<span class="st">'./data/export/sharp_cea'</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sharp_cea_path.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="d293a882" class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="st">''</span>  <span class="co"># A registered email address</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> drms.Client(email<span class="op">=</span>email)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> c.export(query, protocol<span class="op">=</span><span class="st">'fits'</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>r.wait()</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> r.status <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    r.download(sharp_cea_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Since this is the SHARP CEA data, there are 11 files (segments) in total.</p>
+<div id="52cd0845" class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sharp_cea_list <span class="op">=</span> <span class="bu">sorted</span>(sharp_cea_path.glob(<span class="st">'*.fits'</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(sharp_cea_list))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> sharp_cea_list:</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">file</span>.name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>11
+hmi.sharp_cea_720s.7115.20170904_000000_TAI.bitmap.fits
+hmi.sharp_cea_720s.7115.20170904_000000_TAI.Bp.fits
+hmi.sharp_cea_720s.7115.20170904_000000_TAI.Bp_err.fits
+hmi.sharp_cea_720s.7115.20170904_000000_TAI.Br.fits
+hmi.sharp_cea_720s.7115.20170904_000000_TAI.Br_err.fits
+hmi.sharp_cea_720s.7115.20170904_000000_TAI.Bt.fits
+hmi.sharp_cea_720s.7115.20170904_000000_TAI.Bt_err.fits
+hmi.sharp_cea_720s.7115.20170904_000000_TAI.conf_disambig.fits
+hmi.sharp_cea_720s.7115.20170904_000000_TAI.continuum.fits
+hmi.sharp_cea_720s.7115.20170904_000000_TAI.Dopplergram.fits
+hmi.sharp_cea_720s.7115.20170904_000000_TAI.magnetogram.fits</code></pre>
+</div>
+</div>
+<p>Using <code>sunpy.map.Map</code>, we can easily read the SHARP CEA data and visualize it. Let’s see the Br component of the magnetic field.</p>
+<div id="6351782c" class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sunpy.<span class="bu">map</span> <span class="im">import</span> Map</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>sharp_cea_br <span class="op">=</span> Map(sharp_cea_path <span class="op">/</span> <span class="st">'hmi.sharp_cea_720s.7115.20170904_000000_TAI.Br.fits'</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>sharp_cea_br.peek()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The below shows the FITS header of this file.</p>
+<div id="1c96dd7c" class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sharp_cea_br.fits_header</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>SIMPLE  =                    T / file does conform to FITS standard             
+BITPIX  =                   32 / data type of original image                    
+NAXIS   =                    2 / dimension of original image                    
+NAXIS1  =                  688 / length of original image axis                  
+NAXIS2  =                  448 / length of original image axis                  
+BLANK   =          -2147483648                                                  
+BZERO   =                  0.0                                                  
+BSCALE  =                 0.01                                                  
+CHECKSUM= 'ZoJAflG8ZlGAflG5'   / HDU checksum updated 2025-08-01T11:36:33       
+DATASUM = '2018488944'         / data unit checksum updated 2017-10-09T03:05:15 
+DATE    = '2017-10-09T03:04:53.000' / [ISO] HDU creation date                   
+DATE_S  = '2017-09-08T17:19:08.000' / [ISO] Date_time of generating Stokes data 
+DATE_B  = '2017-09-10T08:49:19.000' / [ISO] Date_time of generating Bharp data  
+DATE-OBS= '2017-09-03T23:58:42.200' / [ISO] Observation date {DATE__OBS}        
+T_OBS   = '2017.09.04_00:00:04.203_TAI' / [TAI] nominal time                    
+T_REC   = '2017.09.04_00:00:00.000_TAI' / [TAI] Slot time                       
+TRECEPOC= '1993.01.01_00:00:00.000_TAI' / [TAI] Time of origin {T_REC_epoch}    
+TRECSTEP=                720.0 / [seconds] ts_eq step {T_REC_step}              
+TRECUNIT= 'secs    '           / ts_eq unit {T_REC_unit}                        
+CADENCE =                720.0 / [seconds] repetition interval                  
+USFLUX  =       2.33095666E+22 / [Maxwell] Total unsigned flux                  
+MEANGAM =           60.9712143 / [Degrees] Mean inclination angle, gamma        
+MEANGBT =           108.533112 / [Gauss/Mm] Mean value of the total field gradie
+MEANGBZ =           122.083214 / [Gauss/Mm] Mean value of the vertical field gra
+MEANGBH =           81.9712906 / [Gauss/Mm] Mean value of the horizontal field g
+MEANJZD =         -0.176174253 / [mA/(m^2)] Mean vertical current density       
+TOTUSJZ =     56044520700000.0 / [Amperes] Total unsigned vertical current      
+MEANALP =        -0.0666425973 / [1/Mm] Mean twist parameter, alpha             
+MEANJZH =        -0.0351469964 / [(G^2)/m] Mean current helicity                
+TOTUSJH =           3211.80591 / [(G^2)/m] Total unsigned current helicity      
+ABSNJZH =           1280.44019 / [(G^2)/m] Absolute value of the net current hel
+SAVNCPP =     53733652200000.0 / [Amperes] Sum of the Absolute Value of the Net 
+MEANPOT =           17168.6914 / [Ergs per cubic centimeter] Mean photospheric e
+TOTPOT  =       8.30700913E+23 / [Ergs per cubic centimeter] Total photospheric 
+MEANSHR =           51.6004753 / [Degrees] Mean shear angle for B_total         
+SHRGT45 =           57.4177246 / [Percentage of Total] Area with shear angle gre
+R_VALUE =           4.91179323 / [Maxwell] Unsigned Flux R (Schrijver, 2007)    
+GWILL   =  / [Mm] (MISSING) GWILL (Mason &amp; Hoeksema, 2010)                      
+CTYPE1  = 'CRLN-CEA'           / CRLN                                           
+CTYPE2  = 'CRLT-CEA'           / CRLT                                           
+CRPIX1  =                344.5 / [pixel] X coordinate of patch center with respe
+CRPIX2  =                224.5 / [pixel] Y coordinate of patch center with respe
+CRVAL1  =           118.228928 / [degree] Longitude at center of patch          
+CRVAL2  =          -9.24354935 / [degree] Latitude at center of patch           
+CDELT1  =         0.0299999993 / [degree] Map scale in X direction              
+CDELT2  =         0.0299999993 / [degree] Map scale in Y direction              
+CUNIT1  = 'degree  '           / Degree                                         
+CUNIT2  = 'degree  '           / Degree                                         
+IMCRPIX1=           2040.19434 / [pixel] Location of the Sun center in CCD x dir
+IMCRPIX2=           2050.66919 / [pixel] Location of the Sun center in CCD y dir
+IMCRVAL1=                  0.0 / [arcsec] x origin                              
+IMCRVAL2=                  0.0 / [arcsec] y origin                              
+CROTA2  =                  0.0 / [deg] CROTA2: INST_ROT + SAT_ROT               
+CRDER1  =                  0.0 / [arcsec] CRDER1: estimate of random error in co
+CRDER2  =                  0.0 / [arcsec] CRDER2: estimate of random error in co
+CSYSER1 =  / [arcsec] (MISSING) CSYSER1: estimate of systema                    
+CSYSER2 =  / [arcsec] (MISSING) CSYSER2: estimate of systema                    
+WCSNAME = 'Carrington Heliographic' / WCS system name                           
+DSUN_OBS=   150858023996.63818 / [meters] Distance from SDO to Sun center.      
+DSUN_REF=       149597870691.0 / [meters] Astronomical Unit                     
+RSUN_REF=          696000000.0 / [m] Reference radius of the Sun: 696,000,000.0 
+CRLN_OBS=           115.300667 / [deg] Carrington longitude of the observer     
+CRLT_OBS=           7.24144268 / [deg] Carrington latitude of the observer      
+CAR_ROT =                 2194 / Carrington rotation number of CRLN_OBS         
+OBS_VR  =    2555.889497463884 / [m/s] velocity of the observer in radial direct
+OBS_VW  =   28877.653628739867 / [m/s] velocity of the observer solar           
+OBS_VN  =    611.9685861024672 / [m/s] velocity of the observer solar           
+RSUN_OBS=     951.628662109375 / [arcsec] angular radius of Sun. Corresponds to 
+TELESCOP= 'SDO/HMI '           / Telescope                                      
+INSTRUME= 'HMI_COMBINED'       / For HMI: HMI_SIDE1, HMI_FRONT2, or HMI_COMBINED
+WAVELNTH=               6173.0 / [angstrom] Wavelength                          
+CAMERA  =                    3 / Camera                                         
+QUALITY =                    0 / SHARP Quality index                            
+QUAL_S  =                    0 / Level 1p Quality word                          
+QUALLEV1=                    0 / Level 1 quality                                
+BUNIT   = 'Mx/cm^2 '           / Physical Units {BUNIT_006}                     
+ORIGIN  = 'SDO/JSOC-SDP'       / Origin                                         
+CONTENT = 'HMI observable'     / Content                                        
+BLD_VERS= 'V9R1X   '           / JSOC                                           
+CALVER64=               204818 / Calibration Version                            
+CODEVER7= '$Id: sharp.c,v 1.38 2015/03/18 00:28:26 xudong Exp $ $Id' / CVS Versi
+HFLID   =                 1022 / HMI_SEQ_ID_FRAMELIST                           
+HCFTID  =                   11 / HMI_SEQ_ID_FOCUS                               
+QLOOK   =                    0 / QLOOK: 0=final data, 1=quick                   
+HARPNUM =                 7115 / HARP ID                                        
+MASK    =                   32 / Lower threshold for membership in this patch   
+ARM_QUAL=                    0 / Quality of the mask (bitfield)                 
+ARM_NCLN=                    0 / Number of limb pixels reset to quiet (annulus w
+H_MERGE =                    0 / 1 if this HARP merged with an existing region a
+H_FAINT =                    0 / 1 if this HARP had faint contrast at this time 
+ARM_MODL= '/builtin/hmi.M_Ic_noLimbDark_720s.production' / ARmask parameter: Cla
+ARM_EDGE=                  2.5 / ARmask parameter: Width of annulus at limb to p
+ARM_BETA= '0.3     '           / ARmask parameter: Mask spatial smoothness      
+LATDTMIN=          -15.9709997 / [degree] Minimum latitude for disk transit     
+LONDTMIN=           -7.3888998 / [degree] Minimum longitude for disk transit    
+LATDTMAX=          -2.51609993 / [degree] Maximum latitude for disk transit     
+LONDTMAX=           13.2454004 / [degree] Maximum longitude for disk transit    
+OMEGA_DT=           13.5587997 / [degree/day] Rotation rate over disk transit   
+NPIX    =               104669 / Number of pixels within the patch              
+SIZE    =           9358.12109 / [mH] Projected area of patch on image in micro 
+AREA    =           4898.90918 / [mH] De                                        
+NACR    =                20091 / Number of active pixels in patch               
+SIZE_ACR=           1796.27209 / [mH] Projected area of active pixels on image i
+AREA_ACR=           938.419678 / [mH] De                                        
+MTOT    =           14614653.0 / [weber] Sum of absolute LoS flux within the ide
+MNET    =           2694764.75 / [weber] Net LoS flux within the identified regi
+MPOS_TOT=            8654709.0 / [weber] Absolute value of total positive LoS fl
+MNEG_TOT=            5959944.0 / [weber] Absolute value of total negative LoS fl
+MMEAN   =           25.7455864 / [gauss] Mean of LoS flux density               
+MSTDEV  =           317.047974 / [gauss] Standard deviation of LoS flux density 
+MSKEW   =           1.03884447 / Skewness of LoS flux density                   
+MKURT   =           8.83417225 / Kurtosis of LoS flux density                   
+LAT_MIN =           -15.703517 / [degree] Minimum Stonyhurst latitude of pixels 
+LON_MIN =          -6.76720762 / [degree] Minimum Stonyhurst longitude of pixels
+LAT_MAX =          -3.89583516 / [degree] Maximum Stonyhurst latitude of pixels 
+LON_MAX =           7.71703625 / [degree] Maximum Stonyhurst longitude of pixels
+LAT_FWT =          -9.06213856 / [degree] Stonyhurst latitude of flux           
+LON_FWT =           2.20005369 / [degree] Stonyhurst longitude of flux          
+LATFWTPO=          -9.32380581 / [degree] Stonyhurst latitude of flux {LAT_FWTPO
+LONFWTPO=           2.86910152 / [degree] Stonyhurst longitude of flux {LON_FWTP
+LATFWTNE=          -8.63728142 / [degree] Stonyhurst latitude of flux {LAT_FWTNE
+LONFWTNE=           1.11375129 / [degree] Stonyhurst longitude of flux {LON_FWTN
+T_FRST  = '2017.08.27_10:00:00.000_TAI' / [TAI] First T_REC stored for HARP (inc
+T_FRST1 = '2017.08.28_08:12:00.000_TAI' / [TAI] T_REC of initial HARP detection 
+T_LAST1 = '2017.09.10_11:12:00.000_TAI' / [TAI] T_REC of final HARP detection   
+T_LAST  = '2017.09.11_03:48:00.000_TAI' / [TAI] Last T_REC stored for HARP (incl
+N_PATCH =                 1676 / Image slots spanned by HARP (includes pad)     
+N_PATCH1=                 1491 / Image slots spanned by HARP (excludes pad)     
+N_PATCHM=                   85 / Missing images/slots in unpadded HARP interval 
+NOAA_AR =                12673 / NOAA AR number that best matches this HARP     
+NOAA_NUM=                    1 / Number of NOAA ARs that match this HARP (0 allo
+NOAA_ARS= '12673   '           / Comma                                          
+INVCODEV= 'vfisvcombine FD10 2013 Apr. 30; uses time-dependent HMI filter &amp;'    
+CONTINUE  'phase maps&amp;'                                                         
+CONTINUE  '' / Version of VFISV code                                            
+INVDOCU =  / (MISSING) Document for VFISV code                                  
+INVITERA=                  200 / Number of iterations of VFISV                  
+INVSTLGT= 'No      '           / Flag for stray light. No means that the stray l
+INVFLPRF= '' / Flag/Comment on filter                                           
+INVPHMAP= '121048472'          / Flag/Comment on phase map                      
+USFLUXL = 2.04952041124192E+22 / [Maxwell] Total unsigned flux {INVVLAVE}       
+MEANGBL =    39.11368179321289 / [Gauss/Mm] Mean value of the line {INVBLAVE}   
+INVBBAVE=   121.28715632506182 / [gauss] avarage of inverted field strength over
+CMASKL  =               111256 / [number] Number of pixels that contributed to t
+INVNCNVG=             11184843 / Numer of pixels at which ME VFISV converged    
+AMBCODEV= 'disambig_v3 2013 Dec 06' / Version of Disambig code                  
+AMBDOCU =  / (MISSING) Document for Disambig code                               
+AMBGMTRY=                    2 / Flag determining whether to use planar or spher
+AMBPATCH=                    0 / Flag determining whether disambiguation is done
+AMBWEAK =                    2 / Flag determining method for disambiguating weak
+AMBNEROD=                    1 / [pixels] Number of pixels by which to erode map
+AMBNGROW=                    5 / [pixels] Number of pixels by which to grow erod
+AMBNPAD =                  200 / [pixels] Padding to use in potential field calc
+AMBNAP  =                   10 / [pixels] Width of apodizing window in potential
+AMBNTX  =                   30 / Number of tiles to use in x                    
+AMBNTY  =                   30 / Number of tiles to use in y                    
+AMBBTHR0=                200.0 / [G] Transverse field strength threshold at disk
+AMBBTHR1=                400.0 / [G] Transverse field strength threshold at limb
+AMBSEED =                    4 / Input random number seed                       
+AMBNEQ  =                  100 / Number of reconfigurations attempted at each te
+AMBLMBDA=                  1.0 / Weighting factor between divergence and vertica
+AMBTFCT0=                  2.0 / Input factor to scale initial temperature      
+AMBTFCTR=   0.9800000190734863 / Input factor to reduce temperature             
+DATAVALS=               308224 / Data values {DATAVALS_006}                     
+MISSVALS=                    0 / Missing values {MISSVALS_006}                  
+DATAMIN =          -2184.78003 / Minimum value {DATAMIN_006}                    
+DATAMAX =           2745.38989 / Maximum value {DATAMAX_006}                    
+DATAMEDN=           -3.6447506 / Median value {DATAMEDN_006}                    
+DATAMEAN=           4.10086536 / Mean value from pixels within 99% of solar radi
+DATARMS =           254.120453 / RMS {DATARMS_006}                              
+ERRGAM  =         0.0170187168 / [Degrees] Error in Mean inclination angle, gamm
+ERRTAI  =           20.9685936 / [(G^2)/m] Absolute value of the net current hel
+ERRBH   =          0.166585341 / [Gauss/Mm] Error in Mean value of the horizonta
+ERRMPOT =           10.9116526 / [Ergs per cubic centimeter] Error in Mean photo
+ERRBT   =          0.140896067 / [Gauss/Mm] Error in Mean value of the total fie
+ERRTUI  =           20.9685936 / [(G^2)/m] Total unsigned current helicity      
+ERRBZ   =          0.103350542 / [Gauss/Mm] Error in Mean value of the vertical 
+CMASK   =              36433.0 / [number] Number of pixels that contributed to t
+ERRJZ   =         0.0505617075 / [mA/(m^2)] Error in Mean vertical current densi
+ERRVF   =        7.0435523E+18 / [Maxwell] Error in Total unsigned flux         
+ERRALP  =         0.0010908118 / [1/Mm] Error in Mean twist parameter, alpha    
+ERRMIH  =       0.000575570099 / [(G^2)/m] Mean current helicity                
+ERRMSHA =       0.000446339604 / [Degrees] Error in Mean shear angle for B_total
+ERRUSI  =       244641006000.0 / [Amperes] Error in Total unsigned vertical curr
+DOFFSET =                   50 / [Gauss] Constant value added to the noise mask 
+ERRTPOT =       5.27956351E+20 / [Ergs per cubic centimeter] Error in Total phot
+ERRJHT  =       985371771000.0 / [Amperes] Sum of the Absolute Value of the Net 
+RECNUM  =              6009474 / Recnum                                         
+DRMS_ID = 'hmi.sharp_cea_720s:6009474:Br' / DRMS ID                             
+PRIMARYK= 'HARPNUM, T_REC'     / DRMS primary key                               
+LICENSE = 'LICENSE '           / CC0 1.0                                        
+HEADSUM = 'ZAjnaAhkTAhkZAhk'   / Keyword checksum                               
+LONGSTRN= 'OGIP 1.0'           / The HEASARC Long String Convention may be used.
+WAVEUNIT= 'angstrom'                                                            
+COMMENT FITS (Flexible Image Transport System) format is defined in 'Astronomy  
+COMMENT   and Astrophysics', volume 376, page 359; bibcode: 2001A&amp;A...376..359H 
+COMMENT   This FITS file may contain long string keyword values that are        
+COMMENT   continued over multiple keywords.  The HEASARC convention uses the &amp;  
+COMMENT   character at the end of each substring which is then continued        
+COMMENT   on the next keyword which has the name CONTINUE.                      
+HISTORY                                                                         </code></pre>
+</div>
+</div>
+</section>
+<section id="download-segments-and-keywords-separately" class="level3">
+<h3 class="anchored" data-anchor-id="download-segments-and-keywords-separately">2. Download segments and keywords separately</h3>
+<div id="a5b940d9" class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> drms.Client()  <span class="co"># No email address needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>All keywords associated with the query can be obtained using <code>drms.JsocInfoConstants.all</code>.</p>
+<div id="43c4b67f" class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>keywords <span class="op">=</span> c.query(query, key<span class="op">=</span>drms.JsocInfoConstants.<span class="bu">all</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>keywords</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">DATE</th>
+<th data-quarto-table-cell-role="th">DATE_S</th>
+<th data-quarto-table-cell-role="th">DATE_B</th>
+<th data-quarto-table-cell-role="th">DATE__OBS</th>
+<th data-quarto-table-cell-role="th">DATE-OBS</th>
+<th data-quarto-table-cell-role="th">T_OBS</th>
+<th data-quarto-table-cell-role="th">T_REC</th>
+<th data-quarto-table-cell-role="th">T_REC_epoch</th>
+<th data-quarto-table-cell-role="th">T_REC_step</th>
+<th data-quarto-table-cell-role="th">T_REC_unit</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">CMASK</th>
+<th data-quarto-table-cell-role="th">ERRJZ</th>
+<th data-quarto-table-cell-role="th">ERRVF</th>
+<th data-quarto-table-cell-role="th">ERRALP</th>
+<th data-quarto-table-cell-role="th">ERRMIH</th>
+<th data-quarto-table-cell-role="th">ERRMSHA</th>
+<th data-quarto-table-cell-role="th">ERRUSI</th>
+<th data-quarto-table-cell-role="th">DOFFSET</th>
+<th data-quarto-table-cell-role="th">ERRTPOT</th>
+<th data-quarto-table-cell-role="th">ERRJHT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2017-10-09T03:04:53Z</td>
+<td>2017-09-08T17:19:08Z</td>
+<td>2017-09-10T08:49:19Z</td>
+<td>2017-09-03T23:58:42.20Z</td>
+<td>2017-09-03T23:58:42.20Z</td>
+<td>2017.09.04_00:00:04_TAI</td>
+<td>2017.09.04_00:00:00_TAI</td>
+<td>1993.01.01_00:00:00_TAI</td>
+<td>720.0</td>
+<td>secs</td>
+<td>...</td>
+<td>36433.0</td>
+<td>0.050562</td>
+<td>7.043552e+18</td>
+<td>0.001091</td>
+<td>0.000576</td>
+<td>0.0</td>
+<td>2.446410e+11</td>
+<td>50</td>
+<td>5.279564e+20</td>
+<td>9.853718e+11</td>
+</tr>
+</tbody>
+</table>
+
+<p>1 rows × 261 columns</p>
+</div>
+</div>
+</div>
+<p>We can get a list of names of segments using <code>drms.Client.info</code> and then query the keywords and segments using <code>drms.Client.query</code>.</p>
+<div id="1d944531" class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sharp_cea <span class="op">=</span> c.info(<span class="st">'hmi.sharp_cea_720s'</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sharp_cea_segments <span class="op">=</span> <span class="bu">sorted</span>(sharp_cea.segments.index)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sharp_cea_segments)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['Bp', 'Bp_err', 'Br', 'Br_err', 'Bt', 'Bt_err', 'Dopplergram', 'bitmap', 'conf_disambig', 'continuum', 'magnetogram']</code></pre>
+</div>
+</div>
+<div id="6bf54d0b" class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>keywords, segments <span class="op">=</span> c.query(query, key<span class="op">=</span>drms.JsocInfoConstants.<span class="bu">all</span>, seg<span class="op">=</span>sharp_cea_segments)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="8afbd97f" class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>keywords</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">DATE</th>
+<th data-quarto-table-cell-role="th">DATE_S</th>
+<th data-quarto-table-cell-role="th">DATE_B</th>
+<th data-quarto-table-cell-role="th">DATE__OBS</th>
+<th data-quarto-table-cell-role="th">DATE-OBS</th>
+<th data-quarto-table-cell-role="th">T_OBS</th>
+<th data-quarto-table-cell-role="th">T_REC</th>
+<th data-quarto-table-cell-role="th">T_REC_epoch</th>
+<th data-quarto-table-cell-role="th">T_REC_step</th>
+<th data-quarto-table-cell-role="th">T_REC_unit</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">CMASK</th>
+<th data-quarto-table-cell-role="th">ERRJZ</th>
+<th data-quarto-table-cell-role="th">ERRVF</th>
+<th data-quarto-table-cell-role="th">ERRALP</th>
+<th data-quarto-table-cell-role="th">ERRMIH</th>
+<th data-quarto-table-cell-role="th">ERRMSHA</th>
+<th data-quarto-table-cell-role="th">ERRUSI</th>
+<th data-quarto-table-cell-role="th">DOFFSET</th>
+<th data-quarto-table-cell-role="th">ERRTPOT</th>
+<th data-quarto-table-cell-role="th">ERRJHT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2017-10-09T03:04:53Z</td>
+<td>2017-09-08T17:19:08Z</td>
+<td>2017-09-10T08:49:19Z</td>
+<td>2017-09-03T23:58:42.20Z</td>
+<td>2017-09-03T23:58:42.20Z</td>
+<td>2017.09.04_00:00:04_TAI</td>
+<td>2017.09.04_00:00:00_TAI</td>
+<td>1993.01.01_00:00:00_TAI</td>
+<td>720.0</td>
+<td>secs</td>
+<td>...</td>
+<td>36433.0</td>
+<td>0.050562</td>
+<td>7.043552e+18</td>
+<td>0.001091</td>
+<td>0.000576</td>
+<td>0.0</td>
+<td>2.446410e+11</td>
+<td>50</td>
+<td>5.279564e+20</td>
+<td>9.853718e+11</td>
+</tr>
+</tbody>
+</table>
+
+<p>1 rows × 261 columns</p>
+</div>
+</div>
+</div>
+<div id="d9fdf89b" class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>segments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Bp</th>
+<th data-quarto-table-cell-role="th">Bp_err</th>
+<th data-quarto-table-cell-role="th">Br</th>
+<th data-quarto-table-cell-role="th">Br_err</th>
+<th data-quarto-table-cell-role="th">Bt</th>
+<th data-quarto-table-cell-role="th">Bt_err</th>
+<th data-quarto-table-cell-role="th">Dopplergram</th>
+<th data-quarto-table-cell-role="th">bitmap</th>
+<th data-quarto-table-cell-role="th">conf_disambig</th>
+<th data-quarto-table-cell-role="th">continuum</th>
+<th data-quarto-table-cell-role="th">magnetogram</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>/SUM98/D978177825/S00000/Bp.fits</td>
+<td>/SUM98/D978177825/S00000/Bp_err.fits</td>
+<td>/SUM98/D978177825/S00000/Br.fits</td>
+<td>/SUM98/D978177825/S00000/Br_err.fits</td>
+<td>/SUM98/D978177825/S00000/Bt.fits</td>
+<td>/SUM98/D978177825/S00000/Bt_err.fits</td>
+<td>/SUM98/D978177825/S00000/Dopplergram.fits</td>
+<td>/SUM98/D978177825/S00000/bitmap.fits</td>
+<td>/SUM98/D978177825/S00000/conf_disambig.fits</td>
+<td>/SUM98/D978177825/S00000/continuum.fits</td>
+<td>/SUM98/D978177825/S00000/magnetogram.fits</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Using the url information for each segment, we can download each file.</p>
+<div id="f9f40e4b" class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>t_rec <span class="op">=</span> keywords[<span class="st">'T_REC'</span>].item()</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>t_rec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'2017.09.04_00:00:00_TAI'</code></pre>
+</div>
+</div>
+<div id="8024448e" class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>segment <span class="op">=</span> segments[<span class="st">'Br'</span>].item()</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(segment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/SUM98/D978177825/S00000/Br.fits</code></pre>
+</div>
+</div>
+<div id="db7bdf0a" class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'http://jsoc.stanford.edu'</span> <span class="op">+</span> segment</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>url</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>'http://jsoc.stanford.edu/SUM98/D978177825/S00000/Br.fits'</code></pre>
+</div>
+</div>
+<div id="4d675774" class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> urllib.request <span class="im">import</span> urlretrieve</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>urlretrieve(url, <span class="st">'Br.fits'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fb73aaac" class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> astropy.io <span class="im">import</span> fits</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>hdul <span class="op">=</span> fits.<span class="bu">open</span>(<span class="st">'Br.fits'</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>hdul.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Filename: Br.fits
+No.    Name      Ver    Type      Cards   Dimensions   Format
+  0  PRIMARY       1 PrimaryHDU       6   ()      
+  1  COMPRESSED_IMAGE    1 CompImageHDU     10   (688, 448)   int32   </code></pre>
+</div>
+</div>
+<div id="39923d6f" class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>hdul[<span class="dv">1</span>].header</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>SIMPLE  =                    T / file does conform to FITS standard             
+BITPIX  =                   32 / data type of original image                    
+NAXIS   =                    2 / dimension of original image                    
+NAXIS1  =                  688 / length of original image axis                  
+NAXIS2  =                  448 / length of original image axis                  
+BLANK   =          -2147483648                                                  
+BZERO   =                   0.                                                  
+BSCALE  =                 0.01                                                  
+CHECKSUM= 'lBDPo99OlACOl99O'   / HDU checksum updated 2017-10-09T03:05:15       
+DATASUM = '2018488944'         / data unit checksum updated 2017-10-09T03:05:15 </code></pre>
+</div>
+</div>
+<p>As you can see, the header contains only basic information. However, the data is exactly the same as the one downloaded using the <code>drms.Client.export</code> method.</p>
+<div id="81bd8619" class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>np.allclose(hdul[<span class="dv">1</span>].data, sharp_cea_br.data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div id="94347bc4" class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>hdul.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can construct a header from the keywords. Note that there is no <code>DATE-OBS</code> in the keywords, instead <code>DATE__OBS</code> exists. The following note comes from the “4.2.4 JSOC Image Timing Details” section of the <a href="https://www.lmsal.com/sdodocs/doc/dcur/SDOD0060.zip/zip/entry/">Guide to SDO Data Analysis</a>.</p>
+<blockquote class="blockquote">
+<p>TECHNICAL NOTE: The JSOC keyword naming convention does not allow for hyphens, and consequently the DATE-OBS keyword is represented as DATE__OBS (with two underscores) within the JSOC. However, upon export to FITS files, this keyword gets converted to DATE-OBS so as to be compliant with the FITS standard. Additionally, note that the keyword DATE_OBS (with one underscore) that was more common during the SOHO era is not used by the JSOC.</p>
+</blockquote>
+<p>I refer to <a href="https://github.com/RobertJaro/InstrumentToInstrument/blob/master/itipy/download/download_sdo.py">this code</a> for the following code.</p>
+<div id="bc8384dc" class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sunpy.util <span class="im">import</span> MetaDict</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sunpy.io._fits <span class="im">import</span> header_to_fits</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>header <span class="op">=</span> keywords.iloc[<span class="dv">0</span>].to_dict()</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>header[<span class="st">'DATE_OBS'</span>] <span class="op">=</span> header[<span class="st">'DATE__OBS'</span>]</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>header <span class="op">=</span> header_to_fits(MetaDict(header))</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> fits.<span class="bu">open</span>(<span class="st">'Br.fits'</span>, <span class="st">'update'</span>) <span class="im">as</span> f:</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>    hdr <span class="op">=</span> f[<span class="dv">1</span>].header</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k, v <span class="kw">in</span> header.items():</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> pd.isna(v):</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>        hdr[k] <span class="op">=</span> v</span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>    f.verify(<span class="st">'silentfix'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="c841d146" class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>sharp_cea_br_sep <span class="op">=</span> Map(<span class="st">'Br.fits'</span>)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>sharp_cea_br_sep.peek()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-35-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="8de9a9af" class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>sharp_cea_br_sep.fits_header</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>SIMPLE  =                    T / file does conform to FITS standard             
+BITPIX  =                   32 / data type of original image                    
+NAXIS   =                    2 / dimension of original image                    
+NAXIS1  =                  688 / length of original image axis                  
+NAXIS2  =                  448 / length of original image axis                  
+BLANK   =          -2147483648                                                  
+BZERO   =                  0.0                                                  
+BSCALE  =                 0.01                                                  
+CHECKSUM= 'U0UHV0S9U0SEU0S9'   / HDU checksum updated 2025-08-01T22:17:03       
+DATASUM = '2018488944'         / data unit checksum updated 2025-08-01T22:17:03 
+DATE    = '2017-10-09T03:04:53Z'                                                
+DATE_S  = '2017-09-08T17:19:08Z'                                                
+DATE_B  = '2017-09-10T08:49:19Z'                                                
+DATE-OBS= '2017-09-03T23:58:42.20Z'                                             
+T_OBS   = '2017.09.04_00:00:04_TAI'                                             
+T_REC   = '2017.09.04_00:00:00_TAI'                                             
+CADENCE =                720.0                                                  
+USFLUX  =         2.330957E+22                                                  
+MEANGAM =               60.971                                                  
+MEANGBT =              108.533                                                  
+MEANGBZ =              122.083                                                  
+MEANGBH =               81.971                                                  
+MEANJZD =          -0.17617425                                                  
+TOTUSJZ =     56044520000000.0                                                  
+MEANALP =           -0.0666426                                                  
+MEANJZH =            -0.035147                                                  
+TOTUSJH =             3211.806                                                  
+ABSNJZH =              1280.44                                                  
+SAVNCPP =     53733650000000.0                                                  
+MEANPOT =             17168.69                                                  
+TOTPOT  =         8.307009E+23                                                  
+MEANSHR =                 51.6                                                  
+SHRGT45 =               57.418                                                  
+R_VALUE =                4.912                                                  
+CTYPE1  = 'CRLN-CEA'                                                            
+CTYPE2  = 'CRLT-CEA'                                                            
+CRPIX1  =                344.5                                                  
+CRPIX2  =                224.5                                                  
+CRVAL1  =           118.228928                                                  
+CRVAL2  =            -9.243549                                                  
+CDELT1  =                 0.03                                                  
+CDELT2  =                 0.03                                                  
+CUNIT1  = 'degree  '                                                            
+CUNIT2  = 'degree  '                                                            
+IMCRPIX1=          2040.194336                                                  
+IMCRPIX2=          2050.669189                                                  
+IMCRVAL1=                  0.0                                                  
+IMCRVAL2=                  0.0                                                  
+CROTA2  =                  0.0                                                  
+WCSNAME = 'Carrington Heliographic'                                             
+DSUN_OBS=      150858023996.64                                                  
+DSUN_REF=         149597870691                                                  
+RSUN_REF=            696000000                                                  
+CRLN_OBS=           115.300667                                                  
+CRLT_OBS=             7.241443                                                  
+CAR_ROT =                 2194                                                  
+OBS_VR  =          2555.889497                                                  
+OBS_VW  =         28877.653629                                                  
+OBS_VN  =           611.968586                                                  
+RSUN_OBS=           951.628662                                                  
+TELESCOP= 'SDO/HMI '                                                            
+INSTRUME= 'HMI_COMBINED'                                                        
+WAVELNTH=               6173.0                                                  
+CAMERA  =                    3                                                  
+QUALITY =                    0                                                  
+QUAL_S  =                    0                                                  
+QUALLEV1=                    0                                                  
+ORIGIN  = 'SDO/JSOC-SDP'                                                        
+CONTENT = 'HMI observable'                                                      
+BLD_VERS= 'V9R1X   '                                                            
+CALVER64=               204818                                                  
+HFLID   =                 1022                                                  
+HCFTID  =                   11                                                  
+QLOOK   =                    0                                                  
+HARPNUM =                 7115                                                  
+MASK    =                   32                                                  
+ARM_QUAL=                    0                                                  
+ARM_NCLN=                    0                                                  
+H_MERGE =                    0                                                  
+H_FAINT =                    0                                                  
+ARM_MODL= '/builtin/hmi.M_Ic_noLimbDark_720s.production'                        
+ARM_EDGE=                  2.5                                                  
+ARM_BETA= '0.3     '                                                            
+LATDTMIN=              -15.971                                                  
+LONDTMIN=              -7.3889                                                  
+LATDTMAX=              -2.5161                                                  
+LONDTMAX=              13.2454                                                  
+OMEGA_DT=              13.5588                                                  
+NPIX    =               104669                                                  
+SIZE    =          9358.121094                                                  
+AREA    =           4898.90918                                                  
+NACR    =                20091                                                  
+SIZE_ACR=          1796.272095                                                  
+AREA_ACR=           938.419678                                                  
+MTOT    =           14614653.0                                                  
+MNET    =           2694764.75                                                  
+MPOS_TOT=            8654709.0                                                  
+MNEG_TOT=            5959944.0                                                  
+MMEAN   =            25.745586                                                  
+MSTDEV  =           317.047974                                                  
+MSKEW   =             1.038844                                                  
+MKURT   =             8.834172                                                  
+LAT_MIN =           -15.703517                                                  
+LON_MIN =            -6.767208                                                  
+LAT_MAX =            -3.895835                                                  
+LON_MAX =             7.717036                                                  
+LAT_FWT =            -9.062139                                                  
+LON_FWT =             2.200054                                                  
+T_FRST  = '2017.08.27_10:00:00_TAI'                                             
+T_FRST1 = '2017.08.28_08:12:00_TAI'                                             
+T_LAST1 = '2017.09.10_11:12:00_TAI'                                             
+T_LAST  = '2017.09.11_03:48:00_TAI'                                             
+N_PATCH =                 1676                                                  
+N_PATCH1=                 1491                                                  
+N_PATCHM=                   85                                                  
+NOAA_AR =                12673                                                  
+NOAA_NUM=                    1                                                  
+NOAA_ARS= '12673   '                                                            
+INVCODEV= 'vfisvcombine FD10 2013 Apr. 30; uses time-dependent HMI filter &amp;'    
+CONTINUE  'phase maps'                                                          
+INVDOCU = 'MISSING '                                                            
+INVITERA=                  200                                                  
+INVSTLGT= 'No      '                                                            
+INVFLPRF= ''                                                                    
+INVPHMAP= '121048472'                                                           
+INVVLAVE=          2.04952E+22                                                  
+USFLUXL =          2.04952E+22                                                  
+INVBLAVE=               39.114                                                  
+MEANGBL =               39.114                                                  
+INVBBAVE=             121.2872                                                  
+INVNPRCS=               111256                                                  
+CMASKL  =               111256                                                  
+INVNCNVG=             11184843                                                  
+AMBCODEV= 'disambig_v3 2013 Dec 06'                                             
+AMBDOCU = 'MISSING '                                                            
+AMBGMTRY=                    2                                                  
+AMBPATCH=                    0                                                  
+AMBWEAK =                    2                                                  
+AMBNEROD=                    1                                                  
+AMBNGROW=                    5                                                  
+AMBNPAD =                  200                                                  
+AMBNAP  =                   10                                                  
+AMBNTX  =                   30                                                  
+AMBNTY  =                   30                                                  
+AMBBTHR0=                200.0                                                  
+AMBBTHR1=                400.0                                                  
+AMBSEED =                    4                                                  
+AMBNEQ  =                  100                                                  
+AMBLMBDA=                  1.0                                                  
+AMBTFCT0=                  2.0                                                  
+AMBTFCTR=                 0.98                                                  
+ERRGAM  =                0.017                                                  
+ERRTAI  =               20.969                                                  
+ERRBH   =                0.167                                                  
+ERRMPOT =             10.91165                                                  
+ERRBT   =                0.141                                                  
+ERRTUI  =               20.969                                                  
+ERRBZ   =                0.103                                                  
+CMASK   =              36433.0                                                  
+ERRJZ   =           0.05056171                                                  
+ERRVF   =         7.043552E+18                                                  
+ERRALP  =           0.00109081                                                  
+ERRMIH  =           0.00057557                                                  
+ERRMSHA =                  0.0                                                  
+ERRUSI  =       244641000000.0                                                  
+DOFFSET =                   50                                                  
+ERRTPOT =         5.279564E+20                                                  
+ERRJHT  =       985371800000.0                                                  
+DATE_OBS= '2017-09-03T23:58:42.20Z'                                             
+HISTORY                                                                         
+COMMENT                                                                         </code></pre>
+</div>
+</div>
+<p>The header is not exactly the same as the one downloaded using the <code>drms.Client.export</code> method, but it is basically the same as you can see.</p>
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-Bobra2014" class="csl-entry" role="listitem">
+<a href="https://doi.org/10.1007/s11207-014-0529-3">Bobra, M. G., Sun, X., Hoeksema, J. T., et al. 2014, 289, 3549</a>
+</div>
+<div id="ref-Pesnell2012" class="csl-entry" role="listitem">
+<a href="https://doi.org/10.1007/s11207-011-9841-3">Pesnell, W. D., Thompson, B. J., &amp; Chamberlin, P. C. 2012, 275, 3</a>
+</div>
+<div id="ref-Schou2012" class="csl-entry" role="listitem">
+<a href="https://doi.org/10.1007/s11207-011-9842-2">Schou, J., Scherrer, P. H., Bush, R. I., et al. 2012, 275, 229</a>
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mgjeon\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
