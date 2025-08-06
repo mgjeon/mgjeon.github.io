@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Mingyu Jeon">
-<meta name="dcterms.date" content="2025-08-02">
+<meta name="dcterms.date" content="2025-08-06">
 
 <title>Reproducing Figure 1 from the SunPy Paper (2023) in 2025 – Mingyu Jeon</title>
 <style>
@@ -198,7 +198,7 @@ gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 2, 2025</p>
+        <p class="date">August 6, 2025</p>
       </div>
     </div>
     
@@ -232,7 +232,7 @@ gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
 
 
 
-<div id="c4f961d6" class="cell">
+<div id="c4f961d6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings<span class="op">;</span> warnings.simplefilter(<span class="st">"ignore"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging, sunpy<span class="op">;</span> logging.getLogger(<span class="st">'sunpy'</span>).setLevel(logging.ERROR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -246,7 +246,7 @@ gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
 </div>
 <section id="version-information" class="level2">
 <h2 class="anchored" data-anchor-id="version-information">Version Information</h2>
-<div id="7d28245c" class="cell">
+<div id="7d28245c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Python version:"</span>, sys.version)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -277,10 +277,10 @@ sunkit-magex version: 1.1.0</code></pre>
 <h2 class="anchored" data-anchor-id="download-hmi-synoptic-magnetogram-for-cr-2255">Download HMI Synoptic Magnetogram for CR 2255</h2>
 <p>The SunPy paper (2023) said that the left panel of Figure1A shows the SDO/HMI synoptic magnetogram for Carrington rotation (CR) 2255 which began on 2022-03-08.</p>
 <p>Let’s start by checking that CR 2255 actually began on 2022-03-08.</p>
-<div id="a15e17fd" class="cell">
+<div id="a15e17fd" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sunpy.coordinates.sun <span class="im">import</span> carrington_rotation_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4397ba32" class="cell">
+<div id="4397ba32" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>carrington_rotation_time(<span class="dv">2255</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Time object: scale='utc' format='iso' value=2022-03-07 11:59:56.657&gt;</code></pre>
@@ -288,14 +288,14 @@ sunkit-magex version: 1.1.0</code></pre>
 </div>
 <p>CR 2255 actually began on 2022-03-07 12:00 UTC, which also can be found in <a href="https://space.umd.edu/pm/crn/">this page</a>.</p>
 <p>We can download the HMI polar-filled full-CR synoptic magnetogram <code>hmi.synoptic_mr_polfil_720s</code> <span class="citation" data-cites="sun2018">(<a href="#ref-sun2018" role="doc-biblioref">Sun 2018</a>)</span> for CR 2255 from JSOC using <code>sunpy.net.Fido</code>.</p>
-<div id="348add98" class="cell">
+<div id="348add98" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sunpy.net <span class="im">import</span> Fido, attrs <span class="im">as</span> a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0b6d6e18" class="cell">
+<div id="0b6d6e18" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Please replace the following email with your own email address registered with the JSOC.</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>jsoc_email <span class="op">=</span> <span class="st">'mgjeon@khu.ac.kr'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f8543c84" class="cell">
+<div id="f8543c84" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> Fido.search(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    a.Time(<span class="st">'2022-03-07T12:00'</span>, <span class="st">'2022-03-07T12:00'</span>),</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    a.jsoc.Series(<span class="st">'hmi.synoptic_mr_polfil_720s'</span>),</span>
@@ -303,7 +303,7 @@ sunkit-magex version: 1.1.0</code></pre>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    a.jsoc.Notify(jsoc_email)</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="53909397" class="cell">
+<div id="53909397" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>q</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 Results from 1 Provider:<br><br>1 Results from the JSOCClient:<br><div><i>JSOCResponse length=1</i>
@@ -314,23 +314,23 @@ Results from 1 Provider:<br><br>1 Results from the JSOCClient:<br><div><i>JSOCRe
 </tbody></table></div><br>
 </div>
 </div>
-<div id="87a93644" class="cell">
+<div id="87a93644" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> Fido.fetch(q, path<span class="op">=</span><span class="st">'./data'</span>, overwrite<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="81f16983" class="cell">
+<div id="81f16983" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['data\\hmi.synoptic_mr_polfil_720s.2255.Mr_polfil.fits']</code></pre>
 </div>
 </div>
 <p>We can load the fits file using <code>sunpy.map.Map</code>.</p>
-<div id="7f1f16a9" class="cell">
+<div id="7f1f16a9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sunpy.<span class="bu">map</span> <span class="im">import</span> Map</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="1b97710b" class="cell">
+<div id="1b97710b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>m_hmi <span class="op">=</span> Map(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="5f917485" class="cell">
+<div id="5f917485" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>m_hmi.peek()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -345,25 +345,25 @@ Results from 1 Provider:<br><br>1 Results from the JSOCClient:<br><div><i>JSOCRe
 <section id="select-location-of-ar" class="level2">
 <h2 class="anchored" data-anchor-id="select-location-of-ar">Select Location of AR</h2>
 <p>We identify the center of the active region (AR) of interest visually from the HMI synoptic magnetogram.</p>
-<div id="1d920098" class="cell">
+<div id="1d920098" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> astropy.units <span class="im">as</span> u</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> astropy.coordinates <span class="im">import</span> SkyCoord</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0cb546bf" class="cell">
+<div id="0cb546bf" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>m_hmi.coordinate_frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;HeliographicCarrington Frame (obstime=2022-03-21T03:51:33.000, rsun=695700.0 km, observer=&lt;HeliographicStonyhurst Coordinate (obstime=2022-03-21T03:51:33.000, rsun=695700.0 km): (lon, lat, radius) in (deg, deg, m)
     (0., -7.02110576, 1.48994814e+11)&gt;)&gt;</code></pre>
 </div>
 </div>
-<div id="4c715a26" class="cell">
+<div id="4c715a26" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>ar_center <span class="op">=</span> SkyCoord(lon<span class="op">=</span><span class="dv">65</span><span class="op">*</span>u.deg, lat<span class="op">=</span><span class="dv">15</span><span class="op">*</span>u.deg, frame<span class="op">=</span>m_hmi.coordinate_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can plot this coordinate on the HMI map.</p>
-<div id="afc9a43f" class="cell">
+<div id="afc9a43f" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e4fbdc58" class="cell">
+<div id="e4fbdc58" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>, projection<span class="op">=</span>m_hmi)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>m_hmi.plot(axes<span class="op">=</span>ax)</span>
@@ -377,13 +377,13 @@ Results from 1 Provider:<br><br>1 Results from the JSOCClient:<br><div><i>JSOCRe
 </div>
 </div>
 <p>The default obstime of the carrington map is halfway through the carrington rotation.</p>
-<div id="fff20fc9" class="cell">
+<div id="fff20fc9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>m_hmi.coordinate_frame.obstime</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Time object: scale='utc' format='isot' value=2022-03-21T03:51:33.000&gt;</code></pre>
 </div>
 </div>
-<div id="779747c3" class="cell">
+<div id="779747c3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>car_start <span class="op">=</span> carrington_rotation_time(<span class="dv">2255</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>car_end <span class="op">=</span> carrington_rotation_time(<span class="dv">2256</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'CR 2255 start   '</span>, car_start)</span>
@@ -397,17 +397,17 @@ CR 2255 halfway  2022-03-21 03:39:43.279</code></pre>
 </div>
 </div>
 <p>Since a synoptic map is comprised of observations from many different times, we look up the obstime associated with our selected longitude and use this to correct our original AR coordinate</p>
-<div id="ecccd9b1" class="cell">
+<div id="ecccd9b1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>ar_date <span class="op">=</span> carrington_rotation_time(<span class="dv">2255</span>, ar_center.lon)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>ar_date</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;Time object: scale='utc' format='iso' value=2022-03-29 21:04:15.174&gt;</code></pre>
 </div>
 </div>
-<div id="98855b6e" class="cell">
+<div id="98855b6e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>change_obstime <span class="op">=</span> <span class="kw">lambda</span> x,y: SkyCoord(x.replicate(observer<span class="op">=</span>x.observer.replicate(obstime<span class="op">=</span>y), obstime<span class="op">=</span>y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e5522048" class="cell">
+<div id="e5522048" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ar_center_corrected <span class="op">=</span> change_obstime(ar_center, ar_date)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>ar_center_corrected</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -421,7 +421,7 @@ CR 2255 halfway  2022-03-21 03:39:43.279</code></pre>
 <h2 class="anchored" data-anchor-id="download-euv-data-for-ar">Download EUV data for AR</h2>
 <p>We will download the EUV data from SDO/AIA, STEREO-A/SECCHI/EUVI, and Solar Orbiter/EUI/FSI.</p>
 <p>First, we define the time range of interest.</p>
-<div id="80724e56" class="cell">
+<div id="80724e56" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>tr <span class="op">=</span> a.Time(ar_date<span class="op">-</span><span class="dv">2</span><span class="op">*</span>u.<span class="bu">min</span>, ar_date<span class="op">+</span><span class="dv">2</span><span class="op">*</span>u.<span class="bu">min</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>tr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -429,19 +429,19 @@ CR 2255 halfway  2022-03-21 03:39:43.279</code></pre>
 </div>
 </div>
 <p>We construct a search query for 171 Å EUV data from SDO/AIA and STEREO-A/SECCHI/EUVI. This will search the Virtual Solar Observatory (VSO).</p>
-<div id="fc2c083b" class="cell">
+<div id="fc2c083b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>aia_or_euvi <span class="op">=</span> ((a.Instrument(<span class="st">'AIA'</span>) <span class="op">|</span> a.Instrument(<span class="st">'EUVI'</span>))</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>                <span class="op">&amp;</span> a.Wavelength(<span class="dv">171</span><span class="op">*</span>u.angstrom)</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>                <span class="op">&amp;</span> a.Sample(<span class="dv">5</span><span class="op">*</span>u.<span class="bu">min</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We construct a search query for 174 Å EUV data from Solar Orbiter/EUI/FSI. This will search the Solar Oriter Archive (SOAR) using the <code>sunpy-soar</code> package.</p>
-<div id="3983d534" class="cell">
+<div id="3983d534" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>eui <span class="op">=</span> a.Level(<span class="dv">2</span>) <span class="op">&amp;</span> a.soar.Product(<span class="st">'EUI-FSI174-IMAGE'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="99abcb5e" class="cell">
+<div id="99abcb5e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> Fido.search(tr, aia_or_euvi <span class="op">|</span> eui)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="573bbd46" class="cell">
+<div id="573bbd46" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>q</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQueryResponseTable length=1</i>
@@ -466,20 +466,20 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </div>
 </div>
 <p>Note that <code>Fido</code> returns three results (one for each instrument) and that two out of the three of these are from the VSO and one is from the SOAR.</p>
-<div id="40eca23e" class="cell">
+<div id="40eca23e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>files <span class="op">=</span> Fido.fetch(q, path<span class="op">=</span><span class="st">'./data'</span>, overwrite<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9b50ccea" class="cell">
+<div id="9b50ccea" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(files))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['data\\20220329_210300_n5euA.fts', 'data\\aia.lev1.171A_2022_03_29T21_02_21.35Z.image_lev1.fits', 'data\\solo_L2_eui-fsi174-image_20220329T210445298_V02.fits']</code></pre>
 </div>
 </div>
-<div id="acc61e65" class="cell">
+<div id="acc61e65" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>m_secchi, m_aia, m_eui <span class="op">=</span> Map(<span class="bu">sorted</span>(files))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Using the metadata provided in each file, we can plot the relative locations of the three spacecraft.</p>
-<div id="eea46e90" class="cell">
+<div id="eea46e90" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>, projection<span class="op">=</span><span class="st">'polar'</span>)</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the Sun</span></span>
@@ -503,14 +503,14 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 <section id="process-euv-data-for-ar" class="level2">
 <h2 class="anchored" data-anchor-id="process-euv-data-for-ar">Process EUV Data for AR</h2>
 <p>We prepare the SDO/AIA data <a href="https://aiapy.readthedocs.io/en/stable/preparing_data.html">from level 1 to level 1.5</a> using <code>aiapy</code> package by (1) correcting the pointing keywords and (2) also correcting the instrument degradation.</p>
-<div id="354fadb6" class="cell">
+<div id="354fadb6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> aiapy.calibrate <span class="im">import</span> update_pointing, correct_degradation</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> aiapy.calibrate.util <span class="im">import</span> get_pointing_table, get_correction_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d9efdd58" class="cell">
+<div id="d9efdd58" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>pointing_table <span class="op">=</span> get_pointing_table(<span class="st">'JSOC'</span>, time_range<span class="op">=</span>(m_aia.date<span class="op">-</span><span class="dv">12</span><span class="op">*</span>u.h, m_aia.date<span class="op">+</span><span class="dv">12</span><span class="op">*</span>u.h))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="574f5d16" class="cell">
+<div id="574f5d16" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>pointing_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div><i>QTable length=8</i>
@@ -529,10 +529,10 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </tbody></table></div>
 </div>
 </div>
-<div id="76afc7ca" class="cell">
+<div id="76afc7ca" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>correction_table <span class="op">=</span> get_correction_table(<span class="st">'JSOC'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7e0772ae" class="cell">
+<div id="7e0772ae" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>correction_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div><i>QTable length=665</i>
@@ -562,7 +562,7 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </tbody></table></div>
 </div>
 </div>
-<div id="bc4a7952" class="cell">
+<div id="bc4a7952" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>m_aia.peek(vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">8000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -572,10 +572,10 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </div>
 </div>
 </div>
-<div id="6b817ec9" class="cell">
+<div id="6b817ec9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>m_aia <span class="op">=</span> correct_degradation(update_pointing(m_aia, pointing_table<span class="op">=</span>pointing_table), correction_table<span class="op">=</span>correction_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="57205f27" class="cell">
+<div id="57205f27" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>m_aia.peek(vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">8000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -586,7 +586,7 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </div>
 </div>
 <p>The SDO/AIA and STEREO-A/SECCHI/EUVI data are not been normalized for exposure time, whereas the Solar Orbiter/EUI/FSI data (level 2) are normalized for exposure time.</p>
-<div id="84101b6b" class="cell">
+<div id="84101b6b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>m_secchi.peek()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -596,7 +596,7 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </div>
 </div>
 </div>
-<div id="b8aa385c" class="cell">
+<div id="b8aa385c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>m_eui.peek()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -607,11 +607,11 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </div>
 </div>
 <p>We normalize the SDO/AIA and STEREO-A/SECCHI/EUVI data for exposure time.</p>
-<div id="61932a14" class="cell">
+<div id="61932a14" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>m_aia <span class="op">=</span> m_aia <span class="op">/</span> m_aia.exposure_time</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>m_secchi <span class="op">=</span> m_secchi <span class="op">/</span> m_secchi.exposure_time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0ae4c06c" class="cell">
+<div id="0ae4c06c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>m_aia.peek()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -621,7 +621,7 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </div>
 </div>
 </div>
-<div id="5184e743" class="cell">
+<div id="5184e743" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>m_secchi.peek()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -632,7 +632,7 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </div>
 </div>
 <p>We can plot the position of the corrected center of the AR on the EUV maps.</p>
-<div id="dd1d816e" class="cell">
+<div id="dd1d816e" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, m <span class="kw">in</span> <span class="bu">enumerate</span>([m_aia, m_eui, m_secchi]):</span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, i<span class="op">+</span><span class="dv">1</span>, projection<span class="op">=</span>m)</span>
@@ -647,11 +647,11 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </div>
 </div>
 <p>We can plot the region of interest on the EUV maps.</p>
-<div id="33e5df10" class="cell">
+<div id="33e5df10" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>ar_width <span class="op">=</span> <span class="dv">700</span><span class="op">*</span>u.arcsec</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>ar_height <span class="op">=</span> <span class="dv">700</span><span class="op">*</span>u.arcsec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4febdce9" class="cell">
+<div id="4febdce9" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, m <span class="kw">in</span> <span class="bu">enumerate</span>([m_aia, m_eui, m_secchi]):</span>
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, i<span class="op">+</span><span class="dv">1</span>, projection<span class="op">=</span>m)</span>
@@ -670,7 +670,7 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </div>
 </div>
 <p>We can rotate the maps such that the y-axis of the images is aligned with the solar north using <code>sunpy.map.Map.rotate</code>.</p>
-<div id="d0cebab3" class="cell">
+<div id="d0cebab3" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, m <span class="kw">in</span> <span class="bu">enumerate</span>([m_aia, m_eui, m_secchi]):</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, i<span class="op">+</span><span class="dv">1</span>, projection<span class="op">=</span>m)</span>
@@ -690,7 +690,7 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </div>
 </div>
 <p>We can now crop each full disk image to the appropriate region.</p>
-<div id="14bd74a6" class="cell">
+<div id="14bd74a6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>m_cutouts <span class="op">=</span> []</span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> m <span class="kw">in</span> [m_aia, m_eui, m_secchi]:</span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    ar_center_corrected_transformed <span class="op">=</span> ar_center_corrected.transform_to(m.coordinate_frame)</span>
@@ -702,7 +702,7 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 <span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>    m_cutout <span class="op">=</span> m_rot.submap(blc, width<span class="op">=</span>ar_width, height<span class="op">=</span>ar_height)</span>
 <span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>    m_cutouts.append(m_cutout)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e22549bb" class="cell">
+<div id="e22549bb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">5</span>))</span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, m <span class="kw">in</span> <span class="bu">enumerate</span>(m_cutouts):</span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, i<span class="op">+</span><span class="dv">1</span>, projection<span class="op">=</span>m)</span>
@@ -720,34 +720,34 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 <h2 class="anchored" data-anchor-id="calculate-pfss-from-hmi-synoptic-magnetogram">Calculate PFSS from HMI Synoptic Magnetogram</h2>
 <p>We can calculate a potential field source surface (PFSS) solution from the HMI synoptic magnetogram using <code>sunkit-magex</code> package.</p>
 <p>We first resample the HMI synoptic map to speed up the calculation of our field extrapolation.</p>
-<div id="92d74fb5" class="cell">
+<div id="92d74fb5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>m_hmi.data.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>(1440, 3600)</code></pre>
 </div>
 </div>
-<div id="53cb95eb" class="cell">
+<div id="53cb95eb" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>m_hmi_resample <span class="op">=</span> m_hmi.resample((<span class="dv">1080</span>, <span class="dv">540</span>)<span class="op">*</span>u.pix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="31f7987c" class="cell">
+<div id="31f7987c" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>m_hmi_resample.data.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>(540, 1080)</code></pre>
 </div>
 </div>
-<div id="784edb2b" class="cell">
+<div id="784edb2b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sunkit_magex <span class="im">import</span> pfss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b011c8e8" class="cell">
+<div id="b011c8e8" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>nr <span class="op">=</span> <span class="dv">70</span>    <span class="co"># number of cells in the radial direction</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>rss <span class="op">=</span> <span class="fl">2.5</span>  <span class="co"># radius of the source surface in R_sun</span></span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>pfss_input <span class="op">=</span> pfss.Input(m_hmi_resample, nr, rss)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="1b544a3b" class="cell">
+<div id="1b544a3b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>pfss_output <span class="op">=</span> pfss.pfss(pfss_input)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s plot the radial component of the magnetic field at the source surface (2.5 Rs) and the polarity inversion lines (PILs).</p>
-<div id="55deeee6" class="cell">
+<div id="55deeee6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot(<span class="dv">111</span>, projection<span class="op">=</span>pfss_output.source_surface_br)</span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> pfss_output.source_surface_br.plot(axes<span class="op">=</span>ax)</span>
@@ -766,10 +766,10 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 <h2 class="anchored" data-anchor-id="trace-magnetic-field-lines">Trace Magnetic Field Lines</h2>
 <p>Let’s trace some field lines through the extrapolated field.</p>
 <p>To do this, we need to choose a set of seed points from which to trace our field lines. We want to select only the seed points that are within a certain area around the active region. We need to make the following transformations because we want to express our boundaries in terms of the active region boundary as identified by our SDO/AIA cutout.</p>
-<div id="29fcc1e6" class="cell">
+<div id="29fcc1e6" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>change_obstime_frame <span class="op">=</span> <span class="kw">lambda</span> x,y: x.replicate_without_data(observer<span class="op">=</span>x.observer.replicate(obstime<span class="op">=</span>y), obstime<span class="op">=</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="6c2240d1" class="cell">
+<div id="6c2240d1" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>new_frame <span class="op">=</span> change_obstime_frame(m_hmi.coordinate_frame, m_cutouts[<span class="dv">0</span>].date)</span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>new_frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -777,14 +777,14 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
     (0., -7.02110576, 1.48994814e+11)&gt;)&gt;</code></pre>
 </div>
 </div>
-<div id="a162f929" class="cell">
+<div id="a162f929" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>blc_ar_synop <span class="op">=</span> change_obstime(m_cutouts[<span class="dv">0</span>].bottom_left_coord.transform_to(new_frame),</span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>                              m_hmi.date)</span>
 <span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>trc_ar_synop <span class="op">=</span> change_obstime(m_cutouts[<span class="dv">0</span>].top_right_coord.transform_to(new_frame),</span>
 <span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>                              m_hmi.date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We mask all those points that are above -10 G and fall outside of the bounding box defined above.</p>
-<div id="b625b8b0" class="cell">
+<div id="b625b8b0" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>masked_pix_y, masked_pix_x <span class="op">=</span> np.where(m_hmi_resample.data <span class="op">&lt;</span> <span class="op">-</span><span class="fl">1e1</span>)</span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>seeds <span class="op">=</span> m_hmi_resample.pixel_to_world(masked_pix_x<span class="op">*</span>u.pix, masked_pix_y<span class="op">*</span>u.pix).make_3d()</span>
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>in_lon <span class="op">=</span> np.logical_and(seeds.lon <span class="op">&gt;</span> blc_ar_synop.lon, seeds.lon <span class="op">&lt;</span> trc_ar_synop.lon)</span>
@@ -803,30 +803,30 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </div>
 </div>
 <p>We can trace field lines from seeds specified above.</p>
-<div id="cf3ece01" class="cell">
+<div id="cf3ece01" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>ds <span class="op">=</span> <span class="fl">0.01</span></span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>max_steps <span class="op">=</span> <span class="bu">int</span>(np.ceil(<span class="dv">10</span> <span class="op">*</span> nr <span class="op">/</span> ds))</span>
 <span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>tracer <span class="op">=</span> pfss.tracing.PerformanceTracer(step_size<span class="op">=</span>ds, max_steps<span class="op">=</span>max_steps)</span>
 <span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>fieldlines <span class="op">=</span> tracer.trace(SkyCoord(seeds), pfss_output)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We also want to adjust obstime of all coordinates to coincide with AR at disk center. By default, each field line will have the obstime of the map that the field extrapolation was computed from. Additionally, we will choose only the close field lines.</p>
-<div id="496dcb64" class="cell">
+<div id="496dcb64" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>fieldlines.closed_field_lines[<span class="dv">0</span>].coords.observer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;HeliographicStonyhurst Coordinate (obstime=2022-03-21T03:51:33.000, rsun=695700.0 km): (lon, lat, radius) in (deg, deg, m)
     (0., -7.02110576, 1.48994814e+11)&gt;</code></pre>
 </div>
 </div>
-<div id="d3034ce4" class="cell">
+<div id="d3034ce4" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>fline_coords <span class="op">=</span> [change_obstime(f.coords, m_aia.date) <span class="cf">for</span> f <span class="kw">in</span> fieldlines.closed_field_lines <span class="cf">if</span> f.coords.shape[<span class="dv">0</span>]<span class="op">&gt;</span><span class="dv">500</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="189a3c05" class="cell">
+<div id="189a3c05" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(fline_coords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>1762</code></pre>
 </div>
 </div>
-<div id="c0ed17bc" class="cell">
+<div id="c0ed17bc" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>fline_coords[<span class="dv">0</span>].observer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>&lt;HeliographicStonyhurst Coordinate (obstime=2022-03-29T21:02:21.350, rsun=695700.0 km): (lon, lat, radius) in (deg, deg, m)
@@ -834,7 +834,7 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 </div>
 </div>
 <p>Finally, let’s plot these field lines on top of our EUV images.</p>
-<div id="f8a32806" class="cell">
+<div id="f8a32806" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">5</span>))</span>
 <span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, m <span class="kw">in</span> <span class="bu">enumerate</span>(m_cutouts):</span>
 <span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, i<span class="op">+</span><span class="dv">1</span>, projection<span class="op">=</span>m)</span>
@@ -855,11 +855,11 @@ Results from 3 Providers:<br><br>1 Results from the VSOClient:<br><div><i>VSOQue
 <section id="figure-1-from-the-sunpy-paper-2023" class="level2">
 <h2 class="anchored" data-anchor-id="figure-1-from-the-sunpy-paper-2023">Figure 1 from the SunPy Paper (2023)</h2>
 <p>We can plot Figure 1 from the SunPy paper (2023).</p>
-<div id="e3604b65" class="cell">
+<div id="e3604b65" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> ConnectionPatch</span>
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.gridspec <span class="im">import</span> GridSpec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b69fc56b" class="cell">
+<div id="b69fc56b" class="cell" data-vscode="{&quot;languageId&quot;:&quot;python&quot;}">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_connectors(ax1, ax2, p1, p2, color<span class="op">=</span><span class="st">'k'</span>, lw<span class="op">=</span><span class="dv">1</span>):</span>
 <span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>    con1 <span class="op">=</span> ConnectionPatch(</span>
 <span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">0</span>, <span class="dv">1</span>), ax1.wcs.world_to_pixel(p1), <span class="st">'axes fraction'</span>, <span class="st">'data'</span>, axesA<span class="op">=</span>ax2, axesB<span class="op">=</span>ax1,</span>
