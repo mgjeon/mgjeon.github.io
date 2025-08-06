@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/sunpy-paper-implementation/index.html",
       "/posts/sharps_01/index.html",
       "/posts/CASA/index.html",
       "/posts/AG_wave/index.html",
