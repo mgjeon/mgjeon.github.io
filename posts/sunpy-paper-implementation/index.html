@@ -9,7 +9,7 @@
 <meta name="author" content="Mingyu Jeon">
 <meta name="dcterms.date" content="2025-08-06">
 
-<title>Reproducing Figure 1 from the SunPy Paper (2023) in 2025 – Mingyu Jeon</title>
+<title>Reproducing Figure 1 of the 2023 SunPy Paper in 2025 – Mingyu Jeon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -176,7 +176,7 @@ gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Reproducing Figure 1 from the SunPy Paper (2023) in 2025</h1>
+      <h1 class="title">Reproducing Figure 1 of the 2023 SunPy Paper in 2025</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">solar physics</div>
                 <div class="quarto-category">python</div>
@@ -237,11 +237,11 @@ gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging, sunpy<span class="op">;</span> logging.getLogger(<span class="st">'sunpy'</span>).setLevel(logging.ERROR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The SunPy <span class="citation" data-cites="sunpy_community2020">(<a href="#ref-sunpy_community2020" role="doc-biblioref">The SunPy Community et al. 2020</a>)</span> is a community-developed, free, and open source Python package for solar data analysis <span class="citation" data-cites="2015CS 2020JOSS 2023FrASS">(<a href="#ref-2023FrASS" role="doc-biblioref">Barnes et al. 2023</a>; <a href="#ref-2020JOSS" role="doc-biblioref">Mumford et al. 2020</a>; <a href="#ref-2015CS" role="doc-biblioref">The SunPy Community et al. 2015</a>)</span>.</p>
-<p>In this post, I will reproduce Figure 1 (see below) from the recent SunPy paper <span class="citation" data-cites="2023FrASS">(<a href="#ref-2023FrASS" role="doc-biblioref">Barnes et al. 2023</a>)</span> using the SunPy ecosystem. It is because one of the most important affiliated packages, <code>pfsspy</code> <span class="citation" data-cites="2020JOSSpfss">(<a href="#ref-2020JOSSpfss" role="doc-biblioref">Stansby et al. 2020</a>)</span>, has been no longer developed since August 2023. The <code>pfsspy</code> package is forked to <a href="https://github.com/sunpy/sunkit-magex"><code>sunkit-magex</code></a> and the new package is under development. Therefore, basically I will follow the steps in <a href="https://github.com/sunpy/sunpy-frontiers-paper/tree/main/figures">this code</a> provided by the authors of the SunPy paper except that I will use the <code>sunkit-magex</code> package instead of the <code>pfsspy</code> package.</p>
+<p>In this post, I will reproduce Figure 1 (see below) of the 2023 SunPy paper <span class="citation" data-cites="2023FrASS">(<a href="#ref-2023FrASS" role="doc-biblioref">Barnes et al. 2023</a>)</span> using the SunPy ecosystem. This is because one of the most important affiliated packages, <code>pfsspy</code> <span class="citation" data-cites="2020JOSSpfss">(<a href="#ref-2020JOSSpfss" role="doc-biblioref">Stansby et al. 2020</a>)</span>, has been no longer developed since August 2023. The <code>pfsspy</code> package has been forked to <a href="https://github.com/sunpy/sunkit-magex"><code>sunkit-magex</code></a>. Also, there are subtle differences in the <code>aiapy</code> package between 2023 and 2025. Therefore, I will basically follow the steps in <a href="https://github.com/sunpy/sunpy-frontiers-paper/tree/main/figures">this code</a> provided by the authors of the 2023 SunPy paper, except that I will use the <code>sunkit-magex</code> package instead of the <code>pfsspy</code> package.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./fspas-10-1076726-g001.jpg" class="img-fluid figure-img"></p>
-<figcaption>Figure 1 from the SunPy paper (2023) <a href="https://www.frontiersin.org/files/Articles/1076726/fspas-10-1076726-HTML-r1/image_m/fspas-10-1076726-g001.jpg">source</a></figcaption>
+<figcaption>Figure 1 of the 2023 SunPy paper <a href="https://www.frontiersin.org/files/Articles/1076726/fspas-10-1076726-HTML-r1/image_m/fspas-10-1076726-g001.jpg">source</a></figcaption>
 </figure>
 </div>
 <section id="version-information" class="level2">
