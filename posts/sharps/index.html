@@ -234,16 +234,16 @@ gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
 
 
 
-<div id="76d6466f" class="cell">
+<div id="76d6466f" class="cell" data-execution_count="112">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings<span class="op">;</span> warnings.filterwarnings(<span class="st">"ignore"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The Solar Dynamics Observatory <span class="citation" data-cites="Pesnell2012">(SDO, <a href="#ref-Pesnell2012" role="doc-biblioref">Pesnell et al. 2012</a>)</span> / Helioseismic and Magnetic Imager <span class="citation" data-cites="Schou2012">(HMI, <a href="#ref-Schou2012" role="doc-biblioref">Schou et al. 2012</a>)</span> have produced a wealth of data for the Sun, particularly the magnetic field on the solar surface (photosphere). The Space-Weather HMI Active Region Patches <span class="citation" data-cites="Bobra2014">(SHARPs, <a href="#ref-Bobra2014" role="doc-biblioref">Bobra et al. 2014</a>)</span> are a set of data products derived from the HMI data, which have been used extensively in solar physics and space weather research. The information for the SHARP data is available on <a href="http://jsoc.stanford.edu/doc/data/hmi/sharp/sharp.htm">this JSOC page</a>.</p>
-<p>This post focuses on how to download the SHARP CEA data from the JSOC.</p>
+<p>This post focuses on how to calculate the SHARP parameters from the SHARP CEA data based on <a href="https://github.com/mbobra/SHARPs">this GitHub repository</a></p>
 <section id="sharp-data-product-on-jsoc" class="level2">
 <h2 class="anchored" data-anchor-id="sharp-data-product-on-jsoc">SHARP Data Product on JSOC</h2>
 <p>All SDO data are available from the Standford <a href="http://jsoc.stanford.edu/">Joint Science Operations Center (JSOC)</a>, which employs the Data Record Management System (DRMS) to manage the data. The data can be accessed through Python using the SunPy’s <code>drms</code> package.</p>
 <p>We can establish a connection to the JSOC by creating a <code>drms.Client</code> instance.</p>
-<div id="f05f31a6" class="cell">
+<div id="f05f31a6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> drms</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> drms.Client()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -266,9 +266,9 @@ gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
 </tr>
 </tbody>
 </table>
-<div id="27cb9c78" class="cell">
+<div id="27cb9c78" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>c.series(<span class="st">'hmi.sharp_'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>['hmi.sharp_720s',
  'hmi.sharp_720s_dconS',
  'hmi.sharp_720s_nrt',
@@ -286,16 +286,16 @@ gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
 <li>The SHARP data series <code>hmi.sharp_720s</code> are definitive data with 31 segments in Charge-Coupled Device (CCD) coordinate system. (a direct cutout from the full-disk image)</li>
 <li>The SHARP CEA data seires <code>hmi.sharp_cea_720s</code> are definitive data with 11 segments in Cylindrical Equal-Area (CEA) coordinate system centered on the patch.</li>
 </ul>
-<div id="e267a569" class="cell">
+<div id="e267a569" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_colwidth'</span>, <span class="va">None</span>)  <span class="co"># Remove the limit on column string length</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a8dfbbd6" class="cell">
+<div id="a8dfbbd6" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sharp <span class="op">=</span> c.info(<span class="st">'hmi.sharp_720s'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c105ce71" class="cell">
+<div id="c105ce71" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sharp.segments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
@@ -573,12 +573,12 @@ gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
 </div>
 </div>
 </div>
-<div id="f811f01f" class="cell">
+<div id="f811f01f" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sharp_cea <span class="op">=</span> c.info(<span class="st">'hmi.sharp_cea_720s'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="e80a1853" class="cell">
+<div id="e80a1853" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sharp_cea.segments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
 
@@ -701,9 +701,9 @@ gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="noaa-ar-to-harp-matching">NOAA AR to HARP Matching</h2>
 <p>A record of the SHARP data series is identified by two <em>prime keywords</em>: <code>HARPNUM</code> (HARP number) and <code>T_REC</code> (observation time). Since HARP is identified independently from the National Oceanic and Atmospheric Administration (NOAA), the HARP number is different from NOAA active region (AR) number. Even one HARP can correspond to zero, one, or more NOAA ARs. There is a file for mapping between HARP numbers and NOAA AR numbers <a href="http://jsoc.stanford.edu/doc/data/hmi/harpnum_to_noaa/all_harps_with_noaa_ars.txt">here</a>.</p>
 <p>Also, the SHARP keywords include those for NOAA AR numbers, which start with <code>NOAA_</code>.</p>
-<div id="9318907e" class="cell">
+<div id="9318907e" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sharp.keywords[sharp.keywords.index.<span class="bu">str</span>.startswith(<span class="st">'NOAA_'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
@@ -784,12 +784,12 @@ gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
 </div>
 <p>As an example, let’s find the HARP number corresponding to the NOAA AR number 12673 which produced the largest solar flare in solar cycle 24.</p>
 <p>To do this, we need to query keywords <code>HARPNUM</code> and <code>NOAA_AR</code> using the <code>drms.Client.query</code> method. The <code>key</code> argument specifies which keywords to query. We need to use two primary keys: the HARP number (blank in this case) and the time range (2017-09-04T00:00:00 in this case).</p>
-<div id="1b90e2d6" class="cell">
+<div id="1b90e2d6" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> c.query(<span class="st">'hmi.sharp_720s[][2017-09-04T00:00:00]'</span>, key<span class="op">=</span>[<span class="st">'HARPNUM'</span>, <span class="st">'NOAA_AR'</span>, <span class="st">'NOAA_ARS'</span>, <span class="st">'NOAA_NUM'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="c8612a2a" class="cell">
+<div id="c8612a2a" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display" data-execution_count="55">
 <div>
 
 
@@ -861,11 +861,11 @@ gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
 </div>
 <p>As you can see, the HARP number for the NOAA AR 12673 is 7115.</p>
 <p>There are summary images for HARP data <a href="http://jsoc.stanford.edu/doc/data/hmi/harp/harp_definitive/">here</a>. The following image is the summary image for the HARPs on 2017-09-04T00:00:00.</p>
-<div id="92b4a527" class="cell">
+<div id="92b4a527" class="cell" data-execution_count="58">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>Image(<span class="st">'http://jsoc.stanford.edu/doc/data/hmi/harp/harp_definitive/2017/09/04/harp.2017.09.04_00:00:00_TAI.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div class="cell-output cell-output-display" data-execution_count="58">
 <div>
 <figure class="figure">
 <p><img src="index_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
@@ -880,34 +880,33 @@ gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
 <p>Let’s now download the SHARP CEA data for the HARP 7115 (NOAA AR 12673) on 2017-09-04T00:00:00.</p>
 <p>There are basically two ways to download data from the JSOC:</p>
 <ol type="1">
-<li>Download merged FITS files (<em>export</em>), which requires an email address registered <a href="http://jsoc.stanford.edu/ajax/exportdata.html">here</a>.</li>
+<li>Download merged FITS files (<em>export</em>), which requires an e-mail address registered <a href="http://jsoc.stanford.edu/ajax/exportdata.html">here</a>.</li>
 <li>Download <em>segments</em> (data) and <em>keywords</em> (metadata) separately and merge them as FITS files if needed.</li>
 </ol>
-<div id="18c81242" class="cell">
+<div id="18c81242" class="cell" data-execution_count="59">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct query</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">'hmi.sharp_cea_720s[7115][2017-09-04T00:00:00]'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="download-merged-fits-files" class="level3">
 <h3 class="anchored" data-anchor-id="download-merged-fits-files">1. Download merged FITS files</h3>
-<div id="629f0696" class="cell">
+<div id="2aa565f5" class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sharp_cea_path <span class="op">=</span> Path(<span class="st">'./data/export/sharp_cea'</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sharp_cea_path.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="d293a882" class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="st">''</span>  <span class="co"># A registered email address</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> drms.Client(email<span class="op">=</span>email)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> c.export(query, protocol<span class="op">=</span><span class="st">'fits'</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>r.wait()</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> r.status <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    r.download(sharp_cea_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sharp_cea_path.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>email <span class="op">=</span> <span class="st">''</span>  <span class="co"># A registered e-mail address</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> drms.Client(email<span class="op">=</span>email)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> c.export(query, protocol<span class="op">=</span><span class="st">'fits'</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>r.wait()</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> r.status <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    r.download(sharp_cea_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Since this is the SHARP CEA data, there are 11 files (segments) in total.</p>
-<div id="52cd0845" class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sharp_cea_list <span class="op">=</span> <span class="bu">sorted</span>(sharp_cea_path.glob(<span class="st">'*.fits'</span>))</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(sharp_cea_list))</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> sharp_cea_list:</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">file</span>.name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="52cd0845" class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sharp_cea_list <span class="op">=</span> <span class="bu">sorted</span>(sharp_cea_path.glob(<span class="st">'*.fits'</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(sharp_cea_list))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> sharp_cea_list:</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">file</span>.name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>11
 hmi.sharp_cea_720s.7115.20170904_000000_TAI.bitmap.fits
@@ -924,23 +923,23 @@ hmi.sharp_cea_720s.7115.20170904_000000_TAI.magnetogram.fits</code></pre>
 </div>
 </div>
 <p>Using <code>sunpy.map.Map</code>, we can easily read the SHARP CEA data and visualize it. Let’s see the Br component of the magnetic field.</p>
-<div id="6351782c" class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sunpy.<span class="bu">map</span> <span class="im">import</span> Map</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>sharp_cea_br <span class="op">=</span> Map(sharp_cea_path <span class="op">/</span> <span class="st">'hmi.sharp_cea_720s.7115.20170904_000000_TAI.Br.fits'</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>sharp_cea_br.peek()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6351782c" class="cell" data-execution_count="117">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sunpy.<span class="bu">map</span> <span class="im">import</span> Map</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>sharp_cea_br <span class="op">=</span> Map(sharp_cea_path <span class="op">/</span> <span class="st">'hmi.sharp_cea_720s.7115.20170904_000000_TAI.Br.fits'</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>sharp_cea_br.peek()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="index_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>The below shows the FITS header of this file.</p>
-<div id="1c96dd7c" class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sharp_cea_br.fits_header</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div id="1c96dd7c" class="cell" data-execution_count="156">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sharp_cea_br.fits_header</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="156">
 <pre><code>SIMPLE  =                    T / file does conform to FITS standard             
 BITPIX  =                   32 / data type of original image                    
 NAXIS   =                    2 / dimension of original image                    
@@ -1147,91 +1146,21 @@ HISTORY                                                                         
 </section>
 <section id="download-segments-and-keywords-separately" class="level3">
 <h3 class="anchored" data-anchor-id="download-segments-and-keywords-separately">2. Download segments and keywords separately</h3>
-<div id="a5b940d9" class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> drms.Client()  <span class="co"># No email address needed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>All keywords associated with the query can be obtained using <code>drms.JsocInfoConstants.all</code>.</p>
-<div id="43c4b67f" class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>keywords <span class="op">=</span> c.query(query, key<span class="op">=</span>drms.JsocInfoConstants.<span class="bu">all</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>keywords</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">DATE</th>
-<th data-quarto-table-cell-role="th">DATE_S</th>
-<th data-quarto-table-cell-role="th">DATE_B</th>
-<th data-quarto-table-cell-role="th">DATE__OBS</th>
-<th data-quarto-table-cell-role="th">DATE-OBS</th>
-<th data-quarto-table-cell-role="th">T_OBS</th>
-<th data-quarto-table-cell-role="th">T_REC</th>
-<th data-quarto-table-cell-role="th">T_REC_epoch</th>
-<th data-quarto-table-cell-role="th">T_REC_step</th>
-<th data-quarto-table-cell-role="th">T_REC_unit</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">CMASK</th>
-<th data-quarto-table-cell-role="th">ERRJZ</th>
-<th data-quarto-table-cell-role="th">ERRVF</th>
-<th data-quarto-table-cell-role="th">ERRALP</th>
-<th data-quarto-table-cell-role="th">ERRMIH</th>
-<th data-quarto-table-cell-role="th">ERRMSHA</th>
-<th data-quarto-table-cell-role="th">ERRUSI</th>
-<th data-quarto-table-cell-role="th">DOFFSET</th>
-<th data-quarto-table-cell-role="th">ERRTPOT</th>
-<th data-quarto-table-cell-role="th">ERRJHT</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2017-10-09T03:04:53Z</td>
-<td>2017-09-08T17:19:08Z</td>
-<td>2017-09-10T08:49:19Z</td>
-<td>2017-09-03T23:58:42.20Z</td>
-<td>2017-09-03T23:58:42.20Z</td>
-<td>2017.09.04_00:00:04_TAI</td>
-<td>2017.09.04_00:00:00_TAI</td>
-<td>1993.01.01_00:00:00_TAI</td>
-<td>720.0</td>
-<td>secs</td>
-<td>...</td>
-<td>36433.0</td>
-<td>0.050562</td>
-<td>7.043552e+18</td>
-<td>0.001091</td>
-<td>0.000576</td>
-<td>0.0</td>
-<td>2.446410e+11</td>
-<td>50</td>
-<td>5.279564e+20</td>
-<td>9.853718e+11</td>
-</tr>
-</tbody>
-</table>
-
-<p>1 rows × 261 columns</p>
-</div>
-</div>
-</div>
-<p>We can get a list of names of segments using <code>drms.Client.info</code> and then query the keywords and segments using <code>drms.Client.query</code>.</p>
-<div id="1d944531" class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sharp_cea <span class="op">=</span> c.info(<span class="st">'hmi.sharp_cea_720s'</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sharp_cea_segments <span class="op">=</span> <span class="bu">sorted</span>(sharp_cea.segments.index)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sharp_cea_segments)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1d944531" class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> drms.Client()</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>sharp_cea <span class="op">=</span> c.info(<span class="st">'hmi.sharp_cea_720s'</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>sharp_cea_segments <span class="op">=</span> <span class="bu">sorted</span>(sharp_cea.segments.index)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sharp_cea_segments)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Bp', 'Bp_err', 'Br', 'Br_err', 'Bt', 'Bt_err', 'Dopplergram', 'bitmap', 'conf_disambig', 'continuum', 'magnetogram']</code></pre>
 </div>
 </div>
-<div id="6bf54d0b" class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>keywords, segments <span class="op">=</span> c.query(query, key<span class="op">=</span>drms.JsocInfoConstants.<span class="bu">all</span>, seg<span class="op">=</span>sharp_cea_segments)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6bf54d0b" class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>keywords, segments <span class="op">=</span> c.query(query, key<span class="op">=</span>drms.JsocInfoConstants.<span class="bu">all</span>, seg<span class="op">=</span>sharp_cea_segments)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="8afbd97f" class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>keywords</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div id="8afbd97f" class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>keywords</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="140">
 <div>
 
 
@@ -1294,9 +1223,9 @@ HISTORY                                                                         
 </div>
 </div>
 </div>
-<div id="d9fdf89b" class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>segments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div id="d9fdf89b" class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>segments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="141">
 <div>
 
 
@@ -1338,36 +1267,37 @@ HISTORY                                                                         
 </div>
 </div>
 </div>
-<p>Using the url information for each segment, we can download each file.</p>
-<div id="f9f40e4b" class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>t_rec <span class="op">=</span> keywords[<span class="st">'T_REC'</span>].item()</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>t_rec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div id="f9f40e4b" class="cell" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>t_rec <span class="op">=</span> keywords[<span class="st">'T_REC'</span>].item()</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>t_rec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="142">
 <pre><code>'2017.09.04_00:00:00_TAI'</code></pre>
 </div>
 </div>
-<div id="8024448e" class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>segment <span class="op">=</span> segments[<span class="st">'Br'</span>].item()</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(segment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8024448e" class="cell" data-execution_count="149">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>segment <span class="op">=</span> segments[<span class="st">'Br'</span>].item()</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(segment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>/SUM98/D978177825/S00000/Br.fits</code></pre>
 </div>
 </div>
-<div id="db7bdf0a" class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'http://jsoc.stanford.edu'</span> <span class="op">+</span> segment</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>url</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div id="db7bdf0a" class="cell" data-execution_count="150">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'http://jsoc.stanford.edu'</span> <span class="op">+</span> segment</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>url</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="150">
 <pre><code>'http://jsoc.stanford.edu/SUM98/D978177825/S00000/Br.fits'</code></pre>
 </div>
 </div>
 <div id="4d675774" class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> urllib.request <span class="im">import</span> urlretrieve</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>urlretrieve(url, <span class="st">'Br.fits'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> urllib.request <span class="im">import</span> urlretrieve</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>urlretrieve(url, <span class="st">'Br.fits'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="fb73aaac" class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> astropy.io <span class="im">import</span> fits</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>hdul <span class="op">=</span> fits.<span class="bu">open</span>(<span class="st">'Br.fits'</span>)</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>hdul.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fb73aaac" class="cell" data-execution_count="153">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> astropy.io <span class="im">import</span> fits</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> fits.<span class="bu">open</span>(<span class="st">'Br.fits'</span>) <span class="im">as</span> hdul:</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    hdul.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Filename: Br.fits
 No.    Name      Ver    Type      Cards   Dimensions   Format
@@ -1375,9 +1305,20 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
   1  COMPRESSED_IMAGE    1 CompImageHDU     10   (688, 448)   int32   </code></pre>
 </div>
 </div>
-<div id="39923d6f" class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>hdul[<span class="dv">1</span>].header</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+<div id="fb0b84ac" class="cell" data-execution_count="154">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>hdul[<span class="dv">0</span>].header</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="154">
+<pre><code>SIMPLE  =                    T / file does conform to FITS standard             
+BITPIX  =                   16 / number of bits per data pixel                  
+NAXIS   =                    0 / number of data axes                            
+EXTEND  =                    T / FITS dataset may contain extensions            
+COMMENT   FITS (Flexible Image Transport System) format is defined in 'Astronomy
+COMMENT   and Astrophysics', volume 376, page 359; bibcode: 2001A&amp;A...376..359H </code></pre>
+</div>
+</div>
+<div id="39923d6f" class="cell" data-execution_count="155">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>hdul[<span class="dv">1</span>].header</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="155">
 <pre><code>SIMPLE  =                    T / file does conform to FITS standard             
 BITPIX  =                   32 / data type of original image                    
 NAXIS   =                    2 / dimension of original image                    
@@ -1390,226 +1331,64 @@ CHECKSUM= 'lBDPo99OlACOl99O'   / HDU checksum updated 2017-10-09T03:05:15
 DATASUM = '2018488944'         / data unit checksum updated 2017-10-09T03:05:15 </code></pre>
 </div>
 </div>
-<p>As you can see, the header contains only basic information. However, the data is exactly the same as the one downloaded using the <code>drms.Client.export</code> method.</p>
-<div id="81bd8619" class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>np.allclose(hdul[<span class="dv">1</span>].data, sharp_cea_br.data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<pre><code>True</code></pre>
+<div id="7c55fca9" class="cell" data-execution_count="157">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>keywords[<span class="st">'DATE__OBS'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="157">
+<pre><code>0    2017-09-03T23:58:42.20Z
+Name: DATE__OBS, dtype: object</code></pre>
 </div>
 </div>
-<div id="94347bc4" class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>hdul.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We can construct a header from the keywords. Note that there is no <code>DATE-OBS</code> in the keywords, instead <code>DATE__OBS</code> exists. The following note comes from the “4.2.4 JSOC Image Timing Details” section of the <a href="https://www.lmsal.com/sdodocs/doc/dcur/SDOD0060.zip/zip/entry/">Guide to SDO Data Analysis</a>.</p>
-<blockquote class="blockquote">
-<p>TECHNICAL NOTE: The JSOC keyword naming convention does not allow for hyphens, and consequently the DATE-OBS keyword is represented as DATE__OBS (with two underscores) within the JSOC. However, upon export to FITS files, this keyword gets converted to DATE-OBS so as to be compliant with the FITS standard. Additionally, note that the keyword DATE_OBS (with one underscore) that was more common during the SOHO era is not used by the JSOC.</p>
-</blockquote>
-<p>I refer to <a href="https://github.com/RobertJaro/InstrumentToInstrument/blob/master/itipy/download/download_sdo.py">this code</a> for the following code.</p>
-<div id="bc8384dc" class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sunpy.util <span class="im">import</span> MetaDict</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sunpy.io._fits <span class="im">import</span> header_to_fits</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>header <span class="op">=</span> keywords.iloc[<span class="dv">0</span>].to_dict()</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>header[<span class="st">'DATE_OBS'</span>] <span class="op">=</span> header[<span class="st">'DATE__OBS'</span>]</span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>header <span class="op">=</span> header_to_fits(MetaDict(header))</span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> fits.<span class="bu">open</span>(<span class="st">'Br.fits'</span>, <span class="st">'update'</span>) <span class="im">as</span> f:</span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>    hdr <span class="op">=</span> f[<span class="dv">1</span>].header</span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k, v <span class="kw">in</span> header.items():</span>
-<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> pd.isna(v):</span>
-<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
-<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>        hdr[k] <span class="op">=</span> v</span>
-<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>    f.verify(<span class="st">'silentfix'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="c841d146" class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>sharp_cea_br_sep <span class="op">=</span> Map(<span class="st">'Br.fits'</span>)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>sharp_cea_br_sep.peek()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/cell-35-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="8de9a9af" class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>sharp_cea_br_sep.fits_header</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<pre><code>SIMPLE  =                    T / file does conform to FITS standard             
-BITPIX  =                   32 / data type of original image                    
-NAXIS   =                    2 / dimension of original image                    
-NAXIS1  =                  688 / length of original image axis                  
-NAXIS2  =                  448 / length of original image axis                  
-BLANK   =          -2147483648                                                  
-BZERO   =                  0.0                                                  
-BSCALE  =                 0.01                                                  
-CHECKSUM= 'U0UHV0S9U0SEU0S9'   / HDU checksum updated 2025-08-01T22:17:03       
-DATASUM = '2018488944'         / data unit checksum updated 2025-08-01T22:17:03 
-DATE    = '2017-10-09T03:04:53Z'                                                
-DATE_S  = '2017-09-08T17:19:08Z'                                                
-DATE_B  = '2017-09-10T08:49:19Z'                                                
-DATE-OBS= '2017-09-03T23:58:42.20Z'                                             
-T_OBS   = '2017.09.04_00:00:04_TAI'                                             
-T_REC   = '2017.09.04_00:00:00_TAI'                                             
-CADENCE =                720.0                                                  
-USFLUX  =         2.330957E+22                                                  
-MEANGAM =               60.971                                                  
-MEANGBT =              108.533                                                  
-MEANGBZ =              122.083                                                  
-MEANGBH =               81.971                                                  
-MEANJZD =          -0.17617425                                                  
-TOTUSJZ =     56044520000000.0                                                  
-MEANALP =           -0.0666426                                                  
-MEANJZH =            -0.035147                                                  
-TOTUSJH =             3211.806                                                  
-ABSNJZH =              1280.44                                                  
-SAVNCPP =     53733650000000.0                                                  
-MEANPOT =             17168.69                                                  
-TOTPOT  =         8.307009E+23                                                  
-MEANSHR =                 51.6                                                  
-SHRGT45 =               57.418                                                  
-R_VALUE =                4.912                                                  
-CTYPE1  = 'CRLN-CEA'                                                            
-CTYPE2  = 'CRLT-CEA'                                                            
-CRPIX1  =                344.5                                                  
-CRPIX2  =                224.5                                                  
-CRVAL1  =           118.228928                                                  
-CRVAL2  =            -9.243549                                                  
-CDELT1  =                 0.03                                                  
-CDELT2  =                 0.03                                                  
-CUNIT1  = 'degree  '                                                            
-CUNIT2  = 'degree  '                                                            
-IMCRPIX1=          2040.194336                                                  
-IMCRPIX2=          2050.669189                                                  
-IMCRVAL1=                  0.0                                                  
-IMCRVAL2=                  0.0                                                  
-CROTA2  =                  0.0                                                  
-WCSNAME = 'Carrington Heliographic'                                             
-DSUN_OBS=      150858023996.64                                                  
-DSUN_REF=         149597870691                                                  
-RSUN_REF=            696000000                                                  
-CRLN_OBS=           115.300667                                                  
-CRLT_OBS=             7.241443                                                  
-CAR_ROT =                 2194                                                  
-OBS_VR  =          2555.889497                                                  
-OBS_VW  =         28877.653629                                                  
-OBS_VN  =           611.968586                                                  
-RSUN_OBS=           951.628662                                                  
-TELESCOP= 'SDO/HMI '                                                            
-INSTRUME= 'HMI_COMBINED'                                                        
-WAVELNTH=               6173.0                                                  
-CAMERA  =                    3                                                  
-QUALITY =                    0                                                  
-QUAL_S  =                    0                                                  
-QUALLEV1=                    0                                                  
-ORIGIN  = 'SDO/JSOC-SDP'                                                        
-CONTENT = 'HMI observable'                                                      
-BLD_VERS= 'V9R1X   '                                                            
-CALVER64=               204818                                                  
-HFLID   =                 1022                                                  
-HCFTID  =                   11                                                  
-QLOOK   =                    0                                                  
-HARPNUM =                 7115                                                  
-MASK    =                   32                                                  
-ARM_QUAL=                    0                                                  
-ARM_NCLN=                    0                                                  
-H_MERGE =                    0                                                  
-H_FAINT =                    0                                                  
-ARM_MODL= '/builtin/hmi.M_Ic_noLimbDark_720s.production'                        
-ARM_EDGE=                  2.5                                                  
-ARM_BETA= '0.3     '                                                            
-LATDTMIN=              -15.971                                                  
-LONDTMIN=              -7.3889                                                  
-LATDTMAX=              -2.5161                                                  
-LONDTMAX=              13.2454                                                  
-OMEGA_DT=              13.5588                                                  
-NPIX    =               104669                                                  
-SIZE    =          9358.121094                                                  
-AREA    =           4898.90918                                                  
-NACR    =                20091                                                  
-SIZE_ACR=          1796.272095                                                  
-AREA_ACR=           938.419678                                                  
-MTOT    =           14614653.0                                                  
-MNET    =           2694764.75                                                  
-MPOS_TOT=            8654709.0                                                  
-MNEG_TOT=            5959944.0                                                  
-MMEAN   =            25.745586                                                  
-MSTDEV  =           317.047974                                                  
-MSKEW   =             1.038844                                                  
-MKURT   =             8.834172                                                  
-LAT_MIN =           -15.703517                                                  
-LON_MIN =            -6.767208                                                  
-LAT_MAX =            -3.895835                                                  
-LON_MAX =             7.717036                                                  
-LAT_FWT =            -9.062139                                                  
-LON_FWT =             2.200054                                                  
-T_FRST  = '2017.08.27_10:00:00_TAI'                                             
-T_FRST1 = '2017.08.28_08:12:00_TAI'                                             
-T_LAST1 = '2017.09.10_11:12:00_TAI'                                             
-T_LAST  = '2017.09.11_03:48:00_TAI'                                             
-N_PATCH =                 1676                                                  
-N_PATCH1=                 1491                                                  
-N_PATCHM=                   85                                                  
-NOAA_AR =                12673                                                  
-NOAA_NUM=                    1                                                  
-NOAA_ARS= '12673   '                                                            
-INVCODEV= 'vfisvcombine FD10 2013 Apr. 30; uses time-dependent HMI filter &amp;'    
-CONTINUE  'phase maps'                                                          
-INVDOCU = 'MISSING '                                                            
-INVITERA=                  200                                                  
-INVSTLGT= 'No      '                                                            
-INVFLPRF= ''                                                                    
-INVPHMAP= '121048472'                                                           
-INVVLAVE=          2.04952E+22                                                  
-USFLUXL =          2.04952E+22                                                  
-INVBLAVE=               39.114                                                  
-MEANGBL =               39.114                                                  
-INVBBAVE=             121.2872                                                  
-INVNPRCS=               111256                                                  
-CMASKL  =               111256                                                  
-INVNCNVG=             11184843                                                  
-AMBCODEV= 'disambig_v3 2013 Dec 06'                                             
-AMBDOCU = 'MISSING '                                                            
-AMBGMTRY=                    2                                                  
-AMBPATCH=                    0                                                  
-AMBWEAK =                    2                                                  
-AMBNEROD=                    1                                                  
-AMBNGROW=                    5                                                  
-AMBNPAD =                  200                                                  
-AMBNAP  =                   10                                                  
-AMBNTX  =                   30                                                  
-AMBNTY  =                   30                                                  
-AMBBTHR0=                200.0                                                  
-AMBBTHR1=                400.0                                                  
-AMBSEED =                    4                                                  
-AMBNEQ  =                  100                                                  
-AMBLMBDA=                  1.0                                                  
-AMBTFCT0=                  2.0                                                  
-AMBTFCTR=                 0.98                                                  
-ERRGAM  =                0.017                                                  
-ERRTAI  =               20.969                                                  
-ERRBH   =                0.167                                                  
-ERRMPOT =             10.91165                                                  
-ERRBT   =                0.141                                                  
-ERRTUI  =               20.969                                                  
-ERRBZ   =                0.103                                                  
-CMASK   =              36433.0                                                  
-ERRJZ   =           0.05056171                                                  
-ERRVF   =         7.043552E+18                                                  
-ERRALP  =           0.00109081                                                  
-ERRMIH  =           0.00057557                                                  
-ERRMSHA =                  0.0                                                  
-ERRUSI  =       244641000000.0                                                  
-DOFFSET =                   50                                                  
-ERRTPOT =         5.279564E+20                                                  
-ERRJHT  =       985371800000.0                                                  
-DATE_OBS= '2017-09-03T23:58:42.20Z'                                             
-HISTORY                                                                         
-COMMENT                                                                         </code></pre>
+<div id="8f948091" class="cell" data-execution_count="158">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>keywords[<span class="st">'DATE_OBS'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg ansi-bold">KeyError</span>                                  Traceback (most recent call last)
+File <span class="ansi-green-fg ansi-bold">c:\Users\user\miniconda3\envs\scienv\lib\site-packages\pandas\core\indexes\base.py:3812</span>, in <span class="ansi-cyan-fg">Index.get_loc</span><span class="ansi-blue-fg ansi-bold">(self, key)</span>
+<span class="ansi-green-fg">   3811</span> <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg ansi-bold">-&gt; 3812</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_engine</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get_loc</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">casted_key</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   3813</span> <span style="font-weight:bold;color:rgb(0,135,0)">except</span> <span style="font-weight:bold;color:rgb(215,95,95)">KeyError</span> <span style="font-weight:bold;color:rgb(0,135,0)">as</span> err:
+
+File <span class="ansi-green-fg ansi-bold">pandas/_libs/index.pyx:167</span>, in <span class="ansi-cyan-fg">pandas._libs.index.IndexEngine.get_loc</span><span class="ansi-blue-fg ansi-bold">()</span>
+
+File <span class="ansi-green-fg ansi-bold">pandas/_libs/index.pyx:196</span>, in <span class="ansi-cyan-fg">pandas._libs.index.IndexEngine.get_loc</span><span class="ansi-blue-fg ansi-bold">()</span>
+
+File <span class="ansi-green-fg ansi-bold">pandas/_libs/hashtable_class_helper.pxi:7088</span>, in <span class="ansi-cyan-fg">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="ansi-blue-fg ansi-bold">()</span>
+
+File <span class="ansi-green-fg ansi-bold">pandas/_libs/hashtable_class_helper.pxi:7096</span>, in <span class="ansi-cyan-fg">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="ansi-blue-fg ansi-bold">()</span>
+
+<span class="ansi-red-fg ansi-bold">KeyError</span>: 'DATE_OBS'
+
+The above exception was the direct cause of the following exception:
+
+<span class="ansi-red-fg ansi-bold">KeyError</span>                                  Traceback (most recent call last)
+Cell <span class="ansi-green-fg ansi-bold">In[158], line 1</span>
+<span class="ansi-green-fg ansi-bold">----&gt; 1</span> <span class="ansi-yellow-bg">keywords</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">DATE_OBS</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">]</span>
+
+File <span class="ansi-green-fg ansi-bold">c:\Users\user\miniconda3\envs\scienv\lib\site-packages\pandas\core\frame.py:4107</span>, in <span class="ansi-cyan-fg">DataFrame.__getitem__</span><span class="ansi-blue-fg ansi-bold">(self, key)</span>
+<span class="ansi-green-fg">   4105</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>columns<span style="color:rgb(98,98,98)">.</span>nlevels <span style="color:rgb(98,98,98)">&gt;</span> <span style="color:rgb(98,98,98)">1</span>:
+<span class="ansi-green-fg">   4106</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_getitem_multilevel(key)
+<span class="ansi-green-fg ansi-bold">-&gt; 4107</span> indexer <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">columns</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get_loc</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">key</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   4108</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> is_integer(indexer):
+<span class="ansi-green-fg">   4109</span>     indexer <span style="color:rgb(98,98,98)">=</span> [indexer]
+
+File <span class="ansi-green-fg ansi-bold">c:\Users\user\miniconda3\envs\scienv\lib\site-packages\pandas\core\indexes\base.py:3819</span>, in <span class="ansi-cyan-fg">Index.get_loc</span><span class="ansi-blue-fg ansi-bold">(self, key)</span>
+<span class="ansi-green-fg">   3814</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(0,135,0)">isinstance</span>(casted_key, <span style="color:rgb(0,135,0)">slice</span>) <span style="font-weight:bold;color:rgb(175,0,255)">or</span> (
+<span class="ansi-green-fg">   3815</span>         <span style="color:rgb(0,135,0)">isinstance</span>(casted_key, abc<span style="color:rgb(98,98,98)">.</span>Iterable)
+<span class="ansi-green-fg">   3816</span>         <span style="font-weight:bold;color:rgb(175,0,255)">and</span> <span style="color:rgb(0,135,0)">any</span>(<span style="color:rgb(0,135,0)">isinstance</span>(x, <span style="color:rgb(0,135,0)">slice</span>) <span style="font-weight:bold;color:rgb(0,135,0)">for</span> x <span style="font-weight:bold;color:rgb(175,0,255)">in</span> casted_key)
+<span class="ansi-green-fg">   3817</span>     ):
+<span class="ansi-green-fg">   3818</span>         <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> InvalidIndexError(key)
+<span class="ansi-green-fg ansi-bold">-&gt; 3819</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">KeyError</span>(key) <span style="font-weight:bold;color:rgb(0,135,0)">from</span><span style="color:rgb(188,188,188)"> </span><span style="font-weight:bold;color:rgb(0,0,255)">err</span>
+<span class="ansi-green-fg">   3820</span> <span style="font-weight:bold;color:rgb(0,135,0)">except</span> <span style="font-weight:bold;color:rgb(215,95,95)">TypeError</span>:
+<span class="ansi-green-fg">   3821</span>     <span style="font-style:italic;color:rgb(95,135,135)"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="ansi-green-fg">   3822</span>     <span style="font-style:italic;color:rgb(95,135,135)">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="ansi-green-fg">   3823</span>     <span style="font-style:italic;color:rgb(95,135,135)">#  the TypeError.</span>
+<span class="ansi-green-fg">   3824</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_check_indexing_error(key)
+
+<span class="ansi-red-fg ansi-bold">KeyError</span>: 'DATE_OBS'</pre>
 </div>
 </div>
-<p>The header is not exactly the same as the one downloaded using the <code>drms.Client.export</code> method, but it is basically the same as you can see.</p>
+</div>
 
 
 
