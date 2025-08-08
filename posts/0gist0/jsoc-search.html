@@ -1,0 +1,3054 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Mingyu Jeon">
+<meta name="dcterms.date" content="2025-08-08">
+
+<title>aia.level_euv_12s – Mingyu Jeon</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-W1ZRB9HZ0F"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-W1ZRB9HZ0F', { 'anonymize_ip': true});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Mingyu Jeon</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mgjeon"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">aia.level_euv_12s</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">gist</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Mingyu Jeon </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 8, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<div id="5c64838a" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> drms</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_rows'</span>, <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="b61aa20a" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> drms.Client()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="28328286" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>c.series(<span class="st">'aia'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>['aia.flatfield',
+ 'aia.lev1',
+ 'aia.lev1_euv_12s',
+ 'aia.lev1_uv_24s',
+ 'aia.lev1_vis_1h',
+ 'aia.master_pointing3h',
+ 'aia.response',
+ 'aia.temperature_summary_300s',
+ 'aia_test.lev1_12s4arc',
+ 'aia_test.lev1_float',
+ 'aia_test.master_pointing3h']</code></pre>
+</div>
+</div>
+<div id="2fdbee43" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>info <span class="op">=</span> c.info(<span class="st">'aia.lev1_euv_12s'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="8173e4ba" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>info.segments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">units</th>
+<th data-quarto-table-cell-role="th">protocol</th>
+<th data-quarto-table-cell-role="th">dims</th>
+<th data-quarto-table-cell-role="th">note</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">image</td>
+<td>int</td>
+<td>None</td>
+<td>link via lev1</td>
+<td>None</td>
+<td>AIA level 1 image</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">spikes</td>
+<td>int</td>
+<td>None</td>
+<td>link via lev1</td>
+<td>None</td>
+<td>Cosmic ray information</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="3a1ab70c" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>info.keywords</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">type</th>
+<th data-quarto-table-cell-role="th">recscope</th>
+<th data-quarto-table-cell-role="th">defval</th>
+<th data-quarto-table-cell-role="th">units</th>
+<th data-quarto-table-cell-role="th">note</th>
+<th data-quarto-table-cell-role="th">linkinfo</th>
+<th data-quarto-table-cell-role="th">is_time</th>
+<th data-quarto-table-cell-role="th">is_integer</th>
+<th data-quarto-table-cell-role="th">is_real</th>
+<th data-quarto-table-cell-role="th">is_numeric</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">T_REC</td>
+<td>time</td>
+<td>ts_eq</td>
+<td>-4712.01.01_11:59:28Z</td>
+<td>ISO</td>
+<td>Slotted observation time</td>
+<td>None</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">T_OBS</td>
+<td>time</td>
+<td>variable</td>
+<td>-4712.01.01_11:59:27.82Z</td>
+<td>ISO</td>
+<td>Observation time</td>
+<td>lev1-&gt;T_OBS</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">WAVELNTH</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>angstrom</td>
+<td>Wavelength</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DATE</td>
+<td>time</td>
+<td>variable</td>
+<td>-4712.01.01_11:59:28Z</td>
+<td>ISO</td>
+<td>Date_time of processing; ISO 8601</td>
+<td>None</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FSN</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>FSN Filtergram Sequence Number</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">EXPTIME</td>
+<td>double</td>
+<td>variable</td>
+<td>nan</td>
+<td>sec</td>
+<td>Exposure duration: mean shutter open time</td>
+<td>None</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">QUALITY</td>
+<td>int</td>
+<td>variable</td>
+<td>0x80000000</td>
+<td>none</td>
+<td>Level 1 Quality word</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ORIGIN</td>
+<td>string</td>
+<td>constant</td>
+<td>SDO/JSOC-SDP</td>
+<td>none</td>
+<td>ORIGIN Location where file made</td>
+<td>lev1-&gt;ORIGIN</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TELESCOP</td>
+<td>string</td>
+<td>constant</td>
+<td>SDO/AIA</td>
+<td>none</td>
+<td>For AIA: SDO/AIA</td>
+<td>lev1-&gt;TELESCOP</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">INSTRUME</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>For AIA: AIA_ATA1, AIA_ATA2, AIA_ATA3 or AIA_ATA4</td>
+<td>lev1-&gt;INSTRUME</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">DATE__OBS</td>
+<td>time</td>
+<td>variable</td>
+<td>-4712.01.01_11:59:27.82Z</td>
+<td>ISO</td>
+<td>[DATE-OBS]</td>
+<td>lev1-&gt;DATE__OBS</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DATE-OBS</td>
+<td>time</td>
+<td>variable</td>
+<td>-4712.01.01_11:59:27.82Z</td>
+<td>ISO</td>
+<td>[DATE-OBS]</td>
+<td>lev1-&gt;DATE__OBS</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CAMERA</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>For AIA: 1, 2, 3 or 4</td>
+<td>lev1-&gt;CAMERA</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">IMG_TYPE</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>Image type: LIGHT or DARK</td>
+<td>lev1-&gt;IMG_TYPE</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">EXPSDEV</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>sec</td>
+<td>Exposure standard deviation</td>
+<td>lev1-&gt;EXPSDEV</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">INT_TIME</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>sec</td>
+<td>CCD integration duration</td>
+<td>lev1-&gt;INT_TIME</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">WAVEUNIT</td>
+<td>string</td>
+<td>constant</td>
+<td>angstrom</td>
+<td>none</td>
+<td>Wavelength unit: angstrom</td>
+<td>lev1-&gt;WAVEUNIT</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">WAVE_STR</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>Wavelength_FilterPosition</td>
+<td>lev1-&gt;WAVE_STR</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">FID</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>FID Filtergram ID</td>
+<td>lev1-&gt;FID</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">QUALLEV0</td>
+<td>int</td>
+<td>variable</td>
+<td>0x80000000</td>
+<td>none</td>
+<td>Level 0 Quality word</td>
+<td>lev1-&gt;QUALLEV0</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TOTVALS</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Expected number of data values (pixels)</td>
+<td>lev1-&gt;TOTVALS</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DATAVALS</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Actual number of data values in image</td>
+<td>lev1-&gt;DATAVALS</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">MISSVALS</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Missing values: TOTVALS - DATAVALS</td>
+<td>lev1-&gt;MISSVALS</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">PERCENTD</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>Percent data; 100*DATAVALS/TOTVALS</td>
+<td>lev1-&gt;PERCENTD</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">DATAMIN</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Minimum value of all pixels</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DATAMAX</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Maximum value of all pixels</td>
+<td>lev1-&gt;DATAMAX</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">DATAMEDN</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Median value of all pixels</td>
+<td>lev1-&gt;DATAMEDN</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DATAMEAN</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>Mean value of all pixels</td>
+<td>None</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">DATARMS</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>Rms deviation from the mean value of all pixels</td>
+<td>None</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DATASKEW</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>Skewness from the mean value of all pixels</td>
+<td>lev1-&gt;DATASKEW</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">DATAKURT</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>Kurtosis of all pixels</td>
+<td>lev1-&gt;DATAKURT</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DATACENT</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>Median value of center column of the image</td>
+<td>None</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">DATAP01</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>DATAP01</td>
+<td>lev1-&gt;DATAP01</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DATAP10</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>DATAP10</td>
+<td>lev1-&gt;DATAP10</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">DATAP25</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>DATAP25</td>
+<td>lev1-&gt;DATAP25</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DATAP75</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>DATAP75</td>
+<td>lev1-&gt;DATAP75</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">DATAP90</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>DATAP90</td>
+<td>lev1-&gt;DATAP90</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DATAP95</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>DATAP95</td>
+<td>lev1-&gt;DATAP95</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">DATAP98</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>DATAP98</td>
+<td>lev1-&gt;DATAP98</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DATAP99</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>DATAP99</td>
+<td>lev1-&gt;DATAP99</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NSATPIX</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Number of saturated pixels detected in image</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">OSCNMEAN</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>Mean value of oversan rows</td>
+<td>lev1-&gt;OSCNMEAN</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">OSCNRMS</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>Rms deviation from the mean value of overscan ...</td>
+<td>lev1-&gt;OSCNRMS</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">FLAT_REC</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>Flatfield series record pointer</td>
+<td>lev1-&gt;FLAT_REC</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">NSPIKES</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Number of cosmic ray affected pixels detected ...</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CTYPE1</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>CTYPE1; Typically HPLN-TAN (SOLARX)</td>
+<td>lev1-&gt;CTYPE1</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CUNIT1</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>CUNIT1; Typically arcsec</td>
+<td>lev1-&gt;CUNIT1</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CRVAL1</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>arcsec/pixel</td>
+<td>CRVAL1: image scale in the x direction</td>
+<td>lev1-&gt;CRVAL1</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CDELT1</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>arcsec/pixel</td>
+<td>CDELT1: image scale in the x direction</td>
+<td>lev1-&gt;CDELT1</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CRPIX1</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>pixel</td>
+<td>CRPIX1: location of sun center in CCD x direction</td>
+<td>None</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CTYPE2</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>CTYPE2; Typically HPLT-TAN (SOLARY)</td>
+<td>lev1-&gt;CTYPE2</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CUNIT2</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>CUNIT2; Typically arcsec</td>
+<td>lev1-&gt;CUNIT2</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CRVAL2</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>arcsec/pixel</td>
+<td>CRVAL2: image scale in the x direction</td>
+<td>lev1-&gt;CRVAL2</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CDELT2</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>arcsec/pixel</td>
+<td>CDELT2: image scale in the y direction</td>
+<td>lev1-&gt;CDELT2</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CRPIX2</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>pixel</td>
+<td>CRPIX2: location of sun center in CCD y direction</td>
+<td>None</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CROTA2</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>degree</td>
+<td>CROTA2: INST_ROT + SAT_ROT</td>
+<td>lev1-&gt;CROTA2</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">R_SUN</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>pixel</td>
+<td>Radius of the Sun in pixels on the CCD detector</td>
+<td>lev1-&gt;R_SUN</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">MPO_REC</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>Master Pointing series record pointer</td>
+<td>lev1-&gt;MPO_REC</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">INST_ROT</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>deg</td>
+<td>Master pointing CCD rotation wrt SDO Z axis</td>
+<td>lev1-&gt;INST_ROT</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">IMSCL_MP</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>arcsec/pixel</td>
+<td>Master pointing image scale</td>
+<td>lev1-&gt;IMSCL_MP</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">X0_MP</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>pixel</td>
+<td>Master pointing X0 sun center in CCD frame</td>
+<td>lev1-&gt;X0_MP</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Y0_MP</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>pixel</td>
+<td>Master pointing Y0 sun center in CCD frame</td>
+<td>lev1-&gt;Y0_MP</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ASD_REC</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>Ancillary Science Data series record pointer</td>
+<td>lev1-&gt;ASD_REC</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SAT_Y0</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>arcsec</td>
+<td>Position of solar center wrt the SDO -Y axis</td>
+<td>lev1-&gt;SAT_Y0</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">SAT_Z0</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>arcsec</td>
+<td>Position of solar center wrt the SDO Z axis</td>
+<td>lev1-&gt;SAT_Z0</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SAT_ROT</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>deg</td>
+<td>Angle of solar pole wrt the SDO X axis</td>
+<td>lev1-&gt;SAT_ROT</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ACS_MODE</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>ACS pointing mode - ACS_AN_ACS_MODE</td>
+<td>lev1-&gt;ACS_MODE</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ACS_ECLP</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>ACS eclipse flag - ACS_AN_FLAG_CSS_ECLIPSE</td>
+<td>lev1-&gt;ACS_ECLP</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ACS_SUNP</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>ACS sun presense flag - ACS_AN_FLAG_DSS_SUNPRES</td>
+<td>lev1-&gt;ACS_SUNP</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ACS_SAFE</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>ACS safe hold flag - ACS_AN_FLAG_ACE_INSAFEHOLD</td>
+<td>lev1-&gt;ACS_SAFE</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ACS_CGT</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>ACS ID of Controlling Guide Telescope - ACS_AN...</td>
+<td>lev1-&gt;ACS_CGT</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ORB_REC</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>Orbit vector series record pointer</td>
+<td>lev1-&gt;ORB_REC</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">DSUN_REF</td>
+<td>double</td>
+<td>constant</td>
+<td>149597870691.0</td>
+<td>m</td>
+<td>Reference distance to Sun: 149,597,870,691.0 m</td>
+<td>lev1-&gt;DSUN_REF</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">DSUN_OBS</td>
+<td>double</td>
+<td>variable</td>
+<td>nan</td>
+<td>m</td>
+<td>Distance from SDO to Sun center</td>
+<td>lev1-&gt;DSUN_OBS</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">RSUN_REF</td>
+<td>double</td>
+<td>constant</td>
+<td>696000000.0</td>
+<td>m</td>
+<td>Reference radius of the Sun: 696,000,000.0 m</td>
+<td>lev1-&gt;RSUN_REF</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">RSUN_OBS</td>
+<td>double</td>
+<td>variable</td>
+<td>nan</td>
+<td>arcsec</td>
+<td>Apparent radius of the Sun seen by SDO</td>
+<td>lev1-&gt;RSUN_OBS</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">GAEX_OBS</td>
+<td>double</td>
+<td>variable</td>
+<td>nan</td>
+<td>m</td>
+<td>Geocentric Inertial X position</td>
+<td>lev1-&gt;GAEX_OBS</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">GAEY_OBS</td>
+<td>double</td>
+<td>variable</td>
+<td>nan</td>
+<td>m</td>
+<td>Geocentric Inertial Y position</td>
+<td>lev1-&gt;GAEY_OBS</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">GAEZ_OBS</td>
+<td>double</td>
+<td>variable</td>
+<td>nan</td>
+<td>m</td>
+<td>Geocentric Inertial Z position</td>
+<td>lev1-&gt;GAEZ_OBS</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">HAEX_OBS</td>
+<td>double</td>
+<td>variable</td>
+<td>nan</td>
+<td>m</td>
+<td>Heliocentric Inertial X position</td>
+<td>lev1-&gt;HAEX_OBS</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">HAEY_OBS</td>
+<td>double</td>
+<td>variable</td>
+<td>nan</td>
+<td>m</td>
+<td>Heliocentric Inertial Y position</td>
+<td>lev1-&gt;HAEY_OBS</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">HAEZ_OBS</td>
+<td>double</td>
+<td>variable</td>
+<td>nan</td>
+<td>m</td>
+<td>Heliocentric Inertial Z position</td>
+<td>lev1-&gt;HAEZ_OBS</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">OBS_VR</td>
+<td>double</td>
+<td>variable</td>
+<td>nan</td>
+<td>m/s</td>
+<td>Speed of observer in radial direction</td>
+<td>lev1-&gt;OBS_VR</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">OBS_VW</td>
+<td>double</td>
+<td>variable</td>
+<td>nan</td>
+<td>m/s</td>
+<td>Speed of observer in solar-west direction</td>
+<td>lev1-&gt;OBS_VW</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">OBS_VN</td>
+<td>double</td>
+<td>variable</td>
+<td>nan</td>
+<td>m/s</td>
+<td>Speed of observer in solar-north direction</td>
+<td>lev1-&gt;OBS_VN</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CAR_ROT</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Carrington rotation number of CRLN_OBS</td>
+<td>lev1-&gt;CAR_ROT</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CRLT_OBS</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>deg</td>
+<td>Carrington latitude of the observer</td>
+<td>lev1-&gt;CRLT_OBS</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CRLN_OBS</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>deg</td>
+<td>Carrington longitude of the observer</td>
+<td>lev1-&gt;CRLN_OBS</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">HGLN_OBS</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>deg</td>
+<td>Stonyhurst heliographic longitude of the observer</td>
+<td>lev1-&gt;HGLN_OBS</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">HGLT_OBS</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>deg</td>
+<td>Stonyhurst heliographic latitude of the observer</td>
+<td>lev1-&gt;HGLT_OBS</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ROI_NWIN</td>
+<td>int</td>
+<td>variable</td>
+<td>0X80000000</td>
+<td>none</td>
+<td>[CALVER32] Calibration Version</td>
+<td>lev1-&gt;ROI_NWIN</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">CALVER32</td>
+<td>int</td>
+<td>variable</td>
+<td>0X80000000</td>
+<td>none</td>
+<td>[CALVER32] Calibration Version</td>
+<td>lev1-&gt;ROI_NWIN</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ROI_SUM</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Summing Mode: 1x1, 2x2, 4x4 (0,1,2)</td>
+<td>lev1-&gt;ROI_SUM</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ROI_NAX1</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Number of CCD columns for width of ROI1</td>
+<td>lev1-&gt;ROI_NAX1</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ROI_NAY1</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Number of CCD rows for height of ROI1</td>
+<td>lev1-&gt;ROI_NAY1</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ROI_LLX1</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>CCD X location of lower left corner of ROI1</td>
+<td>lev1-&gt;ROI_LLX1</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ROI_LLY1</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>CCD Y location of lower left corner of ROI1</td>
+<td>lev1-&gt;ROI_LLY1</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ROI_NAX2</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Number of CCD columns for width of ROI2</td>
+<td>lev1-&gt;ROI_NAX2</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ROI_NAY2</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>Number of CCD rows for height of ROI2</td>
+<td>lev1-&gt;ROI_NAY2</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ROI_LLX2</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>CCD X location of lower left corner of ROI2</td>
+<td>lev1-&gt;ROI_LLX2</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ROI_LLY2</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>CCD Y location of lower left corner of ROI2</td>
+<td>lev1-&gt;ROI_LLY2</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">PIXLUNIT</td>
+<td>string</td>
+<td>constant</td>
+<td>DN</td>
+<td>none</td>
+<td>Pixel intensity unit</td>
+<td>lev1-&gt;PIXLUNIT</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">DN_GAIN</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>DN/electron</td>
+<td>lev1-&gt;DN_GAIN</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">EFF_AREA</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>cmsq</td>
+<td>effective area</td>
+<td>lev1-&gt;EFF_AREA</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">EFF_AR_V</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>version # for EFF_AREA and DN_GAIN</td>
+<td>lev1-&gt;EFF_AR_V</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">TEMPCCD</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>CCD temperature: CCD_HEADER1</td>
+<td>None</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TEMPGT</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>Guide telescope temperature: GT_1</td>
+<td>None</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">TEMPSMIR</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>Secondary mirror temperature : SEC_MIRROR</td>
+<td>None</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TEMPFPAD</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>Focal plane assembly adapter temperature: FPA_...</td>
+<td>None</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ISPSNAME</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>ISP SERIES NAME</td>
+<td>lev1-&gt;ISPSNAME</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ISPPKTIM</td>
+<td>time</td>
+<td>variable</td>
+<td>-4712.01.01_11:59:27.82Z</td>
+<td>ISO</td>
+<td>PACKET_TIME, Prime key value for the ISP record</td>
+<td>lev1-&gt;ISPPKTIM</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ISPPKTVN</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>PACKET_VERSION_NUMBER</td>
+<td>lev1-&gt;ISPPKTVN</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIVNMST</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_VER_NUM_IMAGE_STATUS</td>
+<td>lev1-&gt;AIVNMST</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIMGOTS</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_OBT_TIME_SH_SEC</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ASQHDR</td>
+<td>longlong</td>
+<td>variable</td>
+<td>-9223372036854775808</td>
+<td>none</td>
+<td>AIA_SEQ_HEADER</td>
+<td>lev1-&gt;ASQHDR</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">ASQTNUM</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_SEQ_TEL_NUM</td>
+<td>lev1-&gt;ASQTNUM</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">ASQFSN</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_SEQ_FRAME_SN</td>
+<td>lev1-&gt;ASQFSN</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIAHFSN</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_HIST_FSN</td>
+<td>lev1-&gt;AIAHFSN</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AECDELAY</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_AEC_DELAY</td>
+<td>lev1-&gt;AECDELAY</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIAECTI</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_AEC_TABLE_ID</td>
+<td>lev1-&gt;AIAECTI</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIASEN</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_AS_ENCODER</td>
+<td>lev1-&gt;AIASEN</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIFDBID</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_FDB_ID</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIMGOTSS</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_OBT_TIME_SH_SS</td>
+<td>lev1-&gt;AIMGOTSS</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIFCPS</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_IMG_FC_POSITION</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIFTSWTH</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_FLT_TYPE_SW_TH</td>
+<td>lev1-&gt;AIFTSWTH</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIFRMLID</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_FRMLIST_ID</td>
+<td>lev1-&gt;AIFRMLID</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIFTSID</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_FTS_ID</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIHISMXB</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_HIST_MAX_BIN</td>
+<td>lev1-&gt;AIHISMXB</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIHIS192</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_HISTC_BN_192</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIHIS348</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_HISTC_BN_348</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIHIS604</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_HISTC_BN_604</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIHIS860</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_HISTC_BN_860</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIFWEN</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_FW_ENCODER</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIMGSHCE</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_SH_CMDED_EXPOSURE</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AECTYPE</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_IMG_AEC_TYPE</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AECMODE</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>AIA_IMG_AEC_MODE</td>
+<td>lev1-&gt;AECMODE</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AISTATE</td>
+<td>string</td>
+<td>variable</td>
+<td></td>
+<td>none</td>
+<td>AIA_IMG_ISS_LOOP</td>
+<td>lev1-&gt;AISTATE</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIAECENF</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_IMG_AEC_ENA_FLAG</td>
+<td>lev1-&gt;AIAECENF</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIFILTYP</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_IMG_FILTER_TYPE</td>
+<td>lev1-&gt;AIFILTYP</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIMSHOBC</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>AIA_IMG_SH_OPEN_BOT_CENTR</td>
+<td>lev1-&gt;AIMSHOBC</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIMSHOBE</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>AIA_IMG_SH_OPEN_BOT_EDGE</td>
+<td>lev1-&gt;AIMSHOBE</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIMSHOTC</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>AIA_IMG_SH_OPEN_TOP_CENTR</td>
+<td>lev1-&gt;AIMSHOTC</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIMSHOTE</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>AIA_IMG_SH_OPEN_TOP_EDGE</td>
+<td>lev1-&gt;AIMSHOTE</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIMSHCBC</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>AIA_IMG_SH_CLOSE_BOT_CENTR</td>
+<td>lev1-&gt;AIMSHCBC</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIMSHCBE</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>AIA_IMG_SH_CLOSE_BOT_EDGE</td>
+<td>lev1-&gt;AIMSHCBE</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIMSHCTC</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>AIA_IMG_SH_CLOSE_TOP_CENTR</td>
+<td>lev1-&gt;AIMSHCTC</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIMSHCTE</td>
+<td>float</td>
+<td>variable</td>
+<td>nan</td>
+<td>none</td>
+<td>AIA_IMG_SH_CLOSE_TOP_EDGE</td>
+<td>lev1-&gt;AIMSHCTE</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AICFGDL1</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_IMG_CFG_DELAY_1</td>
+<td>lev1-&gt;AICFGDL1</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AICFGDL2</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_IMG_CFG_DELAY_2</td>
+<td>lev1-&gt;AICFGDL2</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AICFGDL3</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_IMG_CFG_DELAY_3</td>
+<td>lev1-&gt;AICFGDL3</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AICFGDL4</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_IMG_CFG_DELAY_4</td>
+<td>lev1-&gt;AICFGDL4</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIFOENFL</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_IMG_FOCUS_ENA_FLAG</td>
+<td>lev1-&gt;AIFOENFL</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIMGFSN</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_FRLIST_POS</td>
+<td>lev1-&gt;AIMGFSN</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIMGTYP</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_IMAGE_TYPE</td>
+<td>lev1-&gt;AIMGTYP</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIAWVLEN</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_WAVELENGTH</td>
+<td>lev1-&gt;AIAWVLEN</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIAGP1</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_GP1</td>
+<td>lev1-&gt;AIAGP1</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIAGP2</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_GP2</td>
+<td>lev1-&gt;AIAGP2</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIAGP3</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_GP3</td>
+<td>lev1-&gt;AIAGP3</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIAGP4</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_GP4</td>
+<td>lev1-&gt;AIAGP4</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIAGP5</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_GP5</td>
+<td>lev1-&gt;AIAGP5</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIAGP6</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_GP6</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIAGP7</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_GP7</td>
+<td>lev1-&gt;AIAGP7</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIAGP8</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_GP8</td>
+<td>lev1-&gt;AIAGP8</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIAGP9</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_GP9</td>
+<td>lev1-&gt;AIAGP9</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AIAGP10</td>
+<td>int</td>
+<td>variable</td>
+<td>-2147483648</td>
+<td>none</td>
+<td>AIA_IMG_GP10</td>
+<td>lev1-&gt;AIAGP10</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AGT1SVY</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_GT1_SUNVECTOR_Y</td>
+<td>lev1-&gt;AGT1SVY</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AGT1SVZ</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_GT1_SUNVECTOR_Z</td>
+<td>lev1-&gt;AGT1SVZ</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AGT2SVY</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_GT2_SUNVECTOR_Y</td>
+<td>lev1-&gt;AGT2SVY</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AGT2SVZ</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_GT2_SUNVECTOR_Z</td>
+<td>lev1-&gt;AGT2SVZ</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AGT3SVY</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_GT3_SUNVECTOR_Y</td>
+<td>lev1-&gt;AGT3SVY</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AGT3SVZ</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_GT3_SUNVECTOR_Z</td>
+<td>lev1-&gt;AGT3SVZ</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AGT4SVY</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_GT4_SUNVECTOR_Y</td>
+<td>lev1-&gt;AGT4SVY</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">AGT4SVZ</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_GT4_SUNVECTOR_Z</td>
+<td>lev1-&gt;AGT4SVZ</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">AIMGSHEN</td>
+<td>short</td>
+<td>variable</td>
+<td>-32768</td>
+<td>none</td>
+<td>AIA_IMG_SH_ENCODER</td>
+<td>lev1-&gt;AIMGSHEN</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">KEYWDDOC</td>
+<td>string</td>
+<td>constant</td>
+<td>https://www.lmsal.com/sdodocs/doc?cmd=dcur&amp;pro...</td>
+<td>none</td>
+<td>AIA FITS keyword documentation</td>
+<td>lev1-&gt;KEYWDDOC</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">LVL_NUM</td>
+<td>float</td>
+<td>constant</td>
+<td>1.000000</td>
+<td>none</td>
+<td>LVL_NUM data level number</td>
+<td>lev1-&gt;LVL_NUM</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">T_REC_step</td>
+<td>double</td>
+<td>constant</td>
+<td>12.000000</td>
+<td>second</td>
+<td>T_REC step</td>
+<td>None</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">T_REC_epoch</td>
+<td>time</td>
+<td>constant</td>
+<td>1993.01.01_00:00:04_TAI</td>
+<td>TAI</td>
+<td></td>
+<td>None</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">T_REC_index</td>
+<td>longlong</td>
+<td>index</td>
+<td>0</td>
+<td>none</td>
+<td>Index keyword associated with T_REC</td>
+<td>None</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mgjeon\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
